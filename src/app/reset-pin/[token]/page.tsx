@@ -3,20 +3,20 @@ import axios from 'axios';
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 
-const ResetPasswordToken = () => {
+const ResetPinToken = () => {
     const params = useParams<{ token: string }>();
-    const [password, setPassword] = useState<string>("");
-    const [confirmPassword, setConfirmPassword] = useState<string>("");
+    const [pin, setPin] = useState<string>("");
+    const [confirmPin, setConfirmPin] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleResetPassword = () => {
-        if(password !== confirmPassword) {
-            alert("password dan konfirmasi password harus sama")
+    const handleResetPin = () => {
+        if(pin !== confirmPin) {
+            alert("pin dan konfirmasi pin harus sama")
         } else {
             setLoading(true);
             axios.post(`https://18.138.179.185:8000/api/users/token/reset-token/${params.token}/`, {
-                new_data: password,
-                new_data_type: 'Password'
+                new_data: pin,
+                new_data_type: 'PIN'
             }).then(response => {
                 console.log(response);
                 setLoading(false);
@@ -35,28 +35,28 @@ const ResetPasswordToken = () => {
         <div>
             {/* {params.token} */}
             <div className='flex flex-col p-5 justify-center'>
-                <h1 className='text-2xl text-center'>Terima kasih telah melakukan reset password, silahkan masukkan password baru anda</h1>
+                <h1 className='text-2xl text-center'>Terima kasih telah melakukan reset pin, silahkan masukkan pin baru anda</h1>
                 <input
                     type="password"
                     placeholder='Masukkan Password Baru'
                     className='border border-solid border-black mt-2 p-2 rounded'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={pin}
+                    onChange={(e) => setPin(e.target.value)}
                 />
                 <input
                     type="password"
                     placeholder='Masukkan Konfirmasi Password Baru'
                     className='border border-solid border-black mt-2 p-2 rounded'
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    value={confirmPin}
+                    onChange={(e) => setConfirmPin(e.target.value)}
                 />
                 <button
-                    className={`border border-solid border-black ${password === "" || confirmPassword === "" ? 'bg-gray-200' : 'bg-green-600'} text-white p-2 mt-2 rounded`}
-                    disabled={password === "" || confirmPassword === "" || loading === true}
-                    onClick={handleResetPassword}
+                    className={`border border-solid border-black ${pin === "" || confirmPin === "" ? 'bg-gray-200' : 'bg-green-600'} text-white p-2 mt-2 rounded`}
+                    disabled={pin === "" || confirmPin === "" || loading === true}
+                    onClick={handleResetPin}
                 >
                     {
-                        loading ? "Loading..." : "Ubah Password"
+                        loading ? "Loading..." : "Ubah Pin"
                     }
                 </button>
             </div>
@@ -64,4 +64,4 @@ const ResetPasswordToken = () => {
     )
 }
 
-export default ResetPasswordToken
+export default ResetPinToken
