@@ -6,9 +6,9 @@ import React, { useRef, useState } from 'react'
 
 const Footer = () => {
     const [selected, setSelected] = useState("1")
-    const container1: any = useRef(null);
-    const container2: any = useRef(null);
-    const container3: any = useRef(null);
+    const container1 = useRef(null);
+    const container2 = useRef(null);
+    const container3 = useRef(null);
     return (
         <div className='footer'>
             <div className='footer-wrapper'>
@@ -57,7 +57,7 @@ const Footer = () => {
                         <div className="faq-accordion">
                             <ul>
                                 <li>
-                                    <button type="button" onClick={_ => setSelected(selected !== "1" ? "1" : "")}>
+                                    <button type="button" onClick={() => setSelected(selected !== "1" ? "1" : "")}>
                                         <div className="header-button"> 
                                             <div className='button-title'>
                                                 <span><HelpCircle /></span>
@@ -68,12 +68,12 @@ const Footer = () => {
                                     </button>
                                     <div className={`accordion-content ${selected === "1" ? `max-h-[400px]` : 'max-h-0'}`} ref={container1}>
                                         <div className="content-area">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <button type="button" onClick={_ => setSelected(selected !== "2" ? "2" : "")}>
+                                    <button type="button" onClick={() => setSelected(selected !== "2" ? "2" : "")}>
                                         <div className="header-button"> 
                                             <div className='button-title'>
                                                 <span><HelpCircle /></span>
@@ -84,12 +84,12 @@ const Footer = () => {
                                     </button>
                                     <div className={`accordion-content ${selected === "2" ? `max-h-[400px]` : 'max-h-0'}`} ref={container2}>
                                         <div className="content-area">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <button type="button" onClick={_ => setSelected(selected !== "3" ? "3" : "")}>
+                                    <button type="button" onClick={() => setSelected(selected !== "3" ? "3" : "")}>
                                         <div className="header-button"> 
                                             <div className='button-title'>
                                                 <span><HelpCircle /></span>
@@ -100,7 +100,7 @@ const Footer = () => {
                                     </button>
                                     <div className={`accordion-content ${selected === "3" ? `max-h-[400px]` : 'max-h-0'}`} ref={container3}>
                                         <div className="content-area">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,</p>
                                         </div>
                                     </div>
                                 </li>
