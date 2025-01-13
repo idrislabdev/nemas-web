@@ -1,0 +1,39 @@
+@tailwind components;
+.faq-accordion {
+    @apply w-full;
+    ul {
+        @apply border border-primary rounded-[8px] divide-y px-[15px];
+        li {
+            /* &:not(:last-child) {
+                @apply relative pb-[20px];
+            } */
+            button {
+                @apply w-full py-[8px] text-left;
+                .header-button {
+                    @apply flex items-center justify-between;
+                    .button-title {
+                        @apply flex items-center gap-[16px] ;
+                        span {
+                            @apply text-[#1F211E];
+                        }
+                        label {
+                            @apply text-[12px]/[14px] font-medium cursor-pointer text-[#1F211E];
+                        }
+                    }
+                    span {
+                        @apply text-primary;
+                    }
+                }
+            }
+            .accordion-content {
+                @apply relative overflow-hidden transition-all duration-700;
+                .content-area {
+                    @apply pb-[8px];
+                    p {
+                        @apply text-[14px]/[21px] font-normal;
+                    }
+                }
+            }
+        }
+    }
+}
