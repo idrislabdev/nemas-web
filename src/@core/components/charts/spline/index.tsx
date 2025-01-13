@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import HC_rounded from "highcharts-rounded-corners";
+// import HC_rounded from "highcharts-rounded-corners";
 
 const options = {
     chart: {
@@ -87,7 +87,7 @@ const ChartSpline = () => {
         fetchData();
     }, [fetchData])
     useEffect(() => {
-        HC_rounded(Highcharts)
+        // HC_rounded(Highcharts)
     })
   return (
     <HighchartsReact
