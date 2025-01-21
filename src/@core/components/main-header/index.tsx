@@ -38,7 +38,6 @@ const MainHeader = () => {
         <>
             <header className='main-header sm:mobile-responsive'>
                 <div className='main-header-top'>
-                    
                 </div>
                 <div className='main-header-bottom'>
                     <div className='logo-area'>

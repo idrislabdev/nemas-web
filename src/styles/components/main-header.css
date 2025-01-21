@@ -151,7 +151,7 @@
                 @apply hidden;
             }
             .main-header-bottom {
-                @apply px-[20px] h-[70px] bg-white; 
+                @apply px-[20px] h-[50px] bg-white; 
                 .burger-menu {
                     @apply block;
                 }
