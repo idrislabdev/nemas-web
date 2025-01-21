@@ -1,7 +1,7 @@
 @tailwind components;
 
 .footer {
-    @apply pt-[40px];
+    @apply pt-[40px] bg-white;
     .footer-wrapper {
         @apply flex flex-col gap-[37px] px-[140px] bg-primary rounded-tr-[41px] rounded-tl-[41px] ;
         .footer-top {

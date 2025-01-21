@@ -194,7 +194,7 @@
                     @apply text-[32px]/[39px] font-semibold text-primary;
                 }
                 p {
-                    @apply text-[16px]/[22px];
+                    @apply text-[16px]/[22px] text-black;
                 }
             }
             .verified-image {
@@ -248,10 +248,10 @@
                     .info-area {
                         @apply flex flex-col;
                         label {
-                            @apply text-[12px]/[22px];
+                            @apply text-[12px]/[22px] text-[#595959];
                         }
                         p {
-                            @apply flex items-center text-[16px]/[19px] font-bold gap-[6px];
+                            @apply flex items-center text-[16px]/[19px] font-bold gap-[6px] text-black;
                             span {
                                 @apply flex items-center text-[#34C759] text-[12px]/[22px];
                                 svg {
