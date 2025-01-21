@@ -166,7 +166,12 @@
                         .testimony-card {
                             @apply border border-primary rounded-[8px] flex flex-col gap-[9px] py-[20px] px-[13px];
                             box-shadow: 0px 4px 4px 0px #0000001A;
-
+                            p {
+                                @apply text-[14px]/[17px] text-black;
+                            }
+                            span {
+                                @apply text-[14px]/[17px] font-bold text-black;
+                            }
                         }
                     }
                 }
