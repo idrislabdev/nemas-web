@@ -16,22 +16,28 @@ const HomeArticleSection = () => {
                 <div className='box-image'>
                     <Image src={`/images/articles/image1.png`} alt='image1' width={0} height={0} sizes='100%' />
                 </div>
-                <p>News  |  2 Jan 2025</p>
-                <h5>Harga Emas Naik Drastis! Segera Lakukan Ini!</h5>
+                <div className='box-title'>
+                    <h5>Harga Emas Naik Drastis! Segera Lakukan Ini!</h5>
+                    <p>News  |  2 Jan 2025</p>
+                </div>
             </div>
             <div className='article-card'>
                 <div className='box-image'>
                     <Image src={`/images/articles/image2.png`} alt='image2' width={0} height={0} sizes='100%' />
                 </div>
-                <p>News  |  2 Jan 2025</p>
-                <h5>Senin Harga Naik! Jangan Lupa Untuk Jaga-Jaga</h5>
+                <div className='box-title'>
+                    <h5>Harga Emas Naik Drastis! Segera Lakukan Ini!</h5>
+                    <p>News  |  2 Jan 2025</p>
+                </div>
             </div>
             <div className='article-card'>
                 <div className='box-image'>
                     <Image src={`/images/articles/image3.png`} alt='image3' width={0} height={0} sizes='100%' />
                 </div>
-                <p>News  |  2 Jan 2025</p>
-                <h5>Promo Payday! Beli Emas Dapat Cash Back</h5>
+                <div className='box-title'>
+                    <h5>Harga Emas Naik Drastis! Segera Lakukan Ini!</h5>
+                    <p>News  |  2 Jan 2025</p>
+                </div>
             </div>
         </div>
     </div>

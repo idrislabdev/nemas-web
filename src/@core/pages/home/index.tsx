@@ -8,7 +8,7 @@ import HomeVerifiedSection from './verified-section'
 
 const HomgePageWrapper = () => {
   return (
-    <main className='home-page'>
+    <main className='home-page sm:mobile-responsive'>
         <HomeHeroSection />
         <HomeGoldNavigationSection />
         <HomeChartSection />

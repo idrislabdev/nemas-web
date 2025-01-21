@@ -1,22 +1,22 @@
 "use client"
 import React, { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { X } from '@untitled-ui/icons-react';
 
-const MainSidebarMenu = (props: { lang:string, show:boolean, setShow: Dispatch<SetStateAction<boolean>> }) => {
-    const { lang, show, setShow } = props
+const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction<boolean>> }) => {
+    const { show, setShow } = props
     const router = useRouter();
 
     const goToLink = (path:string) => {
         setShow(false)
         document.body.classList.remove('overflow-hidden')
-        router.push(`/${lang}/${path}`)
+        router.push(`/${path}`)
     }
 
-    // const closeSidebar = () => {
-    //     document.body.classList.remove('overflow-hidden')
-    //     setShow(false)
-    // }
+    const closeSidebar = () => {
+        document.body.classList.remove('overflow-hidden')
+        setShow(false)
+    }
 
 
     return (
@@ -25,23 +25,20 @@ const MainSidebarMenu = (props: { lang:string, show:boolean, setShow: Dispatch<S
             <div className={`main-sidebar-menu ${show ? 'show' : ''}`}>
                 <div className='sidebar-menu-top'>
                     <div className='sidebar-header'>
-                        <div className='sidebar-header-logo'>
-                            <a onClick={() => goToLink('')}>
-                                <Image src='/images/logoes/logo-unicorp-big.png' alt='logo unicorp' width={128} height={36}/>
-                            </a>
-                        </div>
                         <div className='sidebar-header-action'>
-                            {/* <a onClick={_ => closeSidebar()}><TimesIcon color={'#838899'} /></a> */}
+                            <a onClick={() => closeSidebar()}><span className='my-icon text-white'><X/></span></a>
                         </div>
                     </div>
                     <div className='sidebar-list'>
                         <ul>
-                            <li><a onClick={() => goToLink('about-us')}>Tentang Kami</a></li>
-                            <li><a onClick={() => goToLink('business-units/ijp')}>Unit Bisnis (IJP)</a></li>
-                            <li><a onClick={() => goToLink('ebusiness-units/ijsa')}>Unit Bisnis (IJSA)</a></li>
-                            {/* <li><a onClick={() => goToLink('news')}>News</a></li> */}
-                            <li><a onClick={() => goToLink('careers')}>Karir</a></li>
-                            <li><a onClick={() => goToLink('contact-us')}>Kontak Kami</a></li>
+                            <li><a onClick={() => goToLink('')}>Tabungan Emas</a></li>
+                            <li><a onClick={() => goToLink('')}>Beli Emas</a></li>
+                            <li><a onClick={() => goToLink('')}>Investasi</a></li>
+                            <li><a onClick={() => goToLink('')}>Jual Emas</a></li>
+                            <li><a onClick={() => goToLink('')}>Produk Emas Fisik</a></li>
+                            <li><a onClick={() => goToLink('')}>Tarik Emas</a></li>
+                            <li><a onClick={() => goToLink('')}>Kirim Emas Ke Member</a></li>
+                            <li><a onClick={() => goToLink('')}>Tarik Saldo</a></li>
                         </ul>
                     </div>
                 </div>

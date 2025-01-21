@@ -9,10 +9,10 @@ const Footer = () => {
     const container2 = useRef(null);
     const container3 = useRef(null);
     return (
-        <div className='footer'>
+        <div className='footer sm:mobile-responsive'>
            <div className='footer-wrapper'>
             <div className='footer-top'>
-                    <div className='bottom-area product w-1/3'>
+                    <div className='top-area product'>
                         <h5>Produk &amp; Layanan</h5>
                         <div className='product-area'>
                             <div className='sub-product'>
@@ -31,11 +31,13 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='bottom-area information w-1/3'>
-                        <h5>Informasi</h5>
-                        <a>Artikel Terupdate</a>
+                    <div className='top-area information'>
+                        <div className='information-area'>
+                            <h5>Informasi</h5>
+                            <a>Artikel Terupdate</a>
+                        </div>
                         <div className='contact-area'>
-                            <h6>Kontak</h6>
+                            <h5>Kontak</h5>
                             <div className='contact-box'>
                                 <span><Phone /></span> <span>+6281234567890</span>
                             </div>
@@ -44,7 +46,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='bottom-area faq w-1/3'>
+                    <div className='top-area faq'>
                         <div className='title'>
                             <h5>FAQ</h5>
                             <a className='btn'>Lihat Semua</a>

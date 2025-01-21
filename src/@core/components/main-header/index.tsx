@@ -1,11 +1,13 @@
 "use client"
 
-import { Mail01 } from '@untitled-ui/icons-react';
+import { Mail01, Menu01 } from '@untitled-ui/icons-react';
 import Image from 'next/image';
 import Link from 'next/link'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import MainSidebarMenu from './main-sidebar-menu';
 
 const MainHeader = () => {
+    const [showSidebar, setShowSidebar] = useState(false);
    
     const onScroll = useCallback(() => {
         const { scrollY } = window;
@@ -18,6 +20,11 @@ const MainHeader = () => {
         }
 
     }, []);
+
+    const showMobileSidebar = () => {
+        setShowSidebar(true)
+        document.body.classList.add('overflow-hidden')
+    }
 
 
     useEffect(() => {
@@ -50,15 +57,20 @@ const MainHeader = () => {
                             <li><Link href={`/`}>Tarik Saldo</Link></li>
                         </ul>
                     </div>
-                    <div className='login-area'>
-                        <label><span><Mail01 /></span></label>
-                        <div className='login-menu'>
-                            <button>Log In</button>
-                            <a>atau <span>Daftar</span> disini</a>
+                    <div className='flex items-center gap-[22px]'>
+                        <div className='login-area'>
+                            <label><span><Mail01 /></span></label>
+                            <div className='login-menu'>
+                                <button>Log In</button>
+                                <a>atau <span>Daftar</span> disini</a>
+                            </div>
                         </div>
+                        <a className='burger-menu' onClick={() => showMobileSidebar()}><Menu01 /></a>
                     </div>
                 </div>
             </header>
+            <MainSidebarMenu show={showSidebar} setShow={setShowSidebar}/>
+
         </>
     )
 }

@@ -12,7 +12,10 @@ const HomeVerifiedSection = () => {
                     oleh Kementrian Perdagangan Republik Indonesia demi kenyaamanan dan keamanan investasi anda.
                 </p>
             </div>
-            <Image src={`/images/logo/kemendag.png`} alt='logo kemendag' width={0} height={0} sizes='100%' /> 
+            <div className='verified-image'>
+              <h2 className='hidden'>Terverifikasi Oleh</h2>
+              <Image src={`/images/logo/kemendag.png`} alt='logo kemendag' width={0} height={0} sizes='100%' /> 
+            </div>
         </div>
     </div>
   )
