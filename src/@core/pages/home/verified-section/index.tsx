@@ -12,7 +12,7 @@ const HomeVerifiedSection = () => {
                     oleh Kementrian Perdagangan Republik Indonesia demi kenyaamanan dan keamanan investasi anda.
                 </p>
             </div>
-            <Image src={`/images/logo/kemendag-big.png`} alt='logo kemendag' width={0} height={0} sizes='100%' /> 
+            <Image src={`/images/logo/kemendag.png`} alt='logo kemendag' width={0} height={0} sizes='100%' /> 
         </div>
     </div>
   )
