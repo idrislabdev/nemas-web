@@ -65,7 +65,7 @@ const MainHeader = () => {
                                 <a>atau <span>Daftar</span> disini</a>
                             </div>
                         </div>
-                        <a className='burger-menu' onClick={() => showMobileSidebar()}><Menu01 /></a>
+                        <a className='burger-menu text-black' onClick={() => showMobileSidebar()}><Menu01 /></a>
                     </div>
                 </div>
             </header>
