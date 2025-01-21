@@ -372,7 +372,7 @@
                             @apply hidden;
                         }
                         p {
-                            @apply text-[16px]/[22px];
+                            @apply text-[12px]/[22px];
                         }
                     }
                     .verified-image {
