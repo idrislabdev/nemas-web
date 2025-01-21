@@ -2,38 +2,17 @@
 .main-header {
     @apply absolute top-0 w-full flex flex-col z-[15];
     .main-header-top {
-        @apply px-[100px] h-[103px] flex justify-end items-center bg-primary text-white rounded-bl-[30px] rounded-br-[30px];
+        @apply h-[10px] flex justify-end items-center bg-primary text-white;
         .logo-area {
             @apply w-[50%] flex items-center ;
             img {
                 @apply w-[218px];
             }
         }
-        .login-area {
-            @apply flex gap-[16px] relative;
-            label {
-                @apply w-[40px] h-[40px] rounded-[50%] bg-[#F0BF6B] flex flex-col justify-center items-center absolute right-[120px] top-[-5px];
-                span {
-                    @apply text-white;
-                }
-            }
-            button {
-                @apply bg-white w-[110px] py-[5px] text-[12px]/[14px] font-medium text-black rounded-[4px];
-            }
-            .login-menu {
-                @apply flex flex-col gap-[7px];
-                
-                a {
-                    @apply text-[9px]/[11px] text-white text-center;
-                    span {
-                        @apply font-bold;
-                    }
-                }
-            }
-        }
+        
     }
     .main-header-bottom {
-        @apply py-[10px] px-[100px] flex justify-center items-center border-b border-b-neutral-200 z-[10] w-full bg-white;
+        @apply py-[10px] px-[79px] flex justify-between items-center border-b border-b-neutral-200 z-[10] w-full bg-white rounded-bl-[19px] rounded-br-[19px];
         img {
             @apply w-[128px] h-[36px];
         }
@@ -43,7 +22,7 @@
         .main-header-menu {
             @apply relative flex items-center;
             ul {
-                @apply flex items-center text-sm font-semibold gap-[30px];
+                @apply flex items-center text-[12px]/[14.52px] font-semibold gap-[17px];
                 li {
                     @apply relative  font-medium cursor-pointer text-neutral-900;
                     a {
@@ -133,6 +112,28 @@
                                 @apply !content-none;
                             }
                         }
+                    }
+                }
+            }
+        }
+        .login-area {
+            @apply flex gap-[16px] relative;
+            label {
+                @apply w-[40px] h-[40px] rounded-[50%] bg-[#39BFB6] flex flex-col justify-center items-center absolute right-[120px] top-[-5px];
+                span {
+                    @apply text-white;
+                }
+            }
+            button {
+                @apply bg-[#39BFB6] text-white w-[110px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px];
+            }
+            .login-menu {
+                @apply flex flex-col gap-[7px];
+                
+                a {
+                    @apply text-[9px]/[11px] text-[#F0BF6B] text-center underline;
+                    span {
+                        @apply font-bold;
                     }
                 }
             }

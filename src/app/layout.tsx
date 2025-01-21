@@ -5,6 +5,7 @@ import '@/styles/components/main-header.css'
 import '@/styles/components/footer.css'
 import '@/styles/components/faq-accordion.css'
 import '@/styles/components/switch-custom.css'
+import '@/styles/components/icons.css'
 
 
 const inter = Inter({ subsets: ["latin"] });

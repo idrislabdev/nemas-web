@@ -1,7 +1,6 @@
 "use client"
 
 import ChartSpline from '@/@core/components/charts/spline'
-import { Input } from 'antd'
 import React, { useEffect, useState } from 'react'
 
 const HomeChartSection = () => {
@@ -11,7 +10,7 @@ const HomeChartSection = () => {
     }, [buySell])
     return (
         <div className='home-chart-section'>
-            <div className='chart-container'>
+            <div className='navigation-container'>
                 <div className='header-info'>
                     <h5>Grafik Harga</h5>
                     <div className='header-tabs'>
@@ -38,28 +37,10 @@ const HomeChartSection = () => {
                 <div className='price-info'>
                     <p>Rp 1.351.840 <span>/ gram</span></p>
                 </div>
+            </div>
+            <div className='chart-container'>
                 <div className='chart'>
                     <ChartSpline />
-                </div>
-            </div>
-            <div className='form-container'>
-                <div className='form-title'>
-                    <div className='subtitle'>
-                        <label>Harga Beli Emas</label>
-                        <p>Rp 1.351.840  <span>/ gram</span></p>
-                    </div>
-                    <div className='subtitle'>
-                        <label>Harga Jual Emas</label>
-                        <p>Rp 1.251.840  <span>/ gram</span></p>
-                    </div>
-                </div>
-                <div className='form-input'>
-                    <Input size='large'/>
-                    <span>=</span>
-                    <Input size='large' />
-                </div>
-                <div className='form-footer'>
-                    <button>Beli Emas Sekarang!</button>
                 </div>
             </div>
         </div>

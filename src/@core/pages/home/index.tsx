@@ -4,6 +4,7 @@ import HomeGoldNavigationSection from './gold-navigation-section'
 import HomeChartSection from './chart-section'
 import HomeArticleSection from './article-section'
 import HomeTestimonySection from './testimony-section'
+import HomeVerifiedSection from './verified-section'
 
 const HomgePageWrapper = () => {
   return (
@@ -13,6 +14,7 @@ const HomgePageWrapper = () => {
         <HomeChartSection />
         <HomeArticleSection />
         <HomeTestimonySection />
+        <HomeVerifiedSection />
     </main>
   )
 }

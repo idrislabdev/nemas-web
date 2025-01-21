@@ -1,7 +1,6 @@
 "use client"
 
 import { AtSign, ChevronRight, HelpCircle, Phone } from '@untitled-ui/icons-react'
-import Image from 'next/image'
 import React, { useRef, useState } from 'react'
 
 const Footer = () => {
@@ -11,12 +10,8 @@ const Footer = () => {
     const container3 = useRef(null);
     return (
         <div className='footer'>
-            <div className='footer-wrapper'>
-                <div className='footer-top'>
-                    <h2>Terverifikasi Oleh</h2>
-                    <Image src={`/images/logo/kemendag.png`} alt='logo kemendag' width={0} height={0} sizes='100%' />
-                </div>
-                <div className='footer-bottom w-full'>
+           <div className='footer-wrapper'>
+            <div className='footer-top'>
                     <div className='bottom-area product w-1/3'>
                         <h5>Produk &amp; Layanan</h5>
                         <div className='product-area'>
@@ -42,10 +37,10 @@ const Footer = () => {
                         <div className='contact-area'>
                             <h6>Kontak</h6>
                             <div className='contact-box'>
-                                <Phone /> <span>+6281234567890</span>
+                                <span><Phone /></span> <span>+6281234567890</span>
                             </div>
                             <div className='contact-box'>
-                                <AtSign /> <span>email@Nemas.com</span>
+                                <span><AtSign /></span> <span>email@Nemas.com</span>
                             </div>
                         </div>
                     </div>
@@ -54,16 +49,18 @@ const Footer = () => {
                             <h5>FAQ</h5>
                             <a className='btn'>Lihat Semua</a>
                         </div>
-                        <div className="faq-accordion">
+                        <div className="faq-accordion-white">
                             <ul>
                                 <li>
                                     <button type="button" onClick={() => setSelected(selected !== "1" ? "1" : "")}>
                                         <div className="header-button"> 
                                             <div className='button-title'>
-                                                <span><HelpCircle /></span>
+                                                <span className='my-icon icon-20'><HelpCircle /></span>
                                                 <label>Apa Itu Nemas? </label> 
                                             </div>
-                                            <span className={selected == '1' ? 'transform rotate-90' : ''}><ChevronRight /></span>
+                                            <span className={selected == '1' ? 'transform rotate-90' : ''}>
+                                                <span className='my-icon icon-sm'><ChevronRight /></span>
+                                            </span>
                                         </div>
                                     </button>
                                     <div className={`accordion-content ${selected === "1" ? `max-h-[400px]` : 'max-h-0'}`} ref={container1}>
@@ -76,10 +73,12 @@ const Footer = () => {
                                     <button type="button" onClick={() => setSelected(selected !== "2" ? "2" : "")}>
                                         <div className="header-button"> 
                                             <div className='button-title'>
-                                                <span><HelpCircle /></span>
+                                                <span className='my-icon icon-20'><HelpCircle /></span>
                                                 <label>Apakah Nemas Perusahaan Resmi?</label> 
                                             </div>
-                                            <span className={selected == '2' ? 'transform rotate-90' : ''}><ChevronRight /></span>
+                                            <span className={selected == '2' ? 'transform rotate-90' : ''}>
+                                                <span className='my-icon icon-sm'><ChevronRight /></span>
+                                            </span>
                                         </div>
                                     </button>
                                     <div className={`accordion-content ${selected === "2" ? `max-h-[400px]` : 'max-h-0'}`} ref={container2}>
@@ -92,13 +91,33 @@ const Footer = () => {
                                     <button type="button" onClick={() => setSelected(selected !== "3" ? "3" : "")}>
                                         <div className="header-button"> 
                                             <div className='button-title'>
-                                                <span><HelpCircle /></span>
+                                                <span className='my-icon icon-20'><HelpCircle /></span>
                                                 <label>Apa Saja Fitur Nemas?</label> 
                                             </div>
-                                            <span className={selected == '2' ? 'transform rotate-90' : ''}><ChevronRight /></span>
+                                            <span className={selected == '3' ? 'transform rotate-90' : ''}>
+                                                <span className='my-icon icon-sm'><ChevronRight /></span>
+                                            </span>
                                         </div>
                                     </button>
                                     <div className={`accordion-content ${selected === "3" ? `max-h-[400px]` : 'max-h-0'}`} ref={container3}>
+                                        <div className="content-area">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button type="button" onClick={() => setSelected(selected !== "4" ? "4" : "")}>
+                                        <div className="header-button"> 
+                                            <div className='button-title'>
+                                                <span className='my-icon icon-20'><HelpCircle /></span>
+                                                <label>Bagaimana Cara Transaksi di Nemas?</label> 
+                                            </div>
+                                            <span className={selected == '4' ? 'transform rotate-90' : ''}>
+                                                <span className='my-icon icon-sm'><ChevronRight /></span>
+                                            </span>
+                                        </div>
+                                    </button>
+                                    <div className={`accordion-content ${selected === "4" ? `max-h-[400px]` : 'max-h-0'}`} ref={container3}>
                                         <div className="content-area">
                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,</p>
                                         </div>
@@ -108,7 +127,10 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+                <div className='footer-bottom'>
+                    <h6>Copyright 2024. NEMAS. All rights reserved. Designed by Foremost</h6>
+                </div>
+           </div>
         </div>
     )
 }
