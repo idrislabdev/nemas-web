@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .home-page {
-    @apply pt-[73px];
+    @apply pt-[73px] bg-white;
     .home-hero-section {
         @apply flex items-center w-full;
         .banner-container {
