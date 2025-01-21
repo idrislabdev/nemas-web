@@ -15,7 +15,7 @@
                     .swiper-slide {
                         @apply flex items-center flex-shrink-0 !w-full h-full relative;
                         .slide-container {
-                            @apply w-full h-full relative flex flex-col gap-[40px] justify-center px-[160px];
+                            @apply w-full h-full relative flex flex-col gap-[40px] justify-center px-[160px] bg-[#F8D73C];
                             h5 {
                                 @apply text-[36px]/[53px] font-bold text-[#17494E] w-1/2;
                                 span {
@@ -207,6 +207,7 @@
 
     @layer components {
         &.mobile-responsive {
+            @apply pt-0;
             .home-hero-section {
                 .banner-container {
                     @apply h-[700px];
@@ -215,7 +216,7 @@
                             .swiper-slide {
                                 @apply flex items-center flex-shrink-0 !w-full h-full relative;
                                 .slide-container {
-                                    @apply px-[70px] py-[20px] text-center items-center justify-start gap-[20px];
+                                    @apply px-[70px] py-[70px] text-center items-center justify-start gap-[20px];
                                     h5 {
                                         @apply text-[32px]/[53px] w-full;
                                     }
