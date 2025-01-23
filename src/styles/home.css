@@ -209,8 +209,9 @@
                 }
             }
             .verified-image {
+                @apply w-1/2;
                 img {
-                    @apply h-[150px] w-1/2 object-cover;
+                    @apply w-full h-[150px] object-contain;
                 }
             }
         }
@@ -393,7 +394,7 @@
                         }
                     }
                     .verified-image {
-                        @apply flex-col justify-center items-center text-center;
+                        @apply w-full flex-col justify-center items-center text-center;
                         h2 {
                             @apply block text-[32px]/[39px] font-semibold text-primary;
                         }
