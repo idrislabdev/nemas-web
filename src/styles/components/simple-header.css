@@ -1,0 +1,25 @@
+@tailwind components;
+.simple-header {
+    @apply absolute top-0 w-full flex flex-col z-[15];
+    .simple-header-top {
+        @apply pt-[10px] bg-primary;
+    }
+    .logo-area {
+        @apply w-[100%] flex items-center py-[20px] px-[160px];
+        img {
+            @apply w-[160px];
+        }
+    }
+
+    @layer components {
+        &.mobile-responsive {
+            @apply p-0  h-[56px];
+            .logo-area {
+                @apply px-[15px];
+                img {
+                    @apply w-[97px] h-[28px];
+                }
+            }
+        }
+    }
+}
