@@ -8,6 +8,7 @@ import '@/styles/components/faq-accordion.css'
 import '@/styles/components/switch-custom.css'
 import '@/styles/components/icons.css'
 import '@/styles/components/divider.css'
+import '@/styles/components/selects.css'
 
 
 const inter = Inter({ subsets: ["latin"] });

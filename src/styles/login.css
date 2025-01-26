@@ -24,7 +24,7 @@
                                 @apply text-[16px]/[22px] font-medium text-[#1F211E];
                             }
                             input {
-                                @apply border border-[#8D989D] text-[14px]/[22px] text-[#1F211E] h-[49px] rounded-[4px] px-[12px] py-[9px] outline-none;
+                                @apply border border-[#8D989D] text-[14px]/[22px] text-[#1F211E] h-[40px] rounded-[4px] px-[12px] py-[9px] outline-none;
                             }
                         }
                     }

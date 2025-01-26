@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.register-page {
+    @apply bg-white h-screen;
+    .main-section {
+        @apply px-[163px] py-[115px] flex flex-col justify-center items-center gap-[35px];
+        .main-container {
+            @apply flex justify-center  rounded-[43px] p-[64px] relative min-w-[1140px] gap-[100px];
+            box-shadow: 0px 0px 21.9px 3px #00000026;
+            .form-area {
+                @apply w-1/2 flex flex-col gap-[130px];
+                .form {
+                    @apply flex flex-col gap-[47px];
+                    h2 {
+                        @apply text-[40px]/[22px] font-semibold text-primary font-work-sans;
+                    }
+                    .main-form {
+                        @apply flex flex-col gap-[20px];
+                        .form-group {
+                            @apply flex flex-col gap-[10px];
+                            label {
+                                @apply text-[16px]/[22px] font-medium text-[#1F211E];
+                            }
+                            input {
+                                @apply border border-[#8D989D] text-[14px]/[22px] text-[#1F211E] h-[40px] rounded-[4px] px-[12px] py-[9px] outline-none;
+                            }
+                        }
+                    }
+                }
+                button {
+                    @apply bg-primary w-[310px] h-[51px] rounded-[4px] text-white text-[16px]/[19.36px] font-medium;
+                }
+            }
+        }
+        a {
+            @apply text-[16px]/[26px] font-medium font-work-sans text-[#17494E];
+        }
+    }
+    @layer components {
+        &.mobile-responsive {
+            .main-section {
+                @apply py-[70px] px-[15px];
+                .main-container {
+                    @apply flex-col w-full min-w-full px-[20px] py-[28px] gap-[18px];
+                    .form-area {
+                        @apply w-full gap-[20px] justify-center items-center;
+                        h2 {
+                            @apply text-[24px]/[22px];
+                        }
+                        .form {
+                            @apply w-full items-center gap-[22px];
+                            .main-form {
+                                @apply w-full;
+                                .form-group {
+                                    @apply w-full;
+                                }
+                            }
+                        }
+                        .button-group {
+                            @apply justify-center items-center w-full;
+                            button {
+                                @apply w-full;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
