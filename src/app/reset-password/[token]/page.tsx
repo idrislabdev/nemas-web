@@ -8,10 +8,14 @@ const ResetPasswordToken = () => {
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const [showingAlertFailed, setShowingAlertFailed] = useState<boolean>(false);
+    const [showingAlertSuccess, setShowingAlertSuccess] = useState<boolean>(false);
+    const [alertDesc, setAlertDesc] = useState<string>('');
 
     const handleResetPassword = () => {
         if(password !== confirmPassword) {
-            alert("password dan konfirmasi password harus sama")
+            setShowingAlertFailed(true);
+            setAlertDesc('password dan konfirmasi password harus sama');
         } else {
             setLoading(true);
             axios.post(`https://18.138.179.185:8000/api/users/token/reset-token/${params.token}/`, {
@@ -21,12 +25,16 @@ const ResetPasswordToken = () => {
                 console.log(response);
                 setLoading(false);
                 const message: string = response.data.message;
-                alert(message);
+                setShowingAlertFailed(false);
+                setShowingAlertSuccess(true);
+                setAlertDesc(message);
             }).catch(err => {
                 console.log(err);
                 setLoading(false);
                 const message: string = err.response.data.detail;
-                alert(message);
+                setShowingAlertFailed(true);
+                setShowingAlertSuccess(false);
+                setAlertDesc(message);
             });
         }
     }
@@ -59,6 +67,12 @@ const ResetPasswordToken = () => {
                         loading ? "Loading..." : "Ubah Password"
                     }
                 </button>
+                {
+                    (showingAlertFailed || showingAlertSuccess)&&
+                    <div className={`bg-${showingAlertFailed ? 'red' : 'green'}-100 border border-${showingAlertFailed ? 'red' : 'green'}-400 text-${showingAlertFailed ? 'red' : 'green'}-700 px-4 py-3 rounded relative mt-2`} role="alert">
+                        {alertDesc}
+                    </div>
+                }
             </div>
         </div>
     )
