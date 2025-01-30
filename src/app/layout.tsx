@@ -9,6 +9,7 @@ import '@/styles/components/switch-custom.css'
 import '@/styles/components/icons.css'
 import '@/styles/components/divider.css'
 import '@/styles/components/selects.css'
+import '@/styles/components/modals.css'
 
 
 const inter = Inter({ subsets: ["latin"] });

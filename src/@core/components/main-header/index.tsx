@@ -46,9 +46,9 @@ const MainHeader = () => {
                     <div className='main-header-menu'>
                         <ul>
                             <li><Link href={`/`}>Tabungan Emas</Link></li>
-                            <li><Link href={`/`}>Beli Emas</Link></li>
+                            <li><Link href={`/beli-emas`}>Beli Emas</Link></li>
                             <li><Link href={`/`}>Investasi</Link></li>
-                            <li><Link href={`/`}>Jual Emas</Link></li>
+                            <li><Link href={`/jual-emas`}>Jual Emas</Link></li>
                             <li><Link href={`/`}>Produk Emas Fisik</Link></li>
                             <li><Link href={`/`}>Tarik Emas</Link></li>
                             <li><Link href={`/`}>Jaminan Emas</Link></li>
@@ -60,8 +60,8 @@ const MainHeader = () => {
                         <div className='login-area'>
                             <label><span><Mail01 /></span></label>
                             <div className='login-menu'>
-                                <button>Log In</button>
-                                <a>atau <span>Daftar</span> disini</a>
+                                <Link href={`/login`} className='login-button'>Log In</Link>
+                                <Link href={`/register`} className='register-button'>atau <span>Daftar</span> disini</Link>
                             </div>
                         </div>
                         <a className='burger-menu text-black' onClick={() => showMobileSidebar()}><Menu01 /></a>

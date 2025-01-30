@@ -228,7 +228,7 @@
                             .swiper-slide {
                                 @apply flex flex-col items-center flex-shrink-0 !w-full h-full relative;
                                 .text-container {
-                                    @apply px-[14px] pt-[70px] pb-0 text-center items-center justify-center gap-[20px] w-full;
+                                    @apply px-[15px] pt-[70px] pb-0 text-center items-center justify-center gap-[20px] w-full;
                                     h5 {
                                         @apply text-[32px]/[53px] w-full;
                                     }
@@ -248,7 +248,7 @@
                 }
             }
             .home-gold-navigation-section {
-                @apply gap-[17px] px-[14px];
+                @apply gap-[17px] px-[15px];
                 ul {
                     @apply w-full;
                     &.gold-navigation {
@@ -281,7 +281,7 @@
                 }
             }
             .home-chart-section {
-                @apply py-[20px] flex flex-col px-[14px] gap-[24px];
+                @apply py-[20px] flex flex-col px-[15px] gap-[24px];
                 .navigation-container {
                     .header-info {
                         @apply flex flex-col gap-[20px];

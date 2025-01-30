@@ -127,13 +127,15 @@
 
             .login-menu {
                 @apply flex flex-col gap-[7px];
-                button {
-                    @apply bg-[#39BFB6] text-white w-[110px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px] flex flex-col justify-center items-center;
-                }
                 a {
-                    @apply text-[9px]/[11px] text-[#F0BF6B] text-center underline;
-                    span {
-                        @apply font-bold;
+                    &.login-button {
+                        @apply bg-[#39BFB6] text-white w-[110px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px] flex flex-col justify-center items-center;
+                    }
+                    &.register-button {
+                        @apply text-[9px]/[11px] text-[#F0BF6B] text-center underline;
+                        span {
+                            @apply font-bold;
+                        }
                     }
                 }
             }
@@ -169,11 +171,13 @@
 
                     .login-menu {
                         @apply block;
-                        button {
-                            @apply w-[64px] h-[16px] text-[10px]/[12px];
-                        }
                         a {
-                           @apply hidden;
+                            &.login-button {
+                                @apply w-[64px] h-[16px] text-[10px]/[12px];
+                            }
+                            &.register-button {
+                               @apply hidden;
+                            }
                         }
                     }
                 }
