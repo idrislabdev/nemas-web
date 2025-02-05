@@ -18,3 +18,11 @@ export interface IUserLogin {
     phone_number:string,
     user_name:string
 }
+
+export interface IFaq {
+    information_educational_id: number,
+    information_name?: string,
+    information_notes?: string,
+    information_url?: string,
+    information_background?: string
+}
