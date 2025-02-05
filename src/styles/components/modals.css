@@ -49,6 +49,49 @@
             }
         }
     }
+    &.modal-voucher {
+        @apply !w-[432px];
+        .ant-modal-content {
+            @apply p-0 rounded-[31px];
+            .ant-modal-body {
+                @apply flex flex-col;
+                .content-body {
+                   @apply flex flex-col gap-[12px] h-[432px] overflow-y-auto px-[30px];
+                    .card {
+                        @apply flex items-center gap-[8px] border border-[#BCC7D1] rounded-[8px] py-[12px] px-[16px];
+                        .card-img {
+                            @apply w-[56px] h-[56px] rounded-[50%];
+                            img {
+                                @apply w-full h-full;
+                            }
+                        }
+                        .card-body {
+                            @apply flex flex-col;
+                            label {
+                                @apply text-[12px]/[14.52px] font-bold text-black;
+                            }
+                            p {
+                                @apply text-[12px]/[14.52px] text-black font-bold
+                            }
+                            span {
+                                @apply text-[12px]/[14px] text-black;
+                            }
+                        }
+                    }
+                }
+                .content-footer {
+                    @apply rounded-[31px] p-[14px] flex flex-col justify-center items-center;
+                    box-shadow: 0px 0px 15px 3px #00000040;
+                    button {
+                        @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
+                        &:disabled {
+                            @apply bg-[#D1D1D1]
+                        }
+                    }
+                }
+            }
+        }
+    }
     &.modal-pin {
         @apply !w-[432px];
         .ant-modal-content {

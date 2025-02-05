@@ -1,14 +1,15 @@
 "use client"
 
-import { Mail01, Menu01 } from '@untitled-ui/icons-react';
+import { Menu01 } from '@untitled-ui/icons-react';
 import Image from 'next/image';
 import Link from 'next/link'
 import React, { useCallback, useEffect, useState } from 'react'
 import MainSidebarMenu from './main-sidebar-menu';
+import LoginArea from './login-area';
+import { GlobalsProvider } from '@/@core/context/globalContext';
 
 const MainHeader = () => {
     const [showSidebar, setShowSidebar] = useState(false);
-   
     const onScroll = useCallback(() => {
         const { scrollY } = window;
         if ( scrollY >= 60) {
@@ -35,7 +36,7 @@ const MainHeader = () => {
     });
 
     return (
-        <>
+        <GlobalsProvider>
             <header className='main-header sm:mobile-responsive'>
                 <div className='main-header-top'>
                 </div>
@@ -56,21 +57,15 @@ const MainHeader = () => {
                             <li><Link href={`/`}>Tarik Saldo</Link></li>
                         </ul>
                     </div>
-                    <div className='flex items-center gap-[22px]'>
-                        <div className='login-area'>
-                            <label><span><Mail01 /></span></label>
-                            <div className='login-menu'>
-                                <Link href={`/login`} className='login-button'>Log In</Link>
-                                <Link href={`/register`} className='register-button'>atau <span>Daftar</span> disini</Link>
-                            </div>
-                        </div>
+                    <div className='login-menu'>
+                        <LoginArea />
                         <a className='burger-menu text-black' onClick={() => showMobileSidebar()}><Menu01 /></a>
                     </div>
                 </div>
             </header>
             <MainSidebarMenu show={showSidebar} setShow={setShowSidebar}/>
+        </GlobalsProvider>
 
-        </>
     )
 }
 

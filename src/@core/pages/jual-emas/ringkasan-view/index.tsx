@@ -1,6 +1,6 @@
 import { IDestination } from '@/@core/@types/interface'
-import ModalDestination from '@/app/jual-emas/modal-destination'
-import ModalPin from '@/app/jual-emas/modal-pin'
+import ModalDestination from '@/@core/pages/jual-emas/modal-destination'
+import ModalPin from '@/@core/pages/jual-emas/modal-pin'
 import { ChevronLeft, ChevronRight } from '@untitled-ui/icons-react'
 import { Checkbox } from 'antd'
 import Image from 'next/image'
@@ -24,7 +24,7 @@ const JualEmasRingkasanView = (props: {setView:Dispatch<SetStateAction<string>>}
                 <div className='main-container'>
                     <div className='header-area'>
                         <h5>Ringkasan Penjualan</h5>
-                        <a><span className='my-icon icon-sm'><ChevronLeft /></span>Kembali</a>
+                        <a><span className='my-icon icon-sm'><ChevronLeft /></span><span className='text'>Kembali</span></a>
                     </div>
                     <div className='body-area'>
                         <div className='detail'>

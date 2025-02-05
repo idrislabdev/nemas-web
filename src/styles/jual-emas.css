@@ -46,14 +46,14 @@
         .main-container {
             @apply flex flex-col gap-[24px];
             .input-area {
-                @apply flex flex-col;
+                @apply flex flex-col gap-[4px];
                 label {
                     @apply text-[14px]/[22px] font-medium text-[#1F211E];
                 }
                 .group-input {
                     @apply relative border border-[#8D989D] rounded-[4px] w-[550px];
                     input {
-                        @apply h-[48px];
+                        @apply h-[48px] outline-none rounded-[4px];
                     }
                     span {
                         @apply absolute text-[14px]/[22px] text-[#1F211E] bg-[#E8EDF0] h-full flex flex-col justify-center right-0 top-0 rounded-tr-[4px] rounded-br-[4px] px-[14px];
@@ -109,7 +109,14 @@
                 a {
                     @apply flex items-center justify-center absolute right-[20px] gap-[9px];
                     span {
-                        @apply w-[24px] h-[24px] flex flex-col items-center justify-center bg-[#17494E] text-white rounded-[50%];
+                        &.text {
+                            @apply text-[#8D989D];
+                        }
+                    }
+                    span {
+                        &.my-icon {
+                            @apply w-[24px] h-[24px] flex flex-col items-center justify-center bg-[#17494E] text-white rounded-[50%];
+                        }
                     }
                 }
             }
@@ -249,6 +256,9 @@
                         @apply w-full;
                         .group-input {
                             @apply w-full;
+                            input {
+                                @apply h-[40px];
+                            }
                         }
                     }
                     .note-area {
@@ -273,7 +283,13 @@
                 .main-container {
 
                     .header-area {
-                       
+                        a {
+                            span {
+                                &.text {
+                                    @apply hidden;
+                                }
+                            }
+                        }
                     }
                     .body-area {
                         @apply w-full px-[8px];
