@@ -26,3 +26,16 @@ export interface IFaq {
     information_url?: string,
     information_background?: string
 }
+
+export interface IArticle {
+    information_article_id: number,
+    information_article_name: string,
+    information_article_body: string,
+    article_date: string,
+    article_publish_date: string,
+    article_updated_date: string,
+    article_author: string,
+    article_background: string,
+    article_source: string,
+    article_link: string
+}
