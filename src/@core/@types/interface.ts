@@ -39,3 +39,11 @@ export interface IArticle {
     article_source: string,
     article_link: string
 }
+
+export interface IRating {
+    information_rate_id: number,
+    information_rate_name: string,
+    rate: number,
+    message: string,
+    publish: boolean
+}

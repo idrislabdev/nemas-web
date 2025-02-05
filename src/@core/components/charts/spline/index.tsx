@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 // import HC_rounded from "highcharts-rounded-corners";
@@ -51,6 +51,8 @@ const options = {
 }
 const ChartSpline = () => {
     const [ data, setData ] = useState({})
+    const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
+
     const fetchData = useCallback(() => {
         const temp = JSON.parse(JSON.stringify(options));
         temp.chart.type = 'areaspline'
@@ -89,11 +91,23 @@ const ChartSpline = () => {
     useEffect(() => {
         // HC_rounded(Highcharts)
     })
+    useEffect(()=> {
+        window.addEventListener('resize', ()=> {
+            Highcharts.charts.forEach(chart => {
+                if (chart) {
+                    // console.log(chart)
+                    // chart.redraw()
+                }
+            });
+
+        })
+    }, [])
   return (
     <HighchartsReact
         highcharts={Highcharts}
         options={data}
-        containerProps = {{ className: 'w-full h-[272px]' }}
+        containerProps = {{ className: 'w-full' }}
+        ref={chartComponentRef}
     />
   )
 }

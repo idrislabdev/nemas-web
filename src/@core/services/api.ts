@@ -15,3 +15,11 @@ export const getArticles = async (offset:number, limit:number) => {
     const resp = await axiosInstance.get(`/core/information/article/${strLimit}`)
     return resp
 }
+
+export const getTestimonies = async (offset:number, limit:number) => {
+    let strLimit = ""
+    if (limit) 
+        strLimit = `?offset=${offset}&limit=${limit}`
+    const resp = await axiosInstance.get(`/core/information/rating/${strLimit}`)
+    return resp
+}
