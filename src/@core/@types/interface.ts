@@ -47,3 +47,11 @@ export interface IRating {
     message: string,
     publish: boolean
 }
+
+export interface IUserCreate {
+    email?: string,
+    name?: string,
+    password?: string,
+    phone_number?:string,
+    user_name?:string
+}

@@ -7,12 +7,18 @@ import { ChevronDown, Mail01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
+import axiosInstance from '@/@core/utils/axios';
 
 const LoginArea = () => {
   const { globals, saveGlobals } = useGlobals()
   const [stateDone, setStateDone] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const dropdownuser = useRef<HTMLDivElement>(null);
+
+  const logOut = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
 
   useEffect(() => {
       if (!stateDone) {
@@ -27,17 +33,31 @@ const LoginArea = () => {
       if (!e || !("nodeType" in e)) {
           throw new Error(`Node expected`);
       }
-  }
-  
-  function handleClick(event : any) {
-    assertIsNode(event.target);
-    if (dropdownuser.current && !dropdownuser.current.contains(event.target)) {
-      setShowMenu(false);
     }
-  }
+  
+    function handleClick(event : any) {
+      assertIsNode(event.target);
+      if (dropdownuser.current && !dropdownuser.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    }
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
   }, [showMenu]);
+
+  useEffect(() => {
+    const token = typeof window !== 'undefined'  ? localStorage.getItem("token") : undefined;
+    if (token) {
+        axiosInstance.get(`/users/me/`)
+        .then((response) => {
+            const data = response.data
+            localStorage.setItem("user", JSON.stringify(data))
+        })
+        .catch(() => {
+          localStorage.clear();
+        });
+    }
+  })
 
   return (
     <div className={`login-area ${globals.userLogin.name ? 'items-center' : ''}`} ref={dropdownuser}>
@@ -64,7 +84,7 @@ const LoginArea = () => {
                 <li><a><UserLoginIcon />Transakasi</a></li>
                 <li><a><UserLoginIcon />Notifikasi</a></li>
               </ul>
-              <button>Log Out</button>
+              <button onClick={() => logOut()}>Log Out</button>
             </div>
           </div>
         }

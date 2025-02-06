@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { setCookie } from "cookies-next";
+import Link from 'next/link';
 
 const LoginPageWrapper = () => {
 
@@ -49,6 +50,9 @@ const LoginPageWrapper = () => {
               const data = response.data
               localStorage.setItem("user", JSON.stringify(data))
               router.push("/")
+          })
+          .catch(() => {
+            localStorage.clear();
           });
       }
   })
@@ -92,7 +96,7 @@ const LoginPageWrapper = () => {
               </div>
             </div>
           </div>
-          <a>Kembali ke Halaman Utama</a>
+          <Link href={`/register`}>Kembali ke Halaman Utama</Link>
         </div>
       </main>
   )

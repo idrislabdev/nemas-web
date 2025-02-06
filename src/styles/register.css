@@ -31,6 +31,9 @@
                 }
                 button {
                     @apply bg-primary w-[310px] h-[51px] rounded-[4px] text-white text-[16px]/[19.36px] font-medium;
+                    &:disabled {
+                        @apply bg-gray-200;
+                    }
                 }
             }
         }
