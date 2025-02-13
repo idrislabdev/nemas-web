@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-switch {
+    &.ant-switch-small {
+        @apply min-w-[36px] h-[20px];
+        .ant-switch-handle {
+            @apply w-[16px] h-[16px];
+        }
+        &.ant-switch-checked {
+            .ant-switch-handle {
+                inset-inline-start: calc(100% - 18px);
+            }
+        }
+    }
+    &.ant-switch-checked {
+        @apply bg-primary;
+        &:hover {
+            @apply bg-primary;
+        }
+    }
+
+}

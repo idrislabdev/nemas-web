@@ -11,6 +11,12 @@ export interface IVoucher {
     name: string,
 }
 
+export interface IPayment {
+    id: string,
+    type: string,
+    name: string
+}
+
 export interface IUserLogin {
     email:string,
     id:string,

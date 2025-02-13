@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.user-page {
+    @apply pt-[100px] bg-white;
+    .header-section {
+        @apply flex gap-[80px] py-[50px] px-[150px] border-b border-b-[#E1E1E1];
+        .profile-container {
+            @apply flex flex-col gap-[26px] w-[430px];
+            .main-profile {
+                @apply flex flex-col gap-[10px];
+                .main-info {
+                    @apply flex items-center gap-[13px];
+                    span {
+                        &.user-icon {
+                            svg {
+                                path {
+                                    @apply fill-[#374957];
+                                }
+                            }
+                        }
+                    }
+                    h5 {
+                        @apply text-[24px]/[29px] text-black font-bold;
+                    }
+                    label {
+                        &.badge-member {
+                            @apply flex flex-col justify-center items-center px-[24px] text-white font-medium text-[12px]/[15px] h-[28px] rounded-[24px];
+                            &.gold {
+                                @apply bg-[#F0BF6B];
+                            }
+                        }
+                    }
+                }
+                .id-info {
+                    @apply flex items-center gap-[4px];
+                    label, p {
+                        @apply text-[12px]/[15px] text-[#1F211E];
+                    }
+                    p {
+                        @apply font-semibold;
+                    }
+                }
+            }
+            .id-profile {
+                @apply flex items-center justify-between border border-[#BCC7D1] bg-[#E8EDF0] p-[16px] rounded-[8px];
+                .profile-info {
+                    @apply flex flex-col gap-[5px];
+                    label {
+                        @apply text-[14px]/[12px] text-[#1F211E] flex items-center gap-[4px];
+                        span {
+                            &.my-icon {
+                                @apply text-[#6b6d6f]
+                            }
+                        }
+                    }
+                    p {
+                        @apply text-[14px]/[12px] text-[#1F211E] font-bold;
+                    }
+                }
+            }
+        }
+        .asset-container {
+            @apply flex gap-[60px] flex-1;
+            .asset-card {
+                @apply flex flex-col justify-center p-[16px] w-[176px] h-[65px] rounded-[16px] border border-[#E8EDF0];
+                label {
+                    @apply text-[12px]/[22px] text-[#595959];
+                }
+                p {
+                    @apply text-[16px]/[19px] font-bold text-black;
+                }
+                &.tabungan {
+                    @apply bg-[#FAEBD1];
+                }
+                &.saldo {
+                    @apply bg-[#E8EDED];
+                }
+                &.investasi {
+                    @apply bg-[#F7F1EA];
+                }
+            }
+        }
+    }
+    .main-section {
+        @apply px-[150px] pt-[30px] flex divide-x;
+        .sidebar-container {
+            @apply w-[265px] pr-[30px];
+            ul {
+                li {
+                    @apply text-[12px]/[15px] text-black font-medium flex flex-col justify-center border-b border-b-[#E1E1E1];
+                 
+                    a {
+                        @apply flex items-center gap-[8px] cursor-pointer select-none h-[56px] w-full justify-between;
+                        span {
+                            @apply flex items-center gap-[16px] px-0;
+                            svg {
+                                @apply w-[20px] h-[20px];
+                                path {
+                                    @apply stroke-[#8D989D];
+                                }
+                            }
+                            &.my-icon {
+                                svg {
+                                    @apply w-[24px] h-[24px];
+                                    path {
+                                        @apply stroke-[#374957];
+                                    }
+                                }
+                            }
+                        }
+                        &.active {
+                            @apply bg-gray-50 rounded text-gray-800;
+                        }
+                        &:hover {
+                            @apply bg-gray-50 rounded text-gray-800;
+                        }
+                    }
+                }
+            }
+        }
+        .main-container {
+            @apply flex-1 pl-[30px];
+            .pengaturan-sub-container {
+                @apply flex flex-col gap-[30px] w-full;
+                h5 {
+                    @apply text-[24px]/[22px] font-semibold text-primary;
+                }
+                .profil-area {
+                    @apply flex gap-[60px] w-full;
+                    h6 {
+                        @apply text-[20px]/[24px] font-bold text-black;
+                    }
+                    .sub-area {
+                        @apply flex flex-col gap-[17px] w-1/2;
+                        .group-input {
+                            @apply flex flex-col gap-[4px];
+                            label {
+                                @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                            }
+                            span {
+                                @apply text-[12px]/[22px] text-[#676E71];
+                            }
+                        }
+                        .group-button {
+                            @apply flex flex-col gap-[4px];
+                            label {
+                                @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                                span {
+                                    @apply text-[12px]/[22px] text-[#8D989D];
+                                }
+                            }
+                            button {
+                                @apply bg-primary text-white flex gap-[10px] h-[48px] justify-center items-center rounded-[4px] text-[16px]/[19px];
+                            }
+                        }
+                    }
+                }
+                .rekening-area {
+                    @apply flex flex-col gap-[19px];
+                    width: calc(50% - 30px);
+                    h6 {
+                        @apply text-[20px]/[24px] font-bold text-black;
+                    }
+                    .group-button {
+                        @apply flex flex-col gap-[4px];
+                        label {
+                            @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                        }
+                        .empty-state {
+                            @apply h-[90px] border border-[#BCC7D1] rounded-[8px] flex flex-col justify-center items-center;
+                            label {
+                                @apply text-[14px]/[22px] font-medium text-[#8D989D];
+                            }
+                            a {
+                                @apply text-[#17494E] text-[16px]/[19px] font-semibold flex items-center gap-[3px];
+                            }
+                        }
+                    }
+                }
+                button {
+                    &.btn-hapus {
+                        @apply flex justify-center items-center gap-[10px] text-[16px]/[19px] font-semibold text-[#C20000] border border-[#C20000] rounded-[4px] h-[56px];
+                        width: calc(50% - 30px);
+                    }
+                }
+            }
+            .keamanan-sub-container {
+                @apply flex flex-col gap-[30px] w-full;
+                h5 {
+                    @apply text-[24px]/[22px] font-semibold text-primary;
+                }
+                .submenu {
+                    @apply flex flex-col gap-[10px];
+                    a {
+                        @apply flex justify-between items-center p-[16px] w-[354px] h-[56px] rounded-[17px] border border-[#E1E1E1] text-[12px]/[14.5px] text-[#1F211E] font-medium;
+                        span {
+                            @apply flex items-center gap-[16px];
+                        }
+                    }
+                    span {
+                        &.my-icon {
+                            @apply text-[#8D989D];
+                            svg {
+                                @apply w-[20px] h-[20px]
+                            }
+                        }
+                    }
+                }
+                .form-group {
+                    @apply flex flex-col gap-[16px];
+                    width: calc(50% - 60px);
+                    h6 {
+                        @apply text-[20px]/[24px] font-bold text-black;
+                    }
+                    .group-input {
+                        @apply flex flex-col gap-[4px];
+                        label {
+                            @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                        }
+                        span {
+                            @apply text-[12px]/[22px] text-[#676E71];
+                        }
+                        .note {
+                            @apply flex flex-col gap-[4px];
+                            p,span {
+                                @apply text-[12px]/[22px] text-[#676E71] font-medium;
+                            }
+                        }
+                    }
+                }
+                button {
+                    @apply bg-primary text-white flex gap-[10px] w-[194px] h-[51px] justify-center items-center rounded-[4px] text-[16px]/[19px];
+                    &:disabled {
+                        @apply bg-[#BCC7D1] text-[#8D989D];
+                    }
+                }
+            }
+            .bantuan-legal-sub-container {
+                @apply flex flex-col gap-[30px] w-full;
+                h5 {
+                    @apply text-[24px]/[22px] font-semibold text-primary;
+                }
+                .faq-accordion {
+                    ul {
+                        @apply !border-0 px-0;
+                        li {
+                            .accordion-content {
+                                .content-area {
+                                    p {
+                                        @apply text-[12px]/[17px];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .customer-service-sub-container {
+                @apply flex flex-col gap-[30px] w-full;
+                h5 {
+                    @apply text-[24px]/[22px] font-semibold text-primary;
+                }
+                .list-menu {
+                    @apply flex flex-col gap-[10px];
+                    a {
+                        @apply flex justify-between items-center p-[16px] w-[354px] h-[56px] rounded-[17px] border border-[#E1E1E1] text-[12px]/[14.5px] text-[#1F211E] font-medium;
+                        span {
+                            @apply flex items-center gap-[16px];
+                        }
+                    }
+                    span {
+                        &.my-icon {
+                            @apply text-[#8D989D];
+                            svg {
+                                @apply w-[20px] h-[20px]
+                            }
+                        }
+                    }
+                }
+            }
+            .setting-notif-sub-container {
+                @apply flex flex-col gap-[30px];
+                h5 {
+                    @apply text-[24px]/[22px] font-semibold text-primary;
+                }
+                .setting-notif {
+                    @apply flex items-center gap-[30px];
+                    .text-notif {
+                        @apply flex flex-col gap-[4px];
+                        label {
+                            @apply text-[14px]/[17px] text-[#1F211E] font-medium;
+                        }
+                        p {
+                            @apply text-[12px]/[14px] text-[#374957];
+                        }
+                    }
+                }
+                .setting-harga {
+                    @apply flex flex-col gap-[11px];
+                    label {
+                        @apply text-[20px]/[24px] font-bold text-[#1F211E];
+                    }
+                    .empty-state {
+                        @apply h-[90px] border border-[#BCC7D1] rounded-[8px] flex flex-col justify-center items-center w-[349px];
+                        label {
+                            @apply text-[14px]/[22px] font-medium text-[#8D989D];
+                        }
+                        a {
+                            @apply text-[#17494E] text-[16px]/[19px] font-semibold flex items-center gap-[3px];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

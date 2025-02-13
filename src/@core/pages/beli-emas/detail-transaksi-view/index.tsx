@@ -1,17 +1,24 @@
-import { ChevronDown, ChevronLeft, ChevronRight } from '@untitled-ui/icons-react'
+import {  ChevronLeft, ChevronRight } from '@untitled-ui/icons-react'
 import { Checkbox } from 'antd'
 import Image from 'next/image'
-import React, { Dispatch, SetStateAction } from 'react'
-// import ModalVoucher from '../modal-voucher'
+import React, { Dispatch, SetStateAction, useState } from 'react'
+import ModalVoucher from '../modal-voucher'
+import { IVoucher } from '@/@core/@types/interface'
+// import ModalPayment from '../modal-payment'
+import ModalPin from '../modal-pin'
 
 const BeliEmasDetailTransaksiView = (props: {setView:Dispatch<SetStateAction<string>>}) => {
     const { setView } = props
+    const [ isModalVoucherOpen, setIsModalVoucherOpen] = useState(false)
+    // const [ isModalPayment, setIsModalPayment] = useState(false)
+    const [ voucher, setVoucher ] = useState<IVoucher>({} as IVoucher)
+    // const [ payment, setPayment ] = useState<IPayment>({} as IPayment)
+    const [ isModalPinOpen, setIsModalPinOpen] = useState(false)
 
 
-    const setShowVoucher = () => {
-        setView('')
-        // setIsModalVoucherOpen(true)
-    }
+    // const setVoucher = () => {
+    //     setIsModalVoucherOpen(false)
+    // }
     return (
         <>
             <div className='detail-transaksi-section'>
@@ -39,34 +46,35 @@ const BeliEmasDetailTransaksiView = (props: {setView:Dispatch<SetStateAction<str
                             </div>
                         </div>
                         <div className={`button-voucher-payment`}>
-                            <button onClick={() => setShowVoucher()}>
+                            <button onClick={() => setIsModalVoucherOpen(true)}>
                                 <span className='label-info'>
-                                    <Image src={`/images/payment.png`} alt='payment' width={0} height={0} sizes='100%' />
-                                    Pilih Promo/Voucher
+                                    <Image src={`/images/voucher.png`} alt='voucher' width={0} height={0} sizes='100%' />
+                                    {!voucher.code && 'Pilih Promo/Voucher'}
+                                    {voucher.code && `Diskon ${voucher.name}` }
                                 </span>
                                 <span className='my-icon'><ChevronRight /></span>
-                            </button>
-                            <button onClick={() => setShowVoucher()}>
-                                <span className='label-info'>
-                                    <Image src={`/images/payment.png`} alt='payment' width={0} height={0} sizes='100%' />
-                                    Pilih Metode Pembayaran
-                                </span>
-                                <span className='my-icon'><ChevronDown /></span>
                             </button>
                         </div>
                         <hr />
                         <div className='confirmation-area'>
                             <Checkbox >Dengan ini saya menyetujui Syarat dan Ketentuan yang berlaku</Checkbox>
-                            {/* <button className='confirmation-button' onClick={() => setIsModalPinOpen(true)}>Proses Pembayaran</button> */}
+                            <button className='confirmation-button' onClick={() => setIsModalPinOpen(true)}>Proses Pembayaran</button>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <ModalVoucher 
+            <ModalVoucher 
                 isModalOpen={isModalVoucherOpen} 
                 setIsModalOpen={setIsModalVoucherOpen} 
                 setVoucher={setVoucher}
+            />
+            {/* <ModalPayment 
+                isModalOpen={isModalPayment} 
+                setIsModalOpen={setIsModalPayment} 
+                setPayment={setPayment}
             /> */}
+            <ModalPin isModalOpen={isModalPinOpen} setIsModalOpen={setIsModalPinOpen} setView={setView}/>
+
         </>
     )
 }

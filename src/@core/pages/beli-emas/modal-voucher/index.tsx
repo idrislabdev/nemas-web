@@ -11,9 +11,10 @@ const ModalVoucher =(props: {
     }) => {
     const { isModalOpen, setIsModalOpen, setVoucher } = props
     const [vouchers, setVouchers] = useState<IVoucher[]>([] as IVoucher[])
+    const [voucherTemp, setVoucherTemp] = useState<IVoucher>({} as IVoucher);
 
     const onConfirm = () => {
-        setVoucher({code: "xxxx", name: "Diskon Rp 20.000"})
+        setVoucher(voucherTemp)
         setIsModalOpen(false)
     }
 
@@ -36,7 +37,11 @@ const ModalVoucher =(props: {
             </div>
             <div className='content-body'>
                 {vouchers.map((item:IVoucher, index:number) => (
-                    <div className='card' key={index}>
+                    <div 
+                        className={`card cursor-pointer ${voucherTemp.code == item.code ? 'bg-[#E8EDED]' : ''}`} 
+                        onClick={() => setVoucherTemp(item)}
+                        key={index}
+                    >
                         <div className='card-img'>
                             <Image src={`/images/dummy-voucher.png`} alt='voucher' width={0} height={0} sizes='100%' />
                         </div>
@@ -49,7 +54,7 @@ const ModalVoucher =(props: {
                 ))}
             </div>
             <div className='content-footer'>
-                <button onClick={() => onConfirm()}>Selesai</button>
+                <button onClick={() => onConfirm()}>Gunakan Promo</button>
             </div>
         </Modal>
     )
