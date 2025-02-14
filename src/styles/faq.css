@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .faq-page {
-    @apply pt-[150px] px-[150px] bg-white;
+    @apply pt-[100px] px-[150px] bg-white;
     .main-section {
         @apply flex flex-col gap-[20px];
         .header-container {

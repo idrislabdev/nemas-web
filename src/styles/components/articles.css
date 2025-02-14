@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-article-card {
+    @apply flex flex-col gap-[6px] w-full;
+
+    .box-image {
+        @apply rounded-[16px];
+        img {
+            @apply w-full h-[189px] rounded-[16px] object-cover;
+        }
+    }
+    .box-title {
+        @apply flex-col;
+        h5 {
+            @apply text-[16px]/[24px] font-semibold text-black;
+        }
+        p {
+            @apply text-[12px]/[22px] text-primary;
+        }
+    }
+}

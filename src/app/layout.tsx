@@ -11,6 +11,7 @@ import '@/styles/components/divider.css'
 import '@/styles/components/selects.css'
 import '@/styles/components/modals.css'
 import '@/styles/components/switches.css'
+import '@/styles/components/articles.css'
 
 
 const inter = Inter({ subsets: ["latin"] });
