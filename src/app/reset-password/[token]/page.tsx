@@ -26,7 +26,7 @@ const ResetPasswordToken = () => {
                 setAlertDesc('Password harus mengandung 8-16 karakter, 1 angka (0-9), 1 huruf besar (A-Z), dan 1 karakter spesial contoh @');
             } else {
                 setLoading(true);
-                axios.post(`https://18.138.179.185:8000/api/users/token/reset-token/${params.token}/`, {
+                axios.post(`https://www.nemas.id/api/users/token/reset-token/${params.token}/`, {
                     new_data: password,
                     new_data_type: 'Password'
                 }).then(response => {
