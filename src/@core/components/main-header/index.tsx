@@ -41,20 +41,12 @@ const MainHeader = () => {
                 <div className='main-header-top'>
                 </div>
                 <div className='main-header-bottom'>
-                    <div className='logo-area'>
-                        <Image src={`/images/logo/nemas-white.png`} alt='logo nemas' width={0} height={0} sizes='100%' />
-                    </div>
                     <div className='main-header-menu'>
+                        <Image src={`/images/logo/nemas-white.png`} alt='logo nemas' width={0} height={0} sizes='100%' />
                         <ul>
-                            <li><Link href={`/`}>Tabungan Emas</Link></li>
-                            <li><Link href={`/beli-emas`}>Beli Emas</Link></li>
-                            <li><Link href={`/`}>Investasi</Link></li>
-                            <li><Link href={`/jual-emas`}>Jual Emas</Link></li>
                             <li><Link href={`/`}>Produk Emas Fisik</Link></li>
-                            <li><Link href={`/`}>Tarik Emas</Link></li>
-                            <li><Link href={`/`}>Jaminan Emas</Link></li>
-                            <li><Link href={`/`}>Kirim Emas Ke Member</Link></li>
-                            <li><Link href={`/`}>Tarik Saldo</Link></li>
+                            <li><Link href={`/berita`}>News</Link></li>
+                            <li><Link href={`/`}>Fitur Lainnya</Link></li>
                         </ul>
                     </div>
                     <div className='login-menu'>

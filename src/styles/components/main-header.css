@@ -13,14 +13,14 @@
     }
     .main-header-bottom {
         @apply py-[10px] px-[79px] flex justify-between items-center border-b border-b-neutral-200 z-[10] w-full bg-white rounded-bl-[19px] rounded-br-[19px];
-        img {
-            @apply w-[128px] h-[36px];
-        }
         .burger-menu {
             @apply hidden;
         }
         .main-header-menu {
-            @apply relative flex items-center;
+            @apply relative flex items-center gap-[54px];
+            img {
+                @apply w-[128px] h-[36px];
+            }
             ul {
                 @apply flex items-center text-[12px]/[14.52px] font-semibold gap-[17px];
                 li {

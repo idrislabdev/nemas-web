@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.produk-page {
+    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[70px];
+    .header-section {
+        @apply flex flex-col gap-[38px];
+        h2 {
+            @apply text-[32px]/[22px] font-semibold text-primary;
+        }
+        .filter-area {
+            .ant-input-affix-wrapper {
+                @apply w-[419px];
+                .ant-input-prefix {
+                    span {
+                        @apply text-[#8D989D];
+                        svg {
+                            @apply w-[18px] h-[18px];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .product-section {
+        @apply flex flex-wrap;
+        .card-wrapper {
+            @apply w-1/4 px-[20px] pb-[40px];
+            .card-product {
+                @apply w-full flex flex-col h-[306px] bg-white rounded-[8px];
+                box-shadow: 0px 4px 4px 0px #00000040;
+                .image {
+                    @apply h-[159px] rounded-tl-[8px] rounded-tr-[8px];
+                    img {
+                        @apply w-full h-full object-cover rounded-tl-[8px] rounded-tr-[8px];
+                    }
+                }
+                .description {
+                    @apply flex-1 flex flex-col gap-[10px] p-[12px];
+                    .label {
+                        @apply flex flex-col;
+                        label {
+                            @apply text-[16px]/[22px] font-medium text-[#1F211E];
+                        }
+                        span {
+                            @apply text-[12px]/[22px] text-[#1F211E]
+                        }
+                    }
+                    p {
+                        @apply text-[20px]/[22px] font-semibold text-[#1F211E];
+                    }
+                    button {
+                        @apply flex gap-[4px] justify-center items-center bg-[#F0BF6B] text-[#65502D] text-[10px]/[12px] h-[32px] rounded-[4px];
+                        span {
+                            @apply text-[#65502D];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
