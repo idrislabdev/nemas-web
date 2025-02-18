@@ -14,7 +14,7 @@ const ResetPinToken = () => {
             alert("pin dan konfirmasi pin harus sama")
         } else {
             setLoading(true);
-            axios.post(`https://18.138.179.185:8000/api/users/token/reset-token/${params.token}/`, {
+            axios.post(`https://www.nemas.id/api/users/token/reset-token/${params.token}/`, {
                 new_data: pin,
                 new_data_type: 'PIN'
             }).then(response => {
