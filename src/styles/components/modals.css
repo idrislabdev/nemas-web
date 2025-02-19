@@ -107,4 +107,56 @@
             }
         }
     }
+    &.modal-shipment {
+        @apply !w-[402px];
+        .ant-modal-content {
+            @apply p-0 rounded-[15px];
+            .ant-modal-body {
+                @apply flex flex-col;
+                .content-header {
+                    @apply flex justify-between items-center p-[18px] border-b border-b-[#BCC7D1];
+                    h5 {
+                        @apply text-[16px]/[19px] font-bold text-[#1F211E] text-center flex-1;
+                    }
+                }
+                .content-body {
+                   @apply flex flex-col gap-[12px] px-[24px] py-[17px];
+                    .card-notice {
+                        @apply py-[4px] px-[12px] rounded-[4px] flex items-center gap-[10px] bg-[#C0F9F5];
+                        label {
+                            @apply text-[12px]/[18px] text-[#17494E];
+                            span {
+                                @apply font-bold;
+                            }
+                        }
+                    }
+                    .card-shipment {
+                        @apply flex flex-col gap-[8px] border border-[#E4EEE6] rounded-[8px] p-[12px] cursor-pointer;
+                        .title {
+                            @apply flex items-center justify-between;
+                            label,p {
+                                @apply text-[14px]/[19px] text-[#454545] font-semibold;
+                            }
+                        }
+                        span {
+                            @apply text-[12px]/[18px] text-[#1F211E];
+                        }
+
+                        &:hover, &.active {
+                            @apply bg-[#D2F3F5]
+                        }
+                    }
+                }
+                .content-footer {
+                    @apply px-[24px] py-[12px];
+                    button {
+                        @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
+                        &:disabled {
+                            @apply bg-[#D1D1D1]
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

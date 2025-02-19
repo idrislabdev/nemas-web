@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.checkout-page {
+    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[27px];
+    .header-section {
+        @apply flex flex-col justify-center;
+        h2 {
+            @apply text-[32px]/[22px] text-primary font-semibold;
+        }
+    }
+    .main-section {
+        @apply flex flex-col gap-[24px];
+        .main-container {
+            @apply flex flex-col gap-[18px] pb-[60px] border-b border-b-[#D9D9D9];
+            .payment-type {
+                @apply flex items-center gap-[8px];
+                img {
+                    @apply w-[24px] h-[24px] object-cover;
+                }
+                p {
+                    @apply text-[14px]/[19px] font-semibold text-[#454545];
+                }
+            }
+            p {
+                &.text-notice {
+                    @apply text-[14px]/[18px] text-[#1F211E];
+                }
+            }
+            .text-address {
+                @apply border border-[#E4EEE6] rounded-[8px] flex flex-col gap-[8px] p-[12px] w-[80%];
+                .title {
+                    @apply flex items-center justify-between;
+                    label {
+                        @apply text-[14px]/[19px] font-semibold text-[#454545];
+                    }
+                    a {
+                        @apply text-[12px]/[17px] font-semibold text-primary;
+                    }
+                }
+                input {
+                    @apply outline-none w-full bg-[#E8EDF0] text-[12px]/[18px] text-[#1F211E] px-[8px] py-[10px] h-[39px] rounded-[4px];
+                }
+            }
+            .shipment-type {
+                @apply w-[354px] border border-[#E4EEE6] p-[12px] rounded-[8px] flex flex-col gap-[16px];
+                h5 {
+                    @apply text-[14px]/[19px] font-semibold text-[#454545];
+                }
+                .shipment-info {
+                    @apply flex flex-col gap-[8px];
+                    .shipment-recomendation {
+                        @apply flex items-center gap-[10px] bg-[#C0F9F5] rounded-[4px] py-[4px] px-[12px];
+                        .text-recomendation {
+                            @apply flex flex-col;
+                            label,span {
+                                @apply text-[12px]/[18px] text-[#17494E];
+                            }
+                            span {
+                                @apply font-bold;
+                            }
+                        }
+                    }
+                    a {
+                        @apply cursor-pointer flex items-center justify-between border border-[#BCC7D1] rounded-[8px] p-[12px];
+                        span {
+                            &.text {
+                                @apply flex items-center gap-[16px] text-[14px]/[22px] text-[#1F211E];
+                            }
+                            &.icon {
+                                @apply text-gray-400;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-container {
+            @apply flex flex-col gap-[38px];
+            .summary-info {
+                @apply flex items-center gap-[40px];
+                label {
+                    @apply text-[24px]/[22px] font-medium text-[#1F211E];
+                }
+                p {
+                    @apply text-[24px]/[22px] font-bold text-[#1F211E];
+                }
+            }
+            button {
+                @apply bg-primary w-[354px] h-[51px] rounded-[4px] text-white text-[16px]/[19px] font-semibold;
+            }
+        }
+    }
+}
