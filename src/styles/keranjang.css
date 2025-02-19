@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.keranjang-page {
+    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[70px];
+    .header-section {
+        @apply flex flex-col justify-center;
+        h2 {
+            @apply text-[32px]/[22px] text-primary font-semibold;
+        }
+    }
+    .main-section {
+        @apply flex flex-col gap-[24px];
+        .main-container {
+            @apply flex gap-[45px] w-full border-b-2 border-b-[#D9D9D9] pb-[60px];
+            .carts-area {
+                @apply flex flex-col gap-[24px] w-[60%];
+                .cart {
+                    @apply py-[12px] pl-[12px] pr-[46px] flex items-center gap-[15px] border border-[#E8EDF0] rounded-[8px];
+                    .image-area {
+                        @apply w-[109px];
+                        img {
+                            @apply w-[109px] h-[109px] object-cover rounded-[8px];
+                        }
+                    }
+                    .detail-area {
+                        @apply flex items-center justify-between flex-1;
+                        .description {
+                            @apply flex flex-col;
+                            h5,p {
+                                @apply text-[16px]/[22px] text-[#1F211E] font-medium;
+                            }
+                            span {
+                                @apply text-[14px]/[22px] text-[#1F211E];
+                            }
+                        }
+                        .price {
+                            label {
+                                @apply text-[18px]/[22px] font-semibold text-[#1F211E];
+                            }
+                        }
+                        .count-input {
+                            @apply flex items-center gap-[12px];
+                            button {
+                                @apply w-[24px] h-[24px] rounded-[50%] border flex flex-col justify-center items-center;
+                                &.minus {
+                                    @apply border-[#8D989D] bg-[#E8EDF0] text-[#8D989D];
+                                }
+                                &.plus {
+                                    @apply border-[#AE6F2B] bg-[#FEF9F0] text-[#AE6F2B];
+    
+                                }
+                            }
+                            input {
+                                @apply outline-none text-center w-[20px] text-[16px]/[22px] font-semibold text-[#1F211E];
+                            }
+    
+                        }
+                        .action {
+                            a {
+                                @apply text-[#FF3B30];
+                                svg {
+                                    @apply w-[18px] h-[18px]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .payment-area {
+                @apply w-[40%];
+                .card {
+                    @apply border border-[#E4EEE6] rounded-tr-[8px] rounded-tl-[8px];
+                    .card-title {
+                        @apply flex flex-col justify-center items-center p-[16px] border-b border-b-[#E4EEE6];
+                        h5 {
+                            @apply text-[16px]/[19px] font-bold text-[#1F211E]
+                        }
+                    }
+                    .card-body {
+                        @apply flex flex-col gap-[16px] p-[24px];
+                        h6 {
+                            @apply text-[14px]/[18px] text-[#1F211E]
+                        }
+                        .payment-list {
+                            @apply border border-[#E4EEE6] rounded-[8px] flex flex-col gap-[8px] p-[12px];
+                            .payment-title {
+                                @apply flex items-center gap-[8px];
+                                img {
+                                    @apply w-[24px] h-[24px] object-cover;
+                                }
+                                p {
+                                    @apply text-[14px]/[19px] font-semibold text-[#454545];
+                                }
+                            }
+                            p {
+                                @apply text-[12px]/[18px] text-[#1F211E];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-container {
+            @apply flex flex-col gap-[38px];
+            .summary-info {
+                @apply flex items-center gap-[40px];
+                label {
+                    @apply text-[24px]/[22px] font-medium text-[#1F211E];
+                }
+                p {
+                    @apply text-[24px]/[22px] font-bold text-[#1F211E];
+                }
+            }
+            button {
+                @apply bg-primary w-[354px] h-[51px] rounded-[4px] text-white text-[16px]/[19px] font-semibold;
+            }
+        }
+    }
+}
