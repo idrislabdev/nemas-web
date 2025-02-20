@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fitur-lainnya-page {
+    @apply pt-[120px] bg-white flex flex-col gap-[80px];
+    .header-section {
+        @apply flex flex-col gap-[38px] px-[96px];
+        h2 {
+            @apply text-[32px]/[22px] font-semibold text-primary;
+        }
+    }
+    .main-section {
+        @apply flex flex-col;
+        .main-container {
+            @apply flex-col;
+            .card {
+                @apply flex gap-[95px] items-center px-[96px] py-[45px];
+                img {
+                    @apply w-[247px] h-[247px];
+                }
+                .content {
+                    @apply flex flex-col gap-[24px];
+                    .text-description {
+                        @apply flex flex-col gap-[9px] font-work-sans; 
+                        h5 {
+                            @apply text-[32px]/[22px] font-semibold text-[#17494E];
+                        }
+                        p {
+                            @apply text-[16px]/[38px] text-black;
+                        }
+                    } 
+                    button {
+                        @apply bg-primary text-white rounded-[4px] text-[16px]/[19px] font-medium w-[216px] h-[51px] cursor-pointer;
+                    }
+                }
+
+                &.reverse {
+                    @apply flex-row-reverse bg-[#FEF9F0] rounded-[60px];
+                    .content {
+                        @apply items-end text-right;
+                    }
+                }
+
+            }
+        }
+    }
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[80px] gap-[40px];
+            .header-section {
+                @apply px-[24px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+            }
+            .main-section {
+                .card {
+                    @apply flex-col gap-[30px] px-[8px];
+                    img {
+                        @apply w-[208px] h-[208px];
+                    }
+                    .content {
+                        @apply flex flex-col !items-center !justify-center text-center;
+                        .text-description {
+                            @apply flex flex-col gap-[9px] font-work-sans; 
+                            h5 {
+                                @apply text-[24px]/[22px];
+                            }
+                            p {
+                                @apply text-[14px]/[27px] ;
+                            }
+                        } 
+                    }
+                    &.reverse {
+                        @apply flex-col gap-[30px] px-[8px];
+                        img {
+                            @apply w-[208px] h-[208px];
+                        }
+                        .content {
+                            @apply flex flex-col !items-center !justify-center text-center;
+                            .text-description {
+                                @apply flex flex-col gap-[9px] font-work-sans; 
+                                h5 {
+                                    @apply text-[24px]/[22px];
+                                }
+                                p {
+                                    @apply text-[14px]/[27px] ;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

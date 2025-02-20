@@ -159,4 +159,10 @@
             }
         }
     }
+    &.modal-playstore {
+        @apply !w-[507px];
+        .ant-modal-content {
+            @apply rounded-[30px];
+        }
+    }
 }
