@@ -19,11 +19,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Tabungan Emas</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Nemas memungkinkan pengguna menabung emas secara digital dengan pembelian emas dalam jumlah kecil, 
+                                memantau saldo emas real-time melalui platform yang aman dan praktis.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Menabung Sekarang !</button>
@@ -35,11 +32,9 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Beli Emas</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Nemas memberikan kemudahan pengguna membeli emas secara online , mulai dari nominal kecil, 
+                                serta menyimpan emas tersebut secara digital dengan akses real-time untuk memantau nilai investasi 
+                                secara fleksibel kapan saja.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Beli Sekarang !</button>
@@ -51,11 +46,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Investasi</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Pengguna dapat membeli emas digital dan berbagai produk Nemas lainnya sebagai aset investasi 
+                                jangka panjang & memantau nilai aset secara real-time.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Invest Sekarang !</button>
@@ -67,11 +59,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Jual Emas</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Pengguna dapat menjual emas digital mereka dengan mudah dan cepat, mendapatkan harga sesuai nilai pasar terkini, 
+                                serta menikmati pencairan dana yang praktis dan aman langsung ke rekening
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Transaksi Sekarang !</button>
@@ -83,11 +72,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Tarik Emas</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Pengguna Nemas dapt mengubah saldo emas digital mereka menjadi emas fisik, 
+                                dengan proses pemesanan mudah dan pengiriman emas batangan langsung ke alamat yang diinginkan.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Tarik Sekarang !</button>
@@ -99,11 +85,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Jaminan Emas</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Jaminan emas memberikan perlindungan asuransi untuk simpanan emas digital pengguna, 
+                                memastikan keamanan aset dari risiko kehilangan, kerusakan, atau fluktuasi ekstrem dengan pengelolaan yang transparan dan terpercaya.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Ajukan Sekarang !</button>
@@ -115,11 +98,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Tarik Saldo</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Pengguna dapat mencairkan saldo hasil penjualan emas digital mereka ke 
+                                rekening bank dengan proses yang cepat, mudah, dan aman.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Tarik Sekarang !</button>
@@ -131,11 +111,8 @@ const FiturLainnyaPageWrapper = () => {
                         <div className='text-description'>
                             <h5>Kirim Emas ke Member</h5>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque laudantium, 
-                                totam rem aperiam, eaque ipsa quae ab illo inventore 
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                                Nemo enim ipsam voluptatem quia 
+                                Pengguna dapat mengirimkan saldo emas digital mereka secara instan 
+                                dan aman ke member Nemas lainnya, tanpa perlu proses rumit.
                             </p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)}>Kirim Sekarang !</button>
