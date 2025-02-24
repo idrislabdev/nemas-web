@@ -2,6 +2,7 @@
 
 import { IFaq } from '@/@core/@types/interface';
 import { ChevronRight, HelpCircle } from '@untitled-ui/icons-react';
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const FooterFaq = (props: {faqs:IFaq[]}) => {
@@ -13,7 +14,7 @@ const FooterFaq = (props: {faqs:IFaq[]}) => {
         <div className='top-area faq'>
             <div className='title'>
                 <h5>FAQ</h5>
-                <a className='btn'>Lihat Semua</a>
+                <Link href={`/faq`} className='btn'>Lihat Semua</Link>
             </div>
             <div className="faq-accordion-white">
                 <ul>

@@ -42,7 +42,7 @@ const MainHeader = () => {
                 </div>
                 <div className='main-header-bottom'>
                     <div className='main-header-menu'>
-                        <Image src={`/images/logo/nemas-white.png`} alt='logo nemas' width={0} height={0} sizes='100%' />
+                        <Link href={`/`}><Image src={`/images/logo/nemas-white.png`} alt='logo nemas' width={0} height={0} sizes='100%' /></Link>
                         <ul>
                             <li><Link href={`/produk`}>Produk Emas Fisik</Link></li>
                             <li><Link href={`/berita`}>News</Link></li>

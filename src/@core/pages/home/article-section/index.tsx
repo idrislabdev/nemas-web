@@ -3,6 +3,7 @@ import moment from 'moment';
 import Image from 'next/image'
 import React from 'react'
 import 'moment/locale/id';
+import Link from 'next/link';
 moment.locale('id')
 const HomeArticleSection = (props: {articles:IArticle[]}) => {
     const { articles } = props;
@@ -13,7 +14,7 @@ const HomeArticleSection = (props: {articles:IArticle[]}) => {
                     <h2>Artikel Terupdate</h2>
                     <p>Dapatkan berita, promosi, dan informasi terbaru mengenai investasi emas bersama NEMAS</p>
                 </div>
-                <a>Lihat Semua</a>
+                <Link href={`/berita`}>Lihat Semua</Link>
             </div>
             <div className='article-container'>
                 {articles.map((item:IArticle, index:number) => (
