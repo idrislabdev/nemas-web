@@ -81,15 +81,17 @@ const RegisterPageWrapper = () => {
                             </div>
                             <div className='form-group'>
                                 <label>Tujuan Investasi</label>
-                                <select>
+                                <input placeholder='Masukkan Tujuan Investasi' />
+                                {/* <select>
                                     <option value='test'>Test</option>
-                                </select>
+                                </select> */}
                             </div>
                             <div className='form-group'>
                                 <label>Sumber Dana</label>
-                                <select>
+                                <input placeholder='Masukkan Sumber Dana' />
+                                {/* <select>
                                     <option value='test'>Test</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
                     </div>
