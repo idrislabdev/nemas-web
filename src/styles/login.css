@@ -59,8 +59,8 @@
                         }
 
                     }
-                    button {
-                        @apply bg-[#F0BF6B] w-[310px] h-[51px] rounded-[4px] text-white text-[16px]/[19.36px] font-medium;
+                    a {
+                        @apply bg-[#F0BF6B] w-[310px] h-[51px] rounded-[4px] text-white text-[16px]/[19.36px] font-medium flex flex-col justify-center items-center;
                     }
                 }
             }
@@ -121,7 +121,7 @@
                             h5 {
                                 @apply text-[24px]/[26px];
                             }
-                            button {
+                            a {
                                 @apply w-full;
                             }
                         }

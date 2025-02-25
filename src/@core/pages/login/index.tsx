@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { setCookie } from "cookies-next";
 import Link from 'next/link';
+import { Eye, EyeOff } from '@untitled-ui/icons-react';
 
 const LoginPageWrapper = () => {
 
@@ -13,6 +14,7 @@ const LoginPageWrapper = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState('');
+    const [isPassword, setIsPassword] = useState(true);
 
     const onLogin = async () => {
       setError('');
@@ -72,7 +74,21 @@ const LoginPageWrapper = () => {
                   </div>
                   <div className='form-group'>
                     <label>Password</label>
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Masukkan Password'/>
+                    <div className='relative'>
+                      <input 
+                        className='w-full'
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        type={isPassword ? 'password' : 'text'} 
+                        placeholder='Masukkan Password'
+                      />
+                      <a onClick={() => setIsPassword(!isPassword)} className='absolute right-[10px] top-[10px] cursor-pointer'>
+                        <span className='my-icon icon-sm text-neutral-700'>
+                          {isPassword && <Eye />}
+                          {!isPassword && <EyeOff />}
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -92,11 +108,11 @@ const LoginPageWrapper = () => {
               </div>
               <div className='footer-info'>
                 <h5>Ayo berinvestasi emas bersama <span>Nemas</span></h5>
-                <button>Daftar</button>
+                <Link href={`/register`}>Daftar</Link>
               </div>
             </div>
           </div>
-          <Link href={`/register`}>Kembali ke Halaman Utama</Link>
+          <Link href={`/`}>Kembali ke Halaman Utama</Link>
         </div>
       </main>
   )
