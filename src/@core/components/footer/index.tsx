@@ -6,11 +6,12 @@ import { getFaqs } from '@/@core/services/api'
 import { IFaq } from '@/@core/@types/interface'
 import FooterMenu from './menu'
 import Link from 'next/link'
+import moment from 'moment'
 
 const Footer = async () => {
     const respFaq = await getFaqs(0, 5)
     const faqs:IFaq[] = respFaq.data.results
-    
+    const year = moment().format("YYYY")
     return (
         <>
             <div className='footer sm:mobile-responsive'>
@@ -39,7 +40,7 @@ const Footer = async () => {
 
                         </div>
                         <div className='footer-bottom'>
-                            <h6>Copyright 2024. NEMAS. All rights reserved. Designed by Foremost</h6>
+                            <h6>Copyright {year}. NEMAS. All rights reserved.</h6>
                         </div>
                 </div>
             </div>
