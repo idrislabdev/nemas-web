@@ -1,12 +1,20 @@
 "use client"
 
+import { IGoldPrice } from '@/@core/@types/interface'
 import ChartSpline from '@/@core/components/charts/spline'
+import axiosInstance from '@/@core/utils/axios'
+import { formatterNumber } from '@/@core/utils/general'
 import React, { useEffect, useState } from 'react'
 
 const HomeChartSection = () => {
     const [buySell, setBuySell] = useState("buy")
+    const [dataGold, setDataGold] = useState<IGoldPrice>({} as IGoldPrice)
     useEffect(() => {
-        console.log(buySell)
+        axiosInstance.get(`/core/gold/price/active`)
+        .then((response) => {
+            const data = response.data
+            setDataGold(data)
+        })
     }, [buySell])
     return (
         <div className='home-chart-section'>
@@ -35,7 +43,8 @@ const HomeChartSection = () => {
                     </div>
                 </div>
                 <div className='price-info'>
-                    <p>Rp 1.351.840 <span>/ gram</span></p>
+                    {buySell == 'buy' &&  <p>Rp {formatterNumber(dataGold.gold_price_buy ? dataGold.gold_price_buy : 0)} <span>/ gram</span></p> }
+                    {buySell == 'sell' &&  <p>Rp {formatterNumber(dataGold.gold_price_sell ? dataGold.gold_price_sell : 0)} <span>/ gram</span></p> }
                 </div>
             </div>
             <div className='chart-container'>

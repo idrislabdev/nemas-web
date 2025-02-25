@@ -61,3 +61,12 @@ export interface IUserCreate {
     phone_number?:string,
     user_name?:string
 }
+
+export interface IGoldPrice {
+    gold_price_id?: number,
+    gold_price_source?: string,
+    gold_price_weight?: number,
+    gold_price_base?: number,
+    gold_price_sell?: number,
+    gold_price_buy?: number
+}
