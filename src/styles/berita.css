@@ -37,6 +37,32 @@
             @apply w-1/3 px-[15px] pb-[30px];
         }
     }
+    .slug-section {
+        @apply pt-[90px] px-[135px] flex flex-col gap-[48px];
+        .header-container {
+            @apply flex flex-col gap-[37px];
+            .title {
+                @apply flex flex-col;
+                p {
+                    @apply text-[12px]/[22px] text-black font-bold;
+                }
+                h2 {
+                    @apply text-[32px]/[40px] text-black font-semibold;
+                }
+                label {
+                    @apply text-[12px]/[22px] text-black font-bold;
+                }
+            }
+            img {
+                @apply w-full h-[440px] rounded-[16px] object-cover;
+            }
+        }
+        .body-container {
+            p {
+                @apply text-[16px]/[38px] font-work-sans text-justify;
+            }
+        }
+    }
     @layer components {
         &.mobile-responsive {
             .header-section {

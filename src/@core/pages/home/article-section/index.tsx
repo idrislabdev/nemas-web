@@ -18,7 +18,7 @@ const HomeArticleSection = (props: {articles:IArticle[]}) => {
             </div>
             <div className='article-container'>
                 {articles.map((item:IArticle, index:number) => (
-                    <div className='article-card' key={index}>
+                    <Link href={`/berita/${item.information_article_id}`} className='article-card' key={index}>
                         <div className='box-image'>
                             <Image src={item.article_background} alt='image1' width={0} height={0} sizes='100%' />
                         </div>
@@ -26,7 +26,7 @@ const HomeArticleSection = (props: {articles:IArticle[]}) => {
                             <h5>{item.information_article_name}</h5>
                             <p>News  |  {moment(item.article_publish_date).format("DD MMM YYYY")}</p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
