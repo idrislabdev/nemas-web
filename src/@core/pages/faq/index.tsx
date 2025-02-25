@@ -1,7 +1,12 @@
 import React from 'react'
 import FaqAccordion from './faq-accordion'
+import { getFaqs } from '@/@core/services/api'
+import { IFaq } from '@/@core/@types/interface'
 
-const FaqPageWrapper = () => {
+const FaqPageWrapper = async () => {
+  const resp = await getFaqs(0,100)
+  const faqs:IFaq[] = resp.data.results
+  const val = Math.round(faqs.length / 2)
   return (
     <main className='faq-page sm:mobile-responsive'>
         <div className='main-section'>
@@ -11,18 +16,14 @@ const FaqPageWrapper = () => {
             </div>
             <div className='faq-container'>
               <div className='faq-wrapper'>
-                <FaqAccordion />
-                <FaqAccordion />
-                <FaqAccordion />
-                <FaqAccordion />
-                <FaqAccordion />
+                {faqs.slice(0, val).map((item, index:number) => (
+                  <FaqAccordion item={item} key={`a${index}`}/>
+                ))}
               </div>
               <div className='faq-wrapper'>
-                <FaqAccordion />
-                <FaqAccordion />
-                <FaqAccordion />
-                <FaqAccordion />
-                <FaqAccordion />
+                {faqs.slice(val, faqs.length).map((item, index:number) => (
+                  <FaqAccordion item={item} key={`b${index}`}/>
+                ))}
               </div>
             </div>
         </div>
