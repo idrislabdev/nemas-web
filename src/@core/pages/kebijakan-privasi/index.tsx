@@ -9,13 +9,13 @@ const KebijakanPrivasiPageWrapper = () => {
         <div className='main-section'>
             <div className='content-container'>
                 <p>
-                    Guna melindungi dan mengatur informasi pribadi yang Anda berikan sebagai pelanggan dan pengguna situs nemas.id telah menetapkan "Kebijakan Privasi".
+                    Guna melindungi dan mengatur informasi pribadi yang Anda berikan sebagai pelanggan dan pengguna situs nemas.id telah menetapkan `Kebijakan Privasi`.
                 </p>
                 <p>
                     Persetujuan atas penggunaan, pengumpulan, dan penyingkapan informasi pribadi
                 </p>
                 <p>
-                    Penggunaan Anda atas situs nemas.id dan/atau pendaftaran Anda atas produk dan jasa nemas.id merupakan persetujuan Anda pada ketentuan "Kebijakan Privasi" ini.
+                    Penggunaan Anda atas situs nemas.id dan/atau pendaftaran Anda atas produk dan jasa nemas.id merupakan persetujuan Anda pada ketentuan `Kebijakan Privasi` ini.
                 </p>
                 <p>
                     nemas.id dapat memperbarui `Kebijakan Privasi` ini pada saat dibutuhkan dan ada/tidaknya pemberitahuan terlebih dahulu kepada Anda. Jika terdapat pembaruan, nemas.id akan menandainya dengan memperbarui tanggal pada halaman atas `Kebijakan Privasi`.
