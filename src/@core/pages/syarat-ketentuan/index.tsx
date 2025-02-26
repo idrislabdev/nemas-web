@@ -17,7 +17,7 @@ const SyaratKetentuanPageWrapper = () => {
 
     return (
         <main className='syarat-ketentuan-page sm:mobile-responsive'>
-            <div className='heaer-container'>
+            <div className='header-container'>
                 <h2>Syarat Dan Ketentuan</h2>
             </div>
             <div className='main-container'>

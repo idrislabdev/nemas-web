@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.kebijakan-privasi-page {
+    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[30px];
+    .header-section {
+        h2 {
+            @apply text-[32px]/[22px] text-primary font-semibold;
+        }
+    }
+    .main-section {
+        @apply flex flex-col gap-[20px];
+        .content-container {
+            @apply flex flex-col gap-[8px];
+            h5 {
+                @apply text-lg font-semibold text-black;
+            }
+            p {
+                @apply text-sm text-neutral-700 text-justify;
+            }
+            ul {
+                @apply flex flex-col;
+                li {
+                    @apply text-sm text-neutral-700 flex gap-[6px];
+                    span {
+                        @apply w-[10px];
+                    }
+                }
+            }
+        }
+    }
+}

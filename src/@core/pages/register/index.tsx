@@ -138,7 +138,7 @@ const RegisterPageWrapper = () => {
                             <p className='text-[14px]/[22px] text-[#1F211E]'>
                                 Dengan mendaftar, saya setuju dengan 
                                 <Link href={`/syarat-ketentuan`} className='!text-[14px]/[22px] !text-[#39BFB6]'> Syarat dan Ketentuan</Link>, serta 
-                                <Link href={`/`} className='!text-[14px]/[22px] !text-[#39BFB6]'> Kebijakan Privasi</Link> yang telah ditetapkan oleh Nemas
+                                <Link href={`/kebijakan-privasi`} className='!text-[14px]/[22px] !text-[#39BFB6]'> Kebijakan Privasi</Link> yang telah ditetapkan oleh Nemas
                             </p>
                         </div>
                         <button onClick={() => onSave()} disabled={password != confirmPassword}>Daftar Sekarang</button>
