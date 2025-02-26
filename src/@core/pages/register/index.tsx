@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { AxiosError } from 'axios';
 import { IUserCreate } from '@/@core/@types/interface';
+import Link from 'next/link';
 
 const RegisterPageWrapper = () => {
     const router = useRouter();
@@ -136,8 +137,8 @@ const RegisterPageWrapper = () => {
                             </div>
                             <p className='text-[14px]/[22px] text-[#1F211E]'>
                                 Dengan mendaftar, saya setuju dengan 
-                                <span className='text-[#39BFB6]'> Syarat dan Ketentuan</span>, serta 
-                                <span className='text-[#39BFB6]'> Kebijakan Privasi</span> yang telah ditetapkan oleh Nemas
+                                <Link href={`/syarat-ketentuan`} className='!text-[14px]/[22px] !text-[#39BFB6]'> Syarat dan Ketentuan</Link>, serta 
+                                <Link href={`/`} className='!text-[14px]/[22px] !text-[#39BFB6]'> Kebijakan Privasi</Link> yang telah ditetapkan oleh Nemas
                             </p>
                         </div>
                         <button onClick={() => onSave()} disabled={password != confirmPassword}>Daftar Sekarang</button>

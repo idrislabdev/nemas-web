@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.syarat-ketentuan-page {
+    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[30px];
+    h2 {
+        @apply text-[32px]/[22px] text-primary font-semibold;
+    }
+}
