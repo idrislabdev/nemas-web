@@ -117,59 +117,63 @@
             }
         }
         .login-menu {
-            @apply flex items-center justify-center gap-[20px] w-[200px];
+            @apply flex items-center justify-end gap-[20px] w-[200px];
             .login-area {
-                @apply flex gap-[16px];
+                @apply flex items-center gap-[16px];
                 label {
-                    @apply w-[40px] h-[40px] rounded-[50%] bg-[#39BFB6] flex flex-col justify-center items-center;
+                    @apply w-[30px] h-[30px] rounded-[50%] bg-[#39BFB6] flex flex-col justify-center items-center;
                     span {
                         @apply text-white;
+                        svg {
+                            @apply w-[18px] h-[18px];
+                        }
                     }
                 }
     
                 .login-non-member {
-                    @apply flex flex-col gap-[7px];
+                    @apply flex gap-[7px] border-l border-l-gray-200 pl-[20px];
                     a {
                         &.login-button {
-                            @apply bg-[#39BFB6] text-white w-[110px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px] flex flex-col justify-center items-center;
+                            @apply flex items-center gap-[8px] bg-[#39BFB6] w-[100px] text-white h-[30px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px]  justify-center;
                         }
                         &.register-button {
-                            @apply text-[9px]/[11px] text-[#F0BF6B] text-center underline;
-                            span {
-                                @apply font-bold;
-                            }
+                            @apply bg-white text-[#39BFB6] border border-primary h-[30px] w-[70px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px] flex flex-col justify-center items-center;
+
                         }
                     }
                 }
                 .login-member {
-                    @apply flex flex-col justify-center items-center relative cursor-pointer select-none;
+                    @apply flex gap-[10px] justify-center items-center relative cursor-pointer select-none pl-[20px] border-l border-l-gray-200;
                     .login-icon {
-                        @apply flex items-end cursor-pointer;
+                        @apply flex items-center cursor-pointer gap-[8px];
                         span {
+                            &.user-icon {
+                                @apply w-[30px] h-[30px] bg-primary rounded-[50%] flex flex-col justify-center items-center text-white;
+                            }
+                        }
+ 
+                    }
+                    .login-text {
+                        @apply flex items-center w-[100px] gap-[8px];
+                        p {
+                            @apply text-[12px]/[22px] font-semibold text-[#17494E] truncate w-[70px];
+                        }
+                       span {
                             &.chevron-icon {
                                 svg {
-                                    @apply w-[13px] h-[13px];
+                                    @apply w-[18px] h-[18px];
                                 }
                             }
                         }
                     }
-                    .login-text {
-                        @apply flex flex-col justify-center items-center;
-                        p {
-                            @apply text-[12px]/[22px] font-semibold text-[#17494E];
-                        }
-                        span {
-                            @apply text-[11px]/[13.31px] font-semibold text-[#AE6F2B];
-                        }
-                    }
                     .user-dropdown {
-                        @apply bg-white rounded-[8px] flex flex-col p-[20px] absolute top-[65px] w-[144px] gap-[34px] transition-all duration-300 scale-0 origin-top;
+                        @apply bg-white rounded-[8px] flex flex-col p-[20px] absolute top-[35px] w-[144px] gap-[18px] transition-all duration-300 scale-0 origin-top;
                         box-shadow: 0px 0px 21.9px 3px #00000026;
                         ul {
-                            @apply flex flex-col gap-[16px];
+                            @apply flex flex-col gap-[8px];
                             li {
                                 a {
-                                    @apply flex items-center gap-[8px] text-[8px]/[9.68px] text-[#374957] font-medium;
+                                    @apply flex items-center gap-[8px] text-sm text-[#374957] font-medium;
                                     svg {
                                         @apply w-[18px]
                                     }
@@ -197,7 +201,9 @@
                 }
             }
             .main-header-menu {
-                @apply hidden;
+                ul {
+                    @apply hidden;
+                }
             }
             .main-header-bottom {
                 @apply px-[20px] h-[50px] bg-white; 
@@ -205,8 +211,8 @@
                     @apply block;
                 }
                 .login-area {
-                    @apply flex gap-[10px] relative;
-                    label {
+                    @apply hidden;
+                    /* label {
                         @apply w-[28px] h-[28px] right-[70px];
                         span {
                             @apply text-white;
@@ -226,7 +232,7 @@
                                @apply hidden;
                             }
                         }
-                    }
+                    } */
                 }
             }
         }

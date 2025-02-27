@@ -3,7 +3,7 @@
 
 import { IUserLogin } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
-import { ChevronDown, Mail01 } from '@untitled-ui/icons-react'
+import { Bell01, ChevronDown, LogIn01, Mail01, Receipt, User01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
@@ -64,25 +64,27 @@ const LoginArea = () => {
         <label><span><Mail01 /></span></label>
         {!globals.userLogin.name &&
           <div className='login-non-member'>
-            <Link href={`/login`} className='login-button'>Log In</Link>
-            <Link href={`/register`} className='register-button'>atau <span>Daftar</span> disini</Link>
+            <Link href={`/login`} className='login-button'>
+              <span className='my-icon icon-sm'><LogIn01 /></span>
+              Log In
+            </Link>
+            <Link href={`/register`} className='register-button'>Daftar</Link>
           </div>
         }
         {globals.userLogin.name &&
           <div className='login-member' onClick={() => setShowMenu(!showMenu)}>
             <div className='login-icon'>
-              <span className='user-icon'><UserLoginIcon /></span>
-              <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>
+              <span className='user-icon'><User01 /></span>
             </div>
             <div className='login-text'>
-              <p>Hi, {globals.userLogin.name}</p>
-              <span>Gold Member</span>
+              <p>{globals.userLogin.name}</p>
+              <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>
             </div>
             <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>
               <ul>
                 <li><a><UserLoginIcon />Akun Saya</a></li>
-                <li><a><UserLoginIcon />Transakasi</a></li>
-                <li><a><UserLoginIcon />Notifikasi</a></li>
+                <li><a><Receipt />Transakasi</a></li>
+                <li><a><Bell01 />Notifikasi</a></li>
               </ul>
               <button onClick={() => logOut()}>Log Out</button>
             </div>
