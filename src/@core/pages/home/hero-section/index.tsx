@@ -18,31 +18,19 @@ const HomeHeroSection = () => {
                 }}
                 modules={[Pagination]}
             >
-                <SwiperSlide>
-                    <div className='text-container'>
-                        <h5>Investasi <span>EMAS</span> Tanpa Batas Dengan <span>NEMAS</span></h5>
-                        <button>Beli Emas Sekarang!</button>
-                    </div>
+                <SwiperSlide>     
                     <div className='img-container'> 
-                        <Image src={`/images/swipers/mobile-coin.png`} alt='image1' width={0} height={0} sizes='100%' />
+                        <Image src={`/images/swipers/hero-big.png`} alt='image1' width={0} height={0} sizes='100%' />
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className='text-container'>
-                        <h5>Investasi <span>EMAS</span> Tanpa Batas Dengan <span>NEMAS</span></h5>
-                        <button>Beli Emas Sekarang!</button>
-                    </div>
+                <SwiperSlide>     
                     <div className='img-container'> 
-                        <Image src={`/images/swipers/mobile-coin.png`} alt='image1' width={0} height={0} sizes='100%' />
+                        <Image src={`/images/swipers/hero-big.png`} alt='image1' width={0} height={0} sizes='100%' />
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className='text-container'>
-                        <h5>Investasi <span>EMAS</span> Tanpa Batas Dengan <span>NEMAS</span></h5>
-                        <button>Beli Emas Sekarang!</button>
-                    </div>
+                <SwiperSlide>     
                     <div className='img-container'> 
-                        <Image src={`/images/swipers/mobile-coin.png`} alt='image1' width={0} height={0} sizes='100%' />
+                        <Image src={`/images/swipers/hero-big.png`} alt='image1' width={0} height={0} sizes='100%' />
                     </div>
                 </SwiperSlide>
             </Swiper>
