@@ -3,7 +3,7 @@
 
 import { IUserLogin, IUserProp } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
-import { Bell01, ChevronDown, LogIn01, Mail01, Receipt, ShoppingCart01 } from '@untitled-ui/icons-react'
+import {  ChevronDown, LogIn01, Mail01, ShoppingCart01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
