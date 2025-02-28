@@ -29,3 +29,13 @@ export const getTestimonies = async (offset:number, limit:number) => {
     const resp = await axiosInstance.get(`/core/information/rating/${strLimit}`)
     return resp
 }
+
+
+export const getBanners = async (offset:number, limit:number) => {
+    let strLimit = ""
+    if (limit) 
+        strLimit = `?offset=${offset}&limit=${limit}`
+    const resp = await axiosInstance.get(`/core/information/promo/show/${strLimit}`)
+    return resp
+}
+

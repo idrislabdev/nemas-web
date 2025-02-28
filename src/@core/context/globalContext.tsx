@@ -1,12 +1,15 @@
 import { createContext, useState, ReactNode } from 'react'
-import { IUserLogin } from '../@types/interface'
+import { IUserLogin, IUserProp } from '../@types/interface'
 
 export type Globals = {
     userLogin: IUserLogin,
+    userProp: IUserProp,
+
 }
 
 export type SpecificGlobals = {
     userLogin: IUserLogin,
+    userProp: IUserProp
 }
 
 export type GlobalsContextValue = {
@@ -21,6 +24,7 @@ interface GlobalsProviderProps {
 
 const initialGlobals: Globals = {
     userLogin: {} as IUserLogin,
+    userProp: {} as IUserProp,
 }
 
 export const GlobalsContext = createContext<GlobalsContextValue>({

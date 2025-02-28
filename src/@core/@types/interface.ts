@@ -25,6 +25,26 @@ export interface IUserLogin {
     user_name:string
 }
 
+export interface IUserProp {
+    user_id: string,
+    name: string,
+    wallet_amt: string,
+    gold_wgt: string,
+    invest_gold_wgt: string,
+    loan_wgt: string,
+    loan_amt: string,
+    photo: string,
+    bank_account_code: string,
+    bank_account_number: number,
+    bank_account_holder_name: string,
+    level: string,
+    level_id: string,
+    address: string,
+    address_post_code: string,
+    create_time: string,
+    create_user: string
+}
+
 export interface IFaq {
     information_educational_id: number,
     information_name?: string,
@@ -69,4 +89,24 @@ export interface IGoldPrice {
     gold_price_base?: number,
     gold_price_sell?: number,
     gold_price_buy?: number
+}
+
+export interface IPromo {
+    promo_id?: number,
+    promo_code?: string,
+    leveling_user?: string,
+    promo_name?: string,
+    promo_url?: string,
+    promo_start_date?: Date,
+    promo_end_date?: Date,
+    promo_tag?: string,
+    promo_url_background?: string,
+    promo_diskon?: number,
+    promo_cashback?: number,
+    promo_cashback_tipe_user?: string,
+    merchant_cashback?: string,
+    createtime?: Date,
+    createuser?: string,
+    updtime?: Date,
+    upduser?: string
 }

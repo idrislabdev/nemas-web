@@ -39,26 +39,56 @@
             &.gold-navigation {
                 @apply flex items-center gap-[24px] font-work-sans text-[24px]/[22px] font-semibold;
                 li {
-                    @apply border border-primary px-[12px] py-[13px] rounded-[45px] text-primary;
+                    @apply border border-primary px-[12px] py-[13px] rounded-[45px] text-primary cursor-pointer;
                     &.active {
                         @apply bg-primary text-white;
                     }
                 }
             }
         }
-        .gold-info {
-            @apply p-[12px] flex items-center justify-center gap-[82px] border border-[#BCC7D1] rounded-[16px] bg-[#F7F7F7] w-[483px];
-            .info-area {
-                @apply flex flex-col;
-                label {
-                    @apply text-[12px]/[22px];
+        .gold-area {
+            @apply flex items-center gap-[20px];
+            .gold-saving {
+                @apply flex items-center w-[450px] bg-[#FAEBD1] rounded-[16px] p-[16px] justify-between;
+                .info-saving {
+                    @apply flex flex-col gap-[12px];
+                    h5 {
+                        @apply text-[14px]/[22px] text-black;
+                    }
+                    .detail-saving {
+                        @apply flex items-center gap-[8px];
+                        .hidden-saving {
+                            @apply flex items-center gap-[2px];
+                            svg {
+                                @apply w-[16px] h-[16px];
+                            }
+                        }
+                        p {
+                            @apply text-[24px]/[22px] font-bold text-black;
+                        }
+                        a {
+                            @apply cursor-pointer; 
+                            svg {
+                                @apply w-[18px] h-[18px];
+                            }
+                        }
+                    }
                 }
-                p {
-                    @apply flex items-center text-[16px]/[19px] font-bold gap-[6px];
-                    span {
-                        @apply flex items-center text-[#34C759] text-[12px]/[22px];
-                        svg {
-                            @apply w-[14px] h-[14px]
+            }
+            .gold-info {
+                @apply p-[12px] flex items-center justify-center gap-[82px] border border-[#BCC7D1] rounded-[16px] bg-[#F7F7F7] w-[483px];
+                .info-area {
+                    @apply flex flex-col;
+                    label {
+                        @apply text-[12px]/[22px];
+                    }
+                    p {
+                        @apply flex items-center text-[16px]/[19px] font-bold gap-[6px];
+                        span {
+                            @apply flex items-center text-[#34C759] text-[12px]/[22px];
+                            svg {
+                                @apply w-[14px] h-[14px]
+                            }
                         }
                     }
                 }
@@ -246,24 +276,31 @@
                         }
                     }
                 }
-                .gold-info {
-                    @apply w-full;
-                    .info-area {
-                        @apply flex flex-col;
-                        label {
-                            @apply text-[12px]/[22px] text-[#595959];
-                        }
-                        p {
-                            @apply flex items-center text-[16px]/[19px] font-bold gap-[6px] text-black;
-                            span {
-                                @apply flex items-center text-[#34C759] text-[12px]/[22px];
-                                svg {
-                                    @apply w-[14px] h-[14px]
+                .gold-area {
+                    @apply flex-col;
+                    .gold-saving {
+                        @apply w-full;
+                    }
+                    .gold-info {
+                        @apply w-full;
+                        .info-area {
+                            @apply flex flex-col;
+                            label {
+                                @apply text-[12px]/[22px] text-[#595959];
+                            }
+                            p {
+                                @apply flex items-center text-[16px]/[19px] font-bold gap-[6px] text-black;
+                                span {
+                                    @apply flex items-center text-[#34C759] text-[12px]/[22px];
+                                    svg {
+                                        @apply w-[14px] h-[14px]
+                                    }
                                 }
                             }
                         }
                     }
                 }
+               
             }
             .home-chart-section {
                 @apply py-[20px] flex flex-col px-[15px] gap-[24px];

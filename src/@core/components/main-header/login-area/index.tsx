@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { IUserLogin } from '@/@core/@types/interface'
+import { IUserLogin, IUserProp } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
 import { Bell01, ChevronDown, LogIn01, Mail01, Receipt, User01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
@@ -23,7 +23,8 @@ const LoginArea = () => {
   useEffect(() => {
       if (!stateDone) {
           const user:IUserLogin = JSON.parse(localStorage.getItem("user") || "{}")
-          saveGlobals({...globals, userLogin:user})
+          const userProp:IUserProp = JSON.parse(localStorage.getItem("user_prop") || "{}")
+          saveGlobals({...globals, userLogin:user, userProp:userProp})
           setStateDone(true)
       }
   },[globals, saveGlobals, stateDone, setStateDone])
@@ -50,11 +51,17 @@ const LoginArea = () => {
     if (token) {
         axiosInstance.get(`/users/me/`)
         .then((response) => {
-            const data = response.data
-            localStorage.setItem("user", JSON.stringify(data))
+            const datUser = response.data
+            axiosInstance.get(`/users/user/prop/`)
+            .then((response) => {
+                const dataProp = response.data
+                localStorage.setItem("user", JSON.stringify(datUser))
+                localStorage.setItem("user_prop", JSON.stringify(dataProp))
+            });
         })
         .catch(() => {
           localStorage.clear();
+          saveGlobals({...globals, userLogin:{} as IUserLogin})
         });
     }
   })

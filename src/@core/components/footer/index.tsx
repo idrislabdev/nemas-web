@@ -28,11 +28,9 @@ const Footer = async () => {
                                 </div>
                                 <div className='contact-area'>
                                     <h5>Kontak</h5>
-                                    <div className='contact-box'>
-                                        <span><Phone /></span> <span>+6281234567890</span>
-                                    </div>
-                                    <div className='contact-box'>
-                                        <span><AtSign /></span> <span>email@Nemas.com</span>
+                                    <div className='sub-contact-area'>
+                                        <a><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
+                                        <a><span className='my-icon'><AtSign /></span> <span>email@Nemas.com</span></a>
                                     </div>
                                 </div>
                             </div>
