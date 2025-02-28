@@ -3,11 +3,12 @@
 
 import { IUserLogin, IUserProp } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
-import { Bell01, ChevronDown, LogIn01, Mail01, Receipt, User01 } from '@untitled-ui/icons-react'
+import { Bell01, ChevronDown, LogIn01, Mail01, Receipt } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
 import axiosInstance from '@/@core/utils/axios';
+import Image from 'next/image';
 
 const LoginArea = () => {
   const { globals, saveGlobals } = useGlobals()
@@ -80,13 +81,18 @@ const LoginArea = () => {
         }
         {globals.userLogin.name &&
           <div className='login-member' onClick={() => setShowMenu(!showMenu)}>
-            <div className='login-icon'>
-              <span className='user-icon'><User01 /></span>
-            </div>
-            <div className='login-text'>
+            <Image 
+                src={`/images/default-avatar.jpg`} 
+                alt='logo nemas' 
+                width={0} 
+                height={0} 
+                sizes='100%' 
+            />
+            <div className='member-info'>
               <p>{globals.userLogin.name}</p>
-              <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>
+              <span>Gold Member</span>
             </div>
+            <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>
             <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>
               <ul>
                 <li><a><UserLoginIcon />Akun Saya</a></li>

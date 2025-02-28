@@ -117,7 +117,7 @@
             }
         }
         .login-menu {
-            @apply flex items-center justify-end gap-[20px] w-[200px];
+            @apply flex items-center justify-end gap-[20px];
             .login-area {
                 @apply flex items-center gap-[16px];
                 label {
@@ -143,31 +143,28 @@
                     }
                 }
                 .login-member {
-                    @apply flex gap-[10px] justify-center items-center relative cursor-pointer select-none pl-[20px] border-l border-l-gray-200;
-                    .login-icon {
-                        @apply flex items-center cursor-pointer gap-[8px];
-                        span {
-                            &.user-icon {
-                                @apply w-[30px] h-[30px] bg-primary rounded-[50%] flex flex-col justify-center items-center text-white;
-                            }
-                        }
- 
+                    @apply flex gap-[8px] justify-center items-center relative cursor-pointer select-none pl-[20px] border-l border-l-gray-200;
+                    img {
+                        @apply w-[40px] h-[40px] rounded-[50%] object-contain;
                     }
-                    .login-text {
-                        @apply flex items-center w-[100px] gap-[8px];
+                    .member-info {
+                        @apply flex flex-col;
                         p {
-                            @apply text-[12px]/[22px] font-semibold text-[#17494E] truncate w-[70px];
+                            @apply text-sm font-medium text-neutral-700;
                         }
-                       span {
-                            &.chevron-icon {
-                                svg {
-                                    @apply w-[18px] h-[18px];
-                                }
+                        span {
+                            @apply text-xs;
+                        }
+                    }
+                    span {
+                        &.chevron-icon {
+                            svg {
+                                @apply w-[18px] h-[18px];
                             }
                         }
                     }
                     .user-dropdown {
-                        @apply bg-white rounded-[8px] flex flex-col p-[20px] absolute top-[35px] w-[144px] gap-[18px] transition-all duration-300 scale-0 origin-top;
+                        @apply bg-white rounded-[8px] flex flex-col p-[20px] absolute top-[45px] w-[144px] gap-[18px] transition-all duration-300 scale-0 origin-top;
                         box-shadow: 0px 0px 21.9px 3px #00000026;
                         ul {
                             @apply flex flex-col gap-[8px];
@@ -249,7 +246,7 @@
         @apply mr-[0px];
     }
     .sidebar-menu-top {
-        @apply flex flex-col gap-[29px];
+        @apply flex flex-col gap-[20px];
         .sidebar-header {
             @apply flex justify-end items-center bg-primary px-[20px] py-[15px] rounded-bl-[19px] rounded-br-[19px];
             .sidebar-header-logo {
@@ -262,21 +259,56 @@
             }
         }
         .sidebar-list {
-            @apply overflow-y-auto px-[20px] py-[15px];
+            @apply overflow-y-auto px-[20px] pb-[20px] border-b-[8px] border-b-gray-100;
             ul {
                 @apply text-black flex flex-col gap-[20px];
                 li {
-                    @apply text-[12px]/[14.52px] border-b border-b-black pb-[14px];
-                    /* ul {
-                        &.sidebar-submenu {
-                            @apply p-[5px] gap-[0px] transition-all duration-500;
-                            li {
-                                @apply text-[12px]/[18px] font-normal;
-
+                    @apply text-sm font-medium;
+                    a {
+                        @apply flex items-center gap-[8px];
+                        span {
+                            svg {
+                                @apply w-[18px] h-[18px];
                             }
                         }
-                    } */
+                    }
                 }
+            }
+        }
+        .login-non-member {
+            @apply flex gap-[7px] items-center px-[20px] pb-[20px] border-b-[8px] border-b-gray-100;
+            a {
+                &.login-button {
+                    @apply w-1/2 flex items-center gap-[8px] bg-[#39BFB6] text-white h-[30px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px]  justify-center;
+                }
+                &.register-button {
+                    @apply w-1/2 bg-white text-[#39BFB6] border border-primary h-[30px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px] flex flex-col justify-center items-center;
+
+                }
+            }
+        }
+        .login-member {
+            @apply flex items-center gap-[8px] px-[20px] pb-[20px] border-b-[8px] border-b-gray-100;
+            img {
+                @apply w-[40px] h-[40px] rounded-[50%] object-contain;
+            }
+            .member-info {
+                @apply flex flex-col;
+                p {
+                    @apply text-sm font-medium text-neutral-700;
+                }
+                span {
+                    @apply text-xs;
+                }
+            }
+        }
+    }
+    .sidebar-menu-bottom {
+        @apply flex items-center justify-center p-[20px];
+        a {
+            @apply w-full flex items-center gap-[8px] bg-[#39BFB6] text-white h-[30px] py-[5px] text-[12px]/[14px] font-medium  rounded-[4px]  justify-center;
+            svg {
+                @apply w-[18px] h-[18px]
             }
         }
     }
