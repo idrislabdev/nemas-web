@@ -5,7 +5,6 @@ import { AnnotationQuestion, Bell01, BookClosed, BookOpen01, Box, List, LogIn01,
 import { useGlobals } from '@/@core/hoc/useGlobals';
 import Link from 'next/link';
 import Image from 'next/image';
-import { UserLoginIcon } from '../../custom-icons';
 
 const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction<boolean>> }) => {
     const { show, setShow } = props
