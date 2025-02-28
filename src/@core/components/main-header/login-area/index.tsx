@@ -97,7 +97,6 @@ const LoginArea = () => {
               <ul>
                 <li><a><UserLoginIcon />Akun Saya</a></li>
                 <li><a><ShoppingCart01 />Keranjang</a></li>
-                <li><a><Bell01 />Notifikasi</a></li>
               </ul>
               <button onClick={() => logOut()}>Log Out</button>
             </div>
