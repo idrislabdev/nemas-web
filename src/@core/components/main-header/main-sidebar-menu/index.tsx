@@ -1,10 +1,11 @@
 "use client"
 import React, { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation';
-import { AnnotationQuestion, BookClosed, BookOpen01, Box, List, LogIn01, LogOut01, X } from '@untitled-ui/icons-react';
+import { AnnotationQuestion, Bell01, BookClosed, BookOpen01, Box, List, LogIn01, LogOut01, Receipt, User01, X } from '@untitled-ui/icons-react';
 import { useGlobals } from '@/@core/hoc/useGlobals';
 import Link from 'next/link';
 import Image from 'next/image';
+import { UserLoginIcon } from '../../custom-icons';
 
 const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction<boolean>> }) => {
     const { show, setShow } = props
@@ -69,6 +70,13 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                             <li><a onClick={() => goToLink('fitur-lainnya')}><span><List /></span>Fitur Lainnya</a></li>
                             <li><a onClick={() => goToLink('faq')}><span><AnnotationQuestion /></span>FaQ</a></li>
                             <li><a onClick={() => goToLink('kebijakan-privasi')}><span><BookClosed /></span>Kebijakan dan Privasi</a></li>
+                        </ul>
+                    </div>
+                    <div className='sidebar-list'>
+                        <ul>
+                            <li><a><span><User01 /></span>Akun Saya</a></li>
+                            <li><a><span><Receipt /></span>Transakasi</a></li>
+                            <li><a><span><Bell01 /></span>Notifikasi</a></li>
                         </ul>
                     </div>
                 </div>
