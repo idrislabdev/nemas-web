@@ -3,7 +3,7 @@
 
 import { IUserLogin, IUserProp } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
-import { Bell01, ChevronDown, LogIn01, Mail01, Receipt } from '@untitled-ui/icons-react'
+import { Bell01, ChevronDown, LogIn01, Mail01, Receipt, ShoppingCart01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
@@ -96,7 +96,7 @@ const LoginArea = () => {
             <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>
               <ul>
                 <li><a><UserLoginIcon />Akun Saya</a></li>
-                <li><a><Receipt />Transakasi</a></li>
+                <li><a><ShoppingCart01 />Keranjang</a></li>
                 <li><a><Bell01 />Notifikasi</a></li>
               </ul>
               <button onClick={() => logOut()}>Log Out</button>
