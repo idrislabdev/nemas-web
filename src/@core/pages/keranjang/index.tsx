@@ -42,10 +42,10 @@ const KeranjangPageWrapper = () => {
                                     <button className='minus'><Minus /></button>
                                     <input placeholder='1'/>
                                     <button className='plus'><Plus /></button>
-                                </div>
-                                <div className='action'>
-                                    <a><Trash01 /></a>
-                                </div>
+                                </div>                                
+                            </div>
+                            <div className='action'>
+                                <a><Trash01 /></a>
                             </div>
                         </div>
                         <div className='cart'>
@@ -72,9 +72,9 @@ const KeranjangPageWrapper = () => {
                                     <input placeholder='1'/>
                                     <button className='plus'><Plus /></button>
                                 </div>
-                                <div className='action'>
-                                    <a><Trash01 /></a>
-                                </div>
+                            </div>
+                            <div className='action'>
+                                <a><Trash01 /></a>
                             </div>
                         </div>
                     </div>

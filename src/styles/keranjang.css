@@ -57,12 +57,12 @@
                             }
     
                         }
-                        .action {
-                            a {
-                                @apply text-[#FF3B30];
-                                svg {
-                                    @apply w-[18px] h-[18px]
-                                }
+                    }
+                    .action {
+                        a {
+                            @apply text-[#FF3B30];
+                            svg {
+                                @apply w-[18px] h-[18px]
                             }
                         }
                     }
@@ -115,6 +115,63 @@
             }
             button {
                 @apply bg-primary w-[354px] h-[51px] rounded-[4px] text-white text-[16px]/[19px] font-semibold;
+            }
+        }
+    }
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[85px] px-[20px] gap-[25px];
+            .header-section {
+                @apply  gap-[22px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+            }
+            .main-section {
+                .main-container {
+                    @apply flex-col pb-[30px];
+                    .carts-area {
+                        @apply w-full;
+                        .cart {
+                            @apply w-full items-start justify-between px-[12px];
+                            .image-area {
+                                @apply w-[76px] h-[76px];
+                                img {
+                                    @apply h-full;
+                                }
+                            }
+                            .detail-area {
+                                @apply flex-col items-start gap-[4px];
+                                .description {
+                                    @apply flex-row gap-[4px];
+                                    h5 {
+                                        @apply text-[14px]/[22px];
+                                    }
+                                }
+                                .price {
+                                    label {
+                                        @apply text-[16px]/[22px]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .payment-area {
+                        @apply w-full;
+                    }
+                }
+                .footer-container {
+                    @apply gap-[10px];
+                    .summary-info {
+                        @apply justify-between;
+                        label,p {
+                            @apply text-[16px]/[22px];
+                        }
+                    }
+                    button {
+                        @apply w-full;
+                    }
+                }
             }
         }
     }
