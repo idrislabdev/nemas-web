@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .produk-page {
-    @apply pt-[120px] bg-white flex flex-col gap-[70px];
+    @apply pt-[120px] bg-white flex flex-col gap-[40px];
     .header-section {
         @apply flex flex-col gap-[38px] px-[150px];
         h2 {

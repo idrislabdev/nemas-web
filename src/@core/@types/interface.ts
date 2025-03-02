@@ -126,3 +126,14 @@ export interface IPromo {
     updtime?: Date,
     upduser?: string
 }
+
+export interface ICart {
+    order_cart_detail_id: string,
+    gold_id: number,
+    weight: string,
+    price: string,
+    quantity: 1,
+    total_price: string,
+    created_at: string,
+    updated_at: string
+}

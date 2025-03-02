@@ -96,7 +96,7 @@ const LoginArea = () => {
             <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>
               <ul>
                 <li><a><UserLoginIcon />Akun Saya</a></li>
-                <li><a><ShoppingCart01 />Keranjang</a></li>
+                <li><Link href={`/keranjang`}><ShoppingCart01 />Keranjang</Link></li>
               </ul>
               <button onClick={() => logOut()}>Log Out</button>
             </div>

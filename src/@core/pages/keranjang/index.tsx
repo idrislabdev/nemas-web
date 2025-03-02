@@ -1,13 +1,32 @@
 "use client";
 
+import { ICart } from '@/@core/@types/interface';
+import axiosInstance from '@/@core/utils/axios';
+import { formatterNumber } from '@/@core/utils/general';
 import { Minus, Plus, Trash01 } from '@untitled-ui/icons-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 const KeranjangPageWrapper = () => {
     const router = useRouter();
-    
+    const [carts, setCarts] = useState<ICart[]>([])
+
+    const fetchData = useCallback(async () => {
+        const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
+        const { results } = resp.data
+        setCarts(results)
+    }, [setCarts])
+
+    const deleteData = async (id:string) => {
+        await axiosInstance.delete(`order/cart/delete/${id}/`);
+        fetchData();
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
+
     const onCheckout = () => {
         router.push("/checkout")
     }
@@ -19,64 +38,38 @@ const KeranjangPageWrapper = () => {
             <div className='main-section'>
                 <div className='main-container'>
                     <div className='carts-area'>
-                        <div className='cart'>
-                            <div className='image-area'>
-                                <Image 
-                                    src={`/images/dummy-product.png`}
-                                    alt='image1' 
-                                    width={0} 
-                                    height={0} 
-                                    sizes='100%' 
-                                />
-                            </div>
-                            <div className='detail-area'>
-                                <div className='description'>
-                                    <h5>LM Antam</h5>
-                                    <p>999.9%</p>
-                                    <span>0.5 Gr</span>
+                        {carts.map((item, index:number) => (
+                            <div className='cart' key={index}>
+                                <div className='image-area'>
+                                    <Image 
+                                        src={`/images/dummy-product.png`}
+                                        alt='image1' 
+                                        width={0} 
+                                        height={0} 
+                                        sizes='100%' 
+                                    />
                                 </div>
-                                <div className='price'>
-                                    <label>Rp 856,000</label>
+                                <div className='detail-area'>
+                                    <div className='description'>
+                                        <h5>LM Antam</h5>
+                                        <p>999.9%</p>
+                                        <span>{item.weight}Gr</span>
+                                    </div>
+                                    <div className='price'>
+                                        <label>Rp{formatterNumber(parseInt(item.price))}</label>
+                                    </div>
+                                    <div className='count-input'>
+                                        <button className='minus'><Minus /></button>
+                                        <input value={item.quantity} placeholder='1'/>
+                                        <button className='plus'><Plus /></button>
+                                    </div>
                                 </div>
-                                <div className='count-input'>
-                                    <button className='minus'><Minus /></button>
-                                    <input placeholder='1'/>
-                                    <button className='plus'><Plus /></button>
-                                </div>                                
-                            </div>
-                            <div className='action'>
-                                <a><Trash01 /></a>
-                            </div>
-                        </div>
-                        <div className='cart'>
-                            <div className='image-area'>
-                                <Image 
-                                    src={`/images/dummy-product.png`}
-                                    alt='image1' 
-                                    width={0} 
-                                    height={0} 
-                                    sizes='100%' 
-                                />
-                            </div>
-                            <div className='detail-area'>
-                                <div className='description'>
-                                    <h5>LM Antam</h5>
-                                    <p>999.9%</p>
-                                    <span>0.5 Gr</span>
-                                </div>
-                                <div className='price'>
-                                    <label>Rp 856,000</label>
-                                </div>
-                                <div className='count-input'>
-                                    <button className='minus'><Minus /></button>
-                                    <input placeholder='1'/>
-                                    <button className='plus'><Plus /></button>
+                                <div className='action'>
+                                    <a onClick={() => deleteData(item.order_cart_detail_id)}><Trash01 /></a>
                                 </div>
                             </div>
-                            <div className='action'>
-                                <a><Trash01 /></a>
-                            </div>
-                        </div>
+                        ))}
+                        
                     </div>
                     <div className='payment-area'>
                         <div className='card'>

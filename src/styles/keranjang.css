@@ -60,7 +60,7 @@
                     }
                     .action {
                         a {
-                            @apply text-[#FF3B30];
+                            @apply text-[#FF3B30] cursor-pointer;
                             svg {
                                 @apply w-[18px] h-[18px]
                             }

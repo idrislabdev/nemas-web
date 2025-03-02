@@ -71,12 +71,14 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                             <li><a onClick={() => goToLink('kebijakan-privasi')}><span><BookClosed /></span>Kebijakan dan Privasi</a></li>
                         </ul>
                     </div>
-                    <div className='sidebar-list'>
-                        <ul>
-                            <li><a><span><User01 /></span>Akun Saya</a></li>
-                            <li><a><span><ShoppingCart01 /></span>Keranjang</a></li>
-                        </ul>
-                    </div>
+                    {globals.userLogin.name &&
+                        <div className='sidebar-list'>
+                            <ul>
+                                <li><a><span><User01 /></span>Akun Saya</a></li>
+                                <li><a><span><ShoppingCart01 /></span>Keranjang</a></li>
+                            </ul>
+                        </div>
+                    }
                 </div>
                 <div className='sidebar-menu-bottom'>
                     {globals.userLogin.name &&
