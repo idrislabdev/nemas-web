@@ -91,6 +91,22 @@ export interface IGoldPrice {
     gold_price_buy?: number
 }
 
+export interface IGold {
+    gold_id?: number,
+    gold_weight?: number,
+    type?: string,
+    brand?: string,
+    certificate_number?: string,
+    create_user?: string,
+    upd_user?: string,
+    upd_time?: string,
+    gold_image_1: string,
+    gold_image_2?: string,
+    gold_image_3?: string,
+    gold_image_4?: string,
+    gold_image_5?: string
+}
+
 export interface IPromo {
     promo_id?: number,
     promo_code?: string,

@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 .produk-page {
-    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[70px];
+    @apply pt-[120px] bg-white flex flex-col gap-[70px];
     .header-section {
-        @apply flex flex-col gap-[38px];
+        @apply flex flex-col gap-[38px] px-[150px];
         h2 {
             @apply text-[32px]/[22px] font-semibold text-primary;
         }
         .filter-area {
+            @apply flex items-center;
             .ant-input-affix-wrapper {
                 @apply w-[419px];
                 .ant-input-prefix {
@@ -24,7 +25,7 @@
         }
     }
     .product-section {
-        @apply flex flex-wrap;
+        @apply flex flex-wrap px-[135px];
         .card-wrapper {
             @apply w-1/4 px-[20px] pb-[40px];
             .card-product {
@@ -54,6 +55,47 @@
                         @apply flex gap-[4px] justify-center items-center bg-[#F0BF6B] text-[#65502D] text-[10px]/[12px] h-[32px] rounded-[4px];
                         span {
                             @apply text-[#65502D];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[85px] gap-[25px];
+            .header-section {
+                @apply px-[20px] gap-[22px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+                .filter-area {
+                    @apply flex-col;
+                    .ant-input-affix-wrapper {
+                        @apply w-full;
+                    }
+                }
+            }
+            .product-section {
+                @apply px-[15px];
+                .card-wrapper {
+                    @apply w-1/2 px-[10px] pb-[20px];
+                    .card-product {
+                        @apply h-[255px];
+                        .image {
+                            @apply h-[112px];
+                        }
+                        .description {
+                            @apply gap-[7px];
+                            .label {
+                                label {
+                                    @apply text-[14px]/[22px]
+                                }
+                            }
+                            p {
+                                @apply text-[16px]/[22px];
+                            }
                         }
                     }
                 }

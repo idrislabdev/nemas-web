@@ -39,3 +39,12 @@ export const getBanners = async (offset:number, limit:number) => {
     return resp
 }
 
+export const getProducts = async (offset:number, limit:number) => {
+    let strLimit = ""
+    if (limit) 
+        strLimit = `?offset=${offset}&limit=${limit}`
+    const resp = await axiosInstance.get(`/core/gold/${strLimit}`)
+    return resp
+}
+
+
