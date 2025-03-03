@@ -74,7 +74,7 @@ const ProdukPageWrapper = (props : {products:IGold[]}) => {
     }, [fetchData])
 
     return (
-        <main className='produk-page sm:mobile-responsive'>
+        <main className='produk-page sm:mobile-responsive md:mobile-responsive'>
             {contextHolder}
             <div className='header-section'>
                 <h2>Produk Emas Fisik</h2>

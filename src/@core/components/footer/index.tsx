@@ -14,7 +14,7 @@ const Footer = async () => {
     const year = moment().format("YYYY")
     return (
         <>
-            <div className='footer sm:mobile-responsive'>
+            <div className='footer sm:mobile-responsive md:mobile-responsive'>
                 <div className='footer-wrapper'>
                     <div className='footer-top'>
                             <div className='top-area product'>

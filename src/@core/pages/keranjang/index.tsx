@@ -31,7 +31,7 @@ const KeranjangPageWrapper = () => {
         router.push("/checkout")
     }
     return (
-        <main className='keranjang-page sm:mobile-responsive'>
+        <main className='keranjang-page sm:mobile-responsive md:mobile-responsive'>
             <div className='header-section'>
                 <h2>Keranjang Belanja</h2>
             </div>

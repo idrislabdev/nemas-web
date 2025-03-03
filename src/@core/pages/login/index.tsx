@@ -60,7 +60,7 @@ const LoginPageWrapper = () => {
   })
 
   return (
-      <main className='login-page sm:mobile-responsive'>
+      <main className='login-page sm:mobile-responsive md:mobile-responsive'>
         <div className='main-section'>
           <div className='main-container'>
             <div className='form-area'>

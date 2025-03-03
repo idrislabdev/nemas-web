@@ -16,7 +16,7 @@ export default function UserLayout({
   return (
     <>
       <MainHeader />
-        <main className='user-page sm:mobile-responsive'>
+        <main className='user-page sm:mobile-responsive md:mobile-responsive'>
           <div className='header-section'>
             <div className='profile-container'>
               <div className='main-profile'>

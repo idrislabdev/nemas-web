@@ -9,7 +9,7 @@ const BeritaPageSlugWrapper = async(props: {slug:string}) => {
     const respArticle = await getArticleSlug(slug)
     const article:IArticle = respArticle.data
     return (
-        <main className='berita-page sm:mobile-responsive'>
+        <main className='berita-page sm:mobile-responsive md:mobile-responsive'>
             <div className='slug-section'>
                 <div className='header-container'>
                     <div className='title'>

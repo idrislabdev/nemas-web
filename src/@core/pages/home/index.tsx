@@ -19,7 +19,7 @@ const HomgePageWrapper = async () => {
   const testimonies:IRating[] = respTestimonies.data.results
 
   return (
-    <main className='home-page sm:mobile-responsive'>
+    <main className='home-page sm:mobile-responsive md:mobile-responsive'>
         <HomeHeroSection banners={banners}/>
         <HomeGoldNavigationSection />
         <HomeChartSection />

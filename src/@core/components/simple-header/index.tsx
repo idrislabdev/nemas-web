@@ -7,7 +7,7 @@ import React from 'react'
 const SimpleHeader = () => {
     return (
         <>
-            <header className='simple-header sm:mobile-responsive'>
+            <header className='simple-header sm:mobile-responsive md:mobile-responsive'>
                 <div className='simple-header-top'>
                 </div>
                 <Link href={`/`} className='logo-area'>

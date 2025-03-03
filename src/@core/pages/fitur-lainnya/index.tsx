@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 const FiturLainnyaPageWrapper = () => {
     const [ ismodalOpen, setIsModalOpen ] = useState(false)
   return (
-    <main className='fitur-lainnya-page sm:mobile-responsive'>
+    <main className='fitur-lainnya-page sm:mobile-responsive md:mobile-responsive'>
         <div className='header-section'>
             <h2>Fitur Lainnya</h2>
         </div>

@@ -14,7 +14,7 @@ const CheckoutPageWrapper = () => {
         router.push("/payment")
     }
     return (
-        <main className='checkout-page sm:mobile-responsive'>
+        <main className='checkout-page sm:mobile-responsive md:mobile-responsive'>
             <div className='header-section'>
                 <h2>Metode Pengiriman</h2>
             </div>

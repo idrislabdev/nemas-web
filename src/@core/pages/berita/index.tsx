@@ -11,7 +11,7 @@ const BeritaPageWrapper = async () => {
     const articles:IArticle[] = respArticle.data.results
     
     return (
-        <main className='berita-page sm:mobile-responsive'>
+        <main className='berita-page sm:mobile-responsive md:mobile-responsive'>
             <div className='header-section'>
                 <h2>Artikel Update</h2>
                 <div className='news-container'>

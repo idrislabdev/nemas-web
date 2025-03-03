@@ -2,7 +2,7 @@ import React from 'react'
 
 const KebijakanPrivasiPageWrapper = () => {
   return (
-    <main className='kebijakan-privasi-page sm:mobile-responsive'>
+    <main className='kebijakan-privasi-page sm:mobile-responsive md:mobile-responsive'>
         <div className='header-section'>
             <h2>Kebijakan Dan Privasi</h2>
         </div>

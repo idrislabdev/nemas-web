@@ -8,7 +8,7 @@ const JualEmasPageWrapper = () => {
     const [view, setView] = useState('main')
 
     return (
-        <main className='jual-emas-page sm:mobile-responsive'>
+        <main className='jual-emas-page sm:mobile-responsive md:mobile-responsive'>
             {view == 'main' &&  <JualEmasMainView setView={setView} /> }
             {view == 'ringkasan' &&  <JualEmasRingkasanView  setView={setView}/> }
             {view == 'success' &&  <JualEmasSuccessView setView={setView}/> }

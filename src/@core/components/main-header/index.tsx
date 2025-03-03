@@ -37,7 +37,7 @@ const MainHeader = () => {
 
     return (
         <GlobalsProvider>
-            <header className='main-header sm:mobile-responsive'>
+            <header className='main-header sm:mobile-responsive md:mobile-responsive'>
                 <div className='main-header-top'>
                 </div>
                 <div className='main-header-bottom'>

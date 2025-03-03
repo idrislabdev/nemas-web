@@ -8,7 +8,7 @@ import PaymentWaitingView from './waiting-view'
 const PaymentPageWrapper = () => {
   const [view, setView] = useState('detail')
   return (
-    <main className='payment-page sm:mobile-responsive'>
+    <main className='payment-page sm:mobile-responsive md:mobile-responsive'>
         {view == 'detail' && <PaymentDetailTransaksiView setView={setView} /> }
         {view == 'waiting' && <PaymentWaitingView setView={setView} /> }
         {view == 'success' && <PaymentSuccessView /> }

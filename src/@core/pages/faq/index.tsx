@@ -8,7 +8,7 @@ const FaqPageWrapper = async () => {
   const faqs:IFaq[] = resp.data.results
   const val = Math.round(faqs.length / 2)
   return (
-    <main className='faq-page sm:mobile-responsive'>
+    <main className='faq-page sm:mobile-responsive md:mobile-responsive'>
         <div className='main-section'>
             <div className='header-container'>
               <h2>Frequently Asked Questions (FAQ)</h2>
