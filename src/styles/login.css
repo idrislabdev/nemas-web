@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .login-page {
-    @apply bg-white h-screen;
+    @apply bg-white h-full;
     .main-section {
         @apply px-[163px] py-[115px] flex flex-col justify-center items-center gap-[35px];
         .main-container {
