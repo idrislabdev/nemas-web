@@ -3,7 +3,6 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation';
 import { AnnotationQuestion, BookClosed, BookOpen01, Box, List, LogIn01, LogOut01, ShoppingCart01, User01, X } from '@untitled-ui/icons-react';
 import { useGlobals } from '@/@core/hoc/useGlobals';
-import Link from 'next/link';
 import Image from 'next/image';
 
 const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction<boolean>> }) => {
