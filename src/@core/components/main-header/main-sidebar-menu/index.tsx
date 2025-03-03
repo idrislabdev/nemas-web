@@ -55,11 +55,11 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                     }
                     {!globals.userLogin.name &&
                         <div className='login-non-member'>
-                            <Link href={`/login`} className='login-button'>
+                            <a onClick={() => goToLink('login')} className='login-button'>
                                 <span className='my-icon icon-sm'><LogIn01 /></span>
                                 Log In
-                            </Link>
-                            <Link href={`/register`} className='register-button'>Daftar</Link>
+                            </a>
+                            <a onClick={() => goToLink('register')} className='register-button'>Daftar</a>
                         </div>
                     }
                     <div className='sidebar-list'>
