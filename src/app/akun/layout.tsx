@@ -4,7 +4,6 @@ import MainHeader from '@/@core/components/main-header'
 import Footer from '@/@core/components/footer'
 
 import {  Copy06,  InfoCircle, User01 } from '@untitled-ui/icons-react';
-import { headers } from 'next/headers';
 import AkunSidebar from './akun-sidebar';
 import '@/styles/user.css'
 
