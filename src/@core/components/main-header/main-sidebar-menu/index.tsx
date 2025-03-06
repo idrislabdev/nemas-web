@@ -73,8 +73,8 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                     {globals.userLogin.name &&
                         <div className='sidebar-list'>
                             <ul>
-                                <li><a><span><User01 /></span>Akun Saya</a></li>
-                                <li><a><span><ShoppingCart01 /></span>Keranjang</a></li>
+                                <li><a onClick={() => goToLink('akun')}><span><User01 /></span>Akun Saya</a></li>
+                                <li><a onClick={() => goToLink('keranjang')}><span><ShoppingCart01 /></span>Keranjang</a></li>
                             </ul>
                         </div>
                     }

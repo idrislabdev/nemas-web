@@ -8,15 +8,15 @@ const UserKeamananPage = () => {
     <div className='keamanan-sub-container'>
         <h5>Keamanan Akun</h5>
         <div className='submenu'>
-            <Link href={`/user/keamanan/sandi`}>
+            <Link href={`/akun/keamanan/sandi`}>
                 <span><Key01 />Ubah Kata Sandi</span>
                 <span className='my-icon'><ChevronRight /></span>
             </Link>
-            <Link href={`/user/keamanan/pin`}>
+            <Link href={`/akun/keamanan/pin`}>
                 <span><PinIcon />Ubah PIN</span>
                 <span className='my-icon'><ChevronRight /></span>
             </Link>
-            <Link href={`/user/keamanan/pertanyaan`}>
+            <Link href={`/akun/keamanan/pertanyaan`}>
                 <span><Lock01 />Ubah Pertanyaan Keamanan</span>
                 <span className='my-icon'><ChevronRight /></span>
             </Link>

@@ -5,80 +5,82 @@
 .user-page {
     @apply pt-[100px] bg-white;
     .header-section {
-        @apply flex gap-[80px] py-[50px] px-[150px] border-b border-b-[#E1E1E1];
-        .profile-container {
-            @apply flex flex-col gap-[26px] w-[430px];
-            .main-profile {
-                @apply flex flex-col gap-[10px];
-                .main-info {
-                    @apply flex items-center gap-[13px];
-                    span {
-                        &.user-icon {
-                            svg {
-                                path {
-                                    @apply fill-[#374957];
+        @apply flex flex-col gap-[40px] py-[50px] px-[150px] border-b border-b-[#E1E1E1];
+        h2 {
+            @apply text-[32px]/[22px] text-primary font-semibold;
+        }
+        .profile-asset-container {
+            @apply flex gap-[80px];
+            .profile-container {
+                @apply flex flex-col gap-[26px] w-[430px];
+                .main-profile {
+                    @apply flex flex-col gap-[10px];
+                    .main-info {
+                        @apply flex items-center gap-[13px];
+                        span {
+                            &.user-icon {
+                                @apply text-[#374957];
+                            }
+                        }
+                        h5 {
+                            @apply text-[24px]/[29px] text-black font-bold;
+                        }
+                        label {
+                            &.badge-member {
+                                @apply flex flex-col justify-center items-center px-[24px] text-white font-medium text-[12px]/[15px] h-[28px] rounded-[24px];
+                                &.gold {
+                                    @apply bg-[#F0BF6B];
                                 }
                             }
                         }
                     }
-                    h5 {
-                        @apply text-[24px]/[29px] text-black font-bold;
-                    }
-                    label {
-                        &.badge-member {
-                            @apply flex flex-col justify-center items-center px-[24px] text-white font-medium text-[12px]/[15px] h-[28px] rounded-[24px];
-                            &.gold {
-                                @apply bg-[#F0BF6B];
-                            }
+                    .id-info {
+                        @apply flex items-center gap-[4px];
+                        label, p {
+                            @apply text-[12px]/[15px] text-[#1F211E];
+                        }
+                        p {
+                            @apply font-semibold;
                         }
                     }
                 }
-                .id-info {
-                    @apply flex items-center gap-[4px];
-                    label, p {
-                        @apply text-[12px]/[15px] text-[#1F211E];
-                    }
-                    p {
-                        @apply font-semibold;
-                    }
-                }
-            }
-            .id-profile {
-                @apply flex items-center justify-between border border-[#BCC7D1] bg-[#E8EDF0] p-[16px] rounded-[8px];
-                .profile-info {
-                    @apply flex flex-col gap-[5px];
-                    label {
-                        @apply text-[14px]/[12px] text-[#1F211E] flex items-center gap-[4px];
-                        span {
-                            &.my-icon {
-                                @apply text-[#6b6d6f]
+                .id-profile {
+                    @apply flex items-center justify-between border border-[#BCC7D1] bg-[#E8EDF0] p-[16px] rounded-[8px];
+                    .profile-info {
+                        @apply flex flex-col gap-[5px];
+                        label {
+                            @apply text-[14px]/[12px] text-[#1F211E] flex items-center gap-[4px];
+                            span {
+                                &.my-icon {
+                                    @apply text-[#6b6d6f]
+                                }
                             }
                         }
-                    }
-                    p {
-                        @apply text-[14px]/[12px] text-[#1F211E] font-bold;
+                        p {
+                            @apply text-[14px]/[12px] text-[#1F211E] font-bold;
+                        }
                     }
                 }
             }
-        }
-        .asset-container {
-            @apply flex gap-[60px] flex-1;
-            .asset-card {
-                @apply flex flex-col justify-center p-[16px] w-[176px] h-[65px] rounded-[16px] border border-[#E8EDF0];
-                label {
-                    @apply text-[12px]/[22px] text-[#595959];
-                }
-                p {
-                    @apply text-[16px]/[19px] font-bold text-black;
-                }
-                &.tabungan {
-                    @apply bg-[#FAEBD1];
-                }
-                &.saldo {
-                    @apply bg-[#E8EDED];
-                }
-                &.investasi {
-                    @apply bg-[#F7F1EA];
+            .asset-container {
+                @apply flex gap-[60px] flex-1;
+                .asset-card {
+                    @apply flex flex-col justify-center p-[16px] w-[176px] h-[65px] rounded-[16px] border border-[#E8EDF0];
+                    label {
+                        @apply text-[12px]/[22px] text-[#595959];
+                    }
+                    p {
+                        @apply text-[16px]/[19px] font-bold text-black;
+                    }
+                    &.tabungan {
+                        @apply bg-[#FAEBD1];
+                    }
+                    &.saldo {
+                        @apply bg-[#E8EDED];
+                    }
+                    &.investasi {
+                        @apply bg-[#F7F1EA];
+                    }
                 }
             }
         }
@@ -117,6 +119,9 @@
                             @apply bg-gray-50 rounded text-gray-800;
                         }
                     }
+                    .mobile-container {
+                        @apply hidden;
+                    }
                 }
             }
         }
@@ -133,26 +138,66 @@
                         @apply text-[20px]/[24px] font-bold text-black;
                     }
                     .sub-area {
-                        @apply flex flex-col gap-[17px] w-1/2;
-                        .group-input {
-                            @apply flex flex-col gap-[4px];
-                            label {
-                                @apply text-[14px]/[22px] font-medium text-[#1F211E];
-                            }
-                            span {
-                                @apply text-[12px]/[22px] text-[#676E71];
-                            }
-                        }
-                        .group-button {
-                            @apply flex flex-col gap-[4px];
-                            label {
-                                @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                        @apply flex flex-col gap-[17px] flex-1 justify-between;
+                        .form-area {
+                            @apply flex flex-col gap-[10px];
+                            .group-input {
+                                @apply flex flex-col gap-[4px];
+                                label {
+                                    @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                                }
                                 span {
-                                    @apply text-[12px]/[22px] text-[#8D989D];
+                                    @apply text-[12px]/[22px] text-[#676E71];
                                 }
                             }
-                            button {
-                                @apply bg-primary text-white flex gap-[10px] h-[48px] justify-center items-center rounded-[4px] text-[16px]/[19px];
+                            .group-button {
+                                @apply flex flex-col gap-[4px];
+                                label {
+                                    @apply text-[14px]/[22px] font-medium text-[#1F211E];
+                                    span {
+                                        @apply text-[12px]/[22px] text-[#8D989D];
+                                    }
+                                }
+                                button {
+                                    @apply bg-primary text-white flex gap-[10px] h-[48px] justify-center items-center rounded-[4px] text-[16px]/[19px];
+                                }
+                            }
+                        }
+
+                        button {
+                            &.btn-hapus {
+                                @apply w-full flex justify-center items-center gap-[10px] text-[16px]/[19px] font-semibold text-[#C20000] border border-[#C20000] rounded-[4px] h-[56px];
+                            }
+                        }
+                    }
+                    .playstore-area {
+                        @apply w-[300px];
+                        .playstore {
+                            @apply rounded-[30px] p-[24px] flex flex-col gap-[30px];
+                            box-shadow: 0px 0px 15px 3px #00000040;
+                            .playstore-content {
+                                @apply flex flex-col justify-center items-center text-center;
+                                .image-area {
+                                    @apply relative;
+                                    .image-circle {
+                                        @apply w-[142px] h-[142px] bg-[#F0BF6B] rounded-[50%] absolute z-0 bottom-[30px];
+                                    }
+                                    img {
+                                        @apply w-[136px] h-[201px] z-10 relative;
+                                    }
+                                }
+                                p {
+                                    @apply text-[14px]/[21px] font-semibold;
+                                    span {
+                                        @apply font-extrabold;
+                                    }
+                                }
+                            }
+                            .playstore-footer {
+                                @apply flex justify-center items-center gap-[8px];
+                                a {
+                                    @apply cursor-pointer w-[100px] h-[30px];
+                                }
                             }
                         }
                     }
@@ -181,8 +226,7 @@
                 }
                 button {
                     &.btn-hapus {
-                        @apply flex justify-center items-center gap-[10px] text-[16px]/[19px] font-semibold text-[#C20000] border border-[#C20000] rounded-[4px] h-[56px];
-                        width: calc(50% - 30px);
+                        @apply w-full flex justify-center items-center gap-[10px] text-[16px]/[19px] font-semibold text-[#C20000] border border-[#C20000] rounded-[4px] h-[56px];
                     }
                 }
             }
@@ -239,8 +283,23 @@
             }
             .bantuan-legal-sub-container {
                 @apply flex flex-col gap-[30px] w-full;
-                h5 {
-                    @apply text-[24px]/[22px] font-semibold text-primary;
+                .header-area {
+                    @apply flex items-center justify-between;
+                    h5 {
+                        @apply text-[24px]/[22px] font-semibold text-primary;
+                    }
+                    a {
+                        @apply text-black text-xs underline;
+                    }
+                }
+                .syarat-kebijakan {
+                    @apply flex flex-col gap-[8px];
+                    a {
+                        @apply text-[14px]/[21px] text-black flex items-center gap-[8px];
+                        svg {
+                            @apply w-[20px] h-[20px];
+                        }
+                    }
                 }
                 .faq-accordion {
                     ul {
@@ -315,4 +374,294 @@
             }
         }
     }
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[85px];
+            .header-section {
+                @apply flex-col p-[15px] gap-[20px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+                .profile-asset-container {
+                    @apply flex-col gap-[20px];
+                    .profile-container {
+                        @apply w-full border-b border-b-gray-200 pb-[20px];
+                        .main-profile {
+                            .main-info {
+                                @apply gap-[8px];
+                                span {
+                                    &.user-icon {
+                                        svg {
+                                            @apply w-[21px] h-[21px];
+                                        };
+                                    }
+                                }
+                                h5 {
+                                    @apply text-[17px]/[24px];
+                                }
+                                label {
+                                    &.badge-member {
+                                        @apply text-[11px]/[14px] h-[24px] rounded-[20px] px-[18px];
+                                    }
+                                }
+                            }
+                        }
+                        .id-profile {
+                            @apply w-full;
+                        }
+                    }
+                    .asset-container {
+                        @apply gap-[12px];
+                        .asset-card {
+                            @apply w-1/2;
+                        }
+                    }
+                }
+            }
+            .main-section {
+                @apply flex-col p-[15px];
+                .sidebar-container {
+                    @apply w-full pr-0;
+                    ul {
+                        li {
+                            a {
+                                @apply h-[40px];
+                                span {
+                                    &.my-icon {
+                                        @apply gap-[8px];
+                                        svg {
+                                            @apply w-[21px] h-[21px];
+                                        };
+                                    }
+                                    svg {
+                                        @apply w-[18px] h-[18px];
+                                    }
+                                }
+                            }
+                            .mobile-container {
+                                @apply block p-[20px];
+                                .pengaturan-sub-container {
+                                    @apply flex flex-col gap-[30px] w-full;
+                                    h5 {
+                                        @apply hidden;
+                                    }
+                                    .profil-area {
+                                        @apply flex flex-col gap-[20px];
+                                        h6 {
+                                            @apply text-[20px]/[24px] font-bold text-black;
+                                        }
+                                        .sub-area {
+                                            @apply flex flex-col gap-[17px] flex-1 justify-between;
+                                            .form-area {
+                                                @apply flex flex-col gap-[10px];
+                                                .group-input {
+                                                    @apply flex flex-col gap-[4px];
+                                                    label {
+                                                        @apply text-[12px]/[21px] font-medium text-[#1F211E];
+                                                    }
+                                                    input {
+                                                        @apply outline-none w-full text-[12px]/[18px] text-[#1F211E] px-[8px] py-[10px] h-[37px] rounded-[4px]; 
+                                                    }
+                                                }
+                                            }
+                    
+                                            button {
+                                                @apply hidden;
+                                            }
+                                        }
+                                        .playstore-area {
+                                            @apply w-full;
+                                            .playstore {
+                                                @apply rounded-[30px] p-[24px] flex flex-col gap-[30px];
+                                                box-shadow: 0px 0px 15px 3px #00000040;
+                                                .playstore-content {
+                                                    @apply flex flex-col justify-center items-center text-center;
+                                                    .image-area {
+                                                        @apply relative;
+                                                        .image-circle {
+                                                            @apply w-[142px] h-[142px] bg-[#F0BF6B] rounded-[50%] absolute z-0 bottom-[30px];
+                                                        }
+                                                        img {
+                                                            @apply w-[136px] h-[201px] z-10 relative;
+                                                        }
+                                                    }
+                                                    p {
+                                                        @apply text-[14px]/[21px] font-semibold;
+                                                        span {
+                                                            @apply font-extrabold;
+                                                        }
+                                                    }
+                                                }
+                                                .playstore-footer {
+                                                    @apply flex justify-center items-center gap-[8px];
+                                                    a {
+                                                        @apply cursor-pointer w-[100px] h-[30px];
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    button {
+                                        &.btn-hapus {
+                                            @apply w-full flex justify-center items-center gap-[10px] text-[16px]/[19px] font-semibold text-[#C20000] border border-[#C20000] rounded-[4px] h-[42px];
+                                        }
+                                    }
+                                }
+                                .keamanan-sub-container {
+                                    @apply flex flex-col gap-[30px] w-full;
+                                    h5 {
+                                        @apply hidden;
+                                    }
+                                    .submenu {
+                                        @apply flex flex-col gap-[10px] w-full;
+                                        a {
+                                            @apply flex justify-between items-center p-[16px] w-full h-[42px] rounded-[8px] border border-[#E1E1E1] text-[12px]/[14.5px] text-[#1F211E] font-medium;
+                                            span {
+                                                @apply flex items-center gap-[16px];
+                                            }
+                                        }
+                                        span {
+                                            &.my-icon {
+                                                @apply text-[#8D989D];
+                                                svg {
+                                                    @apply w-[16px] h-[16px];
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .form-group {
+                                        @apply flex flex-col gap-[12px] w-full;
+                                        h6 {
+                                            @apply text-[20px]/[24px] font-bold text-black;
+                                        }
+                                        .group-input {
+                                            @apply flex flex-col gap-[4px];
+                                            label {
+                                                @apply text-[12px]/[21px] font-medium text-[#1F211E];
+                                            }
+                                            span {
+                                                @apply text-xs text-[#676E71];
+                                            }
+                                            .note {
+                                                @apply flex flex-col gap-[4px];
+                                                p,span {
+                                                    @apply text-xs text-[#676E71] font-medium;
+                                                }
+                                            }
+                                            input {
+                                                @apply outline-none w-full text-[12px]/[18px] text-[#1F211E] px-[8px] py-[10px] h-[37px] rounded-[4px]; 
+                                            }
+                                        }
+                                    }
+                                    button {
+                                        @apply bg-primary text-white flex gap-[10px] h-[48px] justify-center items-center rounded-[4px] text-[16px]/[19px];
+                                        &:disabled {
+                                            @apply bg-[#BCC7D1] text-[#8D989D];
+                                        }
+                                    }
+                                    
+                                }
+                                .setting-notif-sub-container {
+                                    @apply flex flex-col gap-[30px];
+                                    h5 {
+                                        @apply hidden;
+                                    }
+                                    .setting-notif {
+                                        @apply flex items-center gap-[30px];
+                                        .text-notif {
+                                            @apply flex flex-col gap-[4px];
+                                            label {
+                                                @apply text-[14px]/[17px] text-[#1F211E] font-medium;
+                                            }
+                                            p {
+                                                @apply text-[12px]/[14px] text-[#374957];
+                                            }
+                                        }
+                                    }
+                                    .setting-harga {
+                                        @apply flex flex-col gap-[11px];
+                                        label {
+                                            @apply text-[14px]/[21px] font-bold text-[#1F211E];
+                                        }
+                                        .empty-state {
+                                            @apply h-[90px] border border-[#BCC7D1] rounded-[8px] flex flex-col justify-center items-center w-full;
+                                            label {
+                                                @apply text-[14px]/[22px] font-medium text-[#8D989D];
+                                            }
+                                            a {
+                                                @apply text-[#17494E] text-[16px]/[19px] font-semibold flex flex-col justify-center items-center gap-[3px] w-full;
+                                            }
+                                        }
+                                    }
+                                }
+                                .customer-service-sub-container {
+                                    @apply flex flex-col gap-[30px] w-full;
+                                    h5 {
+                                        @apply hidden;
+                                    }
+                                    .list-menu {
+                                        @apply flex flex-col gap-[10px];
+                                        a {
+                                            @apply flex justify-between items-center p-[16px] w-full h-[42px] rounded-[8px] border border-[#E1E1E1] text-[12px]/[14.5px] text-[#1F211E] font-medium;
+                                            span {
+                                                @apply flex items-center gap-[16px];
+                                            }
+                                        }
+                                        span {
+                                            &.my-icon {
+                                                @apply text-[#8D989D];
+                                                svg {
+                                                    @apply w-[16px] h-[16px];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .bantuan-legal-sub-container {
+                                    @apply flex flex-col gap-0 w-full;
+                                    .header-area {
+                                        @apply flex justify-end;
+                                        h5 {
+                                            @apply hidden;
+                                        }
+                                        a {
+                                            @apply text-black text-xs underline h-[20px] w-fit;
+                                        }
+                                    }
+                                    .syarat-kebijakan {
+                                        @apply flex flex-col gap-[8px];
+                                        a {
+                                            @apply text-[14px]/[21px] text-black flex items-center gap-[8px] justify-start h-fit;
+                                            svg {
+                                                @apply w-[20px] h-[20px];
+                                            }
+                                        }
+                                    }
+                                    .faq-accordion {
+                                        ul {
+                                            @apply !border-0 px-0;
+                                            li {
+                                                @apply border-b-0;
+                                                .accordion-content {
+                                                    .content-area {
+                                                        p {
+                                                            @apply text-[12px]/[17px];
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .main-container {
+                    @apply hidden;
+                }
+            }
+        }
+    }
+
 }

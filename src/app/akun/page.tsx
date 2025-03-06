@@ -1,10 +1,10 @@
 import React from 'react'
 import '@/styles/user.css'
 
-const UserPage = () => {
+const AkunPage = () => {
   return (
-    <div>UserPage</div>
+    <div>AkunPage</div>
   )
 }
 
-export default UserPage
+export default AkunPage

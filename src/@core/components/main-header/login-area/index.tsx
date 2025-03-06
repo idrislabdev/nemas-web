@@ -95,7 +95,7 @@ const LoginArea = () => {
             <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>
             <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>
               <ul>
-                <li><a><UserLoginIcon />Akun Saya</a></li>
+                <li><Link href={`/akun`}><UserLoginIcon />Akun Saya</Link></li>
                 <li><Link href={`/keranjang`}><ShoppingCart01 />Keranjang</Link></li>
               </ul>
               <button onClick={() => logOut()}>Log Out</button>
