@@ -13,9 +13,6 @@ export default function UserLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const heads = headers()
-
-  console.log(heads)
   return (
     <>
       <MainHeader />
