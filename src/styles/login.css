@@ -10,7 +10,7 @@
             @apply flex justify-center  rounded-[43px] p-[64px] gap-[100px] relative max-w-[1140px];
             box-shadow: 0px 0px 21.9px 3px #00000026;
             .form-area {
-                @apply w-1/2 flex flex-col gap-[130px];
+                @apply w-1/2 flex flex-col gap-[147px];
                 .form {
                     @apply flex flex-col gap-[47px];
                     h2 {
