@@ -11,15 +11,32 @@ import React, { useCallback, useEffect, useState } from 'react'
 const KeranjangPageWrapper = () => {
     const router = useRouter();
     const [carts, setCarts] = useState<ICart[]>([])
+    const [summary, setSummary] = useState(0)
 
     const fetchData = useCallback(async () => {
         const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
         const { results } = resp.data
+        let temp = 0;
+        results.forEach((item:ICart) => {
+           temp = temp + parseInt(item.price)
+        });
         setCarts(results)
+        setSummary(temp)
     }, [setCarts])
 
     const deleteData = async (id:string) => {
         await axiosInstance.delete(`order/cart/delete/${id}/`);
+        fetchData();
+    }
+
+    const updateCart = async (item:ICart, qty:number) => {
+        const body = {
+            "gold": item.gold_id,
+            "weight": item.weight,
+            "price": item.price,
+            "quantity": qty
+        }
+        await axiosInstance.put(`order/cart/update/${item.order_cart_detail_id}/`, body);
         fetchData();
     }
 
@@ -59,9 +76,9 @@ const KeranjangPageWrapper = () => {
                                         <label>Rp{formatterNumber(parseInt(item.price))}</label>
                                     </div>
                                     <div className='count-input'>
-                                        <button className='minus'><Minus /></button>
-                                        <input value={item.quantity} placeholder='1'/>
-                                        <button className='plus'><Plus /></button>
+                                        <button className='btn-qty' onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity == 1}><Minus /></button>
+                                        <label>{item.quantity}</label>
+                                        <button className='btn-qty' onClick={() => updateCart(item, item.quantity + 1)}><Plus /></button>
                                     </div>
                                 </div>
                                 <div className='action'>
@@ -120,7 +137,7 @@ const KeranjangPageWrapper = () => {
                 <div className='footer-container'>
                     <div className='summary-info'>
                         <label>Total Pembayaran</label>
-                        <p>Rp 5,136,000</p>
+                        <p>Rp{formatterNumber(summary)}</p>
                     </div>
                     <button onClick={() => onCheckout()}>Checkout</button>
                 </div>

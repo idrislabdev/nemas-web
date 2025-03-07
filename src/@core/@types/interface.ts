@@ -93,10 +93,11 @@ export interface IGoldPrice {
 
 export interface IGold {
     gold_id?: number,
-    gold_weight?: number,
+    gold_weight: number,
     type?: string,
     brand?: string,
     certificate_number?: string,
+    price:number,
     create_user?: string,
     upd_user?: string,
     upd_time?: string,

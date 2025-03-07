@@ -41,7 +41,7 @@
                             }
                         }
                         .count-input {
-                            @apply flex items-center gap-[12px];
+                            @apply flex items-center gap-[8px];
                             button {
                                 @apply w-[24px] h-[24px] rounded-[50%] border flex flex-col justify-center items-center;
                                 &.minus {
@@ -51,9 +51,15 @@
                                     @apply border-[#AE6F2B] bg-[#FEF9F0] text-[#AE6F2B];
     
                                 }
+                                &.btn-qty {
+                                    @apply border-[#AE6F2B] bg-[#FEF9F0] text-[#AE6F2B];
+                                    &:disabled {
+                                        @apply border-[#8D989D] bg-[#E8EDF0] text-[#8D989D];
+                                    }
+                                }
                             }
-                            input {
-                                @apply outline-none text-center w-[20px] text-[16px]/[22px] font-semibold text-[#1F211E];
+                            label {
+                                @apply text-center w-[30px] text-[16px]/[22px] font-semibold text-[#1F211E];
                             }
     
                         }

@@ -9,11 +9,13 @@ import { IGold, IUserLogin } from '@/@core/@types/interface'
 import debounce from 'debounce'
 import axiosInstance from '@/@core/utils/axios';
 import { useRouter } from 'next/navigation';
+import { formatterNumber } from '@/@core/utils/general';
 
 const ProdukPageWrapper = (props : {products:IGold[]}) => {
     const router = useRouter();
     const { products } = props;
-    const [golds, setGolds] = useState(products)
+    console.log(products)
+    const [golds, setGolds] = useState<IGold[]>([])
     const [user, setUser] = useState<IUserLogin>()
     const [messageApi, contextHolder] = message.useMessage();
     const [params, setParams] = useState({
@@ -24,7 +26,19 @@ const ProdukPageWrapper = (props : {products:IGold[]}) => {
     });
 
     const fetchData = useCallback(async () => {
+        const respActive = await axiosInstance.get(`/core/gold/price/active`)
+        const active = respActive.data
+        console.log(active)
         const resp = await axiosInstance.get(`/core/gold/`, { params });
+        const { results } = resp.data
+
+        results.forEach((item:IGold) => {
+            let addOn = 100000
+            if (item.brand == 'Antam')
+                addOn = 125000
+
+            item.price = Math.round((parseFloat(active.gold_price_sell) + addOn) * item.gold_weight)
+        });
         setGolds(resp.data.results)
         // setTotal(resp.data.count)
     },[params])
@@ -51,7 +65,7 @@ const ProdukPageWrapper = (props : {products:IGold[]}) => {
             const body = {
                 "gold": item.gold_id,
                 "weight": item.gold_weight,
-                "price": "-30224036872752",
+                "price": item.price,
                 "quantity": 1
             }
             await axiosInstance.post("/order/cart/add/", body)
@@ -66,7 +80,7 @@ const ProdukPageWrapper = (props : {products:IGold[]}) => {
     useEffect(() => {
         const temp:IUserLogin = JSON.parse(localStorage.getItem("user") || "{}")
         setUser(temp)
-      },[setUser])
+    },[setUser])
     
 
     useEffect(() => {
@@ -105,7 +119,7 @@ const ProdukPageWrapper = (props : {products:IGold[]}) => {
                                     <label>{item.brand}</label>
                                     <span>{item.gold_weight} Gr</span>
                                 </div>
-                                <p>Rp 1,712,000</p>
+                                <p>Rp{formatterNumber(item.price)}</p>
                                 <button onClick={() => addToCart(item)}>
                                     <span><ShoppingCart03 /></span>
                                     Tambah ke Keranjang
