@@ -18,7 +18,7 @@ const KeranjangPageWrapper = () => {
         const { results } = resp.data
         let temp = 0;
         results.forEach((item:ICart) => {
-           temp = temp + parseInt(item.price)
+           temp = temp + parseInt(item.price) * item.quantity
         });
         setCarts(results)
         setSummary(temp)
