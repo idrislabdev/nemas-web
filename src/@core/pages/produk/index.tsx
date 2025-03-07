@@ -37,7 +37,7 @@ const ProdukPageWrapper = (props : {products:IGold[]}) => {
             if (item.brand == 'Antam')
                 addOn = 125000
 
-            item.price = Math.round((parseFloat(active.gold_price_sell) + addOn) * item.gold_weight)
+            item.price = Math.round((parseFloat(active.gold_price_buy) + addOn) * item.gold_weight)
         });
         setGolds(resp.data.results)
         // setTotal(resp.data.count)
