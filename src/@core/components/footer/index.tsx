@@ -1,17 +1,26 @@
-
+"use client"
 import { AtSign, Phone } from '@untitled-ui/icons-react'
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import FooterFaq from './faq'
-import { getFaqs } from '@/@core/services/api'
 import { IFaq } from '@/@core/@types/interface'
 import FooterMenu from './menu'
 import Link from 'next/link'
 import moment from 'moment'
+import axiosInstance from '@/@core/utils/axios'
 
-const Footer = async () => {
-    const respFaq = await getFaqs(0, 5)
-    const faqs:IFaq[] = respFaq.data.results
+const Footer = () => {
     const year = moment().format("YYYY")
+    const [faqs, setFaqs] = useState<IFaq[]>([]);
+
+    const fetchData = useCallback(async () => {
+        const resp = await axiosInstance.get(`core/information/educational/?offset=0&limit=5`);
+        const { results } = resp.data
+        setFaqs(results)
+    }, [setFaqs])
+
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
     return (
         <>
             <div className='footer sm:mobile-responsive md:mobile-responsive'>

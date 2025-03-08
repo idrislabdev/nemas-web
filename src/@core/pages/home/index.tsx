@@ -1,22 +1,34 @@
-import React from 'react'
+
+import React, { useCallback, useEffect, useState } from 'react'
 import HomeHeroSection from './hero-section'
 import HomeGoldNavigationSection from './gold-navigation-section'
 import HomeChartSection from './chart-section'
 import HomeArticleSection from './article-section'
 import HomeTestimonySection from './testimony-section'
 import HomeVerifiedSection from './verified-section'
-import { getArticles, getBanners, getTestimonies } from '@/@core/services/api'
 import { IArticle, IPromo, IRating } from '@/@core/@types/interface'
+import axiosInstance from '@/@core/utils/axios'
 
-const HomgePageWrapper = async () => {
+const HomgePageWrapper = () => {
 
-  const respArticle = await getArticles(0,3)
-  const respTestimonies = await getTestimonies(0,3)
-  const respBanners = await getBanners(0,5)
+  const [articles, setArticles] = useState<IArticle[]>([]);
+  const [banners, setBanners] = useState<IPromo[]>([]);
+  const [testimonies, setTestimonies] = useState<IRating[]>([]);
 
-  const articles:IArticle[] = respArticle.data.results
-  const banners:IPromo[] = respBanners.data.results
-  const testimonies:IRating[] = respTestimonies.data.results
+  const fetchData = useCallback(async () => {
+    const respArticle = await axiosInstance.get(`core/information/article/?offset=0&limit=3`);
+    setArticles(respArticle.data.results)
+    
+    const respTestimonies = await axiosInstance.get(`core/information/rating/?offset=0&limit=5`);
+    setTestimonies(respTestimonies.data.results)
+
+    const respBanners = await axiosInstance.get(`core/information/promo/show/?offset=0&limit=5`);
+    setBanners(respBanners.data.results)
+  }, [setArticles, setBanners, setTestimonies])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   return (
     <main className='home-page sm:mobile-responsive md:mobile-responsive'>

@@ -11,10 +11,8 @@ import axiosInstance from '@/@core/utils/axios';
 import { useRouter } from 'next/navigation';
 import { formatterNumber } from '@/@core/utils/general';
 
-const ProdukPageWrapper = (props : {products:IGold[]}) => {
+const ProdukPageWrapper = () => {
     const router = useRouter();
-    const { products } = props;
-    console.log(products)
     const [golds, setGolds] = useState<IGold[]>([])
     const [user, setUser] = useState<IUserLogin>()
     const [messageApi, contextHolder] = message.useMessage();

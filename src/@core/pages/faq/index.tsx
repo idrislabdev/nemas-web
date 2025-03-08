@@ -1,12 +1,24 @@
-import React from 'react'
-import FaqAccordion from './faq-accordion'
-import { getFaqs } from '@/@core/services/api'
-import { IFaq } from '@/@core/@types/interface'
 
-const FaqPageWrapper = async () => {
-  const resp = await getFaqs(0,100)
-  const faqs:IFaq[] = resp.data.results
-  const val = Math.round(faqs.length / 2)
+import React, { useCallback, useEffect, useState } from 'react'
+import FaqAccordion from './faq-accordion'
+import { IFaq } from '@/@core/@types/interface'
+import axiosInstance from '@/@core/utils/axios'
+
+const FaqPageWrapper = () => {
+  const [faqs, setFaqs] = useState<IFaq[]>([]);
+  const [val, setval]=  useState(0)
+
+  const fetchData = useCallback(async () => {
+      const resp = await axiosInstance.get(`core/information/educational/?offset=0&limit=100`);
+      const { results } = resp.data
+      setFaqs(results)
+      setval(Math.round(results.length / 2))
+
+  }, [setFaqs])
+
+  useEffect(() => {
+      fetchData()
+  }, [fetchData])
   return (
     <main className='faq-page sm:mobile-responsive md:mobile-responsive'>
         <div className='main-section'>

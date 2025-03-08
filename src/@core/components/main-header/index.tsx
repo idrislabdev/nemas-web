@@ -6,7 +6,6 @@ import Link from 'next/link'
 import React, { useCallback, useEffect, useState } from 'react'
 import MainSidebarMenu from './main-sidebar-menu';
 import LoginArea from './login-area';
-import { GlobalsProvider } from '@/@core/context/globalContext';
 
 const MainHeader = () => {
     const [showSidebar, setShowSidebar] = useState(false);
@@ -36,7 +35,7 @@ const MainHeader = () => {
     });
 
     return (
-        <GlobalsProvider>
+        <>
             <header className='main-header sm:mobile-responsive md:mobile-responsive'>
                 <div className='main-header-top'>
                 </div>
@@ -56,8 +55,7 @@ const MainHeader = () => {
                 </div>
             </header>
             <MainSidebarMenu show={showSidebar} setShow={setShowSidebar}/>
-        </GlobalsProvider>
-
+        </>
     )
 }
 

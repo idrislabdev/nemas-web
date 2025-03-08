@@ -21,6 +21,7 @@ const LoginArea = () => {
     window.location.reload();
   }
 
+    
   useEffect(() => {
       if (!stateDone) {
           const user:IUserLogin = JSON.parse(localStorage.getItem("user") || "{}")
