@@ -1,6 +1,7 @@
 "use client"
 
 import { IGoldPrice, IUserProp } from '@/@core/@types/interface'
+import { useGlobals } from '@/@core/hoc/useGlobals'
 import axiosInstance from '@/@core/utils/axios'
 import { formatterNumber } from '@/@core/utils/general'
 import { Asterisk01, Eye, EyeOff } from '@untitled-ui/icons-react'
@@ -13,6 +14,7 @@ const HomeGoldNavigationSection = () => {
     const [navigation, setNavigation] = useState('saving');
     const [userProp, setUserProp] = useState({} as IUserProp)
     const [stateDone, setStateDone] = useState(false)
+    const { globals } = useGlobals()
     
     useEffect(() => {
         axiosInstance.get(`/core/gold/price/active`)
@@ -59,7 +61,7 @@ const HomeGoldNavigationSection = () => {
                                 </div>
                                 }
                                 {!hiddenEye &&
-                                    <p>{userProp.gold_wgt} gram</p>
+                                    <p>{globals.userProp.gold_wgt} gram</p>
                                 }
                                 <a onClick={() => setHiddenEye(!hiddenEye)}>
                                     {hiddenEye && <Eye />}
@@ -87,7 +89,7 @@ const HomeGoldNavigationSection = () => {
                                 </div>
                                 }
                                 {!hiddenEyeSaldo &&
-                                    <p>Rp{userProp.wallet_amt}</p>
+                                    <p>Rp{globals.userProp.wallet_amt}</p>
                                 }
                                 <a onClick={() => setHiddenEyeSaldo(!hiddenEyeSaldo)}>
                                     {hiddenEyeSaldo && <Eye />}

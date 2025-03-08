@@ -30,10 +30,15 @@ const LoginPageWrapper = () => {
               localStorage.setItem("token", data.access)
               axiosInstance.get(`/users/me/`)
               .then((response) => {
-                  const data = response.data
-                  localStorage.setItem("user", JSON.stringify(data))
-                  router.push("/")
-              });
+                  const datUser = response.data
+                  axiosInstance.get(`/users/user/prop/`)
+                  .then((response) => {
+                      const dataProp = response.data
+                      localStorage.setItem("user", JSON.stringify(datUser))
+                      localStorage.setItem("user_prop", JSON.stringify(dataProp))
+                      router.push("/")
+                  });
+              })
           }
 
       })

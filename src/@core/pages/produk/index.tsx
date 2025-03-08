@@ -10,12 +10,15 @@ import debounce from 'debounce'
 import axiosInstance from '@/@core/utils/axios';
 import { useRouter } from 'next/navigation';
 import { formatterNumber } from '@/@core/utils/general';
+import { useGlobals } from '@/@core/hoc/useGlobals';
 
 const ProdukPageWrapper = () => {
     const router = useRouter();
     const [golds, setGolds] = useState<IGold[]>([])
     const [user, setUser] = useState<IUserLogin>()
     const [messageApi, contextHolder] = message.useMessage();
+    const { globals, saveGlobals } = useGlobals()
+    
     const [params, setParams] = useState({
         format: 'json',
         offset: 0,
@@ -26,7 +29,6 @@ const ProdukPageWrapper = () => {
     const fetchData = useCallback(async () => {
         const respActive = await axiosInstance.get(`/core/gold/price/active`)
         const active = respActive.data
-        console.log(active)
         const resp = await axiosInstance.get(`/core/gold/`, { params });
         const { results } = resp.data
 
@@ -68,7 +70,9 @@ const ProdukPageWrapper = () => {
             }
             await axiosInstance.post("/order/cart/add/", body)
             const resp = await axiosInstance.get("/order/cart/?offset=0&limit=100")
-            console.log(resp.data)
+            const { results } = resp.data
+            localStorage.setItem("cart_count", results.length)
+            saveGlobals({...globals, cartCount: results.length})
             successCart()
         } else {
             router.push("/login")

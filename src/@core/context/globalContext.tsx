@@ -4,12 +4,13 @@ import { IUserLogin, IUserProp } from '../@types/interface'
 export type Globals = {
     userLogin: IUserLogin,
     userProp: IUserProp,
-
+    cartCount:number
 }
 
 export type SpecificGlobals = {
     userLogin: IUserLogin,
-    userProp: IUserProp
+    userProp: IUserProp,
+    cartCount:number
 }
 
 export type GlobalsContextValue = {
@@ -25,6 +26,7 @@ interface GlobalsProviderProps {
 const initialGlobals: Globals = {
     userLogin: {} as IUserLogin,
     userProp: {} as IUserProp,
+    cartCount: 0
 }
 
 export const GlobalsContext = createContext<GlobalsContextValue>({

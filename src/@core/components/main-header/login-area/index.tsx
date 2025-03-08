@@ -3,7 +3,7 @@
 
 import { IUserLogin, IUserProp } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
-import {  ChevronDown, LogIn01, Mail01, ShoppingCart01 } from '@untitled-ui/icons-react'
+import {  ChevronDown, LogIn01, ShoppingCart01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
@@ -26,7 +26,8 @@ const LoginArea = () => {
       if (!stateDone) {
           const user:IUserLogin = JSON.parse(localStorage.getItem("user") || "{}")
           const userProp:IUserProp = JSON.parse(localStorage.getItem("user_prop") || "{}")
-          saveGlobals({...globals, userLogin:user, userProp:userProp})
+          const cartCount:number = parseInt(localStorage.getItem("cart_count") || "0") 
+          saveGlobals({...globals, userLogin:user, userProp:userProp, cartCount: cartCount})
           setStateDone(true)
       }
   },[globals, saveGlobals, stateDone, setStateDone])
@@ -57,8 +58,14 @@ const LoginArea = () => {
             axiosInstance.get(`/users/user/prop/`)
             .then((response) => {
                 const dataProp = response.data
-                localStorage.setItem("user", JSON.stringify(datUser))
-                localStorage.setItem("user_prop", JSON.stringify(dataProp))
+                axiosInstance.get(`order/cart/?offset=0&limit=100`)
+                .then((response) => {
+                    const { results } = response.data
+                    localStorage.setItem("user", JSON.stringify(datUser))
+                    localStorage.setItem("user_prop", JSON.stringify(dataProp))
+                    localStorage.setItem("cart_count", results.length)
+                });
+
             });
         })
         .catch(() => {
@@ -70,7 +77,12 @@ const LoginArea = () => {
 
   return (
     <div className={`login-area ${globals.userLogin.name ? 'items-center' : ''}`} ref={dropdownuser}>
-        <label><span><Mail01 /></span></label>
+        
+        <Link href={`/keranjang`} className='cart-notif'><span><ShoppingCart01 /></span> 
+          {globals.cartCount > 0 &&
+            <span className='badge-notif'>{globals.cartCount}</span>
+          }
+        </Link>
         {!globals.userLogin.name &&
           <div className='login-non-member'>
             <Link href={`/login`} className='login-button'>

@@ -1,6 +1,7 @@
 "use client";
 
 import { ICart } from '@/@core/@types/interface';
+import { useGlobals } from '@/@core/hoc/useGlobals';
 import axiosInstance from '@/@core/utils/axios';
 import { formatterNumber } from '@/@core/utils/general';
 import { Minus, Plus, Trash01 } from '@untitled-ui/icons-react'
@@ -12,6 +13,7 @@ const KeranjangPageWrapper = () => {
     const router = useRouter();
     const [carts, setCarts] = useState<ICart[]>([])
     const [summary, setSummary] = useState(0)
+    const { globals, saveGlobals } = useGlobals()
 
     const fetchData = useCallback(async () => {
         const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
@@ -22,11 +24,19 @@ const KeranjangPageWrapper = () => {
         });
         setCarts(results)
         setSummary(temp)
-    }, [setCarts])
+    }, [setCarts, setSummary])
 
     const deleteData = async (id:string) => {
         await axiosInstance.delete(`order/cart/delete/${id}/`);
-        fetchData();
+        const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
+        const { results } = resp.data
+        let temp = 0;
+        results.forEach((item:ICart) => {
+           temp = temp + parseInt(item.price) * item.quantity
+        });
+        setCarts(results)
+        setSummary(temp)
+        saveGlobals({...globals, cartCount: results.length})
     }
 
     const updateCart = async (item:ICart, qty:number) => {
