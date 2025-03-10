@@ -324,7 +324,7 @@
                 .list-menu {
                     @apply flex flex-col gap-[10px];
                     a {
-                        @apply flex justify-between items-center p-[16px] w-[354px] h-[56px] rounded-[17px] border border-[#E1E1E1] text-[12px]/[14.5px] text-[#1F211E] font-medium;
+                        @apply cursor-pointer flex justify-between items-center p-[16px] w-[354px] h-[56px] rounded-[17px] border border-[#E1E1E1] text-[12px]/[14.5px] text-[#1F211E] font-medium;
                         span {
                             @apply flex items-center gap-[16px];
                         }

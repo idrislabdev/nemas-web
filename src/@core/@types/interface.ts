@@ -138,3 +138,21 @@ export interface ICart {
     created_at: string,
     updated_at: string
 }
+
+export interface IShippingService {
+    minimum_kilo: number,
+    insurance_cost: number,
+    insurance_admin_cost: number,
+    volumetric_kg: number,
+    packing_cost: number,
+    weight: number,
+    final_weight: number,
+    kilo_divider: number,
+    cost: number,
+    discount: string,
+    total_cost: number,
+    service_type_code: string,
+    service_type_name: string,
+    surcharge: number,
+    sla: string
+}

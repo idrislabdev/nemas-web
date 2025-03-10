@@ -7,19 +7,19 @@ const UserCustomerServicePage = () => {
     <div className='customer-service-sub-container'>
         <h5>Customer Service</h5>
         <div className='list-menu'>
-            <a>
+            <a href="mailto:support@nemas.com" target='_blank'>
                 <span><Mail01 />Kirim Email</span>
                 <span className='my-icon'><ChevronRight /></span>
             </a>
-            <a>
+            <a href="https://wa.me/+6281234567890" target='_blank'>
                 <span><WhatsappIcon />Whatsapp Customer Service</span>
                 <span className='my-icon'><ChevronRight /></span>
             </a>
-            <a>
+            <a href="tel:+6281234567890">
                 <span><PhoneIcon />Pusat Panggilan</span>
                 <span className='my-icon'><ChevronRight /></span>
             </a>
-            <a>
+            <a href="https://wa.me/+6281234567890" target='_blank'>
                 <span><CommentIcon />Live Chat</span>
                 <span className='my-icon'><ChevronRight /></span>
             </a>

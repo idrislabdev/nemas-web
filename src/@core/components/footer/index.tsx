@@ -38,8 +38,8 @@ const Footer = () => {
                                 <div className='contact-area'>
                                     <h5>Kontak</h5>
                                     <div className='sub-contact-area'>
-                                        <a><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
-                                        <a><span className='my-icon'><AtSign /></span> <span>email@Nemas.com</span></a>
+                                        <a href="tel:+6281234567890" target='_blank'><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
+                                        <a href="mailto:support@nemas.com" target='_blank'><span className='my-icon'><AtSign /></span> <span>support@nemas.com</span></a>
                                     </div>
                                 </div>
                             </div>

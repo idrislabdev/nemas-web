@@ -142,7 +142,7 @@
                             @apply text-[12px]/[18px] text-[#1F211E];
                         }
 
-                        &:hover, &.active {
+                        &:hover, &.selected {
                             @apply bg-[#D2F3F5]
                         }
                     }
