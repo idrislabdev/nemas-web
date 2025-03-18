@@ -12,7 +12,7 @@ const ModalPayment =(props: {
     const { isModalOpen, setIsModalOpen, setPayment } = props
 
     const onConfirm = () => {
-        setPayment({id: "xxxx", type: 'Virtual Account', name: "BCA"})
+        setPayment({type: "xxxx", type_name: 'Virtual Account', name: "BCA"})
         setIsModalOpen(false)
     }
 

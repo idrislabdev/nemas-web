@@ -46,6 +46,7 @@ const MainHeader = () => {
                             <li><Link href={`/produk`}>Produk Emas Fisik</Link></li>
                             <li><Link href={`/berita`}>News</Link></li>
                             <li><Link href={`/fitur-lainnya`}>Fitur Lainnya</Link></li>
+                            <li><Link href={`/tentang-kami`}>Tentang Kami</Link></li>
                         </ul>
                     </div>
                     <div className='login-menu'>

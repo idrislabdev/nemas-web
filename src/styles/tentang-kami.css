@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tentang-kami-page {
+    @apply pt-[120px] bg-white flex flex-col gap-[30px];
+    .header-section {
+        @apply flex flex-col gap-[34px];
+        .title-container {
+            @apply flex flex-col justify-center px-[150px];
+            h2 {
+                @apply text-[32px]/[22px] text-primary font-semibold;
+            }
+        }
+        .image-container {
+            @apply flex gap-[48px] bg-primary rounded-[50px] py-[46px] pr-[150px];
+            img {
+                @apply w-1/2 h-[477px];
+            }
+            .description {
+                @apply w-1/2 flex flex-col justify-center gap-[30px];
+                p {
+                    @apply text-[20px]/[38px] text-white;
+                    span {
+                        @apply font-bold;
+                    }
+                }
+            }
+        }
+    }
+    .main-section {
+        @apply flex flex-col gap-[52px];
+        .content-container {
+            @apply flex flex-col gap-[42px]  px-[150px];
+            h5 {
+                @apply text-[32px]/[22px] text-primary font-semibold text-center;
+            }
+            .description {
+                @apply flex flex-col;
+                p {
+                    @apply text-[16px]/[38px] text-black text-justify;
+                    span {
+                        @apply font-bold;
+                    }
+                }
+            }
+        }
+        .image-container {
+            @apply flex flex-col justify-center bg-[#FEF9F0] px-[150px] rounded-[60px];
+            img {
+                @apply w-full h-[739px] object-contain;
+            }
+        }
+        .support-container {
+            @apply bg-[#FEF9F0] h-[200px] flex flex-col justify-center;
+            .rfm-marquee-container  {
+                @apply flex justify-start overflow-hidden;
+                .rfm-marquee {
+                    @apply flex justify-center;
+                    .rfm-initial-child-container {
+                        @apply flex justify-between w-full;
+                        .rfm-child {
+                            @apply mx-[20px];
+                            img {
+                                &.bappebti {
+                                    @apply w-[346px] h-[82px];
+                                }
+                                &.fintech {
+                                    @apply w-[369px] h-[111px];
+                                }
+                                &.pse {
+                                    @apply w-[156px] h-[104px];
+                                }
+                                &.iso-9001 {
+                                    @apply w-[164px] h-[157px];
+                                }
+                                &.iso-27001 {
+                                    @apply w-[118px] h-[128px];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[70px] px-[25px];
+            .header-section {
+                .title-container {
+                    @apply flex flex-col justify-center px-0 text-center;
+                    h2 {
+                        @apply text-[24px]/[24px];
+                    }
+                }
+                .image-container {
+                    @apply flex-col py-[46px] px-0;
+                    img {
+                        @apply w-full h-full object-contain;
+                    }
+                    .description {
+                        @apply w-full px-[20px];
+                        p {
+                            @apply text-sm;
+                            span {
+                                @apply font-bold;
+                            }
+                        }
+                    }
+                }
+
+            }
+            .main-section {
+                @apply flex flex-col gap-[26px];
+                .content-container {
+                    @apply gap-[20px] px-[25px];
+                    h5 {
+                        @apply text-lg;
+                    }
+                    .description {
+                        @apply gap-[10px];
+                        p {
+                            @apply text-sm  text-center;
+                            span {
+                                @apply font-bold;
+                            }
+                        }
+                    }
+                }
+                .image-container {
+                    @apply px-[25px] rounded-[30px];
+                    img {
+                        @apply w-full h-full object-contain;
+                    }
+                }
+                .support-container {
+                    @apply h-[100px];
+                    .rfm-marquee-container  {
+                        .rfm-marquee {
+                            .rfm-initial-child-container {
+                                .rfm-child {
+                                    @apply mx-[10px];
+                                    img {
+                                        &.bappebti {
+                                            @apply w-[173px] h-[41px];
+                                        }
+                                        &.fintech {
+                                            @apply w-[184px] h-[56px];
+                                        }
+                                        &.pse {
+                                            @apply w-[78px] h-[52px];
+                                        }
+                                        &.iso-9001 {
+                                            @apply w-[86px] h-[75px];
+                                        }
+                                        &.iso-27001 {
+                                            @apply w-[59px] h-[64px];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

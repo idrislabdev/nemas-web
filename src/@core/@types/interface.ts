@@ -12,8 +12,8 @@ export interface IVoucher {
 }
 
 export interface IPayment {
-    id: string,
     type: string,
+    type_name: string,
     name: string
 }
 
@@ -155,4 +155,38 @@ export interface IShippingService {
     service_type_name: string,
     surcharge: number,
     sla: string
+}
+
+export interface IOrderDetail {
+    gold: number,
+    gold_type: string,
+    gold_brand: string,
+    certificate_number: string,
+    order_weight: string,
+    order_price: string,
+    order_qty: number,
+    order_cert_price: string,
+    order_detail_total_price: string
+}
+
+export interface IOrder {
+    user: string,
+    order_user_address: string,
+    order_pickup_customer_datetime: string,
+    order_pickup_address: string,
+    order_phone_number: string,
+    order_item_weight: string,
+    order_amount: string,
+    order_payment_va_bank: string,
+    order_payment_method: string,
+    order_admin_amount: string,
+    order_tracking_amount: string,
+    order_promo_code: string,
+    order_discount: string,
+    order_total_price: string,
+    order_tracking_insurance: string,
+    order_tracking_packing: string,
+    order_tracking_insurance_admin: string,
+    order_tracking_total: string,
+    order_details: IOrderDetail[]
 }

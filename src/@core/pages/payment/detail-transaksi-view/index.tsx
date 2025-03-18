@@ -58,8 +58,8 @@ const PaymentDetailTransaksiView = (props: {setView:Dispatch<SetStateAction<stri
                             <button onClick={() => setIsModalPayment(true)}>
                                 <span className='label-info'>
                                     <Image src={`/images/payment.png`} alt='payment' width={0} height={0} sizes='100%' />
-                                    {!payment.id && 'Pilih Metode Pembayaran'}
-                                    {payment.id && `${payment.name}` }
+                                    {!payment.type && 'Pilih Metode Pembayaran'}
+                                    {payment.type && `${payment.name}` }
                                 </span>
                                 <span className='my-icon'><ChevronRight /></span>
                             </button>

@@ -4,8 +4,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 import KeranjangCart from './cart';
 import KeranjangShipping from './shipping-method';
 import axiosInstance from '@/@core/utils/axios';
-import { ICart } from '@/@core/@types/interface';
+import { ICart, IOrder } from '@/@core/@types/interface';
 import { useGlobals } from '@/@core/hoc/useGlobals';
+import KeranjangPayment from './payment';
 
 const KeranjangPageWrapper = () => {
     const [view, setView] = useState('cart')
@@ -13,6 +14,7 @@ const KeranjangPageWrapper = () => {
     const [summary, setSummary] = useState(0)
     const [totalWeight, setTotalWeight] = useState(0)
     const { globals, saveGlobals } = useGlobals()
+    const [order, setOrder] = useState<IOrder>({} as IOrder);
     
     const fetchData = useCallback(async () => {
         const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
@@ -60,9 +62,12 @@ const KeranjangPageWrapper = () => {
                 <KeranjangCart 
                     setView={setView} 
                     carts={carts} 
-                    summary={summary} 
+                    summary={summary}
+                    weight={totalWeight} 
                     deleteData={deleteData} 
                     updateCart={updateCart} 
+                    order={order}
+                    setOrder={setOrder}
                 />
             }
             {view == 'shipping' && 
@@ -70,6 +75,14 @@ const KeranjangPageWrapper = () => {
                     setView={setView} 
                     summary={summary} 
                     totalWeight={totalWeight}
+                    order={order}
+                    setOrder={setOrder}
+                />
+            }
+            {view == 'payment' &&
+                <KeranjangPayment 
+                    order={order}
+                    setOrder={setOrder}
                 />
             }
         </main>

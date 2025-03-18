@@ -209,6 +209,201 @@
             }
         }
     }
+    .detail-transaksi-section {
+        @apply flex flex-col gap-[45px];
+        .header-container {
+            @apply flex flex-col gap-[45px];
+            h2 {
+                @apply text-[32px]/[22px] text-primary font-semibold;
+            }
+        }
+        .main-container {
+            @apply bg-white rounded-[31px] flex flex-col items-center;
+            box-shadow: 0px 0px 15px 3px #00000040;
+            .header-area {
+                @apply flex justify-center relative border-b border-[#8D989D] p-[18px] w-full;
+                h5 {
+                    @apply text-[24px]/[29px] text-black font-bold;
+                }
+                a {
+                    @apply flex items-center justify-center absolute right-[20px] gap-[9px];
+                    span {
+                        &.text {
+                            @apply text-[#8D989D];
+                        }
+                    }
+                    span {
+                        &.my-icon {
+                            @apply w-[24px] h-[24px] flex flex-col items-center justify-center bg-[#17494E] text-white rounded-[50%];
+                        }
+                    }
+                }
+            }
+            .body-area {
+                @apply flex flex-col w-full px-[213px] py-[31px] gap-[28px];
+                .detail {
+                    @apply flex flex-col border border-[#BCC7D1] rounded-[8px];
+                    .sub-detail {
+                        @apply flex justify-between py-[8px] px-[16px];
+                        label, p {
+                            @apply text-[16px]/[19px] font-medium text-[#1F211E];
+                        }
+                        &.total {
+                            @apply bg-[#BCC7D1] rounded-br-[6px] rounded-bl-[6px];
+                            label, p {
+                                @apply font-bold;
+                            }
+                        }
+                        &.header {
+                            @apply border-b border-b-[#E1E1E1];
+                        }
+                    }
+                }
+                .button-voucher-payment {
+                    @apply flex justify-center items-center w-full gap-[54px];
+                    button {
+                        @apply bg-white rounded-[8px] flex justify-between p-[12px] w-full border border-[#BCC7D1];
+                        span {
+                            &.label-info {
+                                @apply flex gap-[16px] items-center text-[14px]/[22px] font-semibold text-[#1F211E];
+                                img {
+                                    @apply w-[24px] h-[24px];
+                                }
+                            }
+                        }
+                    }
+                }
+                .confirmation-area {
+                    @apply flex flex-col items-center justify-center gap-[28px];
+                    button {
+                        @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-[216px] h-[51px] rounded-[4px];
+                        &:disabled {
+                            @apply bg-[#D1D1D1]
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .success-section {
+        @apply px-[150px] flex flex-col gap-[45px];
+        .main-container {
+            @apply bg-primary rounded-[31px] flex flex-col items-center justify-center gap-[36px] p-[41px];
+            box-shadow: 0px 0px 15px 3px #00000040;
+            .header {
+                @apply flex flex-col gap-[12px] justify-center items-center text-white;
+                .check-icon {
+                    @apply w-[185px] h-[185px] flex flex-col justify-center items-center rounded-[50%] bg-[#62D9D1];
+                    img {
+                        @apply w-[105px] h-[105px] object-contain;
+                    }
+                }
+                h5 {
+                    @apply text-[32px]/[38px] font-semibold;
+                }
+                p {
+                    @apply text-[16px]/[19px];
+                }
+            }
+            .info-summary {
+                @apply bg-[#FEF9F0] border border-[#E8EDF0] p-[16px] rounded-[16px] flex flex-col gap-[16px] w-[354px];
+                .detail-info {
+                    @apply flex flex-col justify-center items-center;
+                    label {
+                        @apply text-[12px]/[22px] text-[#1F211E];
+                    }
+                    p {
+                        @apply text-[24px]/[22px] text-[#1F211E] font-bold
+                    }
+                }
+
+            }
+            .group-button {
+                @apply flex flex-col justify-center items-center gap-[18px];
+                button, a {
+                    @apply text-[16px]/[19.36px] font-semibold w-[354px] h-[51px] flex justify-center items-center rounded-[4px];
+                }
+                button {
+                    @apply bg-[#F0BF6B] text-black;
+                }
+                a {
+                    @apply bg-white;
+                }
+            }
+        }
+    }
+    .waiting-section {
+        @apply px-[150px] flex flex-col gap-[45px];
+        .main-container {
+            @apply bg-primary rounded-[31px] flex flex-col items-center justify-center gap-[36px] p-[41px];
+            box-shadow: 0px 0px 15px 3px #00000040;
+            .header {
+                @apply flex flex-col gap-[12px] justify-center items-center text-white;
+                .check-icon {
+                    @apply w-[185px] h-[185px] flex flex-col justify-center items-center rounded-[50%] bg-[#62D9D1];
+                    img {
+                        @apply w-[105px] h-[105px] object-contain;
+                    }
+                }
+                h5 {
+                    @apply text-[32px]/[38px] font-semibold;
+                }
+                p {
+                    @apply text-[16px]/[19px];
+                }
+            }
+            .content {
+                @apply bg-white w-[586px] px-[34px] py-[24px] rounded-[14px] flex flex-col gap-[10px];
+                .detail-content {
+                    @apply flex items-center justify-between;
+                    .detail-text {
+                        @apply flex flex-col;
+                        h5 {
+                            @apply text-[14px]/[22px] text-black font-semibold;
+                            img {
+                                @apply w-[24px] h-[24px]
+                            }
+                        }
+                        p {
+                            @apply text-[14px]/[22px] font-semibold text-black;
+                        }
+                        a {
+                            @apply text-[14px]/[22px] font-semibold text-[#17494E]
+                        }
+                    }
+                    a {
+                        @apply text-[#DADADA]
+                    }
+                }
+            }
+            .info-summary {
+                @apply bg-[#FEF9F0] border border-[#E8EDF0] p-[16px] rounded-[16px] flex flex-col gap-[16px] w-[354px];
+                .detail-info {
+                    @apply flex flex-col justify-center items-center;
+                    label {
+                        @apply text-[12px]/[22px] text-[#1F211E];
+                    }
+                    p {
+                        @apply text-[24px]/[22px] text-[#1F211E] font-bold
+                    }
+                }
+
+            }
+            .group-button {
+                @apply flex flex-col justify-center items-center gap-[18px];
+                button, a {
+                    @apply text-[16px]/[19.36px] font-semibold w-[354px] h-[51px] flex justify-center items-center rounded-[4px];
+                }
+                button {
+                    @apply bg-[#F0BF6B] text-black;
+                }
+                a {
+                    @apply bg-white;
+                }
+            }
+        }
+    }
     @layer components {
         &.mobile-responsive {
             @apply pt-[85px] px-[20px] gap-[25px];
