@@ -62,6 +62,7 @@
                         .rfm-child {
                             @apply mx-[20px];
                             img {
+                                @apply object-cover;
                                 &.bappebti {
                                     @apply w-[346px] h-[82px];
                                 }
