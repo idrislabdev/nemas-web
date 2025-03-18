@@ -63,6 +63,7 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                     }
                     <div className='sidebar-list'>
                         <ul>
+                            <li><a onClick={() => goToLink('tentang-kami')}><span><Box /></span>Produk Emas Fisik</a></li>
                             <li><a onClick={() => goToLink('produk')}><span><Box /></span>Produk Emas Fisik</a></li>
                             <li><a onClick={() => goToLink('berita')}><span><BookOpen01 /></span>News</a></li>
                             <li><a onClick={() => goToLink('fitur-lainnya')}><span><List /></span>Fitur Lainnya</a></li>

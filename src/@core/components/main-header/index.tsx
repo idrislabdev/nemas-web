@@ -43,10 +43,10 @@ const MainHeader = () => {
                     <div className='main-header-menu'>
                         <Link href={`/`}><Image src={`/images/logo/nemas-white.png`} alt='logo nemas' width={0} height={0} sizes='100%' /></Link>
                         <ul>
+                            <li><Link href={`/tentang-kami`}>Tentang Kami</Link></li>
                             <li><Link href={`/produk`}>Produk Emas Fisik</Link></li>
                             <li><Link href={`/berita`}>News</Link></li>
                             <li><Link href={`/fitur-lainnya`}>Fitur Lainnya</Link></li>
-                            <li><Link href={`/tentang-kami`}>Tentang Kami</Link></li>
                         </ul>
                     </div>
                     <div className='login-menu'>
