@@ -86,7 +86,7 @@
     }
     @layer components {
         &.mobile-responsive {
-            @apply pt-[70px] px-[25px];
+            @apply pt-[70px];
             .header-section {
                 .title-container {
                     @apply flex flex-col justify-center px-0 text-center;
