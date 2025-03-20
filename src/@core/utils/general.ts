@@ -3,6 +3,12 @@ export const formatterNumber = (val:number) => {
         return `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ".").replace(/\.(?=\d{0,2}$)/g, ",");
 }
 
+export const formatterNumber2 = (val:string) => {
+    if (!val) return 0;
+        return `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ".").replace(/\.(?=\d{0,2}$)/g, ",");
+}
+
+
 
 export const statusLang = (val:string) => {
     if (val == 'created') {

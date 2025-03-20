@@ -95,6 +95,70 @@
             }
         }
     }
+    .home-user-profile-section {
+        @apply flex flex-col gap-[46px] px-[150px] py-[40px];
+        .profile-container {
+            @apply flex items-center gap-[18px];
+            span {
+                @apply w-[62px] h-[62px] rounded-[50%] bg-primary flex flex-col justify-center items-center;
+                svg {
+                    @apply text-white w-[48px] h-[48px];
+                }
+            }
+            .profile-desc {
+                @apply flex flex-col gap-[10px];
+                h5 {
+                    @apply text-[32px]/[22px] text-primary font-semibold;
+                }
+                p {
+                    @apply text-[16px] text-[#374957];
+                }
+            }
+        }
+        .savings-container {
+            @apply flex items-center gap-[89px];
+            .saving-card {
+                background: linear-gradient(112deg, rgba(58, 191, 182, 0.5) 0%, rgba(251, 233, 147, 0.5) 100%);
+                @apply flex items-center justify-between h-[208px] w-1/2 rounded-[16px] p-[20px];
+                &.golds {
+                    img {
+                        @apply w-[208px] h-[208px] object-contain;
+
+                    }
+                    .description {
+                        @apply flex flex-col gap-[20px] text-right items-end;
+                        h5 {
+                            @apply text-[32px]/[22px] font-semibold text-black;
+                        }
+                        p {
+                            @apply text-[32px]/[22px] font-bold text-black;
+                        }
+                        span {
+                            @apply text-[16px]/[22px] font-medium text-[#8D8D8D];
+                        }
+                    }
+                }
+                &.gold-money {
+                    img {
+                        @apply w-[173px] h-[79px] object-contain;
+
+                    }
+                    .description {
+                        @apply flex flex-col gap-[20px] text-right items-end;
+                        h5 {
+                            @apply text-[32px]/[22px] font-semibold text-black;
+                        }
+                        p {
+                            @apply text-[32px]/[22px] font-bold text-black;
+                        }
+                        button {
+                            @apply bg-primary text-white w-[120px] h-[35px] rounded-[4px];
+                        }
+                    }
+                }
+            }
+        }
+    }
     .home-chart-section {
         @apply py-[40px] flex justify-center w-full px-[150px];
         .navigation-container {
@@ -134,6 +198,71 @@
             box-shadow: 0px 0px 21.9px 3px #00000040;
             .chart {
                 @apply flex flex-col w-full;
+            }
+        }
+    }
+    .home-chart-new-section {
+        @apply py-[40px] flex justify-center items-center w-full px-[150px] gap-[50px];
+        .navigation-container {
+            @apply flex flex-col gap-[22px] w-[40%];
+            .header-info {
+                @apply flex items-center gap-[24px];
+                h5 {
+                    @apply text-[32px]/[22px] font-semibold text-primary;
+                   
+                }
+                span {
+                    @apply text-[12px] text-[#077A64] font-semibold flex items-center gap-[4px];
+                    span {
+                        svg {
+                            @apply w-[14px] h-[14px];
+                        }
+                    }
+                }
+            }
+            .price-info {
+                @apply w-full flex items-center gap-[16px];
+                p {
+                    @apply text-[20px]/[22px] text-black font-bold;
+                    span {
+                        @apply text-[16px] text-[#656565] font-normal;
+                    }
+                }
+                span {
+                    &.badge {
+                        @apply rounded-[16px] h-[24px] bg-[#FFE5E5] font-semibold px-[5px] text-[12px] flex items-center justify-center gap-[4px];
+                    }
+                    &.danger {
+                        @apply text-[#FF3B30];
+                    }
+                    span {
+                        svg {
+                            @apply h-[14px] w-[14px];
+                        }
+                    }
+                }
+            }
+            .header-tabs {
+                @apply flex flex-col gap-[22px] w-full;
+                ul {
+                    @apply text-primary text-[14px]/[22px];
+                    &.tabs-day {
+                        @apply flex items-center gap-[8px];
+                        li {
+                            @apply  bg-[#BFBFBF4D] text-[#7C8389] rounded-[20px] px-[16px] py-[4px] cursor-pointer;
+                            &.active {
+                                @apply font-semibold bg-[#3ABFB64D];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .chart-container {
+            @apply w-[60%] h-[361px] rounded-[28px] bg-white flex flex-col gap-[25px] p-[36px];
+            box-shadow: 0px 0px 21.9px 3px #00000040;
+            .chart {
+                @apply flex flex-col w-full h-full;
             }
         }
     }
@@ -205,6 +334,59 @@
                 }
                 .swiper-pagination {
                     @apply top-[130px];
+                    .swiper-pagination-bullet {
+                        @apply w-[13px] h-[13px];
+                        &.swiper-pagination-bullet-active {
+                            @apply bg-primary w-[34px] rounded-[12px];
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    .home-highlight-section {
+        @apply py-[40px] px-[150px] flex flex-col justify-center gap-[22px] w-full relative;
+        h2 {
+            @apply text-[32px]/[22px] font-semibold text-primary text-left;
+        }
+      
+        .highlight-container {
+            @apply relative w-full;
+            .swiper {
+                @apply h-[170px];
+                .swiper-wrapper {
+                    @apply flex relative w-full gap-[20px] justify-items-center items-center;
+                    .swiper-slide {
+                        @apply !w-[411px];
+                        .highlight-card {
+                            @apply flex items-center gap-[8px] h-[115px] p-[16px] rounded-[24px];
+                            &.blue {
+                                @apply bg-[#AAE1F8]
+                            }
+                            &.yellow {
+                                @apply bg-[#DAFFACCC];
+                            }
+                            .card-img {
+                                @apply flex flex-col justify-center items-center rounded-[50%] bg-[#CCF3FF] w-[48px] h-[48px];
+                                img {
+                                    @apply w-[24px] h-[24px];
+                                }
+                            }
+                            .card-desc {
+                                @apply flex flex-col;
+                                p {
+                                    @apply text-[20px]/[22px] text-[#232323] font-semibold;
+                                }
+                                span {
+                                    @apply text-[10px]/[22px] font-bold text-[#454545];
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    @apply top-[140px] flex;
                     .swiper-pagination-bullet {
                         @apply w-[13px] h-[13px];
                         &.swiper-pagination-bullet-active {
@@ -302,6 +484,110 @@
                 }
                
             }
+            .home-user-profile-section {
+                @apply flex flex-col gap-[30px] px-[15px] py-[20px];
+                .profile-container {
+                    @apply flex items-center gap-[10px];
+                    span {
+                        @apply w-[62px] h-[62px] rounded-[50%] bg-primary flex flex-col justify-center items-center;
+                        svg {
+                            @apply text-white w-[48px] h-[48px];
+                        }
+                    }
+                    .profile-desc {
+                        @apply gap-0;
+                        h5 {
+                            @apply text-[24px]/[22px] text-primary font-semibold;
+                        }
+                        p {
+                            @apply text-[15px] text-[#374957];
+                        }
+                    }
+                }
+                .savings-container {
+                    @apply flex flex-col gap-[30px];
+                    .saving-card {
+                        background: linear-gradient(112deg, rgba(58, 191, 182, 0.5) 0%, rgba(251, 233, 147, 0.5) 100%);
+                        @apply h-[193px] w-full p-[20px];
+                        &.golds {
+                            img {
+                                @apply w-[136px] h-[136px] object-contain;
+        
+                            }
+                            .description {
+                                @apply flex flex-col gap-[10px];
+                                h5 {
+                                    @apply text-[22px]/[22px];
+                                }
+                                p {
+                                    @apply text-[22px]/[22px];
+                                }
+                                span {
+                                    @apply text-[14px]/[22px];
+                                }
+                            }
+                        }
+                        &.gold-money {
+                            img {
+                                @apply w-[114px] h-[51px] object-contain;
+        
+                            }
+                            .description {
+                                @apply flex flex-col gap-[10px];
+                                h5 {
+                                    @apply text-[22px]/[22px];
+                                }
+                                p {
+                                    @apply text-[22px]/[22px];
+                                }
+                                button {
+                                    @apply bg-primary text-white w-[120px] h-[35px] rounded-[4px];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .home-highlight-section {
+                @apply py-[20px] px-[15px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                } 
+                .highlight-container {
+                    @apply relative w-full;
+                    .swiper {
+                        @apply h-[120px];
+                        .swiper-wrapper {
+                            @apply gap-[8px];
+                            .swiper-slide {
+                                @apply !w-[358px];
+                                .highlight-card {
+                                    @apply h-[80px];
+                                    .card-desc {
+                                        p {
+                                            @apply text-[16px]/[22px];
+                                        }
+                                        span {
+                                            @apply text-[10px]/[10px];
+                                        }
+                                    }
+        
+                                }
+                            }
+                        }
+                        .swiper-pagination {
+                            @apply top-[90px];
+                            .swiper-pagination-bullet {
+                                @apply w-[13px] h-[13px];
+                                &.swiper-pagination-bullet-active {
+                                    @apply bg-primary w-[34px] rounded-[12px];
+                                }
+                            }
+                        }
+                    }
+                }
+        
+            }
             .home-chart-section {
                 @apply py-[20px] flex flex-col px-[15px] gap-[24px];
                 .navigation-container {
@@ -331,10 +617,27 @@
                     box-shadow: 0px 0px 21.9px 3px #00000040;
                 }
             }
+            .home-chart-new-section {
+                @apply py-[20px] flex flex-col px-[15px] gap-[24px];
+                .navigation-container {
+                    @apply w-full;
+                    .header-info {
+                        @apply flex items-center gap-[24px];
+                        h5 {
+                            @apply text-[24px]/[22px];
+                           
+                        }
+                    }
+                }
+                .chart-container {
+                    @apply w-full h-[263px] rounded-[28px] bg-white flex flex-col gap-[25px] px-[13px] py-[10px];
+                    box-shadow: 0px 0px 21.9px 3px #00000040;
+                }
+            }
             .home-article-section {
                 @apply py-[20px] px-[15px];
                 .title-container {
-                    @apply flex justify-between w-full items-end;
+                    @apply flex flex-col;
                     .sub-title {
                         @apply flex flex-col gap-[8px];
                         h2 {
@@ -353,11 +656,13 @@
                     .article-card {
                         @apply w-full flex-row gap-[20px] items-center;
                         .box-image {
+                            @apply w-[85px];
                             img {
-                                @apply w-[85px] h-[82px];
+                                @apply w-full h-[82px];
                             }
                         }
                        .box-title {
+                            @apply flex-1;
                             h5 {
                                 @apply text-[14px]/[22px] ;
                             }
@@ -374,7 +679,7 @@
                 .testimony-container {
                     @apply relative w-full;
                     .swiper {
-                        @apply h-[150px];
+                        @apply h-[120px];
                         .swiper-wrapper {
                             @apply gap-[8px];
                             .swiper-slide {
@@ -391,7 +696,7 @@
                             }
                         }
                         .swiper-pagination {
-                            @apply top-[100px];
+                            @apply top-[90px];
                             .swiper-pagination-bullet {
                                 @apply w-[13px] h-[13px];
                                 &.swiper-pagination-bullet-active {

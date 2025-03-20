@@ -20,14 +20,24 @@ const options = {
     },
     colors: ['#064D81'],
     xAxis: {
-        categories: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-        visible: false,
+        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         min: 0.5, 
         max: 5.5,
         crosshair: {
             width: 1,
             color: '#0A0A07',
-        }
+        },
+        opposite:true,
+        tickInterval: 1,
+        tickmarkPlacement: "on",
+        gridLineWidth: 1,
+        gridLineColor: "#bbbbbb",
+        gridLineDashStyle: "dash",
+        lineColor: "#000",
+        lineWidth: 0,
+        minorTickInterval: 0.5,
+        minorGridLineColor: "#dddddd",
+        minorGridLineDashStyle: "dash",
     },
     yAxis: {
         title: {
@@ -55,15 +65,15 @@ const ChartSpline = () => {
 
     const fetchData = useCallback(() => {
         const temp = JSON.parse(JSON.stringify(options));
-        temp.chart.type = 'areaspline'
+        temp.chart.type = 'area'
         temp.plotOptions = {
             series: {
                 marker: false,
                 fillColor: {
                     linearGradient: [0, 0, 0, 300],
                     stops: [
-                        [0, Highcharts.color('#39BFB6').setOpacity(1).get('rgba')],
-                        [1, Highcharts.color('#B1F8B900').setOpacity(0.3).get('rgba')],
+                        [0, Highcharts.color('#3ABFB6').setOpacity(1).get('rgba')],
+                        [1, Highcharts.color('#D9D9D900').setOpacity(0.3).get('rgba')],
                     ]
                 }
             }
@@ -72,12 +82,13 @@ const ChartSpline = () => {
             {
                 name: 'A',
                 data: [3000, 4000, 3500, 4500, 4600, 1500, 2900],
-                color: '#04FF00',
+                color: '#3ABFB6',
+                lineWidth: 3,
                 fillColor: {
                     linearGradient: [0, 0, 0, 200],
                     stops: [
-                        [0, Highcharts.color('#39BFB6').setOpacity(1).get('rgba')],
-                        [1, Highcharts.color('#B1F8B900').setOpacity(0.3).get('rgba')],
+                        [0, Highcharts.color('#3ABFB6').setOpacity(1).get('rgba')],
+                        [1, Highcharts.color('#D9D9D900').setOpacity(0.3).get('rgba')],
                     ]
                 }
             },
@@ -106,7 +117,7 @@ const ChartSpline = () => {
     <HighchartsReact
         highcharts={Highcharts}
         options={data}
-        containerProps = {{ className: 'w-full h-[272px]' }}
+        containerProps = {{ className: 'w-full' }}
         ref={chartComponentRef}
     />
   )
