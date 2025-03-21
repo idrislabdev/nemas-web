@@ -77,12 +77,11 @@ const LoginArea = () => {
 
   return (
     <div className={`login-area ${globals.userLogin.name ? 'items-center' : ''}`} ref={dropdownuser}>
-        
-        <Link href={`/keranjang`} className='cart-notif'><span><ShoppingCart01 /></span> 
-          {globals.cartCount > 0 &&
-            <span className='badge-notif'>{globals.cartCount}</span>
-          }
-        </Link>
+        {globals.cartCount > 0 &&
+          <Link href={`/keranjang`} className='cart-notif'><span><ShoppingCart01 /></span> 
+          <span className='badge-notif'>{globals.cartCount}</span>
+          </Link>
+        }
         {!globals.userLogin.name &&
           <div className='login-non-member'>
             <Link href={`/login`} className='login-button'>
