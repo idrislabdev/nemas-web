@@ -467,19 +467,15 @@
                 }
             }
             .home-hero-new-section {
-                @apply flex flex-col justify-center items-center w-full;
                 .banner-container {
-                    @apply w-full flex items-center h-[250px] px-[15px];
+                    @apply h-[250px] px-[15px];
                     .text-area {
-                        @apply flex flex-col gap-[38px] w-1/2;
+                        @apply flex flex-col gap-[19px] w-1/2;
                         h2 {
-                            @apply text-[14px]/[24px] font-semibold text-[#17494E];
-                            span {
-                                @apply font-black
-                            }
+                            @apply text-[14px]/[24px];
                         }
                         a {
-                            @apply  w-[130px] h-[23px]  text-[12px];
+                            @apply  w-[130px] h-[23px] text-[12px];
                         }
                     }
                     img {
