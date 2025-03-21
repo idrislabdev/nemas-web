@@ -101,7 +101,7 @@ export interface IGold {
     create_user?: string,
     upd_user?: string,
     upd_time?: string,
-    gold_price_summary?:number
+    gold_price_summary:number
     gold_image_1: string,
     gold_image_2?: string,
     gold_image_3?: string,
