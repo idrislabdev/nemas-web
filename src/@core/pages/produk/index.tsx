@@ -29,7 +29,7 @@ const ProdukPageWrapper = () => {
     const fetchData = useCallback(async () => {
         const respActive = await axiosInstance.get(`/core/gold/price/active`)
         const active = respActive.data
-        const resp = await axiosInstance.get(`/core/gold/`, { params });
+        const resp = await axiosInstance.get(`/core/gold/list/product-show`, { params });
         const { results } = resp.data
 
         results.forEach((item:IGold) => {
@@ -37,6 +37,7 @@ const ProdukPageWrapper = () => {
             if (item.brand == 'Antam')
                 addOn = 125000
 
+            // item.price = ((Math.ceil(active.gold_price_buy) + addOn) * item.gold_weight)
             item.price = ((Math.ceil(active.gold_price_buy) + addOn) * item.gold_weight)
         });
         setGolds(resp.data.results)
@@ -65,7 +66,7 @@ const ProdukPageWrapper = () => {
             const body = {
                 "gold": item.gold_id,
                 "weight": item.gold_weight,
-                "price": item.price,
+                "price": item.gold_price_summary,
                 "quantity": 1
             }
             await axiosInstance.post("/order/cart/add/", body)
@@ -121,7 +122,7 @@ const ProdukPageWrapper = () => {
                                     <label>{item.brand}</label>
                                     <span>{item.gold_weight} Gr</span>
                                 </div>
-                                <p>Rp{formatterNumber(item.price)}</p>
+                                <p>Rp{formatterNumber(item.gold_price_summary)}</p>
                                 <button onClick={() => addToCart(item)}>
                                     <span><ShoppingCart03 /></span>
                                     Tambah ke Keranjang
