@@ -159,10 +159,40 @@
                             @apply text-[16px]/[22px] font-medium text-[#8D8D8D];
                         }
                     }
+                    @media (max-width: 1350px) {
+                        img {
+                            @apply w-[168px] h-[168px] object-contain;
+    
+                        }
+                        .description {
+                            @apply flex flex-col gap-[20px] text-right items-end;
+                            h5 {
+                                @apply text-[30px]/[21px];
+                            }
+                            p {
+                                @apply text-[30px]/[21px];
+                            }
+                        }
+                    }
+                    @media (max-width: 1024px) {
+                        img {
+                            @apply w-[88px] h-[88px] object-contain;
+    
+                        }
+                        .description {
+                            @apply flex flex-col gap-[20px] text-right items-end;
+                            h5 {
+                                @apply text-[21px]/[17px];
+                            }
+                            p {
+                                @apply text-[21px]/[17px];
+                            }
+                        }
+                    }
                 }
                 &.gold-money {
                     img {
-                        @apply w-[173px] h-[79px] object-contain;
+                        @apply w-[153px] h-[59px] object-contain;
 
                     }
                     .description {
@@ -175,6 +205,32 @@
                         }
                         button {
                             @apply bg-primary text-white w-[120px] h-[35px] rounded-[4px];
+                        }
+                    }
+                    @media (max-width: 1350px) {
+                        .description {
+                            @apply flex flex-col gap-[20px] text-right items-end;
+                            h5 {
+                                @apply text-[30px]/[21px];
+                            }
+                            p {
+                                @apply text-[30px]/[21px];
+                            }
+                        }
+                    }
+                    @media (max-width: 1024px) {
+                        img {
+                            @apply w-[88px] h-[39px] object-contain;
+    
+                        }
+                        .description {
+                            @apply flex flex-col gap-[20px] text-right items-end;
+                            h5 {
+                                @apply text-[21px]/[17px];
+                            }
+                            p {
+                                @apply text-[21px]/[17px];
+                            }
                         }
                     }
                 }
