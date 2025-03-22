@@ -57,7 +57,7 @@
                                 @apply text-[13px]/[22px] text-[#8D989D]
                             }
                             a {
-                                @apply text-[12px] text-[#39BFB6] font-medium;
+                                @apply text-[12px] text-[#39BFB6] font-medium cursor-pointer;
                             }
                         }
                     }
@@ -96,6 +96,39 @@
                 }
                 .ant-checkbox-group {
                     @apply flex flex-col gap-[10px];
+                }
+            }
+        }
+    }
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[90px] px-[15px] gap-[20px];
+            .header-section {
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+            }
+            .main-section {
+                .main-container {
+                    @apply flex-col-reverse gap-[40px];
+                    .main-area {
+                        @apply w-full;  
+                        h5 {
+                            @apply text-sm;
+                        }
+                        .cards-list {
+                            @apply pb-[20px]
+                        }
+                    }
+                    .filter-area {
+                        @apply w-full;
+                        h5 {
+                            @apply text-sm;
+                        }
+                        .ant-checkbox-group {
+                            @apply inline-flex flex-row gap-[4px];
+                        }
+                    }
                 }
             }
         }

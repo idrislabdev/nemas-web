@@ -1,9 +1,11 @@
 import { SearchSm } from '@untitled-ui/icons-react';
 import { Checkbox, DatePicker, GetProp, Input, Pagination } from 'antd'
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
+import ModalDetailTransaksi from './modal-detail';
 
 const DaftarTransaksiPageWrapper = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
         console.log('checked = ', checkedValues);
     };
@@ -21,61 +23,70 @@ const DaftarTransaksiPageWrapper = () => {
     ];
 
     return (
-        <main className='daftar-transaksi-page sm:mobile-responsive md:mobile-responsive'>
-            <div className='header-section'>
-                <h2>Transaksi</h2>
-            </div>
-            <div className='main-section'>
-                <div className='main-container'>
-                    <div className='main-area'>
-                        <h5>Daftar Transaksi</h5>
-                        <div className='input-list'>
-                            <Input suffix={<span className='text-neutral-400'><SearchSm /></span>} />
-                            <DatePicker  />
-                        </div>
-                        <div className='cards-list'>
-                            <div className='card'>
-                                <div className='info-area'>
-                                    <div className='info-img'>
-                                        <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
-                                    </div>                                    
-                                    <div className='info-detail'>
-                                        <label>0,044 Gram</label>
-                                        <span>Beli Emas</span>
+        <>
+            <main className='daftar-transaksi-page sm:mobile-responsive md:mobile-responsive'>
+                <div className='header-section'>
+                    <h2>Transaksi</h2>
+                </div>
+                <div className='main-section'>
+                    <div className='main-container'>
+                        <div className='main-area'>
+                            <h5>Daftar Transaksi</h5>
+                            <div className='input-list'>
+                                <Input 
+                                    suffix={<span className='text-neutral-400'><SearchSm /></span>} 
+                                    className='input-base'
+                                />
+                                <DatePicker  />
+                            </div>
+                            <div className='cards-list'>
+                                <div className='card'>
+                                    <div className='info-area'>
+                                        <div className='info-img'>
+                                            <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
+                                        </div>                                    
+                                        <div className='info-detail'>
+                                            <label>0,044 Gram</label>
+                                            <span>Beli Emas</span>
+                                        </div>
+                                    </div>
+                                    <div className='detail-area'>
+                                        <label>26 Okt 2024</label>
+                                        <a onClick={() => setIsModalOpen(true)}>Lihat Detail Transaksi</a>
                                     </div>
                                 </div>
-                                <div className='detail-area'>
-                                    <label>26 Okt 2024</label>
-                                    <a>Lihat Detail Transaksi</a>
-                                </div>
-                            </div>
-                            <div className='card'>
-                                <div className='info-area'>
-                                    <div className='info-img'>
-                                        <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
-                                    </div>                                    
-                                    <div className='info-detail'>
-                                        <label>0,044 Gram</label>
-                                        <span>Beli Emas</span>
+                                <div className='card'>
+                                    <div className='info-area'>
+                                        <div className='info-img'>
+                                            <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
+                                        </div>                                    
+                                        <div className='info-detail'>
+                                            <label>0,044 Gram</label>
+                                            <span>Beli Emas</span>
+                                        </div>
+                                    </div>
+                                    <div className='detail-area'>
+                                        <label>26 Okt 2024</label>
+                                        <a onClick={() => setIsModalOpen(true)}>Lihat Detail Transaksi</a>
                                     </div>
                                 </div>
-                                <div className='detail-area'>
-                                    <label>26 Okt 2024</label>
-                                    <a>Lihat Detail Transaksi</a>
-                                </div>
+                            </div>
+                            <div className='pagination'>
+                                <Pagination defaultCurrent={1} total={50} />
                             </div>
                         </div>
-                        <div className='pagination'>
-                            <Pagination defaultCurrent={1} total={50} />
+                        <div className='filter-area'>
+                            <h5>Filter</h5>
+                            <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
                         </div>
-                    </div>
-                    <div className='filter-area'>
-                        <h5>Filter</h5>
-                        <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+            <ModalDetailTransaksi 
+                isModalOpen={isModalOpen} 
+                setIsModalOpen={setIsModalOpen} 
+            />
+        </>
   )
 }
 

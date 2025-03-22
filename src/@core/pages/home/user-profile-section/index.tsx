@@ -3,7 +3,7 @@
 import { IGoldPrice, IUserProp } from '@/@core/@types/interface'
 import { useGlobals } from '@/@core/hoc/useGlobals'
 import axiosInstance from '@/@core/utils/axios'
-import { formatterNumber2 } from '@/@core/utils/general'
+import { formatterNumber, formatterNumber2 } from '@/@core/utils/general'
 import { User03 } from '@untitled-ui/icons-react'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
@@ -44,7 +44,7 @@ const HomeUserProfileSection = () => {
                     <Image src={`/images/golds.png`}  alt='golds' width={0} height={0} sizes='100%' />
                     <div className='description'>
                         <h5>Tabungan Emas</h5>
-                        <p>{globals.userProp.gold_wgt}</p>
+                        <p>{globals.userProp.gold_wgt.replace(".", ",")} Gram</p>
                         <span>≈Rp{formatterNumber2(((parseFloat(globals.userProp.gold_wgt)) * (dataGold.gold_price_sell ? dataGold.gold_price_sell : 0)).toFixed(3).toString().replace(".", ","))}</span>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ const HomeUserProfileSection = () => {
                     <Image src={`/images/gold-money.png`} alt='gold and money' width={0} height={0} sizes='100%' />
                     <div className='description'>
                         <h5>Saldo Uang</h5>
-                        <p>Rp{globals.userProp.wallet_amt}</p>
+                        <p>Rp {formatterNumber(parseInt(globals.userProp.wallet_amt))}</p>
                         <button>Topup Saldo</button>
                     </div>
                 </div>

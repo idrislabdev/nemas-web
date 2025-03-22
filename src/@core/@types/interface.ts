@@ -74,6 +74,25 @@ export interface IRating {
     publish: boolean
 }
 
+export interface IGoldPromo {
+    gold_promo_id?: number,
+    gold_promo_code?: string,
+    gold_promo_description?: string,
+    gold_promo_weight?: string,
+    gold_promo_amt_pct?: string,
+    gold_promo_amt?: string,
+    gold_promo_min_weight?: string,
+    gold_promo_max_weight?: string,
+    gold_promo_min_amt?: string,
+    gold_promo_max_amt?: string,
+    gold_promo_start_date?: string,
+    gold_promo_end_date?: string,
+    gold_promo_active?: boolean,
+    create_user?: string,
+    upd_user?: string
+}
+
+
 export interface IUserCreate {
     email?: string,
     name?: string,
@@ -127,6 +146,7 @@ export interface IPromo {
     createuser?: string,
     updtime?: Date,
     upduser?: string
+    hexcode?: string,
 }
 
 export interface ICart {

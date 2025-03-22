@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useGlobals } from '@/@core/hoc/useGlobals';
 import { Copy06, InfoCircle, User01 } from '@untitled-ui/icons-react';
+import { formatterNumber } from '@/@core/utils/general';
 const ProfileAkunContainer = () => {
   const { globals } = useGlobals()
 
@@ -15,7 +16,7 @@ const ProfileAkunContainer = () => {
           <div className='main-info'>
           <span className='user-icon'><User01 /></span>
               <h5>{globals.userLogin.name}</h5>
-              <label className='badge-member gold'>Gold Member</label>
+              <label className='badge-member gold'>Novice Saver</label>
           </div>
           <div className='id-info'>
               <label>ID Nemas</label>
@@ -33,11 +34,11 @@ const ProfileAkunContainer = () => {
     <div className='asset-container'>
       <div className='asset-card tabungan'>
           <label>Tabungan Emas</label>
-          <p>Rp {globals.userProp.gold_wgt}</p>
+          <p>{globals.userProp.gold_wgt} Gram</p>
       </div>
       <div className='asset-card saldo'>
           <label>Saldo Uang</label>
-          <p>Rp {globals.userProp.wallet_amt}</p>
+          <p>Rp {formatterNumber(parseInt(globals.userProp.wallet_amt))}</p>
       </div>
     </div>
    </>

@@ -102,7 +102,7 @@ const LoginArea = () => {
             />
             <div className='member-info'>
               <p>{globals.userLogin.name}</p>
-              <span>Gold Member</span>
+              <span>Novice Saver</span>
             </div>
             <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>
             <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>

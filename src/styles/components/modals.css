@@ -165,4 +165,80 @@
             @apply rounded-[30px];
         }
     }
+    &.modal-detail-transaksi {
+        @apply !w-[507px];
+        .ant-modal-content {
+            @apply rounded-[30px];
+            .ant-modal-body {
+                @apply flex flex-col gap-[20px];
+                h5 {
+                    @apply text-[24px]/[28px] font-bold text-black;
+                }
+                .header-transaksi {
+                    @apply flex justify-between border-b-4 border-b-[#E1E1E1] pb-[20px];
+                    .left-header {
+                        @apply flex flex-col gap-[4px];
+                        label {
+                            @apply text-[14px]/[17px] font-medium;
+                        }
+                        p {
+                            @apply text-[20px]/[23px] font-bold;
+                        }
+                        span {
+                            @apply text-[15px]/[18px] font-bold;
+                        }
+                    }
+                    .right-header {
+                        @apply flex flex-col gap-[4px];
+                        label {
+                            @apply text-[14px]/[17px] font-medium text-[#5E5E5E];
+                        }
+                        p {
+                            @apply text-[10px]/[14px] font-medium text-[#5E5E5E];
+                        }
+                    }
+                }
+                .info-transaksi {
+                    @apply border-b border-b-[#E1E1E1] pb-[20px];
+                    .card-info {
+                        @apply flex flex-col gap-[12px] bg-[#FAEBD1] rounded-[16px] p-[16px];
+                        box-shadow: 0px 2px 4px 0px #00000040;
+                        label {
+                            @apply text-[14px]/[22px] text-black;
+                        }
+                        .detail-card {
+                            @apply flex justify-between items-center;
+                            p {
+                                @apply text-[24px]/[22px] font-bold;
+                            }
+                            span {
+                                @apply text-[12px]/[22px] font-medium;
+                            }
+                        }
+                    }
+                }
+                .history-transaksi {
+                    @apply flex flex-col gap-[10px];
+                    .header-history {
+                        @apply flex justify-between items-center;
+                        label {
+                            @apply text-[16px] font-bold;
+                        }
+                        a {
+                            @apply text-[12px]/[22px] font-medium text-[#17494E];
+                        }
+                    }
+                    .content-history {
+                        @apply flex flex-col gap-[20px] justify-center items-center;
+                        img {
+                            @apply w-[128px] h-[128px];
+                        }
+                        span {
+                            @apply text-[16px] font-bold text-[#2E2E30];
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

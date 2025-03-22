@@ -48,7 +48,7 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                             />
                             <div className='member-info'>
                                <p>{globals.userLogin.name}</p>
-                               <span>Gold Member</span>
+                               <span>Novice Saver</span>
                             </div>
                         </div>
                     }
