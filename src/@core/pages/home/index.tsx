@@ -26,7 +26,7 @@ const HomgePageWrapper = () => {
     setTestimonies(respTestimonies.data.results)
 
     const respPromo = await axiosInstance.get(`core/information/promo/show/?offset=0&limit=10`);
-    const colors = ['#3ABFB6', '#CAF943', '#00BF6B', '#ACE1FF', '#D2F3F5']
+    const colors = ['#3ABFB6', '#CAF943', '#F0BF6B', '#ACE1FF', '#D2F3F5']
     const temps:IPromo[] = []
     let counter=0;
     respPromo.data.results.forEach((item:IPromo) => {
