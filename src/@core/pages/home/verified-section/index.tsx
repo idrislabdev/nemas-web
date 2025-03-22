@@ -8,7 +8,7 @@ const HomeVerifiedSection = () => {
             <div className='verified-info'>
                 <h2>Terverifikasi Oleh</h2>
                 <p>
-                    Nemas telah terujiji dan terverifiaksi dalam keamanan transaksi dan ijin perdaganan emas 
+                    Nemas telah teruji dan terverifiaksi dalam keamanan transaksi dan ijin perdaganan emas 
                     oleh Kementrian Perdagangan Republik Indonesia demi kenyaamanan dan keamanan investasi anda.
                 </p>
             </div>

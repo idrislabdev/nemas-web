@@ -6,7 +6,7 @@ import HighchartsReact from 'highcharts-react-official';
 
 const options = {
     chart: {
-        type: 'area',
+        type: 'areaspline',
     },
     title: {
         text: '',
@@ -65,7 +65,7 @@ const ChartSpline = () => {
 
     const fetchData = useCallback(() => {
         const temp = JSON.parse(JSON.stringify(options));
-        temp.chart.type = 'area'
+        temp.chart.type = 'areaspline'
         temp.plotOptions = {
             series: {
                 marker: false,
