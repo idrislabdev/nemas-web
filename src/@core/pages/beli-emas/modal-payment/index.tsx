@@ -9,10 +9,10 @@ const ModalPayment =(props: {
         setIsModalOpen:Dispatch<SetStateAction<boolean>>, 
         setPayment: Dispatch<SetStateAction<IPayment>>
     }) => {
-    const { isModalOpen, setIsModalOpen, setPayment } = props
+    const { isModalOpen, setIsModalOpen } = props
 
     const onConfirm = () => {
-        setPayment({type: "xxxx", type_name: 'Virtual Account', name: "BCA"})
+        // setPayment({type: "xxxx", type_name: 'Virtual Account', name: "BCA"})
         setIsModalOpen(false)
     }
 

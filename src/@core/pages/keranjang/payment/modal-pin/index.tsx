@@ -1,21 +1,34 @@
+import axiosInstance from '@/@core/utils/axios'
 import { Eye, X } from '@untitled-ui/icons-react'
 import { Input, Modal } from 'antd'
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 const KeranjangModalPin =(props: {
         isModalOpen:boolean, 
         setIsModalOpen:Dispatch<SetStateAction<boolean>>, 
-        setView:Dispatch<SetStateAction<string>>
+        onSucces: () => void
     }) => {
-    const { isModalOpen, setIsModalOpen, setView } = props
+    const { isModalOpen, setIsModalOpen, onSucces } = props
+    const [ pin, setPin ] = useState("")
 
-    const handleKeyDown = (event:React.KeyboardEvent) => {
+    const handleKeyDown = async (event:React.KeyboardEvent) => {
         if (event.key === 'Enter') {
-            setIsModalOpen(false)
-            setView('waiting')
+            const body = {
+                pin : pin
+            }
+            axiosInstance.post(`users/user/pin/verify/`, body)
+            .then(() => {
+                onSucces()
+            })
         }
-      
-}
+    }
+
+    useEffect(() => {
+        if(isModalOpen) {
+            setPin("")
+        }
+    },[isModalOpen])
+
     return (
         <Modal className='modal-pin' open={isModalOpen} onCancel={() => setIsModalOpen(false)}  footer={null} closeIcon={false}>
             <div className='flex justify-between items-center'>
@@ -27,10 +40,13 @@ const KeranjangModalPin =(props: {
             </div>
             <div className='content-body'>
                 <Input 
+                    value={pin}
                     suffix={<a><span className='my-icon text-[#8D989D]'><Eye /></span></a>} 
                     type='password'
                     className='input-base' 
+                    onChange={(e) => setPin(e.target.value)}
                     onKeyDown={handleKeyDown} 
+                    maxLength={6}
                 />
             </div>
         </Modal>

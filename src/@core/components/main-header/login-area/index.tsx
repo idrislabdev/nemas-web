@@ -58,7 +58,7 @@ const LoginArea = () => {
             axiosInstance.get(`/users/user/prop/`)
             .then((response) => {
                 const dataProp = response.data
-                axiosInstance.get(`order/cart/?offset=0&limit=100`)
+                axiosInstance.get(`orders/fix/cart/detail/?offset=0&limit=100`)
                 .then((response) => {
                     const { results } = response.data
                     localStorage.setItem("user", JSON.stringify(datUser))
@@ -77,9 +77,11 @@ const LoginArea = () => {
 
   return (
     <div className={`login-area ${globals.userLogin.name ? 'items-center' : ''}`} ref={dropdownuser}>
-        {globals.cartCount > 0 &&
+        {globals.userLogin.name &&
           <Link href={`/keranjang`} className='cart-notif'><span><ShoppingCart01 /></span> 
-          <span className='badge-notif'>{globals.cartCount}</span>
+           {globals.cartCount > 0 &&
+            <span className='badge-notif'>{globals.cartCount}</span>
+           }
           </Link>
         }
         {!globals.userLogin.name &&

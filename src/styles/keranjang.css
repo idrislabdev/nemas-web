@@ -124,6 +124,9 @@
             }
             button {
                 @apply bg-primary w-[354px] h-[51px] rounded-[4px] text-white text-[16px]/[19px] font-semibold;
+                &:disabled {
+                    @apply bg-primary bg-opacity-50;
+                }
             }
         }
     }
@@ -206,6 +209,9 @@
             }
             button {
                 @apply bg-primary w-[354px] h-[51px] rounded-[4px] text-white text-[16px]/[19px] font-semibold;
+                &:disabled {
+                    @apply bg-primary bg-opacity-50;
+                }
             }
         }
     }
@@ -292,7 +298,7 @@
             @apply bg-primary rounded-[31px] flex flex-col items-center justify-center gap-[36px] p-[41px];
             box-shadow: 0px 0px 15px 3px #00000040;
             .header {
-                @apply flex flex-col gap-[12px] justify-center items-center text-white;
+                @apply flex flex-col gap-[12px] justify-center items-center text-white text-center;
                 .check-icon {
                     @apply w-[185px] h-[185px] flex flex-col justify-center items-center rounded-[50%] bg-[#62D9D1];
                     img {
@@ -328,13 +334,13 @@
                     @apply bg-[#F0BF6B] text-black;
                 }
                 a {
-                    @apply bg-white;
+                    @apply bg-white text-black;
                 }
             }
         }
     }
     .waiting-section {
-        @apply px-[150px] flex flex-col gap-[45px];
+        @apply  flex flex-col gap-[45px];
         .main-container {
             @apply bg-primary rounded-[31px] flex flex-col items-center justify-center gap-[36px] p-[41px];
             box-shadow: 0px 0px 15px 3px #00000040;
@@ -360,7 +366,7 @@
                     .detail-text {
                         @apply flex flex-col;
                         h5 {
-                            @apply text-[14px]/[22px] text-black font-semibold;
+                            @apply flex items-center gap-[8px] text-[14px]/[22px] text-black font-semibold;
                             img {
                                 @apply w-[24px] h-[24px]
                             }
@@ -399,7 +405,7 @@
                     @apply bg-[#F0BF6B] text-black;
                 }
                 a {
-                    @apply bg-white;
+                    @apply bg-white text-black;
                 }
             }
         }

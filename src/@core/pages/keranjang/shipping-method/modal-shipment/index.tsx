@@ -9,13 +9,12 @@ const ModalShipment =(props: {
         setIsModalOpen:Dispatch<SetStateAction<boolean>>, 
         shippingServices:IShippingService[],
         selectedService:IShippingService,
-        setSelectedService:Dispatch<SetStateAction<IShippingService>>
+        onVoid: (selected:IShippingService) => void,
     }) => {
-    const { isModalOpen, setIsModalOpen, shippingServices, selectedService, setSelectedService } = props
+    const { isModalOpen, setIsModalOpen, shippingServices, selectedService, onVoid } = props
     const [ tempSelected, setTempSelected] = useState<IShippingService>(selectedService);
     const onConfirm = () => {
-        setSelectedService(tempSelected)
-        setIsModalOpen(false)
+        onVoid(tempSelected)
     }
 
     return (
@@ -33,7 +32,7 @@ const ModalShipment =(props: {
                     >
                         <div className='title'>
                             <label>{item.service_type_name}</label>
-                            <p>Rp{formatterNumber(item.total_cost)}</p>
+                            <p>Rp{formatterNumber(item.total_cost - item.insurance_admin_cost - item.insurance_cost)}</p>
                         </div>
                         <span>Estimasi {item.sla}</span>
                     </div>

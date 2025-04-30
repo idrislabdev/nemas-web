@@ -1,10 +1,15 @@
+import { IOrder } from '@/@core/@types/interface'
+import { formatterNumber } from '@/@core/utils/general'
 import { Copy01 } from '@untitled-ui/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { Dispatch, SetStateAction } from 'react'
 
-const KeranjangPaymentWaitingView = (props: {setView:Dispatch<SetStateAction<string>>}) => {
-    const { setView } = props
+const KeranjangPaymentWaitingView = (props: {
+    setSubView:Dispatch<SetStateAction<string>>,
+    order:IOrder
+}) => {
+    const { setSubView, order } = props
     return (
         <div className='waiting-section'>
             <div className='main-container'>
@@ -22,8 +27,7 @@ const KeranjangPaymentWaitingView = (props: {setView:Dispatch<SetStateAction<str
                                 <Image src={`/images/bca.png`} alt='bca' width={0} height={0} sizes='100%' />
                                 Bank BCA
                             </h5>
-                            <p>7899 7899 7899 7899</p>
-                            <a>Lihat Cara Pembayaran</a>
+                            <p>{order.pay_ref.virtual_account.toString().replace(/(.{4})/g, '$1 ').trim()}</p>
                         </div>
                         <a><span className='custom-icon'><Copy01 /></span></a>
                     </div>
@@ -31,13 +35,13 @@ const KeranjangPaymentWaitingView = (props: {setView:Dispatch<SetStateAction<str
                     <div className='detail-content'>
                         <div className='detail-text'>
                             <h5>Nominal</h5>
-                            <p>Rp 500.000</p>
+                            <p>Rp{formatterNumber(order.pay_ref.total_amount)}</p>
                         </div>
                         <a><span className='custom-icon'><Copy01 /></span></a>
                     </div>
                 </div>
                 <div className='group-button'>
-                    <button onClick={() => setView('success')}>Cek Pembayaran</button>
+                    <button onClick={() => setSubView('success')}>Cek Pembayaran</button>
                     <Link href='/'>Kembali ke Beranda</Link>
                 </div>
             </div>

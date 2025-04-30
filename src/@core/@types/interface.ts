@@ -12,9 +12,25 @@ export interface IVoucher {
 }
 
 export interface IPayment {
-    type: string,
-    type_name: string,
-    name: string
+    type?: string,
+    type_name?: string,
+    name?: string,
+    method_id: string,
+    method_name: string,
+    va_bank: string
+}
+
+export interface IPaymentBank {
+    bank_code : string, 
+    bank_name : string,
+    url: string
+}
+
+export interface IPaymentMethod {
+    payment_method_id: string,
+    payment_method_name: string,
+    payment_method_description: string,
+    banks:IPaymentBank[]
 }
 
 export interface IUserLogin {
@@ -120,12 +136,14 @@ export interface IGold {
     create_user?: string,
     upd_user?: string,
     upd_time?: string,
-    gold_price_summary:number
+    gold_price_summary:number,
+    gold_price_summary_roundup:number,
     gold_image_1: string,
     gold_image_2?: string,
     gold_image_3?: string,
     gold_image_4?: string,
-    gold_image_5?: string
+    gold_image_5?: string,
+    stock: number
 }
 
 export interface IPromo {
@@ -156,6 +174,7 @@ export interface ICart {
     price: string,
     quantity: 1,
     total_price: string,
+    total_price_round: string,
     created_at: string,
     updated_at: string
 }
@@ -178,6 +197,15 @@ export interface IShippingService {
     sla: string
 }
 
+export interface IDeliveryService {
+    delivery_partner_service_id: number,
+    delivery_partner_service_name: string,
+    delivery_partner: number,
+    delivery_partner_service_code: string,
+    delivery_partner_service_description: number
+}
+
+
 export interface IOrderDetail {
     gold: number,
     gold_type: string,
@@ -190,10 +218,18 @@ export interface IOrderDetail {
     order_detail_total_price: string
 }
 
+export interface IPayRef {
+    order_gold_id: string,
+    reference_id: string,
+    total_amount: number,
+    virtual_account: string
+}
+
 export interface IOrder {
     user: string,
     order_user_address: string,
     order_pickup_customer_datetime: string,
+    order_cart_id: string,
     order_pickup_address: string,
     order_phone_number: string,
     order_item_weight: string,
@@ -206,8 +242,10 @@ export interface IOrder {
     order_discount: string,
     order_total_price: string,
     order_tracking_insurance: string,
-    order_tracking_packing: string,
-    order_tracking_insurance_admin: string,
-    order_tracking_total: string,
-    order_details: IOrderDetail[]
+    order_tracking_total:string,
+    tracking_courier_service_id: number,
+    tracking_courier_service_code: string,
+    tracking_courier_id: number
+    order_details: IOrderDetail[],
+    pay_ref: IPayRef
 }

@@ -64,13 +64,11 @@ const ProdukPageWrapper = () => {
     const addToCart = async (item:IGold) => {
         if (user && user.name) {
             const body = {
-                "gold": item.gold_id,
-                "weight": item.gold_weight,
-                "price": item.gold_price_summary,
+                "gold_id": item.gold_id,
                 "quantity": 1
             }
-            await axiosInstance.post("/order/cart/add/", body)
-            const resp = await axiosInstance.get("/order/cart/?offset=0&limit=100")
+            await axiosInstance.post("/orders/fix/cart/add/", body)
+            const resp = await axiosInstance.get("/orders/fix/cart/detail/?offset=0&limit=100")
             const { results } = resp.data
             localStorage.setItem("cart_count", results.length)
             saveGlobals({...globals, cartCount: results.length})
@@ -120,10 +118,10 @@ const ProdukPageWrapper = () => {
                             <div className='description'>
                                 <div className='label'>
                                     <label>{item.brand}</label>
-                                    <span>{item.gold_weight} Gr</span>
+                                    <span>{parseFloat(item.gold_weight.toString())} Gr</span>
                                 </div>
-                                <p>Rp{formatterNumber(item.gold_price_summary)}</p>
-                                <button onClick={() => addToCart(item)}>
+                                <p>Rp{formatterNumber(item.gold_price_summary_roundup)}</p>
+                                <button onClick={() => addToCart(item)} disabled={item.stock < 1}>
                                     <span><ShoppingCart03 /></span>
                                     Tambah ke Keranjang
                                 </button>

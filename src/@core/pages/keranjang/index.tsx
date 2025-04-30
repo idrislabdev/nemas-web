@@ -17,26 +17,27 @@ const KeranjangPageWrapper = () => {
     const [order, setOrder] = useState<IOrder>({} as IOrder);
     
     const fetchData = useCallback(async () => {
-        const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
+        const resp = await axiosInstance.get(`orders/fix/cart/detail/?offset=0&limit=100`);
         const { results } = resp.data
         let temp = 0;
         let weight = 0;
         results.forEach((item:ICart) => {
-            temp = temp + parseInt(item.price) * item.quantity
+            temp = temp + parseInt(item.total_price_round)
             weight = weight + parseInt(item.weight)
         });
+        console.log(weight)
         setCarts(results)
         setSummary(temp)
         setTotalWeight(weight);
     }, [setCarts, setSummary, setTotalWeight])
 
     const deleteData = async (id:string) => {
-        await axiosInstance.delete(`order/cart/delete/${id}/`);
-        const resp = await axiosInstance.get(`order/cart/?offset=0&limit=100`);
+        await axiosInstance.delete(`orders/fix/cart/delete/${id}/`);
+        const resp = await axiosInstance.get(`orders/fix/cart/detail/?offset=0&limit=100`);
         const { results } = resp.data
         let temp = 0;
         results.forEach((item:ICart) => {
-            temp = temp + parseInt(item.price) * item.quantity
+            temp = temp + parseInt(item.total_price_round)
         });
         setCarts(results)
         setSummary(temp)
@@ -44,12 +45,10 @@ const KeranjangPageWrapper = () => {
     }
     const updateCart = async (item:ICart, qty:number) => {
         const body = {
-            "gold": item.gold_id,
-            "weight": item.weight,
-            "price": item.price,
+            "gold_id": item.gold_id,
             "quantity": qty
         }
-        await axiosInstance.put(`order/cart/update/${item.order_cart_detail_id}/`, body);
+        await axiosInstance.post("/orders/fix/cart/add/", body)
         fetchData();
     }
 
@@ -63,7 +62,6 @@ const KeranjangPageWrapper = () => {
                     setView={setView} 
                     carts={carts} 
                     summary={summary}
-                    weight={totalWeight} 
                     deleteData={deleteData} 
                     updateCart={updateCart} 
                     order={order}
@@ -83,6 +81,7 @@ const KeranjangPageWrapper = () => {
                 <KeranjangPayment 
                     order={order}
                     setOrder={setOrder}
+                    setView={setView} 
                 />
             }
         </main>
