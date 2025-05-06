@@ -165,6 +165,12 @@
             @apply rounded-[30px];
         }
     }
+    &.modal-forgot-password {
+        @apply !w-[507px];
+        .ant-modal-content {
+            @apply rounded-[12px];
+        }
+    }
     &.modal-detail-transaksi {
         @apply !w-[507px];
         .ant-modal-content {

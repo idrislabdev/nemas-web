@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { setCookie } from "cookies-next";
 import Link from 'next/link';
 import { Eye, EyeOff } from '@untitled-ui/icons-react';
+import ModalForgotPassword from '@/@core/components/modals/modal-forgot-password';
 
 const LoginPageWrapper = () => {
 
@@ -15,6 +16,7 @@ const LoginPageWrapper = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState('');
     const [isPassword, setIsPassword] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const onLogin = async () => {
       setError('');
@@ -99,7 +101,7 @@ const LoginPageWrapper = () => {
               </div>
               <div className='button-group'>
                 <button onClick={() => onLogin()}>Login</button>
-                <a>Lupa Password</a>
+                <a className='cursor-pointer' onClick={() => setIsModalOpen(true)}>Lupa Password</a>
               </div>
             </div>
             <div className="vertical-divider">
@@ -119,6 +121,10 @@ const LoginPageWrapper = () => {
           </div>
           <Link href={`/`}>Kembali ke Halaman Utama</Link>
         </div>
+        <ModalForgotPassword 
+          isModalOpen={isModalOpen} 
+          setIsModalOpen={setIsModalOpen} 
+        />
       </main>
   )
 }
