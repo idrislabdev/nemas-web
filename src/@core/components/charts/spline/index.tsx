@@ -20,9 +20,9 @@ const options = {
     },
     colors: ['#064D81'],
     xAxis: {
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        min: 0.5, 
-        max: 5.5,
+        categories: [],
+        // min: 0.5, 
+        // max: 5.5,
         crosshair: {
             width: 1,
             color: '#0A0A07',
@@ -59,13 +59,15 @@ const options = {
         enabled: false
     }
 }
-const ChartSpline = () => {
+const ChartSpline = (props: { dataChart:{categories:string[], data:number[]} }) => {
+    const { dataChart } = props
     const [ data, setData ] = useState({})
     const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
     const fetchData = useCallback(() => {
         const temp = JSON.parse(JSON.stringify(options));
         temp.chart.type = 'areaspline'
+        temp.xAxis.categories = dataChart.categories
         temp.plotOptions = {
             series: {
                 marker: false,
@@ -81,7 +83,7 @@ const ChartSpline = () => {
         temp.series  = [
             {
                 name: 'A',
-                data: [3000, 4000, 3500, 4500, 4600, 1500, 2900],
+                data: dataChart.data,
                 color: '#3ABFB6',
                 lineWidth: 3,
                 fillColor: {
@@ -94,7 +96,7 @@ const ChartSpline = () => {
             },
         ]
         setData(temp)
-    }, [setData])
+    }, [setData, dataChart])
 
     useEffect(() => {
         fetchData();
