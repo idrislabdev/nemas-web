@@ -176,7 +176,7 @@
                             @apply rounded-[30px] p-[24px] flex flex-col gap-[30px];
                             box-shadow: 0px 0px 15px 3px #00000040;
                             .playstore-content {
-                                @apply flex flex-col justify-center items-center text-center;
+                                @apply flex flex-col justify-center items-center text-center text-[#1F211E];
                                 .image-area {
                                     @apply relative;
                                     .image-circle {
