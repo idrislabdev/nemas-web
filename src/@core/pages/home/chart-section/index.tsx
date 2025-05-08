@@ -49,7 +49,7 @@ const HomeChartSection = () => {
             </div>
             <div className='chart-container'>
                 <div className='chart'>
-                    <ChartSpline />
+                    <ChartSpline dataChart={{data:[], categories:[]}} />
                 </div>
             </div>
         </div>
