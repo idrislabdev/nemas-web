@@ -15,7 +15,6 @@ const HomeUserProfileSection = () => {
     const [stateDone, setStateDone] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const { globals } = useGlobals()
-    
     useEffect(() => {
         axiosInstance.get(`/core/gold/price/active`)
         .then((response) => {
@@ -44,10 +43,27 @@ const HomeUserProfileSection = () => {
                 </div>
                 <div className='savings-container'>
                     <div className='saving-card golds'>
-                        <Image src={`/images/golds.png`}  alt='golds' width={0} height={0} sizes='100%' />
+                        {parseFloat(globals.userProp.gold_wgt) > 0 && parseFloat(globals.userProp.gold_wgt) <= 0.5 &&  
+                            <Image src={`/images/golds/gold-1.png`}  alt='golds' width={0} height={0} sizes='100%' /> 
+                        }
+                        {parseFloat(globals.userProp.gold_wgt) > 0.5 && parseFloat(globals.userProp.gold_wgt) <= 1 &&  
+                            <Image src={`/images/golds/gold-2.png`}  alt='golds' width={0} height={0} sizes='100%' /> 
+                        }
+                        {parseFloat(globals.userProp.gold_wgt) > 1 && parseFloat(globals.userProp.gold_wgt) <= 5 &&  
+                            <Image src={`/images/golds/gold-3.png`}  alt='golds' width={0} height={0} sizes='100%' /> 
+                        }
+                         {parseFloat(globals.userProp.gold_wgt) > 5 && parseFloat(globals.userProp.gold_wgt) <= 10 &&  
+                            <Image src={`/images/golds/gold-4.png`}  alt='golds' width={0} height={0} sizes='100%' /> 
+                        }
+                         {parseFloat(globals.userProp.gold_wgt) > 10 && parseFloat(globals.userProp.gold_wgt) <= 50 &&  
+                            <Image src={`/images/golds/gold-5.png`}  alt='golds' width={0} height={0} sizes='100%' /> 
+                        }
+                         {parseFloat(globals.userProp.gold_wgt) > 50 &&
+                            <Image src={`/images/golds/gold-6.png`}  alt='golds' width={0} height={0} sizes='100%' /> 
+                        }
                         <div className='description'>
                             <h5>Tabungan Emas</h5>
-                            <p>{globals.userProp.gold_wgt.replace(".", ",")} Gram</p>
+                            <p>{globals.userProp && globals.userProp.gold_wgt ? globals.userProp.gold_wgt.replace(".", ",") : ''} Gram</p>
                             <span>≈Rp{formatterNumber2(((parseFloat(globals.userProp.gold_wgt)) * (dataGold.gold_price_sell ? dataGold.gold_price_sell : 0)).toFixed(3).toString().replace(".", ","))}</span>
                         </div>
                     </div>

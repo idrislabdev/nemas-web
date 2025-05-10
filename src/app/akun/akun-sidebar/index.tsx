@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, File06, Headphones01, HelpCircle, Key01, LineChartUp02, LogOut01, User01 } from '@untitled-ui/icons-react'
+import { ChevronRight, File06, Headphones01, HelpCircle, Key01, LogOut01, User01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
@@ -33,7 +33,7 @@ const AkunSidebar = (props: {children:React.ReactNode}) => {
                         </div>
                     }
                 </li>
-                <li>
+                {/* <li>
                     <Link href={`/akun/setting-notifikasi`}>
                         <span className='my-icon'><LineChartUp02 />Setting Notifikasi Harga</span>  
                         <span><ChevronRight /></span>
@@ -43,7 +43,7 @@ const AkunSidebar = (props: {children:React.ReactNode}) => {
                             {children}
                         </div>
                     }
-                </li>
+                </li> */}
                 <li>
                     <Link href={`/akun/bantuan`}>
                         <span className='my-icon'><HelpCircle />Bantuan</span>  

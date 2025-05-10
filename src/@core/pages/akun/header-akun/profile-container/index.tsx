@@ -34,7 +34,7 @@ const ProfileAkunContainer = () => {
     <div className='asset-container'>
       <div className='asset-card tabungan'>
           <label>Tabungan Emas</label>
-          <p>{globals.userProp.gold_wgt} Gram</p>
+          <p>{globals.userProp && globals.userProp.gold_wgt ? globals.userProp.gold_wgt.replace(".", ",") : ''} Gram</p>
       </div>
       <div className='asset-card saldo'>
           <label>Saldo Uang</label>

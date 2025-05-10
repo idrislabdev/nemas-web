@@ -21,11 +21,11 @@ const HomeChartNewSection = () => {
             const dataVal:number[] = []
             data.forEach((item:{hour:string,gold_price_buy:number,day:string}) => {
                 if (tabActive == 'daily') {
-                    categories.push(moment(item.hour).format("HH:mm"))
+                    categories.push(moment(item.hour).format("HH"))
                 } else if (tabActive == 'weekly') {
-                    categories.push(moment(item.day).format("DD/MM"))
+                    categories.push(moment(item.day).format("DD MMM"))
                 } else if (tabActive == 'monthly') {
-                    categories.push(moment(item.day).format("DD/MM"))
+                    categories.push(moment(item.day).format("DD MMM"))
                 }
                 dataVal.push(item.gold_price_buy)
             });

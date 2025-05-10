@@ -1,6 +1,5 @@
 "use client"
 import { useGlobals } from '@/@core/hoc/useGlobals'
-import { Trash01 } from '@untitled-ui/icons-react'
 import { Input } from 'antd'
 import Image from 'next/image'
 import React from 'react'
@@ -47,9 +46,9 @@ const UserPengaturanPage = () => {
                     </div>
                 </div>
             </div>
-            <button className='btn-hapus'>
+            {/* <button className='btn-hapus'>
                 <Trash01 /> Hapus Akun
-            </button>
+            </button> */}
         </div>
     )
 }
