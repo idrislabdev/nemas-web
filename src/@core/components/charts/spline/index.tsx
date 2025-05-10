@@ -1,3 +1,4 @@
+/* eslint-disable prefer-spread */
 "use client"
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Highcharts from 'highcharts';
@@ -46,7 +47,7 @@ const options = {
         labels: {
             enabled: true
         },
-        visible: false
+        visible: false,
     },
     plotOptions: {
 
@@ -68,6 +69,7 @@ const ChartSpline = (props: { dataChart:{categories:string[], data:number[]} }) 
         const temp = JSON.parse(JSON.stringify(options));
         temp.chart.type = 'areaspline'
         temp.xAxis.categories = dataChart.categories
+        temp.yAxis.min = Math.min.apply(Math, dataChart.data)    
         temp.plotOptions = {
             series: {
                 marker: false,
@@ -82,7 +84,7 @@ const ChartSpline = (props: { dataChart:{categories:string[], data:number[]} }) 
         }
         temp.series  = [
             {
-                name: 'A',
+                name: 'Harga',
                 data: dataChart.data,
                 color: '#3ABFB6',
                 lineWidth: 3,
