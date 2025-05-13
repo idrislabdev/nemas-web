@@ -65,7 +65,8 @@ const ProdukPageWrapper = () => {
         if (user && user.name) {
             const body = {
                 "gold_id": item.gold_id,
-                "quantity": 1
+                "quantity": 1,
+                "order_type": "buy"
             }
             await axiosInstance.post("/orders/fix/cart/add/", body)
             const resp = await axiosInstance.get("/orders/fix/cart/detail/?offset=0&limit=100")

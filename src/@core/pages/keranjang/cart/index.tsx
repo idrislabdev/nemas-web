@@ -24,8 +24,12 @@ const KeranjangCart = (props: {
     const onCheckout = async () => {
         const details:IOrderDetail[] = [] as IOrderDetail[];
         const user = globals.userLogin
+
+        const body = {
+            "order_type": "buy"
+        }
        
-        const respCart  = await axiosInstance.post(`orders/fix/cart/process/`);
+        const respCart  = await axiosInstance.post(`orders/fix/cart/process/`, body);
         const dataCart = respCart.data
 
         const resp  = await axiosInstance.get(`users/user/address/`);

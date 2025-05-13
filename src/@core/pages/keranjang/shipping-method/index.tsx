@@ -23,13 +23,14 @@ const KeranjangShipping = (props: {
     const fetchData = useCallback(async () => {
         const body = {
             amount: summary,
-            weight: totalWeight
+            // weight: totalWeight
+            weight: 1
         }
         const resp = await axiosInstance.post(`orders/fix/shipping/service/`, body);
-        const { data } = resp.data
+        const { data } = resp
         setShippingServices(data.services)
        
-    }, [summary, totalWeight])
+    }, [summary])
 
     const onConfirmShipping = async () => {
         setView('payment')
@@ -38,16 +39,18 @@ const KeranjangShipping = (props: {
     const onSelectService = async (service:IShippingService) => {
         setSelectedService(service)
         setIsModalOpen(false)
+        console.log(service)
         const resp = await axiosInstance.get(`core/delivery_partner/service/?limit=10&offset=0&delivery_partner_service_code__icontains=${service.service_type_code}`);
         const { results } = resp.data
         if (results.length > 0) {
             const temp = results[0];
+            console.log(temp)
             setOrder({...order, 
                 tracking_courier_service_id: temp.delivery_partner_service_id,
                 tracking_courier_service_code: temp.delivery_partner_service_code,
                 tracking_courier_id: temp.delivery_partner,
-                order_tracking_insurance: (service.insurance_admin_cost + service.insurance_cost).toString(),
-                order_tracking_total:  (service.total_cost - service.insurance_admin_cost - service.insurance_cost).toString()
+                order_tracking_insurance: (service.insurance_admin_cost + service.insurance_cost_round).toString(),
+                order_tracking_total:  (service.total_cost_round - service.insurance_admin_cost - service.insurance_cost_round).toString()
             })
         }
     }

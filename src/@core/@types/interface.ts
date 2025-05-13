@@ -182,6 +182,7 @@ export interface ICart {
 export interface IShippingService {
     minimum_kilo: number,
     insurance_cost: number,
+    insurance_cost_round:number,
     insurance_admin_cost: number,
     volumetric_kg: number,
     packing_cost: number,
@@ -191,6 +192,7 @@ export interface IShippingService {
     cost: number,
     discount: string,
     total_cost: number,
+    total_cost_round: number,
     service_type_code: string,
     service_type_name: string,
     surcharge: number,

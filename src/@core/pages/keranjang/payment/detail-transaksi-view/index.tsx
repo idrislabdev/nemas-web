@@ -20,6 +20,7 @@ const KeranjangPaymentDetailTransaksiView = (props: {
     const [ payment, setPayment ] = useState<IPayment>({} as IPayment)
     const [ isModalPinOpen, setIsModalPinOpen] = useState(false)
     const [ checked, setChecked ] = useState(false)
+    
 
     const checkPin = async () => {
         setIsModalPinOpen(true)
