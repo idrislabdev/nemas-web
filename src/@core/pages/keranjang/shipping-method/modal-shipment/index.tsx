@@ -17,6 +17,14 @@ const ModalShipment =(props: {
         onVoid(tempSelected)
     }
 
+    const onSelect = (item:IShippingService) => {
+        if (item.service_type_code == tempSelected.service_type_code) {
+            setTempSelected({} as IShippingService)
+        } else {
+            setTempSelected(item)
+        }
+    }
+
     return (
         <Modal className='modal-shipment' open={isModalOpen} onCancel={() => setIsModalOpen(false)}  footer={null} closeIcon={false}>
             <div className='content-header'>
@@ -26,8 +34,8 @@ const ModalShipment =(props: {
             <div className='content-body'>
                 {shippingServices.map((item, index: number) => (
                     <div 
-                        className={`card-shipment ${tempSelected.service_type_code == item.service_type_code ? 'selected' : ''}`} 
-                        onClick={() => setTempSelected(item)}
+                        className={`card-shipment ${!item.active ? 'disabled' : ''} ${tempSelected.service_type_code == item.service_type_code ? 'selected' : ''}`} 
+                        onClick={() => item.active ? onSelect(item) : ''}
                         key={index}
                     >
                         <div className='title'>
@@ -40,7 +48,7 @@ const ModalShipment =(props: {
                 
             </div>
             <div className='content-footer'>
-                <button onClick={() => onConfirm()}>Pilih Ekspedisi</button>
+                <button onClick={() => onConfirm()} disabled={!tempSelected.service_type_code}>Pilih Ekspedisi</button>
             </div>
         </Modal>
     )

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import React, { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
 import ModalShipment from './modal-shipment'
 import axiosInstance from '@/@core/utils/axios'
-import { IOrder, IShippingService } from '@/@core/@types/interface'
+import { IDeliveryService, IOrder, IShippingService } from '@/@core/@types/interface'
 import { formatterNumber } from '@/@core/utils/general'
 
 const KeranjangShipping = (props: {
@@ -15,7 +15,7 @@ const KeranjangShipping = (props: {
     order:IOrder,
     setOrder:Dispatch<SetStateAction<IOrder>>,
 }) => {
-    const { setView, summary, totalWeight, order, setOrder } = props;
+    const { setView, summary, order, setOrder } = props;
     const [ isModalOpen, setIsModalOpen ] = useState(false)
     const [ shippingServices, setShippingServices] = useState<IShippingService[]>([] as IShippingService [])
     const [ selectedService, setSelectedService ] = useState<IShippingService>({} as IShippingService)
@@ -26,8 +26,18 @@ const KeranjangShipping = (props: {
             // weight: totalWeight
             weight: 1
         }
+        const respDelivery = await axiosInstance.get(`core/delivery_partner/service/?limit=100&offset=0`);
+        const dataDelivery:IDeliveryService[] = respDelivery.data.results
         const resp = await axiosInstance.post(`orders/fix/shipping/service/`, body);
         const { data } = resp
+        data.services.forEach((item:IShippingService) => {
+            const check = dataDelivery.find((x:IDeliveryService) => x.delivery_partner_service_code == item.service_type_code)
+            if (check) {
+                item.active = true
+            } else {
+                item.active = false
+            }
+        });
         setShippingServices(data.services)
        
     }, [summary])

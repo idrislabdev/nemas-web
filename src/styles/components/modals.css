@@ -143,7 +143,13 @@
                         }
 
                         &:hover, &.selected {
-                            @apply bg-[#D2F3F5]
+                            @apply bg-[#D2F3F5];
+                        }
+                        &.disabled {
+                            @apply bg-neutral-100 cursor-not-allowed;
+                            &:hover, &.selected {
+                                @apply bg-none;
+                            }
                         }
                     }
                 }

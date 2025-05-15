@@ -196,7 +196,8 @@ export interface IShippingService {
     service_type_code: string,
     service_type_name: string,
     surcharge: number,
-    sla: string
+    sla: string,
+    active: boolean
 }
 
 export interface IDeliveryService {
