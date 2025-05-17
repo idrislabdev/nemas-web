@@ -37,7 +37,13 @@ const ResetPinToken = () => {
     return (
         <div className='flex flex-col justify-center bg-white  h-screen'>
             {/* {params.token} */}
-            <div className='flex flex-col ustify-center border border-gray-200 rounded-[8px] max-w-container mx-auto gap-[20px] p-[40px] w-[400px] '>
+            <div 
+                className='flex flex-col ustify-center rounded-[8px] max-w-container mx-auto gap-[20px] p-[40px] w-[350px] '
+                style={{
+                    boxShadow:
+                    'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px',
+                }}
+            >
                 <div className='flex flex-col gap-[8px] text-center items-center'>
                     <h5 className='text-2xl text-center text-neutral-900 font-semibold'>Reset PIN</h5>
                     <p className='text-sm text-neutral-600'>Silahkan masukkan pin baru anda untuk mereset pin anda sebelumnya</p>
@@ -48,11 +54,13 @@ const ResetPinToken = () => {
                         <Input
                             type={seePin ? "text" : "password"}
                             placeholder='Masukkan PIN Baru'
-                            className='border border-solid border-black mt-2 p-2 rounded w-full text-black'
+                            className='mt-2 p-2 rounded w-full text-black'
                             value={pin}
                             onChange={(e) => setPin(e.target.value)}
                             suffix={
-                                <a onClick={() => setSeePin(!seePin)}>{seePin ? <Eye/> : <EyeOff/> }</a> 
+                                <a onClick={() => setSeePin(!seePin)}>
+                                     <span className='my-icon icon-sm text-neutral-500'>{seePin ? <Eye/> : <EyeOff/> }</span>
+                                </a> 
                             }
                         />
                     </div>
@@ -63,11 +71,13 @@ const ResetPinToken = () => {
                         <Input
                             type={seeConfirmPin ? "text" : "password"}
                             placeholder='Masukkan Konfirmasi PIN Baru'
-                            className='border border-solid border-black mt-2 p-2 rounded w-full text-black'
+                            className='mt-2 p-2 rounded w-full text-black'
                             value={confirmPin}
                             onChange={(e) => setConfirmPin(e.target.value)}
                             suffix={
-                                <a onClick={() => setSeeConfirmPin(!seeConfirmPin)}>{seeConfirmPin ? <Eye/> : <EyeOff/> }</a> 
+                                <a onClick={() => setSeeConfirmPin(!seeConfirmPin)}>
+                                     <span className='my-icon icon-sm text-neutral-500'>{seeConfirmPin ? <Eye/> : <EyeOff/> }</span>
+                                </a> 
                             }
                         />
                     </div>
