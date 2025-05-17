@@ -280,7 +280,7 @@
         }
     }
     .home-chart-new-section {
-        @apply py-[40px] flex justify-center items-center w-full px-[150px] gap-[50px] px-[100px] max-w-container mx-auto;
+        @apply py-[40px] flex justify-center items-center w-full px-[100px] max-w-container mx-auto;
         .navigation-container {
             @apply flex flex-col gap-[22px] w-[40%];
             .header-info {
