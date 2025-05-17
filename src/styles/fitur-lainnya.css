@@ -5,33 +5,35 @@
 .fitur-lainnya-page {
     @apply pt-[120px] bg-white flex flex-col gap-[80px];
     .header-section {
-        @apply flex flex-col gap-[38px] px-[96px];
+        @apply flex flex-col gap-[38px] px-[100px] mx-auto max-w-container w-full;
         h2 {
             @apply text-[32px]/[22px] font-semibold text-primary;
         }
     }
     .main-section {
-        @apply flex flex-col;
+        @apply flex flex-col ;
         .main-container {
             @apply flex-col;
             .card {
-                @apply flex gap-[95px] items-center px-[96px] py-[45px];
-                img {
-                    @apply w-[247px] h-[247px];
-                }
-                .content {
-                    @apply flex flex-col gap-[24px];
-                    .text-description {
-                        @apply flex flex-col gap-[9px] font-work-sans; 
-                        h5 {
-                            @apply text-[32px]/[22px] font-semibold text-[#17494E];
+                .card-content {
+                    @apply flex gap-[95px] items-center py-[45px] mx-auto max-w-container px-[100px];
+                    img {
+                        @apply w-[247px] h-[247px];
+                    }
+                    .content {
+                        @apply flex flex-col gap-[24px];
+                        .text-description {
+                            @apply flex flex-col gap-[9px] font-work-sans; 
+                            h5 {
+                                @apply text-[32px]/[22px] font-semibold text-[#17494E];
+                            }
+                            p {
+                                @apply text-[16px]/[38px] text-black;
+                            }
+                        } 
+                        button {
+                            @apply bg-primary text-white rounded-[4px] text-[16px]/[19px] font-medium w-[216px] h-[51px] cursor-pointer;
                         }
-                        p {
-                            @apply text-[16px]/[38px] text-black;
-                        }
-                    } 
-                    button {
-                        @apply bg-primary text-white rounded-[4px] text-[16px]/[19px] font-medium w-[216px] h-[51px] cursor-pointer;
                     }
                 }
 

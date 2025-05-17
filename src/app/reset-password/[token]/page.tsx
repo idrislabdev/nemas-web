@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { Eye, EyeOff } from '@untitled-ui/icons-react';
+import { Input } from 'antd';
 
 const ResetPasswordToken = () => {
     const params = useParams<{ token: string }>();
@@ -49,49 +50,43 @@ const ResetPasswordToken = () => {
     }
     
     return (
-        <div>
+        <div className='flex flex-col justify-center bg-white  h-screen'>
             {/* {params.token} */}
-            <div className='flex flex-col p-5 justify-center'>
-                <h1 className='text-2xl text-center'>Terima kasih telah melakukan reset password, silahkan masukkan password baru anda</h1>
-                <div className='flex flex-row'>
-                    <div className='basis-[95%]'>
-                        <input
+            <div className='flex flex-col ustify-center border border-gray-200 rounded-[8px] max-w-container mx-auto gap-[20px] p-[40px] w-[400px] '>
+                <div className='flex flex-col gap-[8px] text-center items-center'>
+                    <h5 className='text-2xl text-center text-neutral-900 font-semibold'>Reset Password</h5>
+                    <p className='text-sm text-neutral-600'>Silahkan masukkan password baru anda untuk mereset password anda sebelumnya</p>
+                </div>
+                <div className='flex flex-col gap-[8px]'>
+                    <div className='flex flex-col'>
+                        <label className='text-sm text-neutral-900'>Password Baru</label>
+                        <Input
                             type={seePass ? "text" : "password"}
                             placeholder='Masukkan Password Baru'
-                            className='border border-solid border-black mt-2 p-2 rounded w-full'
+                            className='border border-solid border-black mt-2 p-2 rounded w-full text-black'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            suffix={
+                                <a onClick={() => setSeePass(!seePass)}>{seePass ? <Eye/> : <EyeOff/> }</a> 
+                            }
                         />
                     </div>
-                    <div className='basis-[5%] justify-items-center' onClick={() => setSeePass(!seePass)}>
-                        {
-                            seePass ?
-                            <Eye/> :
-                            <EyeOff/>
-                        }
-                    </div>
-                </div>
-                <div className='flex flex-row'>
-                    <div className='basis-[95%]'>
-
-                        <input
+                    <div className='flex flex-col'>
+                        <label className='text-sm text-neutral-900'>Konfirm Password Baru</label>
+                        <Input
                             type={ seeConfirmPass ? "text" : "password"}
                             placeholder='Masukkan Konfirmasi Password Baru'
-                            className='border border-solid border-black mt-2 p-2 rounded w-full'
+                            className='border border-solid border-black mt-2 p-2 rounded w-full text-black'
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
+                            suffix={
+                                <a onClick={() => setSeeConfirmPass(!seeConfirmPass)}>{seeConfirmPass ? <Eye/> : <EyeOff/> }</a> 
+                            }
                         />
-                    </div>
-                    <div className='basis-[5%] justify-items-center' onClick={() => setSeeConfirmPass(!seeConfirmPass)}>
-                        {
-                            seeConfirmPass ?
-                            <Eye/> :
-                            <EyeOff/>
-                        }
                     </div>
                 </div>
                 <button
-                    className={`border border-solid border-black ${password === "" || confirmPassword === "" ? 'bg-gray-200' : 'bg-green-600'} text-white p-2 mt-2 rounded`}
+                    className={` ${password === "" || confirmPassword === "" ? 'bg-gray-200' : 'bg-primary'} text-white p-2 mt-2 rounded`}
                     disabled={password === "" || confirmPassword === "" || loading === true}
                     onClick={handleResetPassword}
                 >

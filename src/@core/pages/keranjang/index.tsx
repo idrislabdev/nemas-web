@@ -46,7 +46,8 @@ const KeranjangPageWrapper = () => {
     const updateCart = async (item:ICart, qty:number) => {
         const body = {
             "gold_id": item.gold_id,
-            "quantity": qty
+            "quantity": qty,
+            "order_type" : "buy"
         }
         await axiosInstance.post("/orders/fix/cart/add/", body)
         fetchData();

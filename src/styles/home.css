@@ -5,7 +5,7 @@
 .home-page {
     @apply pt-[45px] bg-white;
     .home-hero-section {
-        @apply flex items-center w-full;
+        @apply flex items-center w-full px-[100px] max-w-container mx-auto;
         .banner-container {
             @apply w-full h-[502px];
             .swiper {
@@ -35,9 +35,9 @@
     }
     .home-hero-new-section {
         @apply flex flex-col justify-center items-center w-full;
+        background: linear-gradient(180deg, #39BFB6 0%, rgba(255, 255, 255, 0) 66.6%);
         .banner-container {
-            @apply w-full flex items-center h-[502px] px-[150px];
-            background: linear-gradient(180deg, #39BFB6 0%, rgba(255, 255, 255, 0) 66.6%);
+            @apply w-full flex items-center h-[502px] px-[100px] max-w-container mx-auto;
             .text-area {
                 @apply flex flex-col gap-[38px] w-1/2;
                 h2 {
@@ -56,7 +56,7 @@
         }
     }
     .home-gold-navigation-section {
-        @apply py-[40px] flex flex-col justify-center gap-[50px] w-full px-[150px];
+        @apply py-[40px] flex flex-col justify-center gap-[50px] w-full px-[150px] px-[100px] max-w-container mx-auto;
         ul {
             &.gold-navigation {
                 @apply flex items-center gap-[24px] font-work-sans text-[24px]/[22px] font-semibold;
@@ -118,7 +118,7 @@
         }
     }
     .home-user-profile-section {
-        @apply flex flex-col gap-[46px] px-[150px] py-[40px];
+        @apply flex flex-col gap-[46px] px-[150px] py-[40px] px-[100px] max-w-container mx-auto;
         .profile-container {
             @apply flex items-center gap-[18px];
             span {
@@ -280,7 +280,7 @@
         }
     }
     .home-chart-new-section {
-        @apply py-[40px] flex justify-center items-center w-full px-[150px] gap-[50px];
+        @apply py-[40px] flex justify-center items-center w-full px-[150px] gap-[50px] px-[100px] max-w-container mx-auto;
         .navigation-container {
             @apply flex flex-col gap-[22px] w-[40%];
             .header-info {
@@ -345,7 +345,7 @@
         }
     }
     .home-article-section {
-        @apply py-[40px] px-[150px] flex flex-col justify-center items-center gap-[40px] w-full;
+        @apply py-[40px] flex flex-col justify-center items-center gap-[40px] w-full px-[100px] max-w-container mx-auto;
         .title-container {
             @apply flex justify-between w-full;
             .sub-title {
@@ -385,7 +385,7 @@
         }
     }
     .home-testimony-section {
-        @apply py-[40px] px-[150px] flex flex-col justify-center items-center gap-[22px] w-full relative;
+        @apply py-[40px] flex flex-col justify-center items-center gap-[22px] w-full relative px-[100px] max-w-container mx-auto;
         h2 {
             @apply text-[32px]/[22px] font-semibold text-primary;
         }
@@ -424,7 +424,7 @@
 
     }
     .home-highlight-section {
-        @apply py-[40px] px-[150px] flex flex-col justify-center gap-[22px] w-full relative;
+        @apply py-[40px] flex flex-col justify-center gap-[22px] w-full relative px-[100px] max-w-container mx-auto;
         h2 {
             @apply text-[32px]/[22px] font-semibold text-primary text-left;
         }
@@ -477,7 +477,7 @@
 
     }
     .home-verified-section {
-        @apply py-[40px] px-[150px] flex flex-col justify-center items-center;
+        @apply py-[40px] flex flex-col justify-center items-center px-[100px] max-w-container mx-auto;
         .verified-container {
             @apply flex px-[42px] py-[37px] items-center rounded-[28px];
             box-shadow: 0px 0px 21.9px 3px #00000040;

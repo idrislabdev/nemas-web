@@ -7,7 +7,7 @@
     .header-section {
         @apply flex flex-col gap-[34px];
         .title-container {
-            @apply flex flex-col justify-center px-[150px];
+            @apply flex flex-col justify-center px-[150px] ;
             h2 {
                 @apply text-[32px]/[22px] text-primary font-semibold;
             }
@@ -31,7 +31,7 @@
     .main-section {
         @apply flex flex-col gap-[52px];
         .content-container {
-            @apply flex flex-col gap-[42px]  px-[150px];
+            @apply flex flex-col gap-[42px]  px-[100px] max-w-container mx-auto ;
             h5 {
                 @apply text-[32px]/[22px] text-primary font-semibold text-center;
             }

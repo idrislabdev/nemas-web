@@ -1,6 +1,6 @@
 @tailwind components;
 .main-header {
-    @apply absolute top-0 w-full flex flex-col z-[15];
+    @apply  w-full fixed top-0 inset-x-0 z-10 border-b border-b-neutral-200 bg-white rounded-bl-[19px] rounded-br-[19px];
     .main-header-top {
         @apply h-[10px] flex justify-end items-center bg-primary text-white;
         .logo-area {
@@ -12,7 +12,7 @@
         
     }
     .main-header-bottom {
-        @apply py-[10px] px-[79px] flex justify-between items-center border-b border-b-neutral-200 z-[10] w-full bg-white rounded-bl-[19px] rounded-br-[19px];
+        @apply max-w-container mx-auto  py-[10px] px-[100px] flex justify-between items-center ;
         .burger-menu {
             @apply hidden;
         }

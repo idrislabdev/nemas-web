@@ -22,6 +22,9 @@ const config: Config = {
         md: { max: "820px" },  
         sm: { max: "639px" },
       },
+      spacing: {
+        container: '1536px'
+      },
       fontFamily: {
         'work-sans': ['Work Sans', 'serif']
       }

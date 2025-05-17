@@ -20,7 +20,7 @@ const SyaratKetentuanPageWrapper = () => {
             <div className='header-container'>
                 <h2>Syarat Dan Ketentuan</h2>
             </div>
-            <div className='main-container'>
+            <div className='main-container flex flex-col'>
                 <div className="faq-accordion">
                         <ul className='!border-gray-200 !rounded-[4px]'>
                             {syarat_ketentuan.map((item, index:number) => (

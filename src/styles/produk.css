@@ -5,7 +5,7 @@
 .produk-page {
     @apply pt-[120px] bg-white flex flex-col gap-[40px];
     .header-section {
-        @apply flex flex-col gap-[38px] px-[150px];
+        @apply flex flex-col gap-[38px] px-[100px] max-w-container mx-auto w-full;
         h2 {
             @apply text-[32px]/[22px] font-semibold text-primary;
         }
@@ -25,9 +25,9 @@
         }
     }
     .product-section {
-        @apply flex flex-wrap px-[135px];
+        @apply flex flex-wrap  px-[100px] max-w-container mx-auto;
         .card-wrapper {
-            @apply w-1/4 px-[20px] pb-[40px];
+            @apply w-1/5 px-[10px] pb-[40px];
             .card-product {
                 @apply w-full flex flex-col h-[306px] bg-white rounded-[8px];
                 box-shadow: 0px 4px 4px 0px #00000040;

@@ -15,10 +15,14 @@ const MainHeader = () => {
     const onScroll = useCallback(() => {
         const { scrollY } = window;
         if ( scrollY >= 60) {
-            document.getElementsByClassName("main-header-bottom")[0].classList.add('fixed', 'top-0');
+            // document.getElementsByClassName("main-header-bottom")[0].classList.add('fixed', 'top-0');
+            document.getElementsByClassName("main-header-top")[0].classList.add('!hidden');
         } else {
             if (document.getElementsByClassName("main-header-bottom")[0]) {
                 document.getElementsByClassName("main-header-bottom")[0].classList.remove('fixed', 'top-0');
+            }
+            if (document.getElementsByClassName("main-header-top")[0]) {
+                document.getElementsByClassName("main-header-top")[0].classList.remove('!hidden');
             }
         }
 

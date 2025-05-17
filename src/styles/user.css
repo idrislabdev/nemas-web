@@ -5,7 +5,7 @@
 .user-page {
     @apply pt-[100px] bg-white;
     .header-section {
-        @apply flex flex-col gap-[40px] py-[50px] px-[150px] border-b border-b-[#E1E1E1];
+        @apply flex flex-col gap-[40px] py-[50px] border-b border-b-[#E1E1E1] max-w-container mx-auto px-[100px];
         h2 {
             @apply text-[32px]/[22px] text-primary font-semibold;
         }
@@ -86,7 +86,7 @@
         }
     }
     .main-section {
-        @apply px-[150px] pt-[30px] flex divide-x;
+        @apply pt-[30px] flex divide-x max-w-container mx-auto px-[100px];
         .sidebar-container {
             @apply w-[265px] pr-[30px];
             ul {

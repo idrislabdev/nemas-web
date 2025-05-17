@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 .keranjang-page {
-    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[70px];
+    @apply pt-[120px] bg-white flex flex-col gap-[70px];
     .header-section {
-        @apply flex flex-col justify-center;
+        @apply flex flex-col justify-center max-w-container mx-auto px-[100px] w-full;
         h2 {
             @apply text-[32px]/[22px] text-primary font-semibold;
         }
     }
     .main-section {
-        @apply flex flex-col gap-[24px];
+        @apply flex flex-col gap-[24px] max-w-container mx-auto px-[100px] w-full;
         .main-container {
             @apply flex gap-[45px] w-full border-b-2 border-b-[#D9D9D9] pb-[60px];
             .carts-area {
@@ -131,7 +131,7 @@
         }
     }
     .main-shipping-section {
-        @apply flex flex-col gap-[24px];
+        @apply flex flex-col gap-[24px] max-w-container mx-auto px-[100px] w-full;
         .main-container {
             @apply flex flex-col gap-[18px] pb-[60px] border-b border-b-[#D9D9D9];
             .payment-type {
@@ -216,7 +216,7 @@
         }
     }
     .detail-transaksi-section {
-        @apply flex flex-col gap-[45px];
+        @apply flex flex-col gap-[45px] max-w-container mx-auto px-[100px] w-full;
         .header-container {
             @apply flex flex-col gap-[45px];
             h2 {
@@ -293,7 +293,7 @@
         }
     }
     .success-section {
-        @apply px-[150px] flex flex-col gap-[45px];
+        @apply flex flex-col gap-[45px] max-w-container mx-auto px-[100px] w-full;
         .main-container {
             @apply bg-primary rounded-[31px] flex flex-col items-center justify-center gap-[36px] p-[41px];
             box-shadow: 0px 0px 15px 3px #00000040;
@@ -340,7 +340,7 @@
         }
     }
     .waiting-section {
-        @apply  flex flex-col gap-[45px];
+        @apply  flex flex-col gap-[45px] max-w-container mx-auto px-[100px] w-full;
         .main-container {
             @apply bg-primary rounded-[31px] flex flex-col items-center justify-center gap-[36px] p-[41px];
             box-shadow: 0px 0px 15px 3px #00000040;

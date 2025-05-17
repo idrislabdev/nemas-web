@@ -5,12 +5,12 @@
 .berita-page {
     @apply flex flex-col gap-[50px] pt-[20px] bg-white;
     .header-section {
-        @apply bg-primary rounded-br-[50px] rounded-bl-[50px] flex flex-col gap-[20px] pt-[100px] pb-[50px] px-[150px];
+        @apply bg-primary rounded-br-[50px] rounded-bl-[50px] flex flex-col gap-[20px] pt-[100px] pb-[50px];
         h2 {
-            @apply text-[32px]/[22px] text-white font-semibold;
+            @apply text-[32px]/[22px] text-white font-semibold  px-[100px] max-w-container mx-auto w-full;
         }
         .news-container {
-            @apply flex items-center gap-[55px];
+            @apply flex items-center gap-[55px]  px-[100px] max-w-container mx-auto w-full;
             img {
                 @apply w-[678px] h-[355px] object-cover rounded-[16px];
             }
@@ -32,13 +32,13 @@
         }    
     }
     .articles-section {
-        @apply flex flex-wrap w-full px-[135px];
+        @apply flex flex-wrap w-full px-[100px] max-w-container mx-auto;
         .article {
             @apply w-1/3 px-[15px] pb-[30px];
         }
     }
     .slug-section {
-        @apply pt-[90px] px-[135px] flex flex-col gap-[48px];
+        @apply pt-[90px] flex flex-col gap-[48px] px-[100px] max-w-container mx-auto;
         .header-container {
             @apply flex flex-col gap-[37px];
             .title {
