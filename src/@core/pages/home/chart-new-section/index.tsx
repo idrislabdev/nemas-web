@@ -23,9 +23,9 @@ const HomeChartNewSection = () => {
                 if (tabActive == 'daily') {
                     categories.push(moment(item.hour).format("HH"))
                 } else if (tabActive == 'weekly') {
-                    categories.push(moment(item.day).format("DD MMM"))
+                    categories.push(moment(item.day).format("DD/MM"))
                 } else if (tabActive == 'monthly') {
-                    categories.push(moment(item.day).format("DD MMM"))
+                    categories.push(moment(item.day).format("DD/MM"))
                 }
                 dataVal.push(item.gold_price_buy)
             });
