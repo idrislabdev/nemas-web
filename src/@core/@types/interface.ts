@@ -17,7 +17,8 @@ export interface IPayment {
     name?: string,
     method_id: string,
     method_name: string,
-    va_bank: string
+    va_bank: string,
+    url: string
 }
 
 export interface IPaymentBank {
@@ -30,7 +31,8 @@ export interface IPaymentMethod {
     payment_method_id: string,
     payment_method_name: string,
     payment_method_description: string,
-    banks:IPaymentBank[]
+    banks:IPaymentBank[],
+    active: boolean
 }
 
 export interface IUserLogin {

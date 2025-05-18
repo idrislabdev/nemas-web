@@ -123,8 +123,7 @@ const ProdukPageWrapper = () => {
                                 </div>
                                 <p>Rp{formatterNumber(item.gold_price_summary_roundup)}</p>
                                 <button onClick={() => addToCart(item)} disabled={item.stock < 1}>
-                                    <span><ShoppingCart03 /></span>
-                                    { item.stock > 0 ? 'Tambah ke Keranjang' : 'Stok Kosong' }
+                                    { item.stock > 0 ? <><span className='my-icon icon-sm'><ShoppingCart03 /></span> Tambah ke Keranjang</> : 'Stok Kosong' }
                                 </button>
                             </div>
                         </div>

@@ -14,14 +14,14 @@ const KeranjangPaymentDetailTransaksiView = (props: {
     setView:Dispatch<SetStateAction<string>>
     setOrder:Dispatch<SetStateAction<IOrder>>
     order: IOrder,
+    payment: IPayment,
+    setPayment:Dispatch<SetStateAction<IPayment>>
 }) => {
-    const { setSubView, setView, setOrder, order } = props
+    const { setSubView, setView, setOrder, order, payment, setPayment } = props
     const [ isModalPayment, setIsModalPayment] = useState(false)
-    const [ payment, setPayment ] = useState<IPayment>({} as IPayment)
     const [ isModalPinOpen, setIsModalPinOpen] = useState(false)
     const [ checked, setChecked ] = useState(false)
     
-
     const checkPin = async () => {
         setIsModalPinOpen(true)
     }
@@ -130,6 +130,7 @@ const KeranjangPaymentDetailTransaksiView = (props: {
                 setIsModalOpen={setIsModalPayment} 
                 payment={payment}
                 setPayment={setPayment}
+                order={order}
             />
             <KeranjangModalPin 
                 isModalOpen={isModalPinOpen} 

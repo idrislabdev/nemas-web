@@ -146,9 +146,17 @@
                             @apply bg-[#D2F3F5];
                         }
                         &.disabled {
-                            @apply bg-neutral-100 cursor-not-allowed;
+                            @apply bg-gray-200 cursor-not-allowed;
                             &:hover, &.selected {
                                 @apply bg-none;
+                            }
+                            .title {
+                                label,p {
+                                    @apply text-white;
+                                }
+                            }
+                            span {
+                                @apply text-white;
                             }
                         }
                     }
