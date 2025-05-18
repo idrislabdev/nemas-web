@@ -1,13 +1,25 @@
+"use client"
+
 import { IArticle } from '@/@core/@types/interface';
-import { getArticleSlug } from '@/@core/services/api';
+import axiosInstance from '@/@core/utils/axios';
 import moment from 'moment';
 import Image from 'next/image';
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
-const BeritaPageSlugWrapper = async(props: {slug:string}) => {
+const BeritaPageSlugWrapper = (props: {slug:string}) => {
     const { slug } = props
-    const respArticle = await getArticleSlug(slug)
-    const article:IArticle = respArticle.data
+    const [article, setArticle] = useState<IArticle>({} as IArticle);
+
+    const fetchData = useCallback(async () => {
+        const respArticle = await axiosInstance.get(`core/information/article/get/${slug}/`);
+        setArticle(respArticle.data)
+        
+    }, [setArticle, slug])
+
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
+
     return (
         <main className='berita-page sm:mobile-responsive md:mobile-responsive'>
             <div className='slug-section'>

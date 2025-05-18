@@ -17,7 +17,7 @@ export const getArticles = async (offset:number, limit:number) => {
 }
 
 export const getArticleSlug = async (slug:string) => {
-    const resp = await axiosInstance.get(`/core/information/article/${slug}/`)
+    const resp = await axiosInstance.get(`/core/information/article/get/${slug}/`)
     return resp
 }
 

@@ -123,7 +123,8 @@ export interface IGoldPrice {
     gold_price_weight?: number,
     gold_price_base?: number,
     gold_price_sell?: number,
-    gold_price_buy?: number
+    gold_price_buy?: number,
+    gold_price_buy_round?: number,
 }
 
 export interface IGold {

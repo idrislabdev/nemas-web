@@ -59,7 +59,7 @@
         }
         .body-container {
             p {
-                @apply text-[16px]/[38px] font-work-sans text-justify;
+                @apply text-[16px]/[38px] font-work-sans text-justify text-neutral-900;
             }
         }
     }
