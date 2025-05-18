@@ -8,6 +8,10 @@ import React from 'react'
 const AkunSidebar = (props: {children:React.ReactNode}) => {
     const { children } = props;
     const pathname = usePathname()
+    const logOut = () => {
+        localStorage.clear();
+        window.location.href = '/';
+    }
     return (
         <div className='sidebar-container'>
             <ul>
@@ -78,7 +82,7 @@ const AkunSidebar = (props: {children:React.ReactNode}) => {
                     }
                 </li>
                 <li>
-                    <a>
+                    <a onClick={() => logOut()}>
                         <span className='my-icon'><LogOut01 />Keluar</span>  
                         <span><ChevronRight /></span>
                     </a>

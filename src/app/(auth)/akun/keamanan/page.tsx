@@ -1,5 +1,5 @@
 import { PinIcon } from '@/@core/components/custom-icons'
-import { ChevronRight, Key01, Lock01 } from '@untitled-ui/icons-react'
+import { ChevronRight, Key01 } from '@untitled-ui/icons-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -16,10 +16,10 @@ const UserKeamananPage = () => {
                 <span><PinIcon />Ubah PIN</span>
                 <span className='my-icon'><ChevronRight /></span>
             </Link>
-            <Link href={`/akun/keamanan/pertanyaan`}>
+            {/* <Link href={`/akun/keamanan/pertanyaan`}>
                 <span><Lock01 />Ubah Pertanyaan Keamanan</span>
                 <span className='my-icon'><ChevronRight /></span>
-            </Link>
+            </Link> */}
         </div>
     </div>
   )

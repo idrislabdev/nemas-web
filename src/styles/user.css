@@ -253,8 +253,7 @@
                     }
                 }
                 .form-group {
-                    @apply flex flex-col gap-[16px];
-                    width: calc(50% - 60px);
+                    @apply flex flex-col gap-[16px] max-w-[500px];
                     h6 {
                         @apply text-[20px]/[24px] font-bold text-black;
                     }
