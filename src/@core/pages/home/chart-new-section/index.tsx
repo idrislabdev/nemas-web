@@ -54,7 +54,7 @@ const HomeChartNewSection = () => {
                     <span>2.5% <span><InfoCircle /></span></span>
                 </div>
                 <div className='price-info'>
-                    <p>Rp {formatterNumber(dataGold.gold_price_buy_round ? dataGold.gold_price_buy_round : 0)} <span>/ 1 gr</span></p>
+                    <p>Rp {formatterNumber(dataGold.gold_price_buy ? dataGold.gold_price_buy : 0)} <span>/ 1 gr</span></p>
                     <span className='badge danger'><span><ArrowNarrowDownRight /></span>-0,05%</span>
                 </div>
                 <div className='header-tabs'>
