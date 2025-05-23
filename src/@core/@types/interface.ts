@@ -255,3 +255,16 @@ export interface IOrder {
     order_details: IOrderDetail[],
     pay_ref: IPayRef
 }
+
+export interface IHistory {
+    email: string,
+    user_id: string,
+    user_name: string,
+    transaction_date: string,
+    transaction_id: string,
+    weight: string,
+    price: string,
+    gold_history_price_base: number,
+    ref_number: string,
+    transaction_type: string
+}

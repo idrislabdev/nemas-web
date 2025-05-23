@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 .daftar-transaksi-page {
-    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[27px];
+    @apply pt-[120px] bg-white flex flex-col gap-[27px] ;
     .header-section {
-        @apply flex flex-col justify-center;
+        @apply flex flex-col justify-center  px-[100px] max-w-container mx-auto w-full;
         h2 {
             @apply text-[32px]/[22px] text-primary font-semibold;
         }
     }
     .main-section {
-        @apply flex flex-col justify-center;
+        @apply flex flex-col justify-center px-[100px] max-w-container mx-auto w-full;
         .main-container {
             @apply flex gap-[200px];
             .main-area {
                 @apply w-[70%] flex flex-col gap-[15px];
                 h5 {
-                    @apply text-xl font-bold;
+                    @apply text-xl font-bold text-[#1F211E];
                 }
                 .input-list {
                     @apply flex items-center gap-[10px];
@@ -92,7 +92,7 @@
             .filter-area {
                 @apply w-[30%] flex flex-col gap-[15px];
                 h5 {
-                    @apply text-lg font-bold;
+                    @apply text-lg font-bold text-[#1F211E];
                 }
                 .ant-checkbox-group {
                     @apply flex flex-col gap-[10px];

@@ -1,26 +1,61 @@
-import { SearchSm } from '@untitled-ui/icons-react';
-import { Checkbox, DatePicker, GetProp, Input, Pagination } from 'antd'
+import { Checkbox, DatePicker, GetProp, Pagination } from 'antd'
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import ModalDetailTransaksi from './modal-detail';
+import axiosInstance from '@/@core/utils/axios';
+import { useGlobals } from '@/@core/hoc/useGlobals';
+import { IHistory } from '@/@core/@types/interface';
+import moment from 'moment';
+import 'moment/locale/id';
+import { Dayjs } from 'dayjs'
+const { RangePicker } = DatePicker;
 
 const DaftarTransaksiPageWrapper = () => {
+    moment.locale('id');
+    const { globals } = useGlobals()
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [checkeds, setCheckeds] = useState<unknown[]>(['order']);
     const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
-        console.log('checked = ', checkedValues);
+        setCheckeds(checkedValues)
     };
+    const [filterDate, setFilterDate] = useState("");
+    const [histories, setHistories] = useState<IHistory[]>([] as IHistory[])
+    const [ total, setTotal] = useState(0);
+    const [params, setParams] = useState({
+        format: 'json',
+        offset: 0,
+        limit: 5,
+        search:"",
+    });
     const options = [
-        { label: 'Tabungan Emas', value: 'Tabungan Emas' },
-        { label: 'Beli Emas', value: 'Beli Emas' },
-        { label: 'Investasi', value: 'Investasi' },
-        { label: 'Jual Emas', value: 'Jual Emas' },
-        { label: 'Produk Emas Fisik', value: 'Produk Emas Fisik' },
-        { label: 'Tarik Emas', value: 'Tarik Emas' },
-        { label: 'Jaminan Emas', value: 'Jaminan Emas' },
-        { label: 'Kirim Emas Ke Member', value: 'Kirim Emas Ke Member' },
-        { label: 'Tarik Saldo', value: 'Tarik Saldo' },
-        { label: 'Top Up Saldo', value: 'Top Up Saldo' },
+        { label: 'Produk Emas Fisik + Tarik Emas', value: 'order' },
+        { label: 'Beli Emas', value: 'gold_buy' },
+        { label: 'Jual', value: 'gold_sell' },
+        { label: 'Transfer Emas', value: 'gold_transfer' },
     ];
+
+    const fetchData = useCallback(async () => {
+        let filterString = "";
+        checkeds.forEach(item  => {
+            filterString = filterString + `&transaction_type=${item}`;
+        });
+        const resp =  await axiosInstance.get(`/reports/gold-transactions/?user_id=${globals.userLogin.id}&fetch=${params.limit}&offset=${params.offset}${filterString}${filterDate}`)
+        setTotal(resp.data.count)
+        setHistories(resp.data.results)
+    }, [params, checkeds, globals, filterDate])
+
+    const onChangePage = async (val:number) => {
+        setParams({...params, offset:(val-1)*params.limit})
+    }
+
+    const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) => {
+        const tempFilter = `&start_date=${dateStrings[0]}&end_date=${dateStrings[1]}`
+        setFilterDate(tempFilter)
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     return (
         <>
@@ -33,51 +68,45 @@ const DaftarTransaksiPageWrapper = () => {
                         <div className='main-area'>
                             <h5>Daftar Transaksi</h5>
                             <div className='input-list'>
-                                <Input 
+                                {/* <Input 
                                     suffix={<span className='text-neutral-400'><SearchSm /></span>} 
                                     className='input-base'
-                                />
-                                <DatePicker  />
+                                /> */}
+                                {/* <DatePicker  /> */}
+                                <RangePicker size={'small'} className="w-[300px] h-[38px]" onChange={onRangeChange}/>
                             </div>
                             <div className='cards-list'>
-                                <div className='card'>
-                                    <div className='info-area'>
-                                        <div className='info-img'>
-                                            <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
-                                        </div>                                    
-                                        <div className='info-detail'>
-                                            <label>0,044 Gram</label>
-                                            <span>Beli Emas</span>
+                                {histories.map((item, index:number) => (
+                                    <div className='card' key={index}>
+                                        <div className='info-area'>
+                                            <div className='info-img'>
+                                                <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
+                                            </div>                                    
+                                            <div className='info-detail'>
+                                                <label>{parseFloat(item.weight)} Gram</label>
+                                                <span>{item.transaction_type}</span>
+                                            </div>
+                                        </div>
+                                        <div className='detail-area'>
+                                            <label>{moment(item.transaction_date).format("DD MMM YYYY")}</label>
+                                            <a onClick={() => setIsModalOpen(true)}>Lihat Detail Transaksi</a>
                                         </div>
                                     </div>
-                                    <div className='detail-area'>
-                                        <label>26 Okt 2024</label>
-                                        <a onClick={() => setIsModalOpen(true)}>Lihat Detail Transaksi</a>
-                                    </div>
-                                </div>
-                                <div className='card'>
-                                    <div className='info-area'>
-                                        <div className='info-img'>
-                                            <Image src={`/images/nemas-2.png`} alt='image1' width={0} height={0} sizes='100%' />                    
-                                        </div>                                    
-                                        <div className='info-detail'>
-                                            <label>0,044 Gram</label>
-                                            <span>Beli Emas</span>
-                                        </div>
-                                    </div>
-                                    <div className='detail-area'>
-                                        <label>26 Okt 2024</label>
-                                        <a onClick={() => setIsModalOpen(true)}>Lihat Detail Transaksi</a>
-                                    </div>
-                                </div>
+                                ))}
+                               
                             </div>
                             <div className='pagination'>
-                                <Pagination defaultCurrent={1} total={50} />
+                                <Pagination 
+                                    onChange={onChangePage} 
+                                    pageSize={params.limit}  
+                                    total={total} 
+                                    showSizeChanger={false}
+                                />
                             </div>
                         </div>
                         <div className='filter-area'>
                             <h5>Filter</h5>
-                            <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
+                            <Checkbox.Group options={options} value={checkeds} onChange={onChange} />
                         </div>
                     </div>
                 </div>
