@@ -1,32 +1,28 @@
-import { IHistory } from '@/@core/@types/interface'
 import { Modal } from 'antd'
-import moment from 'moment'
+import Image from 'next/image'
 import React, { Dispatch, SetStateAction } from 'react'
-import 'moment/locale/id';
-import { formatterNumber } from '@/@core/utils/general';
-moment.locale('id');    
 
 const ModalDetailTransaksi =(props: {
         isModalOpen:boolean, 
         setIsModalOpen:Dispatch<SetStateAction<boolean>>, 
-        detail:IHistory
     }) => {
-    const { isModalOpen, setIsModalOpen, detail } = props
+    const { isModalOpen, setIsModalOpen } = props
+
     return (
         <Modal className='modal-detail-transaksi' open={isModalOpen} onCancel={() => setIsModalOpen(false)}  footer={null}>
             <h5>Detail Transaksi</h5>
             <div className='header-transaksi'>
                 <div className='left-header'>
-                    <label>{detail.ref_number}</label>
-                    <p>Rp {formatterNumber(parseInt(detail.price))}</p>
-                    <span>{parseFloat(detail.weight)} Gram</span>
+                    <label>REG3456789065</label>
+                    <p>Rp 500.000</p>
+                    <span>0,044 Gram</span>
                 </div>
                 <div className='right-header'>
-                    <label>{detail.transaction_type}</label>
-                    <p>{moment(detail.transaction_date).format("DD MMM YYYY")}</p>
+                    <label>Beli Emas</label>
+                    <p>26 Oct 2024</p>
                 </div>
             </div>
-            {/* <div className='info-transaksi'>
+            <div className='info-transaksi'>
                <div className='card-info'>
                 <label>Tabungan Emas Saat Ini</label>
                     <div className='detail-card'>
@@ -50,7 +46,7 @@ const ModalDetailTransaksi =(props: {
                     />
                     <span>Tidak ada Data</span>
                 </div>
-            </div> */}
+            </div>
         </Modal>
     )
     }

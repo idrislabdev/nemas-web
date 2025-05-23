@@ -20,6 +20,7 @@ const DaftarTransaksiPageWrapper = () => {
     };
     const [filterDate, setFilterDate] = useState("");
     const [histories, setHistories] = useState<IHistory[]>([] as IHistory[])
+    const [selected, setSelected] = useState<IHistory>({} as IHistory)
     const [ total, setTotal] = useState(0);
     const [params, setParams] = useState({
         format: 'json',
@@ -52,6 +53,11 @@ const DaftarTransaksiPageWrapper = () => {
         const tempFilter = `&start_date=${dateStrings[0]}&end_date=${dateStrings[1]}`
         setFilterDate(tempFilter)
     };
+
+    const showDetail = (item:IHistory) => {
+        setSelected(item)
+        setIsModalOpen(true)
+    }
 
     useEffect(() => {
         fetchData();
@@ -89,7 +95,7 @@ const DaftarTransaksiPageWrapper = () => {
                                         </div>
                                         <div className='detail-area'>
                                             <label>{moment(item.transaction_date).format("DD MMM YYYY")}</label>
-                                            <a onClick={() => setIsModalOpen(true)}>Lihat Detail Transaksi</a>
+                                            <a onClick={() => showDetail(item)}>Lihat Detail Transaksi</a>
                                         </div>
                                     </div>
                                 ))}
@@ -114,6 +120,7 @@ const DaftarTransaksiPageWrapper = () => {
             <ModalDetailTransaksi 
                 isModalOpen={isModalOpen} 
                 setIsModalOpen={setIsModalOpen} 
+                detail={selected}
             />
         </>
   )
