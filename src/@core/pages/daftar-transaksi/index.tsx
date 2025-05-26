@@ -14,7 +14,7 @@ const DaftarTransaksiPageWrapper = () => {
     moment.locale('id');
     const { globals } = useGlobals()
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [checkeds, setCheckeds] = useState<unknown[]>(['order']);
+    const [checkeds, setCheckeds] = useState<unknown[]>(['order_buy']);
     const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
         setCheckeds(checkedValues)
     };
@@ -29,10 +29,12 @@ const DaftarTransaksiPageWrapper = () => {
         search:"",
     });
     const options = [
-        { label: 'Produk Emas Fisik + Tarik Emas', value: 'order' },
+        { label: 'Produk Emas Fisik', value: 'order_buy' },
+        { label: 'Tarik Emas', value: 'order_redeem'},
         { label: 'Beli Emas', value: 'gold_buy' },
         { label: 'Jual', value: 'gold_sell' },
         { label: 'Transfer Emas', value: 'gold_transfer' },
+        { label: 'Tarik Emas', value: 'disburst' },
     ];
 
     const fetchData = useCallback(async () => {

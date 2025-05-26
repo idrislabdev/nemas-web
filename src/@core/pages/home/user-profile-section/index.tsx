@@ -63,7 +63,7 @@ const HomeUserProfileSection = () => {
                         }
                         <div className='description'>
                             <h5>Tabungan Emas</h5>
-                            <p>{globals.userProp && globals.userProp.gold_wgt ? globals.userProp.gold_wgt.replace(".", ",") : ''} Gram</p>
+                            <p>{globals.userProp && globals.userProp.gold_wgt ? globals.userProp.gold_wgt.toString().replace(".", ",") : ''} Gram</p>
                             <span>≈Rp{formatterNumber2(((parseFloat(globals.userProp.gold_wgt)) * (dataGold.gold_price_sell ? dataGold.gold_price_sell : 0)).toFixed(3).toString().replace(".", ","))}</span>
                         </div>
                     </div>
