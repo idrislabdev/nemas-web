@@ -34,7 +34,7 @@ const DaftarTransaksiPageWrapper = () => {
         { label: 'Beli Emas', value: 'gold_buy' },
         { label: 'Jual', value: 'gold_sell' },
         { label: 'Transfer Emas', value: 'gold_transfer' },
-        { label: 'Tarik Emas', value: 'disburst' },
+        { label: 'Tarik Saldo', value: 'disburst' },
     ];
 
     const fetchData = useCallback(async () => {
