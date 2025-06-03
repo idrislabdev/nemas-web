@@ -1,3 +1,5 @@
+"use client"
+
 import { Checkbox, DatePicker, GetProp, Pagination } from 'antd'
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react'

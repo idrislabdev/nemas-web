@@ -38,7 +38,9 @@ const LoginPageWrapper = () => {
                       const dataProp = response.data
                       localStorage.setItem("user", JSON.stringify(datUser))
                       localStorage.setItem("user_prop", JSON.stringify(dataProp))
-                      router.push("/")
+                      setCookie("user", JSON.stringify(datUser))
+                      setCookie("user_prop", JSON.stringify(dataProp))
+                      window.location.href = "/"
                   });
               })
           }

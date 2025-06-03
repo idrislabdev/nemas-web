@@ -40,7 +40,7 @@ const ModalShipment =(props: {
                     >
                         <div className='title'>
                             <label>{item.service_type_name}</label>
-                            <p>Rp{formatterNumber(item.total_cost - item.insurance_admin_cost - item.insurance_cost)}</p>
+                            <p>Rp{formatterNumber(item.total_cost_round - item.insurance_cost_round)}</p>
                         </div>
                         <span>Estimasi {item.sla}</span>
                     </div>

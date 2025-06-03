@@ -9,28 +9,21 @@ import React, { useEffect, useRef, useState } from 'react'
 import { UserLoginIcon } from '../../custom-icons'
 import axiosInstance from '@/@core/utils/axios';
 import Image from 'next/image';
+import { deleteCookie } from 'cookies-next';
 
-const LoginArea = () => {
+const LoginArea = (props: {userLogin:IUserLogin, userProps:IUserProp, token:string}) => {
+  const { userLogin, token } = props
   const { globals, saveGlobals } = useGlobals()
-  const [stateDone, setStateDone] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const dropdownuser = useRef<HTMLDivElement>(null);
 
   const logOut = () => {
+    deleteCookie('user');
+    deleteCookie('user_prop');
+    deleteCookie('token');
     localStorage.clear();
     window.location.reload();
   }
-
-    
-  useEffect(() => {
-      if (!stateDone) {
-          const user:IUserLogin = JSON.parse(localStorage.getItem("user") || "{}")
-          const userProp:IUserProp = JSON.parse(localStorage.getItem("user_prop") || "{}")
-          const cartCount:number = parseInt(localStorage.getItem("cart_count") || "0") 
-          saveGlobals({...globals, userLogin:user, userProp:userProp, cartCount: cartCount})
-          setStateDone(true)
-      }
-  },[globals, saveGlobals, stateDone, setStateDone])
 
   useEffect(() => {
     function assertIsNode(e: EventTarget | null): asserts e is Node {
@@ -50,41 +43,25 @@ const LoginArea = () => {
   }, [showMenu]);
 
   useEffect(() => {
-    const token = typeof window !== 'undefined'  ? localStorage.getItem("token") : undefined;
-    if (token) {
-        axiosInstance.get(`/users/me/`)
+    if (token != "") {
+        axiosInstance.get(`orders/fix/cart/detail/?order_type=buy&offset=0&limit=100`)
         .then((response) => {
-            const datUser = response.data
-            axiosInstance.get(`/users/user/prop/`)
-            .then((response) => {
-                const dataProp = response.data
-                axiosInstance.get(`orders/fix/cart/detail/?offset=0&limit=100`)
-                .then((response) => {
-                    const { results } = response.data
-                    localStorage.setItem("user", JSON.stringify(datUser))
-                    localStorage.setItem("user_prop", JSON.stringify(dataProp))
-                    localStorage.setItem("cart_count", results.length)
-                });
-
-            });
-        })
-        .catch(() => {
-          localStorage.clear();
-          saveGlobals({...globals, userLogin:{} as IUserLogin})
+            const { results } = response.data        
+            saveGlobals({...globals, cartCount: results.length})
         });
     }
-  })
+  }, [])
 
   return (
-    <div className={`login-area ${globals.userLogin.name ? 'items-center' : ''}`} ref={dropdownuser}>
-        {globals.userLogin.name &&
+    <div className={`login-area ${userLogin.name ? 'items-center' : ''}`} ref={dropdownuser}>
+        {userLogin.name &&
           <Link href={`/keranjang`} className='cart-notif'><span><ShoppingCart01 /></span> 
            {globals.cartCount > 0 &&
             <span className='badge-notif'>{globals.cartCount}</span>
            }
           </Link>
         }
-        {!globals.userLogin.name &&
+        {!userLogin.name &&
           <div className='login-non-member'>
             <Link href={`/login`} className='login-button'>
               <span className='my-icon icon-sm'><LogIn01 /></span>
@@ -93,7 +70,7 @@ const LoginArea = () => {
             <Link href={`/register`} className='register-button'>Daftar</Link>
           </div>
         }
-        {globals.userLogin.name &&
+        {userLogin && userLogin.name &&
           <div className='login-member' onClick={() => setShowMenu(!showMenu)}>
             <Image 
                 src={`/images/default-avatar.jpg`} 
@@ -103,7 +80,7 @@ const LoginArea = () => {
                 sizes='100%' 
             />
             <div className='member-info'>
-              <p>{globals.userLogin.name}</p>
+              <p>{userLogin.name}</p>
               <span>Novice Saver</span>
             </div>
             <span className={`chevron-icon transition-all duration-300 ${showMenu ? 'rotate-180': ''}`}><ChevronDown /></span>

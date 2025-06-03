@@ -17,7 +17,7 @@ const KeranjangPageWrapper = () => {
     const [order, setOrder] = useState<IOrder>({} as IOrder);
     
     const fetchData = useCallback(async () => {
-        const resp = await axiosInstance.get(`orders/fix/cart/detail/?offset=0&limit=100`);
+        const resp = await axiosInstance.get(`orders/fix/cart/detail/?order_type=buy&offset=0&limit=100`);
         const { results } = resp.data
         let temp = 0;
         let weight = 0;
@@ -33,7 +33,7 @@ const KeranjangPageWrapper = () => {
 
     const deleteData = async (id:string) => {
         await axiosInstance.delete(`orders/fix/cart/delete/${id}/`);
-        const resp = await axiosInstance.get(`orders/fix/cart/detail/?offset=0&limit=100`);
+        const resp = await axiosInstance.get(`orders/fix/cart/detail/?order_type=buy&offset=0&limit=100`);
         const { results } = resp.data
         let temp = 0;
         results.forEach((item:ICart) => {

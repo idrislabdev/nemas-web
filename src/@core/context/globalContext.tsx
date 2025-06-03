@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, useState, ReactNode } from 'react'
 import { IUserLogin, IUserProp } from '../@types/interface'
 

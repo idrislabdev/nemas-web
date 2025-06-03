@@ -1,15 +1,13 @@
-"use client";
+// "use client";
 
 import { IUserLogin } from '@/@core/@types/interface';
-import React, { useEffect, useState } from 'react'
+import { cookies } from 'next/headers';
+import React from 'react'
 
 const AuthLayout = ({ children }: {children : React.ReactNode}) => {
-    const [userLogin, setUserLogin] = useState({} as IUserLogin)
-    
-    useEffect(() => {
-       const userProp:IUserLogin = JSON.parse(localStorage.getItem("user_prop") || "{}")
-        setUserLogin(userProp)
-    },[])
+    const cookieStore = cookies();
+
+  const userLogin:IUserLogin = cookieStore.get("user") ? JSON.parse(cookieStore.get("user")?.value || "{}") : {}; //JSON.parse(getCookie('user') || "{}")
 
     return (
         <>

@@ -6,11 +6,11 @@ import Link from 'next/link'
 import React, { useCallback, useEffect, useState } from 'react'
 import MainSidebarMenu from './main-sidebar-menu';
 import LoginArea from './login-area';
-import { useGlobals } from '@/@core/hoc/useGlobals';
+import { IUserLogin, IUserProp } from '@/@core/@types/interface';
 
-const MainHeader = () => {
+const MainHeader = (props: {userLogin: IUserLogin, userProps: IUserProp, token:string}) => {
+    const { userLogin, userProps, token } = props;
     const [showSidebar, setShowSidebar] = useState(false);
-    const { globals } = useGlobals()
     
     const onScroll = useCallback(() => {
         const { scrollY } = window;
@@ -52,7 +52,7 @@ const MainHeader = () => {
                         <ul>
                             <li><Link href={`/tentang-kami`}>Tentang Nemas</Link></li>
                             <li><Link href={`/produk`}>Produk Emas Fisik</Link></li>
-                            {globals.userLogin.name &&
+                            {userLogin.name &&
                                 <li><Link href={`/daftar-transaksi`}>Daftar Transaksi</Link></li>
                             }
                             <li><Link href={`/berita`}>News</Link></li>
@@ -60,7 +60,7 @@ const MainHeader = () => {
                         </ul>
                     </div>
                     <div className='login-menu'>
-                        <LoginArea />
+                        <LoginArea userLogin={userLogin} userProps={userProps} token={token}/>
                         <a className='burger-menu text-black' onClick={() => showMobileSidebar()}><Menu01 /></a>
                     </div>
                 </div>

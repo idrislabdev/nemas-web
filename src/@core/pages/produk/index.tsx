@@ -69,7 +69,7 @@ const ProdukPageWrapper = () => {
                 "order_type": "buy"
             }
             await axiosInstance.post("/orders/fix/cart/add/", body)
-            const resp = await axiosInstance.get("/orders/fix/cart/detail/?offset=0&limit=100")
+            const resp = await axiosInstance.get("/orders/fix/cart/detail/?order_type=buy&offset=0&limit=100")
             const { results } = resp.data
             localStorage.setItem("cart_count", results.length)
             saveGlobals({...globals, cartCount: results.length})

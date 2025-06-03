@@ -59,8 +59,8 @@ const KeranjangShipping = (props: {
                 tracking_courier_service_id: temp.delivery_partner_service_id,
                 tracking_courier_service_code: temp.delivery_partner_service_code,
                 tracking_courier_id: temp.delivery_partner,
-                order_tracking_insurance: (service.insurance_admin_cost + service.insurance_cost_round).toString(),
-                order_tracking_total:  (service.total_cost_round - service.insurance_admin_cost - service.insurance_cost_round).toString()
+                order_tracking_insurance: (service.insurance_cost_round).toString(),
+                order_tracking_total:  (service.total_cost_round - service.insurance_cost_round).toString()
             })
         }
     }

@@ -4,10 +4,12 @@ import { IArticle } from '@/@core/@types/interface';
 import axiosInstance from '@/@core/utils/axios';
 import moment from 'moment';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react'
 
-const BeritaPageSlugWrapper = (props: {slug:string}) => {
-    const { slug } = props
+const BeritaPageSlugWrapper = () => {
+    const params = useParams();
+    const slug = params.slug;
     const [article, setArticle] = useState<IArticle>({} as IArticle);
 
     const fetchData = useCallback(async () => {
