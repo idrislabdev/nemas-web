@@ -19,7 +19,7 @@ export default function  MainPage() {
       <>
         <GlobalsProvider>
           <MainHeader userLogin={userLogin} userProps={userProps} token={token}/>
-          <HomgePageWrapper />
+          <HomgePageWrapper userProps={userProps}/>
           <Footer />
         </GlobalsProvider>
       </>

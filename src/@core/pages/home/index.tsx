@@ -10,14 +10,14 @@ import HomeUserProfileSection from './user-profile-section'
 import HomeChartNewSection from './chart-new-section'
 import HomeHightlightSection from './highlight-section'
 import HomeHeroNewSection from './hero-new-section'
+// import { useGlobals } from '@/@core/hoc/useGlobals'
 
-const HomgePageWrapper = () => {
+const HomgePageWrapper = (props : {userProps: IUserProp}) => {
+  const { userProps } =props
 
   const [articles, setArticles] = useState<IArticle[]>([]);
   const [testimonies, setTestimonies] = useState<IRating[]>([]);
   const [promoes, setPromoes] = useState<IPromo[]>([]);
-  const [stateDone, setStateDone] = useState(false)
-  const [userProp, setUserProp] = useState({} as IUserProp)
 
   const fetchData = useCallback(async () => {
     const respArticle = await axiosInstance.get(`core/information/article/?offset=0&limit=3`);
@@ -46,19 +46,11 @@ const HomgePageWrapper = () => {
     fetchData()
   }, [fetchData])
 
-  useEffect(() => {
-      if (!stateDone) {
-          const userProp:IUserProp = JSON.parse(localStorage.getItem("user_prop") || "{}")
-          setUserProp(userProp)
-          setStateDone(true)
-      }
-  },[stateDone, setStateDone])
-
   return (
     <main className='home-page sm:mobile-responsive md:mobile-responsive'>
         <HomeHeroNewSection />
         {/* <HomeGoldNavigationSection /> */}
-        { userProp.name && <HomeUserProfileSection /> }
+        { userProps.name && <HomeUserProfileSection /> }
         <HomeHightlightSection promoes={promoes}/>
         <HomeChartNewSection />
         <HomeArticleSection articles={articles} />

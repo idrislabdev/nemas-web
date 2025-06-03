@@ -12,7 +12,7 @@ import Image from 'next/image';
 import { deleteCookie } from 'cookies-next';
 
 const LoginArea = (props: {userLogin:IUserLogin, userProps:IUserProp, token:string}) => {
-  const { userLogin, token } = props
+  const { userLogin, userProps, token } = props
   const { globals, saveGlobals } = useGlobals()
   const [showMenu, setShowMenu] = useState(false)
   const dropdownuser = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ const LoginArea = (props: {userLogin:IUserLogin, userProps:IUserProp, token:stri
         axiosInstance.get(`orders/fix/cart/detail/?order_type=buy&offset=0&limit=100`)
         .then((response) => {
             const { results } = response.data        
-            saveGlobals({...globals, cartCount: results.length})
+            saveGlobals({...globals, cartCount: results.length, userProp: userProps, userLogin: userLogin})
         });
     }
   }, [])
