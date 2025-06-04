@@ -15,7 +15,7 @@ const DaftarTransaksiPage = () => {
   return (
     <GlobalsProvider>
       <MainHeader userLogin={userLogin} userProps={userProps} token={token} />
-      <DaftarTransaksiPageWrapper />
+      <DaftarTransaksiPageWrapper userLogin={userLogin}/>
       <Footer />
     </GlobalsProvider>
   )

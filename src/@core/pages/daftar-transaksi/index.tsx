@@ -6,13 +6,14 @@ import React, { useCallback, useEffect, useState } from 'react'
 import ModalDetailTransaksi from './modal-detail';
 import axiosInstance from '@/@core/utils/axios';
 import { useGlobals } from '@/@core/hoc/useGlobals';
-import { IHistory } from '@/@core/@types/interface';
+import { IHistory, IUserLogin } from '@/@core/@types/interface';
 import moment from 'moment';
 import 'moment/locale/id';
 import { Dayjs } from 'dayjs'
 const { RangePicker } = DatePicker;
 
-const DaftarTransaksiPageWrapper = () => {
+const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
+    const { userLogin } = props
     moment.locale('id');
     const { globals } = useGlobals()
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,10 +45,10 @@ const DaftarTransaksiPageWrapper = () => {
         checkeds.forEach(item  => {
             filterString = filterString + `&transaction_type=${item}`;
         });
-        const resp =  await axiosInstance.get(`/reports/gold-transactions/?user_id=${globals.userLogin.id}&fetch=${params.limit}&offset=${params.offset}${filterString}${filterDate}`)
+        const resp =  await axiosInstance.get(`/reports/gold-transactions/?user_id=${userLogin.id}&fetch=${params.limit}&offset=${params.offset}${filterString}${filterDate}`)
         setTotal(resp.data.count)
         setHistories(resp.data.results)
-    }, [params, checkeds, globals, filterDate])
+    }, [params, checkeds, filterDate, userLogin])
 
     const onChangePage = async (val:number) => {
         setParams({...params, offset:(val-1)*params.limit})
