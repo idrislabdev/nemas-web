@@ -29,3 +29,20 @@ export const statusLang = (val:string) => {
         return "Dibatalkan"
     }
 }
+
+
+export const statusTransaksiLang = (val:string) => {
+    if (val == 'order_buy') {
+        return "Produk Emas Fisik"
+    } else if (val == 'order_redeem') {
+        return "Tarik Emas"
+    } else if (val == 'gold_buy') {
+        return "Beli Emas"
+    } else if (val == 'gold_sell') {
+        return "Jual"
+    } else if (val == 'gold_transfer') {
+        return "Transfer Emas"
+    } else if (val == 'disburst') {
+        return "Tarik Saldo"
+    } 
+}

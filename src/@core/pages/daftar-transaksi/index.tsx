@@ -5,17 +5,18 @@ import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react'
 import ModalDetailTransaksi from './modal-detail';
 import axiosInstance from '@/@core/utils/axios';
-import { useGlobals } from '@/@core/hoc/useGlobals';
 import { IHistory, IUserLogin } from '@/@core/@types/interface';
 import moment from 'moment';
 import 'moment/locale/id';
 import { Dayjs } from 'dayjs'
+import { Download01 } from '@untitled-ui/icons-react';
 const { RangePicker } = DatePicker;
+import * as XLSX from "xlsx";
+import { statusTransaksiLang } from '@/@core/utils/general';
 
 const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
     const { userLogin } = props
     moment.locale('id');
-    const { globals } = useGlobals()
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [checkeds, setCheckeds] = useState<unknown[]>(['order_buy']);
     const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
@@ -64,6 +65,40 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
         setIsModalOpen(true)
     }
 
+     const exportData = async () => {
+        // setIsModalLoading(true)
+        let filterString = "";
+        checkeds.forEach(item  => {
+            filterString = filterString + `&transaction_type=${item}`;
+        });
+        const resp =  await axiosInstance.get(`/reports/gold-transactions/?user_id=${userLogin.id}&fetch=500&offset=${params.offset}${filterString}${filterDate}`)
+        const rows = resp.data.results;
+        const dataToExport = rows.map((item: IHistory, index:number) => ({
+            'No' : index+1,
+            'Tipe Transaksi': statusTransaksiLang(item.transaction_type),
+            'Tanggal Transaksi': moment(item.transaction_date).format("DD MMMM YYYY"),
+            'No. Referensi' : item.ref_number,
+            'Email' : item.email,
+            'Berat Emas' : item.weight + ' Gram'
+        }),);
+        const workbook = XLSX.utils.book_new();
+        const worksheet = XLSX.utils?.json_to_sheet(dataToExport);
+        const colA = 5;
+        const colB = 20;
+        const colC = 20;
+        const colD = 20;
+        const colE = 20;
+        const colF = 20;
+
+
+        worksheet["!cols"] = [ { wch: colA }, { wch: colB }, { wch: colC }, { wch: colD }, { wch: colE },  { wch: colF }  ]; 
+
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'History Transaksi');
+        // Save the workbook as an Excel file
+        XLSX.writeFile(workbook, `history_transaksi.xlsx`)
+        // setIsModalLoading(false)
+    }
+
     useEffect(() => {
         fetchData();
     }, [fetchData])
@@ -77,7 +112,7 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
                 <div className='main-section'>
                     <div className='main-container'>
                         <div className='main-area'>
-                            <h5>Daftar Transaksi</h5>
+                            
                             <div className='input-list'>
                                 {/* <Input 
                                     suffix={<span className='text-neutral-400'><SearchSm /></span>} 
@@ -85,6 +120,12 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
                                 /> */}
                                 {/* <DatePicker  /> */}
                                 <RangePicker size={'small'} className="w-[300px] h-[38px]" onChange={onRangeChange}/>
+                                <button 
+                                    className='bg-primary text-white flex items-center justify-center gap-[4px] h-[38px] rounded-[4px] w-[200px] text-base'
+                                    onClick={() => exportData()}
+                                >
+                                    <Download01 /> Download Excel
+                                </button>
                             </div>
                             <div className='cards-list'>
                                 {histories.map((item, index:number) => (
@@ -95,7 +136,7 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
                                             </div>                                    
                                             <div className='info-detail'>
                                                 <label>{parseFloat(item.weight)} Gram</label>
-                                                <span>{item.transaction_type}</span>
+                                                <span>{statusTransaksiLang(item.transaction_type)}</span>
                                             </div>
                                         </div>
                                         <div className='detail-area'>

@@ -3,7 +3,7 @@ import { Modal } from 'antd'
 import moment from 'moment'
 import React, { Dispatch, SetStateAction } from 'react'
 import 'moment/locale/id';
-import { formatterNumber } from '@/@core/utils/general';
+import { formatterNumber, statusTransaksiLang } from '@/@core/utils/general';
 moment.locale('id');    
 
 const ModalDetailTransaksi =(props: {
@@ -22,7 +22,7 @@ const ModalDetailTransaksi =(props: {
                     <span>{parseFloat(detail.weight)} Gram</span>
                 </div>
                 <div className='right-header'>
-                    <label>{detail.transaction_type}</label>
+                    <label>{statusTransaksiLang(detail.transaction_type)}</label>
                     <p>{moment(detail.transaction_date).format("DD MMM YYYY")}</p>
                 </div>
             </div>
