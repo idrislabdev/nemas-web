@@ -12,7 +12,7 @@ import { Dayjs } from 'dayjs'
 import { Download01 } from '@untitled-ui/icons-react';
 const { RangePicker } = DatePicker;
 import * as XLSX from "xlsx";
-import { statusTransaksiLang } from '@/@core/utils/general';
+import { formatterNumber, statusTransaksiLang } from '@/@core/utils/general';
 
 const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
     const { userLogin } = props
@@ -79,6 +79,7 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
             'Tanggal Transaksi': moment(item.transaction_date).format("DD MMMM YYYY"),
             'No. Referensi' : item.ref_number,
             'Email' : item.email,
+            'Nominal Transaksi':  'Rp' + formatterNumber(parseInt(item.price)),
             'Berat Emas' : item.weight + ' Gram'
         }),);
         const workbook = XLSX.utils.book_new();
@@ -89,9 +90,10 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
         const colD = 20;
         const colE = 20;
         const colF = 20;
+        const colG = 20;
 
 
-        worksheet["!cols"] = [ { wch: colA }, { wch: colB }, { wch: colC }, { wch: colD }, { wch: colE },  { wch: colF }  ]; 
+        worksheet["!cols"] = [ { wch: colA }, { wch: colB }, { wch: colC }, { wch: colD }, { wch: colE },  { wch: colF }, { wch: colG }  ]; 
 
         XLSX.utils.book_append_sheet(workbook, worksheet, 'History Transaksi');
         // Save the workbook as an Excel file
