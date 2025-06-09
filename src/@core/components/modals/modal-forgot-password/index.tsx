@@ -23,7 +23,7 @@ const ModalForgotPassword =(props: {
         .catch((error) => {
             const err = error as AxiosError
             if (err.response && err.response.data && err.response.data) {
-                if (err.status === 500) {
+                if (err.status !== 400) {
                     setTextMessage('Sorry, email not found')
                 } else {
                     const errData = err.response.data
@@ -43,7 +43,12 @@ const ModalForgotPassword =(props: {
     }, [isModalOpen])
 
     return (
-        <Modal className='modal-forgot-password' open={isModalOpen} onCancel={() => setIsModalOpen(false)}  footer={null} closeIcon={false}>
+        <Modal 
+            className='modal-forgot-password' 
+            open={isModalOpen} 
+            onCancel={() => setIsModalOpen(false)}  
+            footer={null} 
+        >
             <div className='flex flex-col justify-center items-center gap-[19px]'>
                 <div className='flex flex-col justify-center items-center'>
                     <h5 className='font-medium text-2xl'>Lupa Password</h5>
