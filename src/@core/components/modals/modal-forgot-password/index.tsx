@@ -1,6 +1,7 @@
 import axiosInstance from '@/@core/utils/axios';
 import { Input, Modal } from 'antd'
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import { AxiosError } from 'axios';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 const ModalForgotPassword =(props: {
         isModalOpen:boolean, 
@@ -8,6 +9,7 @@ const ModalForgotPassword =(props: {
     }) => {
     const { isModalOpen, setIsModalOpen } = props
     const [email, setEmail] = useState('');
+    const [textMessage, setTextMessage] = useState('');
 
     const sendEmail = () => {
         const payload = {
@@ -17,9 +19,23 @@ const ModalForgotPassword =(props: {
         axiosInstance.post("/users/token/request-reset-token/", payload)
         .then(() => {
             setIsModalOpen(false)
+        })
+        .catch((error) => {
+            const err = error as AxiosError
+            if (err.message) {
+            //   setTextMessage('Mohon maaf, email tidak ditemukan')
+              setTextMessage(err.message)
+            }
             
         })
     }
+
+    useEffect(() => {
+        if (isModalOpen) {
+            setTextMessage('')
+            setEmail('')
+        }
+    }, [isModalOpen])
 
     return (
         <Modal className='modal-forgot-password' open={isModalOpen} onCancel={() => setIsModalOpen(false)}  footer={null} closeIcon={false}>
@@ -27,6 +43,9 @@ const ModalForgotPassword =(props: {
                 <div className='flex flex-col justify-center items-center'>
                     <h5 className='font-medium text-2xl'>Lupa Password</h5>
                     <p className='text-base'>Masukkan email anda, untuk reset password</p>
+                </div>
+                <div className='flex flex-col justify-center w-full text-center'>
+                    {textMessage !== '' && <label className='bg-red-600 text-white p-[6px] rounded-sm'>{textMessage}</label> }
                 </div>
                 <div className='flex flex-col gap-[6px] w-full'>
                     <label>Email</label>

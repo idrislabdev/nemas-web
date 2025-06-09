@@ -37,7 +37,8 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
         { label: 'Tarik Emas', value: 'order_redeem'},
         { label: 'Beli Emas', value: 'gold_buy' },
         { label: 'Jual', value: 'gold_sell' },
-        { label: 'Transfer Emas', value: 'gold_transfer' },
+        { label: 'Transfer Emas', value: 'gold_transfer_send' },
+        { label: 'Terima Emas', value: 'gold_transfer_receive' },
         { label: 'Tarik Saldo', value: 'disburst' },
     ];
 

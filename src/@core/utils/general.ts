@@ -40,8 +40,10 @@ export const statusTransaksiLang = (val:string) => {
         return "Beli Emas"
     } else if (val == 'gold_sell') {
         return "Jual"
-    } else if (val == 'gold_transfer') {
+    } else if (val == 'gold_transfer_send') {
         return "Transfer Emas"
+    } else if (val == 'gold_transfer_receive') {
+        return "Terima Emas"
     } else if (val == 'disburst') {
         return "Tarik Saldo"
     } 
