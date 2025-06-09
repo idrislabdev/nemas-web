@@ -22,9 +22,14 @@ const ModalForgotPassword =(props: {
         })
         .catch((error) => {
             const err = error as AxiosError
-            if (err.message) {
-            //   setTextMessage('Mohon maaf, email tidak ditemukan')
-              setTextMessage(err.message)
+            if (err.response && err.response.data && err.response.data) {
+                if (err.status === 500) {
+                    setTextMessage('Sorry, email not found')
+                } else {
+                    const errData = err.response.data
+                    const jsonError = JSON.parse(JSON.stringify(errData))
+                    setTextMessage(jsonError.email.toString())
+                }
             }
             
         })
