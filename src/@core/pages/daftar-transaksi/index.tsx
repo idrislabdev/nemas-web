@@ -81,7 +81,10 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
             'No. Referensi' : item.ref_number,
             'Email' : item.email,
             'Nominal Transaksi':  'Rp' + formatterNumber(parseInt(item.price)),
-            'Berat Emas' : item.weight + ' Gram'
+            'Berat Emas' : item.weight + ' Gram',
+            'Penerima' : item.user_to,
+            'Pengirim' : item.user_from,
+            'Berat Emas (Diterima)' : item.transfered_weight
         }),);
         const workbook = XLSX.utils.book_new();
         const worksheet = XLSX.utils?.json_to_sheet(dataToExport);
@@ -92,9 +95,22 @@ const DaftarTransaksiPageWrapper = (props: {userLogin:IUserLogin}) => {
         const colE = 20;
         const colF = 20;
         const colG = 20;
+        const colH = 20;
+        const colI = 20;
+        const colJ = 20;
 
 
-        worksheet["!cols"] = [ { wch: colA }, { wch: colB }, { wch: colC }, { wch: colD }, { wch: colE },  { wch: colF }, { wch: colG }  ]; 
+        worksheet["!cols"] = [ { wch: colA }, 
+                                { wch: colB }, 
+                                { wch: colC }, 
+                                { wch: colD }, 
+                                { wch: colE },  
+                                { wch: colF }, 
+                                { wch: colG }, 
+                                { wch: colH }, 
+                                { wch: colI }, 
+                                { wch: colJ }  
+        ]; 
 
         XLSX.utils.book_append_sheet(workbook, worksheet, 'History Transaksi');
         // Save the workbook as an Excel file

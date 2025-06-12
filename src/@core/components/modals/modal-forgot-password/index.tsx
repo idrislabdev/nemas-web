@@ -1,5 +1,5 @@
 import axiosInstance from '@/@core/utils/axios';
-import { Input, Modal } from 'antd'
+import { Input, Modal, notification } from 'antd'
 import { AxiosError } from 'axios';
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
@@ -10,6 +10,7 @@ const ModalForgotPassword =(props: {
     const { isModalOpen, setIsModalOpen } = props
     const [email, setEmail] = useState('');
     const [textMessage, setTextMessage] = useState('');
+    const [api, contextHolder] = notification.useNotification();
 
     const sendEmail = () => {
         const payload = {
@@ -17,8 +18,14 @@ const ModalForgotPassword =(props: {
             "type": "Password"
           }
         axiosInstance.post("/users/token/request-reset-token/", payload)
-        .then(() => {
+        .then((response) => {
+            const { data } = response
+            // console.log(data)
             setIsModalOpen(false)
+            api.success({
+                message: data.message,
+                placement:'top',
+            });
         })
         .catch((error) => {
             const err = error as AxiosError
@@ -43,7 +50,9 @@ const ModalForgotPassword =(props: {
     }, [isModalOpen])
 
     return (
-        <Modal 
+        <>
+         {contextHolder}
+          <Modal 
             className='modal-forgot-password' 
             open={isModalOpen} 
             onCancel={() => setIsModalOpen(false)}  
@@ -72,6 +81,8 @@ const ModalForgotPassword =(props: {
                 </button>
             </div>
         </Modal>
+        </>
+       
     )
     }
 

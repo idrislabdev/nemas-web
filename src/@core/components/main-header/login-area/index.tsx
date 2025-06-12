@@ -22,7 +22,7 @@ const LoginArea = (props: {userLogin:IUserLogin, userProps:IUserProp, token:stri
     deleteCookie('user_prop');
     deleteCookie('token');
     localStorage.clear();
-    window.location.reload();
+    window.location.href = '/';
   }
 
   useEffect(() => {

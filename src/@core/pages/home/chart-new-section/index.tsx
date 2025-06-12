@@ -1,17 +1,19 @@
 "use client"
 
-import { IGoldPrice } from '@/@core/@types/interface'
+import { IGoldPrice, IUserProp } from '@/@core/@types/interface'
 import ChartSpline from '@/@core/components/charts/spline'
 import axiosInstance from '@/@core/utils/axios'
 import { formatterNumber } from '@/@core/utils/general'
-import {ArrowNarrowDownRight, InfoCircle } from '@untitled-ui/icons-react'
+import {ArrowNarrowDownRight, ArrowNarrowUpRight, InfoCircle } from '@untitled-ui/icons-react'
 import moment from 'moment'
 import React, { useCallback, useEffect, useState } from 'react'
 
-const HomeChartNewSection = () => {
+const HomeChartNewSection = (props: {userProps:IUserProp}) => {
+    const { userProps } = props
     const [dataGold, setDataGold] = useState<IGoldPrice>({} as IGoldPrice)
     const [tabActive, setTabActive] = useState("daily");
     const [dataChart, setDataChart] = useState<{categories:string[], data:number[]}>({} as {categories:[], data:[]})
+    const [avgPercentage, setAvgPercentage] = useState(0)
 
     const fetchDataChart = useCallback(() => {
         axiosInstance.get(`/reports/gold-chart/${tabActive}/?format=json`)
@@ -35,6 +37,14 @@ const HomeChartNewSection = () => {
     }, [tabActive])
 
     useEffect(() => {
+        axiosInstance.get(`/reports/gold-transactions/avg?user_id=${userProps.user_id}`)
+        .then((response) => {
+            const data = response.data
+            setAvgPercentage(data.avg_pct*100)
+        })
+    }, [])
+
+    useEffect(() => {
         axiosInstance.get(`/core/gold/price/active`)
         .then((response) => {
             const data = response.data
@@ -55,7 +65,12 @@ const HomeChartNewSection = () => {
                 </div>
                 <div className='price-info'>
                     <p>Rp {formatterNumber(dataGold.gold_price_buy ? Math.round(dataGold.gold_price_buy) : 0)} <span>/ 1 gr</span></p>
-                    <span className='badge danger'><span><ArrowNarrowDownRight /></span>-0,05%</span>
+                    {userProps.name && <span className='badge danger'>
+                        {avgPercentage < 0 && <span><ArrowNarrowDownRight /></span>}
+                        {avgPercentage > 0 && <span><ArrowNarrowUpRight /></span>}
+                        {avgPercentage}%
+                        </span>
+                    }
                 </div>
                 <div className='header-tabs'>
                     <ul className='tabs-day'>

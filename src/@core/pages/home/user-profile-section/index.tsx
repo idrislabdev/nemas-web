@@ -9,10 +9,9 @@ import { User03 } from '@untitled-ui/icons-react'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
-const HomeUserProfileSection = () => {
+const HomeUserProfileSection = (props: {userProps:IUserProp}) => {
+    const { userProps } = props
     const [dataGold, setDataGold] = useState<IGoldPrice>({} as IGoldPrice)
-    const [userProp, setUserProp] = useState({} as IUserProp)
-    const [stateDone, setStateDone] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const { globals } = useGlobals()
     useEffect(() => {
@@ -23,21 +22,13 @@ const HomeUserProfileSection = () => {
         })
     }, [setDataGold])
 
-
-    useEffect(() => {
-        if (!stateDone) {
-            const userProp:IUserProp = JSON.parse(localStorage.getItem("user_prop") || "{}")
-            setUserProp(userProp)
-            setStateDone(true)
-        }
-    },[stateDone, setStateDone])
     return (
         <>
             <div className='home-user-profile-section'>
                 <div className='profile-container'>
                     <span><User03/></span>
                     <div className='profile-desc'>
-                        <h5>Hi, {userProp.name}</h5>
+                        <h5>Hi, {userProps.name}</h5>
                         <p>Siap untuk menabung emas hari ini?</p>
                     </div>
                 </div>

@@ -266,5 +266,9 @@ export interface IHistory {
     price: string,
     gold_history_price_base: number,
     ref_number: string,
-    transaction_type: string
+    transaction_type: string,
+    user_from: string,
+    user_to: string,
+    transfered_admin_weight: string,
+    transfered_weight: string
 }

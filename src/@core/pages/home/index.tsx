@@ -50,9 +50,9 @@ const HomgePageWrapper = (props : {userProps: IUserProp}) => {
     <main className='home-page sm:mobile-responsive md:mobile-responsive'>
         <HomeHeroNewSection />
         {/* <HomeGoldNavigationSection /> */}
-        { userProps.name && <HomeUserProfileSection /> }
+        { userProps.name && <HomeUserProfileSection userProps={userProps}/> }
         <HomeHightlightSection promoes={promoes}/>
-        <HomeChartNewSection />
+        <HomeChartNewSection userProps={userProps}/>
         <HomeArticleSection articles={articles} />
         <HomeTestimonySection testimonies={testimonies}/>
         <HomeVerifiedSection />
