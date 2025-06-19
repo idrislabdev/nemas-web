@@ -7,10 +7,14 @@ import React, { useCallback, useEffect, useState } from 'react'
 import MainSidebarMenu from './main-sidebar-menu';
 import LoginArea from './login-area';
 import { IUserLogin, IUserProp } from '@/@core/@types/interface';
+import axiosInstance from '@/@core/utils/axios';
+import { deleteCookie } from 'cookies-next';
+import { useRouter } from 'next/navigation';
 
 const MainHeader = (props: {userLogin: IUserLogin, userProps: IUserProp, token:string}) => {
     const { userLogin, userProps, token } = props;
     const [showSidebar, setShowSidebar] = useState(false);
+    const router = useRouter();
     
     const onScroll = useCallback(() => {
         const { scrollY } = window;
@@ -32,6 +36,13 @@ const MainHeader = (props: {userLogin: IUserLogin, userProps: IUserProp, token:s
         setShowSidebar(true)
         document.body.classList.add('overflow-hidden')
     }
+    
+    const clearCookies = useCallback(() => {
+        deleteCookie('user');
+        deleteCookie('user_prop');
+        deleteCookie('token');
+        localStorage.clear();
+    }, [])
 
 
     useEffect(() => {
@@ -40,6 +51,18 @@ const MainHeader = (props: {userLogin: IUserLogin, userProps: IUserProp, token:s
            window.removeEventListener("scroll", onScroll);
         }
     });
+
+    useEffect(() => {
+        if (token != "") {
+            axiosInstance.get(`/users/me/`)
+            .catch(() => {
+                clearCookies();
+                window.location.reload();
+            });
+        } else {
+            clearCookies()
+        }
+    }, [clearCookies, token])
 
     return (
         <>

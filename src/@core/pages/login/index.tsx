@@ -4,7 +4,7 @@ import axiosInstance from '@/@core/utils/axios';
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import { setCookie } from "cookies-next";
+import { deleteCookie, setCookie } from "cookies-next";
 import Link from 'next/link';
 import { Eye, EyeOff } from '@untitled-ui/icons-react';
 import ModalForgotPassword from '@/@core/components/modals/modal-forgot-password';
@@ -64,6 +64,9 @@ useEffect(() => {
             router.push("/")
         })
         .catch(() => {
+          deleteCookie('user');
+          deleteCookie('user_prop');
+          deleteCookie('token');
           localStorage.clear();
         });
     }
@@ -91,6 +94,11 @@ return (
                       onChange={(e) => setPassword(e.target.value)} 
                       type={isPassword ? 'password' : 'text'} 
                       placeholder='Masukkan Password'
+                      onKeyDown={e => {
+                        if (e.key === 'Enter') {
+                          onLogin();
+                        }
+                      }}
                     />
                     <a onClick={() => setIsPassword(!isPassword)} className='absolute right-[10px] top-[10px] cursor-pointer'>
                       <span className='my-icon icon-sm text-neutral-700'>

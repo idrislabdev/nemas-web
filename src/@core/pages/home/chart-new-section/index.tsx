@@ -37,11 +37,13 @@ const HomeChartNewSection = (props: {userProps:IUserProp}) => {
     }, [tabActive])
 
     useEffect(() => {
-        axiosInstance.get(`/reports/gold-transactions/avg?user_id=${userProps.user_id}`)
-        .then((response) => {
-            const data = response.data
-            setAvgPercentage(data.avg_pct*100)
-        })
+        if (userProps.user_id) {
+            axiosInstance.get(`/reports/gold-transactions/avg?user_id=${userProps.user_id}`)
+            .then((response) => {
+                const data = response.data
+                setAvgPercentage(data.avg_pct*100)
+            })
+        }
     }, [])
 
     useEffect(() => {
