@@ -9,12 +9,10 @@ import LoginArea from './login-area';
 import { IUserLogin, IUserProp } from '@/@core/@types/interface';
 import axiosInstance from '@/@core/utils/axios';
 import { deleteCookie } from 'cookies-next';
-import { useRouter } from 'next/navigation';
 
 const MainHeader = (props: {userLogin: IUserLogin, userProps: IUserProp, token:string}) => {
     const { userLogin, userProps, token } = props;
     const [showSidebar, setShowSidebar] = useState(false);
-    const router = useRouter();
     
     const onScroll = useCallback(() => {
         const { scrollY } = window;
