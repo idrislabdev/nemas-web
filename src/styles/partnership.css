@@ -5,10 +5,16 @@
 .partner-page {
     @apply pt-[45px] bg-white;
     .partner-hero-section {
-        @apply flex flex-col justify-center items-center w-full;
+        @apply flex flex-col justify-center items-center w-full relative;
         background: linear-gradient(180deg, #39BFB6 0%, rgba(255, 255, 255, 0) 66.6%);
+        &::after {
+            content: '';
+            background: url("/images/bg-partnership.png") no-repeat;
+            position: absolute;
+            @apply w-full h-full z-0;
+        }
         .banner-container {
-            @apply w-full flex items-center h-[502px] px-[100px] max-w-container mx-auto;
+            @apply w-full flex items-center h-[502px] px-[100px] max-w-container mx-auto z-[1];
             .text-area {
                 @apply flex flex-col gap-[38px] w-1/2;
                 h2 {
@@ -214,11 +220,40 @@
         }
 
     }
+    .partner-track-record-section {
+        @apply py-[40px] flex flex-col justify-center items-center gap-[40px] w-full relative px-[100px] max-w-container mx-auto;
+        .main-container {
+           @apply flex justify-between items-start w-full;
+            h2 {
+                @apply text-[36px]/[53px] font-semibold text-primary max-w-[273px] text-right;
+                span {
+                    @apply font-black
+                }
+            }
+            .track-record {
+                @apply flex items-start gap-[50px];
+                .detail-record {
+                    @apply flex flex-col max-w-[230px] justify-center items-center text-center gap-[10px];
+                    label {
+                        @apply text-[40px]/[30px] text-primary font-semibold;
+                    }
+                    span {
+                        @apply text-[20px]/[30px] font-medium text-black;
+                    }
+                }
+            } 
+        }
+    }
 
     @layer components {
         &.mobile-responsive {
             @apply pt-[40px];
             .partner-hero-section {
+                @apply pt-[20px];
+                &::after {
+                    background-position: center;
+                    background-size: contain !important;
+                }
                 .banner-container {
                     @apply h-[250px] px-[15px];
                     .text-area {
@@ -399,6 +434,27 @@
                     }
                 }
 
+            }
+            .partner-track-record-section {
+                @apply px-[15px];
+                .main-container {
+                    @apply flex-col-reverse justify-center text-center items-center gap-[40px];
+                    h2 {
+                        @apply text-[24px]/[22px];
+                    }
+                    .track-record {
+                        @apply flex-wrap gap-0 justify-center items-center;
+                        .detail-record {
+                            @apply w-1/2 max-w-full pb-[20px] last:w-full last:pb-0;
+                            label {
+                                @apply text-[32px]/[20px];
+                            }
+                            span {
+                                @apply text-[20px]/[30px] ;
+                            }
+                        }
+                    } 
+                }
             }
         }
     }

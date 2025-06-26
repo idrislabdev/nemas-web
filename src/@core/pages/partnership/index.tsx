@@ -7,6 +7,7 @@ import PartnerArticleSection from './article-section'
 import PartnerPartnersSection from './partners-section'
 import PartnerTestimonySection from './testimony-section'
 import PartnerFeaturesSection from './features-section'
+import PartnerTrackRecordSection from './track-record-section/page'
 
 // import { useGlobals } from '@/@core/hoc/useGlobals'
 
@@ -24,6 +25,7 @@ const PartnerPageWrapper = async (props : {userProps: IUserProp}) => {
       <PartnerHeroSection />
       <PartnerBenefitSection />
       <PartnerPartnersSection />
+      <PartnerTrackRecordSection />
       <PartnerTestimonySection testimonies={testimonies} />
       <PartnerFeaturesSection />
       <PartnerArticleSection articles={articles} />
