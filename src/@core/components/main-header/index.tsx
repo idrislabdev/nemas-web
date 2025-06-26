@@ -78,6 +78,7 @@ const MainHeader = (props: {userLogin: IUserLogin, userProps: IUserProp, token:s
                             }
                             <li><Link href={`/berita`}>News</Link></li>
                             <li><Link href={`/fitur-lainnya`}>Fitur Lainnya</Link></li>
+                            <li><Link href={`/partnership`}>Partnership</Link></li>
                             <li><Link href={`/kontak-kami`}>Kontak Kami</Link></li>
                         </ul>
                     </div>

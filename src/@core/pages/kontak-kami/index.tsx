@@ -6,7 +6,6 @@ import partners from "./partners.json"
 import Image from 'next/image'
 
 const KontakKamiPageWrapper = () => {
-    console.log(partners)
     return (
         <main className='kontak-kami-page sm:mobile-responsive md:mobile-responsive'>
             <div className='main-section'>

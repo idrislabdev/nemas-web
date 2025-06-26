@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.partner-page {
+    @apply pt-[45px] bg-white;
+    .partner-hero-section {
+        @apply flex flex-col justify-center items-center w-full;
+        background: linear-gradient(180deg, #39BFB6 0%, rgba(255, 255, 255, 0) 66.6%);
+        .banner-container {
+            @apply w-full flex items-center h-[502px] px-[100px] max-w-container mx-auto;
+            .text-area {
+                @apply flex flex-col gap-[38px] w-1/2;
+                h2 {
+                    @apply text-[36px]/[53px] font-semibold text-[#17494E];
+                    span {
+                        @apply font-black
+                    }
+                }
+                a {
+                    @apply bg-primary text-white w-[248px] h-[56px] rounded-[4px] flex flex-col justify-center items-center text-[20px] font-medium;
+                }
+            }
+            img {
+                @apply w-1/2 h-full object-contain;
+            }
+        }
+    }
+    .partner-benefit-section {
+        @apply flex py-[40px] flex-col justify-center items-center w-full;
+        .main-container {
+            @apply w-full flex flex-col justify-center items-center gap-[40px] px-[100px] max-w-container mx-auto;
+            h2 {
+                @apply text-[36px]/[53px] font-semibold text-primary;
+                span {
+                    @apply font-black
+                }
+            }
+            .benefit-cards {
+                @apply flex flex-col gap-[37px];
+                .rows {
+                    @apply flex items-center gap-[37px];
+                    .card {
+                        @apply flex flex-col gap-[24px] w-1/3 h-[378px] justify-center items-center rounded-[16px] p-[10px];
+                        background: linear-gradient(112deg, rgba(58, 191, 182, 0.5) 0%, rgba(251, 233, 147, 0.5) 100%);
+
+                        img {
+                            @apply w-[137px] h-[137px];
+                        }
+                        .text-area {
+                            @apply flex flex-col justify-center items-center text-center gap-[20px];
+                            h5 {
+                                @apply text-[25px]/[30px] text-black font-semibold;
+                            }
+                            p {
+                                @apply text-[14px]/[17px] text-black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+     .partner-partners-section {
+        @apply flex py-[40px] flex-col justify-center items-center w-full;
+        .main-container {
+            @apply w-full flex flex-col justify-center items-center gap-[40px] px-[100px] max-w-container mx-auto;
+            h2 {
+                @apply text-[36px]/[53px] font-semibold text-primary;
+                span {
+                    @apply font-black
+                }
+            }
+            .partner-list {
+                @apply flex items-center justify-center flex-wrap;
+                .card-partner {
+                    @apply w-1/4 px-[10px] pb-[20px];
+                    .img-wrapper {
+                        @apply h-[100px] p-[20px] w-full border border-gray-300 rounded-lg flex flex-col justify-center items-center;
+                        img {
+                            @apply object-contain h-[80px] w-full ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .partner-article-section {
+        @apply py-[40px] flex flex-col justify-center items-center gap-[40px] w-full px-[100px] max-w-container mx-auto;
+        .title-container {
+            @apply flex flex-col items-center justify-between w-full;
+            h2 {
+                @apply text-[32px]/[22px] font-semibold text-primary;
+            }
+        }
+        .article-container {
+            @apply flex items-start gap-[29px] w-full;
+            .article-card {
+                @apply flex flex-col gap-[6px] w-1/3;
+
+                .box-image {
+                    @apply rounded-[16px];
+                    img {
+                        @apply w-full h-[189px] rounded-[16px] object-cover;
+                    }
+                }
+                .box-title {
+                    @apply flex-col;
+                    h5 {
+                        @apply text-[16px]/[24px] font-semibold text-black;
+                    }
+                    p {
+                        @apply text-[12px]/[22px] text-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[40px];
+            .partner-hero-section {
+                .banner-container {
+                    @apply h-[250px] px-[15px];
+                    .text-area {
+                        @apply flex flex-col gap-[19px] w-1/2;
+                        h2 {
+                            @apply text-[14px]/[24px];
+                        }
+                        a {
+                            @apply  w-[130px] h-[23px] text-[12px];
+                        }
+                    }
+                    img {
+                        @apply w-1/2 h-full object-contain;
+                    }
+                }
+            }
+           
+        }
+    }
+}
