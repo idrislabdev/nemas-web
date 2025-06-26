@@ -175,11 +175,11 @@
             .swiper {
                 @apply h-[350px];
                 .swiper-wrapper {
-                    @apply flex relative w-full gap-[20px] justify-items-center items-center;
+                    @apply flex relative w-full gap-0 justify-items-center items-center;
                     .swiper-slide {
                         @apply w-full;
                         .card-content {
-                            @apply flex gap-[70px] items-center py-[45px] w-[50%] mx-auto max-w-container;
+                            @apply flex gap-[70px] items-center py-[45px] w-[60%] mx-auto max-w-container;
                             img {
                                 @apply w-[170px] h-[170px];
                             }
@@ -317,6 +317,7 @@
                     .swiper {
                         @apply h-[280px];
                         .swiper-wrapper {
+                            @apply gap-0;
                             .swiper-slide {
                                 @apply !w-full;
                                 .testimony-card {
@@ -361,6 +362,7 @@
                     .swiper {
                         @apply h-[350px];
                         .swiper-wrapper {
+                            @apply gap-0;
                             .swiper-slide {
                                 @apply w-full h-[300px];
                                 .card-content {
