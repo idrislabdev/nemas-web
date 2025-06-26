@@ -61,7 +61,7 @@
             }
         }
     }
-     .partner-partners-section {
+    .partner-partners-section {
         @apply flex py-[40px] flex-col justify-center items-center w-full;
         .main-container {
             @apply w-full flex flex-col justify-center items-center gap-[40px] px-[100px] max-w-container mx-auto;
@@ -116,6 +116,104 @@
             }
         }
     }
+    .partner-testimony-section {
+        @apply py-[40px] flex flex-col justify-center items-center gap-[40px] w-full relative px-[100px] max-w-container mx-auto;
+        h2 {
+            @apply text-[32px]/[22px] font-semibold text-primary;
+        }
+      
+        .testimony-container {
+            @apply relative w-full;
+            .swiper {
+                @apply h-[350px];
+                .swiper-wrapper {
+                    @apply flex relative w-full gap-[20px] justify-items-center items-center;
+                    .swiper-slide {
+                        @apply !w-[560px];
+                        .testimony-card {
+                            @apply rounded-[8px] flex flex-col justify-between py-[20px] p-[30px] h-[300px];
+                            box-shadow: 0px 5px 15px 0px #00000026;
+                            img {
+                                @apply w-[172px] h-[54px] object-contain;
+                            }
+                            p {
+                                @apply text-base text-black;
+                            }
+                            .note {
+                                @apply flex flex-col;
+                                label {
+                                    @apply text-black font-semibold text-base;
+                                }
+                                span {
+                                    @apply text-sm text-black;
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    /* @apply top-[130px]; */
+                    .swiper-pagination-bullet {
+                        @apply w-[13px] h-[13px];
+                        &.swiper-pagination-bullet-active {
+                            @apply bg-primary w-[34px] rounded-[12px];
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    .partner-features-section {
+        @apply py-[40px] flex flex-col justify-center items-center gap-[40px] w-full relative px-[100px] max-w-container mx-auto;
+        h2 {
+            @apply text-[32px]/[22px] font-semibold text-primary;
+        }
+      
+        .features-container {
+            @apply relative w-full;
+            .swiper {
+                @apply h-[350px];
+                .swiper-wrapper {
+                    @apply flex relative w-full gap-[20px] justify-items-center items-center;
+                    .swiper-slide {
+                        @apply w-full;
+                        .card-content {
+                            @apply flex gap-[70px] items-center py-[45px] w-[50%] mx-auto max-w-container;
+                            img {
+                                @apply w-[170px] h-[170px];
+                            }
+                            .content {
+                                @apply flex flex-col gap-[24px];
+                                .text-description {
+                                    @apply flex flex-col gap-[9px] font-work-sans; 
+                                    h5 {
+                                        @apply text-[25px]/[22px] font-semibold text-[#17494E];
+                                    }
+                                    p {
+                                        @apply text-[16px]/[25px] text-black;
+                                    }
+                                } 
+                                button {
+                                    @apply bg-primary text-white rounded-[4px] text-[16px]/[19px] font-medium w-[216px] h-[51px] cursor-pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    /* @apply top-[130px]; */
+                    .swiper-pagination-bullet {
+                        @apply w-[13px] h-[13px];
+                        &.swiper-pagination-bullet-active {
+                            @apply bg-primary w-[34px] rounded-[12px];
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 
     @layer components {
         &.mobile-responsive {
@@ -137,7 +235,169 @@
                     }
                 }
             }
-           
+           .partner-benefit-section {
+                .main-container {
+                    @apply px-[15px];
+                    h2 {
+                        @apply text-[24px]/[22px];
+                    }
+                    .benefit-cards {
+                        .rows {
+                            @apply flex-col;
+                            .card {
+                                @apply w-full h-[328px];
+                                img {
+                                    @apply w-[110px] h-[110px];
+                                }
+                                .text-area {
+                                    h5 {
+                                        @apply text-[20px]/[30px];
+                                    }
+                                    p {
+                                        @apply text-[14px]/[17px];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .partner-partners-section {
+                .main-container {
+                    @apply px-[15px] max-w-container mx-auto;
+                    h2 {
+                        @apply text-[24px]/[22px];
+                    }
+                    .partner-list {
+                        .card-partner {
+                            @apply w-1/2 px-[5px] pb-[10px];
+                            .img-wrapper {
+                                @apply h-[59px] p-[10px];
+                                img {
+                                    @apply h-[35px] ;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .partner-article-section {
+                @apply py-[20px] px-[15px];
+                .title-container {
+                    h2 {
+                        @apply text-[24px]/[22px];
+                    }
+                }
+                .article-container {
+                    @apply flex-col;
+                    .article-card {
+                        @apply w-full flex-row gap-[20px] items-center;
+                        .box-image {
+                            @apply w-[85px];
+                            img {
+                                @apply w-full h-[82px];
+                            }
+                        }
+                       .box-title {
+                            @apply flex-1;
+                            h5 {
+                                @apply text-[14px]/[22px] ;
+                            }
+                        }
+                       
+                    }
+                }
+            }
+            .partner-testimony-section {
+                @apply px-[15px] gap-[30px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+                .testimony-container {
+                    .swiper {
+                        @apply h-[280px];
+                        .swiper-wrapper {
+                            .swiper-slide {
+                                @apply !w-full;
+                                .testimony-card {
+                                    @apply h-[218px];
+                                    img {
+                                        @apply w-[115px] h-[36px];
+                                    }
+                                    p {
+                                        @apply text-sm;
+                                    }
+                                    .note {
+                                        @apply flex flex-col;
+                                        label {
+                                            @apply text-sm;
+                                        }
+                                        span {
+                                            @apply text-xs;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .swiper-pagination {
+                            /* @apply top-[130px]; */
+                            .swiper-pagination-bullet {
+                                @apply w-[13px] h-[13px];
+                                &.swiper-pagination-bullet-active {
+                                    @apply bg-primary w-[34px] rounded-[12px];
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            .partner-features-section {
+                @apply px-[15px] gap-[0px];
+                h2 {
+                    @apply text-[24px]/[22px];
+                }
+                .features-container {
+                    .swiper {
+                        @apply h-[350px];
+                        .swiper-wrapper {
+                            .swiper-slide {
+                                @apply w-full h-[300px];
+                                .card-content {
+                                    @apply gap-[26px] py-[20px] w-full;
+                                    img {
+                                        @apply w-[118px] h-[118px];
+                                    }
+                                    .content {
+                                        @apply flex flex-col gap-[24px];
+                                        .text-description {
+                                            h5 {
+                                                @apply text-[20px]/[22px];
+                                            }
+                                            p {
+                                                @apply text-[14px]/[19px];
+                                            }
+                                        } 
+                                        button {
+                                            @apply w-[181px] h-[41px];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .swiper-pagination {
+                            /* @apply top-[130px]; */
+                            .swiper-pagination-bullet {
+                                @apply w-[13px] h-[13px];
+                                &.swiper-pagination-bullet-active {
+                                    @apply bg-primary w-[34px] rounded-[12px];
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
         }
     }
 }
