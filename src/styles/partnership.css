@@ -445,7 +445,7 @@
                     .track-record {
                         @apply flex-wrap gap-0 justify-center items-center;
                         .detail-record {
-                            @apply w-1/2 max-w-full pb-[20px] last:w-full last:pb-0;
+                            @apply w-1/2 pb-[20px] last:w-full last:pb-0;
                             label {
                                 @apply text-[32px]/[20px];
                             }
