@@ -223,9 +223,9 @@
     .partner-track-record-section {
         @apply py-[40px] flex flex-col justify-center items-center gap-[40px] w-full relative px-[100px] max-w-container mx-auto;
         .main-container {
-           @apply flex justify-between items-start w-full;
+           @apply flex justify-center items-start w-full;
             h2 {
-                @apply text-[36px]/[53px] font-semibold text-primary max-w-[273px] text-right;
+                @apply text-[36px]/[36px] font-semibold text-primary max-w-[273px] text-right;
                 span {
                     @apply font-black
                 }

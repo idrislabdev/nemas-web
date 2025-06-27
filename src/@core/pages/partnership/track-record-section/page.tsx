@@ -13,10 +13,10 @@ const PartnerTrackRecordSection = () => {
                     <label>50M+</label>
                     <span>Transaksi</span>
                 </div>
-                <div className='detail-record'>
+                {/* <div className='detail-record'>
                     <label>750tps</label>
                     <span>Kapasitas pemrosesan maksimum</span>
-                </div>
+                </div> */}
             </div>
             <h2>Proven Track Record</h2>
         </div>

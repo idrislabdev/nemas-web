@@ -45,7 +45,7 @@ const KontakKamiPageWrapper = () => {
                         <div className='kontak-info'>
                             <h2>Kontak</h2>
                             <div className='kontak-group'>
-                                <a href="tel:+6281234567890" target='_blank'><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
+                                <a href="https://wa.me/+6281234567890" target='_blank'><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
                                 <a href="mailto:support@nemas.com" target='_blank'><span className='my-icon'><AtSign /></span> <span>support@nemas.com</span></a>
                             </div>
                         </div>
