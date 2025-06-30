@@ -4,7 +4,12 @@
 
 .syarat-ketentuan-page {
     @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[30px];
-    h2 {
-        @apply text-[32px]/[22px] text-primary font-semibold;
+    .main-section {
+        @apply w-full px-[100px] max-w-container mx-auto flex flex-col gap-[40px];
+        .header-container {
+            h2 {
+                @apply text-[32px]/[22px] text-primary font-semibold;
+            }
+        }
     }
 }

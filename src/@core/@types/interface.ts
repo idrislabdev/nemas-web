@@ -272,3 +272,20 @@ export interface IHistory {
     transfered_admin_weight: string,
     transfered_weight: string
 }
+
+export interface IPanduanLevel2 {
+    title: string,
+    contents?: string[]
+}
+
+export interface IPanduanLevel1 {
+    title: string,
+    image_url?: string,
+    subs?: IPanduanLevel2[]
+}
+
+export interface IPanduan {
+    title: string,
+    description?: string
+    contents?: IPanduanLevel1[]
+}
