@@ -72,7 +72,7 @@ const MainSidebarMenu = (props: { show:boolean, setShow: Dispatch<SetStateAction
                             <li><a onClick={() => goToLink('fitur-lainnya')}><span><List /></span>Fitur Lainnya</a></li>
                             <li><a onClick={() => goToLink('partnership')}><span><List /></span>Partnership</a></li>
                             <li><a onClick={() => goToLink('supports')}><span><CoinsHand /></span>Supports</a></li>
-                            <li><a onClick={() => goToLink('Kontak Kami')}><span><Phone /></span>Kontak Kami</a></li>
+                            <li><a onClick={() => goToLink('kontak-kami')}><span><Phone /></span>Kontak Kami</a></li>
                             <li><a onClick={() => goToLink('faq')}><span><AnnotationQuestion /></span>FaQ</a></li>
                             <li><a onClick={() => goToLink('kebijakan-privasi')}><span><BookClosed /></span>Kebijakan dan Privasi</a></li>
                         </ul>

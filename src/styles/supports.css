@@ -33,11 +33,17 @@
                         @apply text-base text-black text-justify;
                     }
 
+                    .panduan-level-2 {
+                        @apply flex flex-col justify-center items-center pt-[10px] gap-[10px];
+                    }
+
                     .panduan-level-1 {
-                        p {
-                            @apply text-xl font-medium text-black text-justify;
-                        }
+                        @apply flex flex-col gap-[10px];
                         .panduan {
+                            @apply w-full;
+                            p {
+                                @apply text-xl font-medium text-black text-justify;
+                            }
                             &.subs {
                                 @apply pl-[30px];
                                 p {
@@ -48,6 +54,47 @@
                                 @apply list-disc pl-[30px];
                                 li {
                                     @apply text-sm text-black;
+                                }
+                            }
+                        }
+                        .image-area {
+                            @apply flex flex-wrap justify-center;
+                            img {
+                                @apply h-[500px] w-full object-contain rounded-[4px];
+                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @layer components {
+        &.mobile-responsive {
+            @apply pt-[70px];
+            .main-section {
+                @apply  px-[25px];
+                .header-container {
+                    h2 {
+                        @apply text-[24px]/[22px] font-semibold text-primary;
+                    }
+                }
+                .content-container {
+                    @apply flex-col;
+                    .panduan-list {
+                        @apply hidden;
+                    }
+                    .panduan-contents {
+                        @apply w-full px-0;
+                        .panduan {
+                            .panduan-level-1 {
+                                @apply flex flex-col gap-[10px];
+                                .image-area {
+                                    @apply flex flex-wrap justify-center;
+                                    img {
+                                        @apply w-full h-[400px];
+                                    }
                                 }
                             }
                         }

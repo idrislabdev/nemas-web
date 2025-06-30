@@ -27,7 +27,9 @@ const panduan = [
                         ]
                     }
                 ],
-                "image_url" : ""
+                "image_url" : [
+                    "/images/panduan/Picture1.jpg"
+                ]
             },
             {
                 "title" : "🔄 Fungsi Halaman Splash:",
@@ -36,7 +38,7 @@ const panduan = [
                     { "title" : "Menampilkan brand awareness instansi dan aplikasi kepada pengguna."},
                     { "title" : "Biasanya tampil selama beberapa detik sebelum berpindah otomatis ke halaman login atau beranda utama jika sudah login."}
                 ],
-                "image_url" : ""
+                "image_url" : []
             }
         ]
     },
@@ -87,7 +89,9 @@ const panduan = [
                         ]
                     }
                 ],
-                "image_url" : ""
+                "image_url" : [
+                    "/images/panduan/Picture2.png"
+                ]
             },
             {
                 "title" : "⚠️ Perilaku Interaktif",
@@ -95,7 +99,7 @@ const panduan = [
                     { "title" : "Setiap klik pada fitur seperti “Beli Emas” atau “Kirim Emas” sebelum login akan: Mengarahkan otomatis ke Halaman Login." },
                     { "title" : "Beberapa elemen bersifat non-aktif untuk pengguna yang belum login." }
                 ],
-                "image_url" : ""
+                "image_url" : []
             },
             {
                 "title" : "📝 Catatan Penting",
@@ -105,7 +109,7 @@ const panduan = [
                     { "title" : "Tujuan utama halaman ini: Memberikan first impression yang positif."},
                     { "title" : "Tujuan utama halaman ini: Mendorong pengguna untuk login atau daftar akun."}
                 ],
-                "image_url" : ""
+                "image_url" : []
             }
             
         ]
@@ -156,7 +160,9 @@ const panduan = [
                         ]
                     }
                 ],
-                "image_url" : ""
+                "image_url" : [
+                    "/images/panduan/Picture3.png"
+                ]
             },
             {
                 "title" : "📝 Catatan Penting:",
@@ -164,7 +170,7 @@ const panduan = [
                     { "title" : "Pastikan Anda mengisi data login dengan benar untuk menghindari kegagalan masuk."},
                     { "title" : "Jika Anda lupa password, gunakan fitur “Lupa Password” untuk mendapatkan panduan reset melalui email atau SMS."}
                 ],
-                "image_url": ""
+                "image_url" : []
             }
         ]
 
@@ -233,7 +239,9 @@ const panduan = [
                         ]
                     }
                 ],
-                "image_url": ""
+                "image_url" : [
+                    "/images/panduan/Picture4.png"
+                ]
             },
             {
                 "title": "📝 Catatan Penting:",
@@ -241,7 +249,8 @@ const panduan = [
                     { "title": "Pastikan semua kolom wajib diisi dengan data yang benar." },
                     { "title": "Password harus kuat dan tidak mudah ditebak untuk keamanan akun Anda." },
                     { "title": "Jika terjadi kesalahan, sistem akan menampilkan pesan peringatan." }
-                ]
+                ],
+                "image_url" : []
             }
         ]
     },
@@ -276,7 +285,9 @@ const panduan = [
                         ]
                     }
                 ],
-                "image_url": ""
+                "image_url" : [
+                    "/images/panduan/Picture5.png"
+                ]
             },
             {
                 "title" : "📝 Catatan Penting",
@@ -286,7 +297,7 @@ const panduan = [
                     { "title" : "Tautan reset email hanya berlaku dalam waktu tertentu (misal: 30 menit atau 1 jam). Segera lakukan reset password setelah email diterima."},
                     { "title" : "Jika masih belum menerima email, Silahkan coba ulangi proses pengiriman atau hubungi tim dukungan Nemas melalui pusat bantuan."}
                 ],
-                "image_url": ""
+                 "image_url" : []
             }
         ]
     },
@@ -342,6 +353,9 @@ const panduan = [
                         "title" : "Grafik Harga Emas",
                         "contents": [
                             "Menampilkan grafik pergerakan harga emas berdasarkan periode waktu: Harian (Day), Mingguan (Week), Bulanan (Month)",
+                        ],
+                        "image_url" : [
+                            "/images/panduan/Picture7.png"
                         ]
                     },
                     {
@@ -355,7 +369,9 @@ const panduan = [
                         ]
                     }
                 ],
-                "image_url" : ""
+                "image_url" : [
+                    "/images/panduan/Picture6.png"
+                ]
             },
              {
                 "title": "📝 Catatan Penting:",
@@ -364,7 +380,8 @@ const panduan = [
                     { "title": "Jika pengguna belum login dan mencoba membuka halaman ini melalui navigasi, sistem akan mengarahkannya ke halaman login terlebih dahulu." },
                     { "title": "Seluruh informasi (saldo, harga emas, notifikasi) ditarik secara real-time dari server setiap kali halaman dibuka atau di-refresh." }, 
                     { "title": "Komponen halaman ini didesain untuk memberi kontrol penuh terhadap portofolio emas dan uang pengguna dengan antarmuka yang ringkas dan ramah pengguna." }
-                ]
+                ],
+                 "image_url" : []
             }
         ]
     },
@@ -392,6 +409,9 @@ const panduan = [
                             "Setiap item transaksi menampilkan: Detail Tambahan (Opsional) Contoh: 10 Gram, 0.0056 Gram",
                             "Setiap item transaksi menampilkan: Tanggal Transaksi Contoh: 18 Juni 2025",
                             "Setiap item transaksi menampilkan: Ikon Transaksi (Dompet -> Topup), (Koin dan panah -> Kirim Emas), (Paket -> Kirim Fisik), (Amplop dann Tangan -> Terima Emas)"
+                        ],
+                        "image_url" : [
+                            "/images/panduan/Picture8.png"
                         ]
                     },
                     {
@@ -412,7 +432,8 @@ const panduan = [
                     {"title": "Tap pada salah satu item transaksi bisa diarahkan ke halaman detail transaksi (jika tersedia)."},
                     {"title": "Idealnya, transaksi lama dapat dimuat dengan scroll atau tombol “Tampilkan Lebih Banyak”."}
 
-                ]
+                ],
+                 "image_url" : []
             }
         ]
     },
@@ -450,13 +471,16 @@ const panduan = [
                             "Menu Bagian & Informasi terdiri dari: Bantuan, Whats  New Nemas, Tentang Nemas, Customer Service, Legal"
                         ]
                     },
-                     {
+                    {
                         "title" : "Navigasi Bawah (Bottom Navigation Bar)",
                         "contents": [
                             "Terdapat 4 tab navigasi: Home, Transaksi, Notifikasi, Akun Saya (aktif pada halaman ini)",
                             "Tab Akun Saya akan disorot atau berwarna aktif untuk menunjukkan pengguna sedang berada di halaman ini."
                         ]
                     }
+                ],
+                "image_url" : [
+                    "/images/panduan/Picture9.png"
                 ]
             },
             {
@@ -466,7 +490,8 @@ const panduan = [
                     {"title" : "Logout akan mengembalikan pengguna ke halaman login."},
                     {"title" : "Fitur pengaturan keamanan penting untuk menjaga perlindungan akun dan transaksi."}
 
-                ]
+                ],
+                "image_url" : []
             }
         ]
     },
@@ -514,14 +539,17 @@ const panduan = [
                             "QRIS: Scan kode QR menggunakan aplikasi e-wallet atau mobile banking Anda."
                         ]
                     }
+                ],
+                "image_url" : [
+                    "/images/panduan/Picture10.png"
                 ]
             }
         ]
     },
-    {
-        "title": "Halaman Menu Lainnya",
-        "content" : []
-    },
+    // {
+    //     "title": "Halaman Menu Lainnya",
+    //     "content" : []
+    // },
 ]
 
 export {

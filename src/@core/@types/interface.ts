@@ -275,12 +275,13 @@ export interface IHistory {
 
 export interface IPanduanLevel2 {
     title: string,
-    contents?: string[]
+    contents?: string[],
+    image_url?: string[]
 }
 
 export interface IPanduanLevel1 {
     title: string,
-    image_url?: string,
+    image_url?: string[],
     subs?: IPanduanLevel2[]
 }
 
