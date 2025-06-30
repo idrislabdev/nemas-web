@@ -29,29 +29,33 @@ const SupportsPageWrapper = () => {
                                 <div className='panduan-level-1'>
                                     {panduan.contents && panduan.contents.map((level_1:IPanduanLevel1, index2:number) =>
                                         <div className='panduan-level-2' key={`${index}-${index2}`}>
-                                            <div className='image-area'>
-                                                {level_1.image_url && level_1.image_url.map((url:string, index3:number)=> (
-                                                    <Image src={url} width={0} height={0} sizes='100%' alt={level_1.title} key={`image_${index}-${index2}-${index3}`}/>
-                                                ))}
-                                            </div>
-                                            <div className='panduan'>
-                                                <p>{level_1.title}</p>
+                                            {level_1.image_url &&  level_1.image_url.length > 0 && 
+                                                <div className='image-area' key={`image_${index}-${index2}`}>
+                                                    {level_1.image_url && level_1.image_url.map((url:string, index3:number)=> (
+                                                        <Image src={url} width={0} height={0} sizes='100%' alt={level_1.title} key={`image_${index}-${index2}-${index3}`}/>
+                                                    ))}
+                                                </div>
+                                            }
+                                            <div className='panduan' key={`panduan_${index}-${index2}`}>
+                                                <p key={`p_${index}-${index2}`}>{level_1.title}</p>
                                                 {level_1.subs && level_1.subs.map((level_1_sub:IPanduanLevel2, index3:number) => (
-                                                    <>
-                                                        <div className='panduan subs'  key={`${index}-${index2}-${index3}`}>
+                                                    <div key={`${index}-${index2}-${index3}`}>
+                                                        <div className='panduan subs' >
                                                             <p>{index3+1}. {level_1_sub.title}</p>
-                                                            <ul>
+                                                            <ul key={`list_${index}-${index2}-${index3}`}>
                                                                 {level_1_sub.contents && level_1_sub.contents.map((content:string, index4:number) => (
                                                                     <li key={`${index}-${index2}-${index3}${index4}`}>{content}</li>
                                                                 ))}
                                                             </ul>
                                                         </div>
-                                                        <div className='image-area'>
-                                                            {level_1_sub.image_url && level_1_sub.image_url.map((url:string, index4:number)=> (
-                                                                <Image src={url} width={0} height={0} sizes='100%' alt={level_1.title} key={`image_${index}-${index2}-${index3}-${index4}`}/>
-                                                            ))}
-                                                        </div>
-                                                    </>
+                                                        {level_1_sub.image_url &&  level_1_sub.image_url.length > 0 && 
+                                                            <div className='image-area'  key={`image_${index}-${index2}-${index3}`}>
+                                                                {level_1_sub.image_url.map((url:string, index4:number)=> (
+                                                                    <Image src={url} width={0} height={0} sizes='100%' alt={level_1.title} key={`image_${index}-${index2}-${index3}-${index4}`}/>
+                                                                ))}
+                                                            </div>
+                                                        }
+                                                    </div>
                                                 ))}
                                             </div>
                                         </div>

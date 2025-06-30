@@ -536,20 +536,746 @@ const panduan = [
                         "title": "Pilih Metode Pembayaran:", 
                         "contents": [
                             "Transfer Bank: Mandiri, BCA, BNI",
-                            "QRIS: Scan kode QR menggunakan aplikasi e-wallet atau mobile banking Anda."
+                            "QRIS: Scan kode QR menggunakan aplikasi e-wallet atau mobile banking Anda.",
+                            "Setelah memilih metode pembayaran, centang Saya menyetujui Syarat dan Ketentuan.",
+                            "Tekan Proses Pembayaran",
+                            "Masukkan PIN 6 digit Anda untuk konfirmasi."
+                        ],
+                        "image_url" : [
+                            "/images/panduan/Picture11.png",
+                            "/images/panduan/Picture12.png",
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                    {
+                        "title": "Bukti Pembayaran", 
+                        "contents": [
+                            "Setelah pembayaran berhasil, Anda akan menerima email notifikasi dari Nemas.",
+                            "Email ini berisi: No. Transaksi, Rincian transaksi (Topup, Biaya Admin), Status pembayaran: success dan Metode Pembayaran",
+                        ],
+                        "image_url" : [
+                            "/images/panduan/Picture14.png",
                         ]
                     }
                 ],
                 "image_url" : [
                     "/images/panduan/Picture10.png"
                 ]
+            },
+            {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Pastikan nominal yang dimasukkan sesuai dengan batas minimal dan maksimal yang diperbolehkan oleh sistem." },
+                    { "title" : "Setelah menekan tombol “Proses”, Anda akan diarahkan ke halaman metode pembayaran atau konfirmasi transaksi." },
+                    { "title" : "Jika tombol “Proses” tidak bisa ditekan, pastikan Anda telah memilih atau mengetik nominal yang valid."},
+                ],
+                "image_url" : []
+            }
+        ],
+    },
+    {
+        "title": "Halaman Menu Lainnya",
+        "description": "Halaman Menu Lainnya berfungsi sebagai pusat akses cepat (shortcut hub) menuju berbagai fitur utama dan lanjutan dalam aplikasi Nemas yang berhubungan dengan aktivitas keuangan, transaksi emas digital, serta layanan tambahan seperti investasi dan penarikan fisik",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Halaman ini hanya dapat diakses setelah login ke akun Nemas." },
+                    { "title" : "❌ Jika pengguna belum login, maka:" },
+                    { "title" : "Sistem akan mengalihkan otomatis ke halaman Login saat mencoba membuka halaman ini."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "🧾 Daftar Menu & Fungsinya",
+                "subs": [
+                    { "title" : "Tabungan Emas (Menampilkan riwayat dan detail saldo tabungan emas pengguna.)" },
+                    { "title" : "Kirim Emas ke Member (Transfer emas digital ke sesama pengguna aplikasi Nemas.)" },
+                    { "title" : "Beli Emas (Melakukan pembelian emas menggunakan saldo Nemas.)"},
+                    { "title" : "Jual Emas (Menjual emas digital dan mengonversinya ke saldo uang.)"},
+                    { "title" : "Tarik Saldo (Menarik dana dari saldo Nemas ke rekening bank terdaftar.)"},
+                    { "title" : "Tarik Emas (Mengajukan penarikan emas dalam bentuk fisik untuk dikirimkan.)"},
+                    { "title" : "Investasi (Mengakses produk investasi berbasis emas atau keuangan lainnya.)"},
+                    { "title" : "Jaminan Emas (Menggunakan emas sebagai agunan pinjaman atau jaminan produk finansial.)"},
+                    { "title" : "Produk Emas Fisik (Melihat katalog emas fisik untuk dibeli dan dikirim secara langsung.)"},
+                ],
+                "image_url" : [
+                    `/images/panduan/Picture15.png`
+                ]
+            },
+            {
+                "title" : "📍 Tata Letak Tampilan",
+                "subs": [
+                    { "title" : "Disusun dalam bentuk kartu-kartu fitur yang ditata dalam grid 2 kolom." },
+                    { "title" : "Setiap kartu dilengkapi: Ikon Ilustratif yang merepresentasikan fitur" },
+                    { "title" : "Setiap kartu dilengkapi: Nama fitur secara jelas dan singkat" },
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "📌 Deskripsi Komponen:",
+                "subs": [
+                    { "title" : "Judul Halaman: Ditampilkan sebagai Menu Lainnya di bagian atas" },
+                    { "title" : "Tombol Tutup (❌): Terletak di pojok kiri atas, digunakan untuk kembali ke halaman sebelumnya tau dashboard utama." },
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Semua menu dalam halaman ini bersifat interaktif dan terhubung langsung ke halaman fungsional masing-masing." },
+                    { "title" : "Pengguna disarankan memahami fitur-fitur ini sebelum mengaksesnya agar dapat memaksimalkan layanan yang tersedia di aplikasi Nemas." },
+                    { "title" : "Beberapa fitur seperti Jaminan Emas atau Investasi mungkin memerlukan proses verifikasi tambahan."},
+                ],
+                "image_url" : []
             }
         ]
     },
-    // {
-    //     "title": "Halaman Menu Lainnya",
-    //     "content" : []
-    // },
+    {
+        "title": "Menu: Tabungan Emas",
+        "description": "Menu ini menyajikan informasi lengkap mengenai aset emas digital milik pengguna. Selain menampilkan jumlah total gram emas dan estimasi nilai rupiah, halaman ini juga berisi riwayat transaksi emas serta fitur praktis untuk menyalin nomor rekening dan mengunduh mutasi.",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "❌ Pengguna yang belum login akan otomatis diarahkan ke halaman login saat mencoba membuka halaman ini."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "🧾 Informasi yang Ditampilkan",
+                "subs": [
+                    { 
+                        "title" : "Bagian Aset Emas",
+                        "contents": [
+                            "Menampilkan ringkasan saldo emas pengguna secara jelas:",
+                            "Info Total Emas, Contoh: 28,0167 Gram",
+                            "Estimasi Nilai Rupiah, Contoh: Rp 49.965.432",
+                            "Nomor Rekening Emas, Contoh: 1122 3344 5566 6",
+                        ]
+                    },
+                    {
+                        "title": "Filter Transaksi",
+                        "contents": [
+                            "Tombol Salin Nomor Rekening untuk menyalin nomor rekening ke clipboard dengan sekali klik.",
+                            "Filter Transaksi untuk mennyaring berdasarkan jenis transaksi atau rentang tanggal",
+                            "Desain setiap transaksi ditampilkan dalam kartu vertikal, dilengkap dengan ikon dan teks informatif"
+                        ]
+                    },
+                    {
+                        "title" : "Tombol Download Mutasi",
+                        "contents": [
+                            "Terletak di bagian bawah halaman.",
+                            "Mengunduh laporan aktivitas emas (kemungkinan dalam format PDF atau CSV) untuk pencatatan atau kebutuhan laporan pribadi."
+                        ]
+                    }
+                ],
+                "image_url" : [
+                    "/images/panduan/Picture16.png"
+                ]
+            },
+            {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Semua data ditampilkan secara real-time dan diperbarui otomatis saat halaman dibuka." },
+                    { "title" : "Nomor rekening emas bersifat unik untuk tiap pengguna dan dapat digunakan untuk menerima transfer emas digital." },
+                    { "title" : "Fitur unduh mutasi sangat berguna untuk kebutuhan dokumentasi dan pelaporan."},
+                ],
+                "image_url" : []
+            }
+        ]
+    },
+    {
+        "title": "Menu: Kirim Emas ke Member",
+        "description": "Menu Kirim Emas ke Member memungkinkan pengguna untuk mentransfer emas digital ke sesama pengguna Nemas. Fitur ini hanya bisa digunakan oleh pengguna yang sudah login dan terverifikasi (KTP) serta memiliki saldo emas minimal 1 gram dari hasil pembelian.",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "❌ Pengguna yang belum login akan otomatis diarahkan ke halaman login saat mencoba membuka halaman ini."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "📌 Deskripsi Komponen",
+                "subs" : [
+                    { 
+                        "title"  : "Halaman Syarat dan Ketentuan Kirim Emas",
+                        "contents" : [
+                            "Menampilkan informasi penting terkait aturan transfer emas sebelum pengguna dapat mengakses fitur.",
+                            "Transfer hanya setelah verifikasi KTP dan memiliki minimal 1 gram emas.",
+                            "Transaksi dapat dibatalkan jika terindikasi pelanggaran.",
+                            "Transfer hanya untuk sesama member Nemas dan bukan untuk jual-beli komersial.",
+                            "Emas dari promo tidak bisa ditransfer.",
+                            "Notifikasi email dikirim ke penerima.",
+                            "Pengguna haru menekan tombol 'Saya Mengerti' untuk masuk ke form transfer.",
+                            "Halaman / Informasi ini hanya ditampilkan sekali, dan tidak akan ditampilkan kembali setelah pengguna menyetujuinya."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture17.png"
+                        ]
+                    },
+                    { 
+                        "title"  : "Halaman Form Kirim Emas ke Member",
+                        "contents" : [
+                            "Terdapat inputan untuk memasukkan nominal angka dengan format Rupiah, inputan uang ini akan dikonversikan ke dalam gram secara otomatis, contoh: Rp. 25.000 -> 0,0137 Gram",
+                            "Terdapat inputan untuk memasukkan jumlah berat dalam satuan gram, Contoh : 0,01 Gram, setelah itu estimasi harga emas akan muncul",
+                            "Terdapat juga pilihan tombol / shortcut seperti Rp. 15.000 -> 0,0082 Gram, 25.000 -> Rp. 0,0137 Gram.",
+                            "Tombol “Lanjutkan”: untuk melanjutkan transaksi, menjadi aktif ketika inputan sudah sesuai"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture18.png"
+                        ]
+                    },
+                    { 
+                        "title"  : "Halaman Detail Transfer Emas ke Member",
+                        "contents" : [
+                            "Terdapat inputan untuk memasukkan nomor handphone tujuan (Wajib), nomor tujuan merupakan nomor yang mempunyai akun nemas, contoh (081234567890)",
+                            "Dropdown tujuan transfer (Wajib), yang berisi pilihan, Hadiah, Pembayaran, dan Lain-lain",
+                            "Inputan untuk memasukkan notes (opsional), contoh : “Selamat ulang tahun! Semoga bermanfaat 🎁",
+                            "Checkbox persetujuan S&K",
+                            "Tombol “Kirim”: untuk melanjutkan proses transfer"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture19.png"
+                        ]
+                    },
+                    { 
+                        "title"  : "Konfirmasi PIN",
+                        "contents" : [
+                            "Sebelum transaksi diproses, pengguna diminta memasukkan PIN keamanan sebagai langkah verifikasi."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                     { 
+                        "title"  : "Notifikasi",
+                        "contents" : [
+                            "Setelah berhasil, pengguna dan penerima akan menerima notifikasi dan email."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture20.png",
+                            "/images/panduan/Picture21.png"
+                        ]
+                    },
+                ]
+            },
+             {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Saldo emas harus berasal dari pembelian, bukan promo." },
+                    { "title" : "Transaksi tidak dapat dibatalkan setelah dikirim." },
+                    { "title" : "Gunakan pilihan cepat untuk menghindari kesalahan input."},
+                    { "title" : "Sistem memantau tujuan transfer untuk mencegah penyalahgunaan."}
+                ],
+                "image_url" : []
+            }
+        ],
+    },
+    {
+        "title": "Menu: Pembelian Emas",
+        "description": "Menu ini memungkinkan pengguna membeli emas digital menggunakan saldo rupiah yang tersedia di aplikasi NEMAS. Pembelian dapat dilakukan melalui input manual atau pilihan cepat dengan nominal tertentu.",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "❌ Pengguna yang belum login akan otomatis diarahkan ke halaman login saat mencoba membuka halaman ini."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "🧾 Alur Transaksi Pembelian Emas",
+                "subs" : [
+                    {
+                        "title" : "Masuk ke Menu “Beli Emas”",
+                        "contents": [
+                            "Menampilkan informasi harga emas terkini, contoh: Rp 1.821.586/Gram",
+                            "Menamilkan saldo uang yang tersedia, contoh: Rp 24.882.746"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture22.png"
+                        ]
+                    },
+                    {
+                        "title" : "Input Jumlah Pembelian",
+                        "contents": [
+                            "Pengguna dapat memilih: Input Manual dengan memasukkan nilai dalam rupiah atau berat dalam gram",
+                            "Pengguna juga dapat memilih dengan tombol pilihan cepat, seperti : Rp25.000 -> 0,0137 Gram, Rp50.000 -> 0,0274 Gram"
+                        ],
+                          "image_url": [
+                            "/images/panduan/Picture23.png"
+                        ]
+                    },
+                    {
+                        "title" : "Klik Tombol “Proses”",
+                        "contents": [
+                            "Menampilkan halaman Detail Transaksi, terdiri dari: Harga per gram, jumlah emas yang akan dibeli, Total pembayaran, Estimasi saldo tersisa",
+                            "Chekbox persetujuan : “Saya menyetujui Syarat & Ketentuan pembelian emas”",
+                            "Tombol “Proses Pembayaran” akan aktif setelah semua input valid."
+                        ]
+                    },
+                    {
+                        "title" : "Masukkan PIN",
+                        "contents": [
+                            "Pengguna diminta untuk memasukkan 6 digit PIN sebagai verifikasi keamanan transaksi."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                    {
+                        "title" : "Transaksi Berhasil",
+                        "contents": [
+                            "Muncul halaman dengan notifikasi “Pembelian Berhasil”.",
+                            "Saldo uang akan otomatis dikurangi.",
+                            "Emas akan langsung masuk ke akun tabungan emas pengguna."
+                        ]
+                    },
+                ]
+            },
+             {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Harga emas bersifat real-time dan dapat berubah setiap saat." },
+                    { "title" : "Pastikan nominal pembelian tidak melebihi saldo uang yang tersedia." },
+                    { "title" : "PIN wajib diisi untuk menyelesaikan transaksi."},
+                    { "title" : "Setelah transaksi berhasil, bukti transaksi dapat dilihat di menu Transaksi dan Notifikasi"}
+                ],
+                "image_url" : []
+            }
+        ]
+    },
+    {
+        "title": "Menu: Jual Emas Digital",
+        "description": "Menu ini digunakan untuk menjual emas digital milik pengguna dan mengubahnya menjadi saldo uang (Nemas). Proses dilakukan berdasarkan harga jual emas saat ini, dan nominal hasil penjualan akan otomatis ditambahkan ke saldo uang pengguna.",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "❌ Pengguna yang belum login akan otomatis diarahkan ke halaman login saat mencoba membuka halaman ini."},
+                    { "title" : "✅	Pengguna harus memiliki saldo emas aktif"},
+                    { "title" : "✅	Minimal penjualan adalah setara Rp 10.000."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title": "📌 Deskripsi Komponen:",
+                "subs": [
+                    {
+                        "title": "🟡 Informasi Harga & Aset Emas",
+                        "contents": [
+                            "Aset Emas Anda: Menunjukkan jumlah emas yang dimiliki., Contoh: 27,58085 Gram",
+                            "Harga Jual per Gram: Harga saat ini untuk menjual emas. Contoh: Rp 1.777.157 / Gram",
+                            "Perubahan Harga: Menampilkan persentase perubahan harga terkini. Contoh: naik 1,02%"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture24.png"
+                        ]
+                    },
+                    {
+                        "title": "🧾 Input Jumlah Penjualan",
+                        "contents": [
+                            "Pengguna dapat memasukkan jumlah emas (dalam Gram) yang ingin dijual.",
+                            "Konversi otomatis akan menghitung nilai dalam Rupiah berdasarkan harga jual saat ini.",
+                            "Tidak tersedia tombol pilihan cepat seperti pada menu beli."
+
+                        ]
+                    },
+                    {
+                        "title": "🔘 Tombol “Jual”",
+                        "contents": [
+                            "Akan aktif setelah jumlah valid dimasukkan (setara min. Rp 10.000).",
+                            "Setelah ditekan, sistem akan menampilkan halaman Detail Transaksi."
+                        ]
+                    },
+                    {
+                        "title": "📄 Halaman: Detail Transaksi Penjualan",
+                        "contents": [
+                            "Menampilkan ringkasan transaksi sebelum diproses",
+                            "✅ Checklist Persetujuan: Saya menyetujui syarat dan ketentuan penjualan emas.",
+                            "🔘 Tombol: “Proses Penjualan”"
+                        ],
+                         "image_url": [
+                            "/images/panduan/Picture25.png"
+                        ]
+                    },
+                    {
+                        "title": "🔐 Verifikasi PIN",
+                        "contents": [
+                            "Setelah klik “Proses Penjualan”, pengguna akan diminta memasukkan 6 digit PIN keamanan untuk menyelesaikan transaksi."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                    {
+                        "title": "Transaksi Berhasil",
+                        "contents": [
+                            "Setelah PIN terverifikasi: akan muncul halaman Transaksi Berhasil",
+                            "Saldo emas akan dikurangi secara otomatis",
+                            "Uang langsung masuk ke saldo uang akun penerima"
+                        ],
+                        "image_url": []
+                    },
+                    {
+                        "title": "Notifikasi",
+                        "contents": [
+                            "Bukti transaksi akan ditampilkan di menu transaksi",
+                            "Bukti transfer juga akan tampil di notifikasi aplikasi",
+                            "Bukti transfer juga akan di kirim ke email pengguna (jika aktif)"
+                        ],
+                        "image_url": []
+                    }
+                ]
+            },
+            {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Pastikan jumlah gram yang dijual setara minimal Rp 10.000." },
+                    { "title" : "Harga jual emas dapat berubah sewaktu-waktu." },
+                    { "title" : "PIN wajib untuk menyelesaikan transaksi."},
+                    { "title" : "Setelah berhasil, transaksi tidak dapat dibatalkan."}
+                ],
+                "image_url" : []
+            }
+        ]
+    },
+    {
+        "title": "Menu: Tarik Saldo",
+        "description": "Menu ini digunakan untuk menarik saldo uang (Nemas) ke rekening bank yang telah terdaftar. Proses mencakup input nominal, tinjauan detail transaksi, verifikasi PIN, dan pengiriman dana ke rekening tujuan",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "✅ Telah menautkan rekening bank yang valid"},
+                    { "title" : "✅ Saldo uang mencukupi jumlah penarikan + biaya admin."},
+                    { "title" : "✅ Minimal penarikan adalah Rp 10.000."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title": "📌 Deskripsi Komponen:",
+                "subs": [
+                    {
+                        "title": "🟡 Informasi Saldo",
+                        "contents": [
+                            "Saldo Uang Saat Ini: Ditampilkan saat membuka menu tarik saldo. Contoh: Rp 24.742.558"
+                        ],
+                        "image_url": []
+                    },
+                    {
+                        "title": "🧾 Input Nominal Penarikan",
+                        "contents": [
+                            "Pengguna memasukkan jumlah uang (dalam Rupiah) yang ingin ditarik.",
+                            "Minimal penarikan: Rp 10.000"
+
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture26.png"
+                        ]
+                    },
+                    {
+                        "title": "🔘 Tombol “Tarik Saldo”",
+                        "contents": [
+                            "Akan aktif jika input nominal valid.",
+                            "Setelah diklik, akan muncul halaman Detail Transaksi."
+                        ],
+                        "image_url": []
+                    },
+                    {
+                        "title": "📄 Halaman: Detail Transaksi Penarikan",
+                        "contents": [
+                            "Menampilkan rincian transaksi sebelum dikonfirmasi:",
+                            "✅ Checklist Persetujuan: Saya menyetujui syarat dan ketentuan penarikan saldo.",
+                            "🔘 Tombol: “Proses Penarikan”",
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture27.png"
+                        ]
+                    },
+                     {
+                        "title": "🔐 Verifikasi PIN",
+                        "contents": [
+                            "•	Setelah klik “Proses Penarikan”, pengguna akan diminta memasukkan 6 digit PIN keamanan untuk melanjutkan transaksi."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                     {
+                        "title": "📬 Notifikasi Email",
+                        "contents": [
+                            "Setelah transaksi berhasil, pengguna akan menerima email konfirmasi berisi: Jumlah penarikan, Biaya admin, Total saldo yang dipotong, Informasi rekening tujuan, status transaksi",
+                        ],
+                        "image_url": []
+                    }
+                ]
+            },
+             {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Dana akan ditransfer ke rekening bank pengguna sesuai jumlah penarikan." },
+                    { "title" : "Transaksi akan tercatat di riwayat transaksi di aplikasi." }
+                ],
+                "image_url" : []
+            }
+        ]
+    },
+    {
+        "title": "Menu: Tarik Emas Fisik",
+        "description": "Menu ini digunakan untuk menarik saldo emas digital menjadi emas fisik dalam bentuk kepingan, yang akan dikirim ke alamat pengguna atau diambil di outlet tertentu. Proses ini mencakup pemilihan produk emas, metode pengiriman, serta konfirmasi pembayaran dan verifikasi keamanan.",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "✅ Memiliki saldo emas yang cukup sesuai berat kepingan yang dipilih."},
+                    { "title" : "✅ Beberapa produk bisa memiliki syarat ketersediaan stok dan biaya tambahan."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "📋 Deskripsi Proses:",
+                "subs": [
+                    {
+                        "title": "Masuk ke Menu “Tarik Emas”",
+                        "contents": [
+                            "Pengguna membuka menu Tarik Emas.",
+                            "Sistem akan menampilkan saldo emas saat ini."
+                        ],
+                        "image_url": []
+                    },
+                    {
+                        "title": "🧾 Pilih Jenis Kepingan Emas",
+                        "contents": [
+                            "Pengguna memilih salah satu produk kepingan emas yang tersedia. Tombol produk akan bertuliskan “Tarik Sekarang” jika tersedia.",
+                            "Contoh pilihan : Antam 4.0 gram — Rp 281.000, Marga Gold 3.0 gram — Rp 365.000"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture28.png"
+                        ]
+                    },
+                    {
+                        "title": "🚚 Pilih Metode Pengiriman",
+                        "contents": [
+                            "Pengguna memilih salah satu dari pilihan yang tersedia",
+                            "Terdapat dua pilihan, yakni: •	Kurir SAPX: Kirim langsung ke alamat pengguna dan Pick-Up di Outlet: Ambil langsung di outlet pilihan."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture29.png"
+                        ]
+                    },
+                    {
+                        "title": "📍 Konfirmasi Alamat Pengiriman",
+                        "contents": [
+                            "Contoh tampilan alamat pengguna: Reza, Badas, Badas, Kediri, 64221"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture30.png"
+                        ]
+                    },
+                    {
+                        "title": "✉️ Pilih Jasa Ekspedisi",
+                        "contents": [
+                            "Pengguna memilih jasa pengiriman berdasarkan estimasi waktu & biaya:",
+                            "Terdapat beberapa pilihan seperti SATRIA REG, 2-4 hari (estimasi pengiriman) dengan Biaya R 18.000"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture34.png"
+                        ]
+                    },
+                    {
+                        "title": "📄 Lihat Rincian Transaksi",
+                        "contents": [
+                            "Sistem menampilkan detail lengkap biaya penarikan:",
+                            "Informasi yang ditampilkan antara lain adalah Harga Sertifikat, Berat Kepingan, Biaya Asuransi, Biaya Pengiriman, Biaya Tarik Emas, Biaya Admin dan Total Bayar",
+                            "Catatan : Biaya admin tergantung dengan pembayaran yang dipilih"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture35.png"
+                        ]
+                    },
+                     {
+                        "title": "💳 Pilih Metode Pembayaran",
+                        "contents": [
+                            "Pengguna dapat memilih salah satu metode pembayaran, seperti: Bank Transfer (Mandiri, BCA, BNI), QRIS, atau menggunakan Saldo Nemas"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture36.png"
+                        ]
+                    },
+                    {
+                        "title": "🔐 Verifikasi PIN",
+                        "contents": [
+                            "•	Sebelum melanjutkan, pengguna akan diminta memasukkan 6 digit PIN keamanan untuk melanjutkan transaksi."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                    {
+                        "title": "✅ Pembayaran & Konfirmasi Transaksi",
+                        "contents": [
+                            "Transaksi akan diproses jika PIN yang diinputkan valid",
+                            "Kepingan emas akan dikirim ke alamat atau disiapkan untuk diambil di outlet."
+                        ],
+                        "image_url": []
+                    },
+                     {
+                        "title": "📬 Notifikasi Email",
+                        "contents": [
+                            "Status penarikan emas (diproses/dikirim).",
+                            "Detail pengiriman: jasa kurir, nomor resi, estimasi pengiriman, dll."
+
+                        ],
+                        "image_url": []
+                    },
+                ],
+                "image_url" : []
+            },
+        ]
+    },
+    {
+        "title": "Menu: Beli Emas Fisik",
+        "description": "Menu ini digunakan untuk membeli emas fisik dalam bentuk kepingan melalui aplikasi NEMAS. Pembelian dilakukan langsung dari katalog produk dan diselesaikan melalui proses pembayaran dan pengiriman ke alamat pengguna.",
+        "contents" : [
+            {
+                "title" : "📌 Syarat Akses",
+                "subs": [
+                    { "title" : "✅ Hanya dapat diakses oleh pengguna yang sudah login ke akun Nemas." },
+                    { "title" : "✅ Memiliki metode pembayaran aktif (transfer, QRIS, atau saldo mencukupi)."},
+                    { "title" : "✅ Produk emas tersedia dalam stok."},
+                    { "title" : "✅ Video unboxing wajib tersedia untuk keperluan klaim."},
+                ],
+                "image_url" : []
+            },
+            {
+                "title" : "📋 Deskripsi Proses:",
+                "subs": [
+                    {
+                        "title": "Pilih Produk Emas Fisik",
+                        "contents": [
+                            "Masuk ke menu Beli Emas Fisik.",
+                            "Pilih produk berdasarkan berat dan harga.",
+                            "Contoh Produk: Antam 4 gram — Rp 7.567.400"
+                        ],
+                        "image_url": []
+                    },
+                    {
+                        "title": "Lihat Detail Produk",
+                        "contents": [
+                            "Klik produk untuk membuka halaman Detil Produk.",
+                            "Informasi yang ditampilkan antara lain adalah: Harga sudah termasuk biaya cetak sertifikat, Status stok tersedia, ketentuan klaim: wajib ada video unboxing",
+                            "Tentukan jumlah pembelian, lalu klik Tambah ke Keranjang."
+                        ],
+                        "image_url": []
+                    },
+                    {
+                        "title": "🛍️ Keranjang",
+                        "contents": [
+                            "Setelah produk ditambahkan, masuk ke halaman Keranjang.",
+                            "Terdapat fitur : Lihat daftar produk, Ubah jumlah pembelian, Hapus produk dari keranjang",
+                            "Tombol Checkout untuk lanjut ke transaksi"
+                        ],
+                        "image_url": []
+                    },
+                     {
+                        "title": "🚚 Pilih Metode Pengiriman",
+                        "contents": [
+                            "Pengguna memilih salah satu dari pilihan yang tersedia",
+                            "Terdapat dua pilihan, yakni: •	Kurir SAPX: Kirim langsung ke alamat pengguna dan Pick-Up di Outlet: Ambil langsung di outlet pilihan."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture29.png"
+                        ]
+                    },
+                      {
+                        "title": "📍 Konfirmasi Alamat Pengiriman",
+                        "contents": [
+                            "Contoh tampilan alamat pengguna: Reza, Badas, Badas, Kediri, 64221"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture30.png"
+                        ]
+                    },
+                    {
+                        "title": "✉️ Pilih Jasa Ekspedisi",
+                        "contents": [
+                            "Pengguna memilih jasa pengiriman berdasarkan estimasi waktu & biaya:",
+                            "Terdapat beberapa pilihan seperti SATRIA REG, 2-4 hari (estimasi pengiriman) dengan Biaya R 18.000"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture34.png"
+                        ]
+                    },
+                    {
+                        "title": "📄 Lihat Rincian Transaksi",
+                        "contents": [
+                            "Sistem menampilkan detail lengkap biaya penarikan:",
+                            "Informasi yang ditampilkan antara lain adalah Harga Sertifikat, Berat Kepingan, Biaya Asuransi, Biaya Pengiriman, Biaya Tarik Emas, Biaya Admin dan Total Bayar",
+                            "Catatan : Biaya admin tergantung dengan pembayaran yang dipilih"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture35.png"
+                        ]
+                    },
+                     {
+                        "title": "💳 Pilih Metode Pembayaran",
+                        "contents": [
+                            "Pengguna dapat memilih salah satu metode pembayaran, seperti: Bank Transfer (Mandiri, BCA, BNI), QRIS, atau menggunakan Saldo Nemas"
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture36.png"
+                        ]
+                    },
+                    {
+                        "title": "🔐 Verifikasi PIN",
+                        "contents": [
+                            "Sebelum melanjutkan, pengguna akan diminta memasukkan 6 digit PIN keamanan untuk melanjutkan transaksi."
+                        ],
+                        "image_url": [
+                            "/images/panduan/Picture13.png"
+                        ]
+                    },
+                    {
+                        "title": "✅ Pembayaran & Konfirmasi Transaksi",
+                        "contents": [
+                            "Transaksi akan diproses jika PIN yang diinputkan valid",
+                            "Kepingan emas akan dikirim ke alamat atau disiapkan untuk diambil di outlet."
+                        ],
+                        "image_url": []
+                    },
+                     {
+                        "title": "📬 Notifikasi Email",
+                        "contents": [
+                            "Status penarikan emas (diproses/dikirim).",
+                            "Detail pengiriman: jasa kurir, nomor resi, estimasi pengiriman, dll."
+
+                        ],
+                        "image_url": []
+                    },
+                ],
+                "image_url": [
+                    "/images/panduan/Picture32.png"
+                ]
+            },
+              {
+                "title" : "📝 Catatan Penting",
+                "subs": [
+                    { "title" : "Biaya asuransi tergantung berat emas yang dibeli." },
+                    { "title" : "Biaya admin akan muncul setelah metode pembayaran dipilih." },
+                    { "title" : "Pastikan pengguna melakukan video unboxing untuk validasi klaim jika produk rusak atau tidak sesuai." }
+                ],
+                "image_url" : []
+            }
+        ]
+    }
 ]
 
 export {

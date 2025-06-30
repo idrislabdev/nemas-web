@@ -58,9 +58,9 @@
                             }
                         }
                         .image-area {
-                            @apply flex flex-wrap justify-center;
+                            @apply flex flex-wrap justify-center gap-[10px] py-[10px] h-full;
                             img {
-                                @apply h-full w-[300px] object-contain rounded-[4px];
+                                @apply w-[250px] object-contain rounded-[4px];
                                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
                             }
                         }
@@ -72,9 +72,9 @@
 
     @layer components {
         &.mobile-responsive {
-            @apply pt-[70px];
+            @apply pt-[80px];
             .main-section {
-                @apply  px-[25px];
+                @apply  px-[25px] gap-[20px];
                 .header-container {
                     h2 {
                         @apply text-[24px]/[22px] font-semibold text-primary;
