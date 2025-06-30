@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 .syarat-ketentuan-page {
-    @apply pt-[120px] px-[150px] bg-white flex flex-col gap-[30px];
+    @apply pt-[120px] bg-white flex flex-col gap-[30px];
     .main-section {
         @apply w-full px-[100px] max-w-container mx-auto flex flex-col gap-[40px];
         .header-container {
             h2 {
                 @apply text-[32px]/[22px] text-primary font-semibold;
+            }
+        }
+    }
+      @layer components {
+        &.mobile-responsive {
+            @apply pt-[80px];
+            .main-section {
+                @apply  px-[25px] gap-[20px];
+                .header-container {
+                    h2 {
+                        @apply text-[24px]/[22px] font-semibold text-primary;
+                    }
+                }
             }
         }
     }
