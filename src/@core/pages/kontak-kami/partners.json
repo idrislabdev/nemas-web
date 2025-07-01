@@ -1,62 +1,77 @@
 [
     {
         "url" : "/images/partners/acronis.png",
-        "alt" : "Acronis"
+        "alt" : "Acronis",
+        "link": "https://www.acronis.com/"
     },
     {
         "url" : "/images/partners/eset.png",
-        "alt" : "Eset Node 32"
+        "alt" : "Eset Node 32",
+        "link": "https://www.eset.com/"
     },
     {
         "url" : "/images/partners/xendit.png",
-        "alt" : "Xendit"
+        "alt" : "Xendit",
+        "link" : "https://www.xendit.co/"
     },
     {
         "url" : "/images/partners/cih.png",
-        "alt" : "Indonesia Clearing House"
+        "alt" : "Indonesia Clearing House",
+        "link" : "https://www.ich.co.id/"
     },
     {
         "url" : "/images/partners/bappebti.png",
-        "alt" : "Bappebti"
+        "alt" : "Bappebti",
+        "link": "https://bappebti.go.id/"
     },
     {
         "url" : "/images/partners/verihubs.png",
-        "alt" : "Verihubs"
+        "alt" : "Verihubs",
+        "link": "https://verihubs.com/"
     },
     {
         "url" : "/images/partners/iluma.png",
-        "alt" : "Iluma"
+        "alt" : "Iluma",
+        "link": "https://www.iluma.ai/"
     },
     {
         "url" : "/images/partners/sendgrid.png",
-        "alt" : "Sendgrid"
+        "alt" : "Sendgrid",
+        "link": "https://sendgrid.com/"
     },
     {
         "url" : "/images/partners/paxel.png",
-        "alt" : "Paxel"
+        "alt" : "Paxel",
+        "link": "https://paxel.co/"
     },
     {
         "url" : "/images/partners/komdigi.png",
-        "alt" : "Komdigi"
+        "alt" : "Komdigi",
+        "link": "https://www.komdigi.go.id/"
     },
     {
         "url" : "/images/partners/fintech.png",
-        "alt" : "Fintech Indonesia"
+        "alt" : "Fintech Indonesia",
+        "link": "https://fintech.id/"
     },
     {
         "url" : "/images/partners/bca.png",
-        "alt" : "BCA"
+        "alt" : "BCA",
+        "link": "https://www.bca.co.id/"
     },
     {
         "url" : "/images/partners/icdx.png",
-        "alt" : "ICDX"
+        "alt" : "ICDX",
+        "link": "https://www.icdx.co.id/"
     },
     {
         "url" : "/images/partners/twilio.png",
-        "alt" : "Twilio"
+        "alt" : "Twilio",
+        "link": "https://www.twilio.com/"
     },
     {
         "url" : "/images/partners/sapx.png",
-        "alt" : "SAPX"
+        "alt" : "SAPX",
+        "link": "https://www.sapx.id/"
     }
 ]

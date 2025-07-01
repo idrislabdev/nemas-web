@@ -52,11 +52,11 @@ const KontakKamiPageWrapper = () => {
                         <div className='our-partners'>
                             <h2>Our Partners</h2>
                             <div className='partner-list'>
-                                {partners.map((item:{url: string, alt:string}, index:number) => (
+                                {partners.map((item:{url: string, alt:string, link:string}, index:number) => (
                                     <div className='card-partner' key={index}>
-                                        <div className='img-wrapper'>
+                                        <a href={item.link} target='_blank' className='img-wrapper'>
                                             <Image src={item.url} alt={item.alt} width={0}  height={0} sizes='100%' />
-                                        </div>
+                                        </a>
                                     </div>
                                 ))}
                             </div>
