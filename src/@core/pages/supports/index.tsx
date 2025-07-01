@@ -39,7 +39,7 @@ const SupportsPageWrapper = () => {
                                             <div className='panduan' key={`panduan_${index}-${index2}`}>
                                                 <p key={`p_${index}-${index2}`}>{level_1.title}</p>
                                                 {level_1.subs && level_1.subs.map((level_1_sub:IPanduanLevel2, index3:number) => (
-                                                    <div key={`${index}-${index2}-${index3}`}>
+                                                    <div className='flex flex-col' key={`${index}-${index2}-${index3}`}>
                                                         <div className='panduan subs' >
                                                             <p>{index3+1}. {level_1_sub.title}</p>
                                                             <ul key={`list_${index}-${index2}-${index3}`}>
