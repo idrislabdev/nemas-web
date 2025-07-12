@@ -37,6 +37,7 @@ const ResetPasswordToken = () => {
                     setShowingAlertFailed(false);
                     setShowingAlertSuccess(true);
                     setAlertDesc(message);
+                    window.location.href = "/login"
                 }).catch(err => {
                     console.log(err);
                     setLoading(false);

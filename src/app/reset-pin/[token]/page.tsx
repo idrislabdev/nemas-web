@@ -25,6 +25,7 @@ const ResetPinToken = () => {
                 setLoading(false);
                 const message: string = response.data.message;
                 alert(message);
+                window.location.href = "/login"
             }).catch(err => {
                 console.log(err);
                 setLoading(false);
