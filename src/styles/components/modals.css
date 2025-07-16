@@ -3,262 +3,309 @@
 @tailwind utilities;
 
 .ant-modal {
-    &.modal-destination {
-        @apply !w-[432px];
-        .ant-modal-content {
-            @apply p-0 rounded-br-[31px] rounded-bl-[31px];
-            .ant-modal-body {
-                @apply flex flex-col;
-                .content-body {
-                   @apply flex flex-col gap-[12px] h-[555px] overflow-y-auto px-[30px];
-                   .destination-item {
-                    @apply flex flex-col gap-[8px];
-                    .destination-header {
-                        @apply flex items-center justify-between py-[11px];
-                        label {
-                            @apply text-[16px]/[19px] font-bold text-[#2E2E30] flex items-center gap-[8px];
-                            img {
-                                @apply w-[17px] h-[16px];
-                            }
-                        }
-                    }
-                    .destination-body {
-                        @apply flex flex-col border border-[#BCC7D1] rounded-[6px] py-[12px] px-[16px];
-                        label {
-                            @apply text-[14px]/[16.94px] font-semibold text-[#17494E];
-                        }
-                        p {
-                            @apply text-[12px]/[14.52px] text-[#1F211E] font-semibold
-                        }
-                        span {
-                            @apply text-[12px]/[14px] text-[#1F211E];
-                        }
-                    }
-                   }
+  &.modal-destination {
+    @apply !w-[432px];
+    .ant-modal-content {
+      @apply p-0 rounded-br-[31px] rounded-bl-[31px];
+      .ant-modal-body {
+        @apply flex flex-col;
+        .content-body {
+          @apply flex flex-col gap-[12px] h-[555px] overflow-y-auto px-[30px];
+          .destination-item {
+            @apply flex flex-col gap-[8px];
+            .destination-header {
+              @apply flex items-center justify-between py-[11px];
+              label {
+                @apply text-[16px]/[19px] font-bold text-[#2E2E30] flex items-center gap-[8px];
+                img {
+                  @apply w-[17px] h-[16px];
                 }
-                .content-footer {
-                    @apply rounded-[31px] p-[14px] flex flex-col justify-center items-center;
-                    box-shadow: 0px 0px 15px 3px #00000040;
-                    button {
-                        @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
-                        &:disabled {
-                            @apply bg-[#D1D1D1]
-                        }
-                    }
-                }
+              }
             }
-        }
-    }
-    &.modal-voucher {
-        @apply !w-[432px];
-        .ant-modal-content {
-            @apply p-0 rounded-[31px];
-            .ant-modal-body {
-                @apply flex flex-col;
-                .content-body {
-                   @apply flex flex-col gap-[12px] h-[432px] overflow-y-auto px-[30px];
-                    .card {
-                        @apply flex items-center gap-[8px] border border-[#BCC7D1] rounded-[8px] py-[12px] px-[16px];
-                        .card-img {
-                            @apply w-[56px] h-[56px] rounded-[50%];
-                            img {
-                                @apply w-full h-full;
-                            }
-                        }
-                        .card-body {
-                            @apply flex flex-col;
-                            label {
-                                @apply text-[12px]/[14.52px] font-bold text-black;
-                            }
-                            p {
-                                @apply text-[12px]/[14.52px] text-black font-bold
-                            }
-                            span {
-                                @apply text-[12px]/[14px] text-black;
-                            }
-                        }
-                    }
-                }
-                .content-footer {
-                    @apply rounded-[31px] p-[14px] flex flex-col justify-center items-center;
-                    box-shadow: 0px 0px 15px 3px #00000040;
-                    button {
-                        @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
-                        &:disabled {
-                            @apply bg-[#D1D1D1]
-                        }
-                    }
-                }
+            .destination-body {
+              @apply flex flex-col border border-[#BCC7D1] rounded-[6px] py-[12px] px-[16px];
+              label {
+                @apply text-[14px]/[16.94px] font-semibold text-[#17494E];
+              }
+              p {
+                @apply text-[12px]/[14.52px] text-[#1F211E] font-semibold;
+              }
+              span {
+                @apply text-[12px]/[14px] text-[#1F211E];
+              }
             }
+          }
         }
-    }
-    &.modal-pin {
-        @apply !w-[432px];
-        .ant-modal-content {
-            @apply rounded-[31px] p-[30px];
-            .ant-modal-body {
-                @apply flex flex-col gap-[20px];
-                .content-body {
-                   @apply flex flex-col gap-[12px];
-                   input {
-                    @apply h-[40px];
-                   }
-                }
+        .content-footer {
+          @apply rounded-[31px] p-[14px] flex flex-col justify-center items-center;
+          box-shadow: 0px 0px 15px 3px #00000040;
+          button {
+            @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
+            &:disabled {
+              @apply bg-[#D1D1D1];
             }
+          }
         }
+      }
     }
-    &.modal-shipment {
-        @apply !w-[402px];
-        .ant-modal-content {
-            @apply p-0 rounded-[15px];
-            .ant-modal-body {
-                @apply flex flex-col;
-                .content-header {
-                    @apply flex justify-between items-center p-[18px] border-b border-b-[#BCC7D1];
-                    h5 {
-                        @apply text-[16px]/[19px] font-bold text-[#1F211E] text-center flex-1;
-                    }
-                }
-                .content-body {
-                   @apply flex flex-col gap-[12px] px-[24px] py-[17px];
-                    .card-notice {
-                        @apply py-[4px] px-[12px] rounded-[4px] flex items-center gap-[10px] bg-[#C0F9F5];
-                        label {
-                            @apply text-[12px]/[18px] text-[#17494E];
-                            span {
-                                @apply font-bold;
-                            }
-                        }
-                    }
-                    .card-shipment {
-                        @apply flex flex-col gap-[8px] border border-[#E4EEE6] rounded-[8px] p-[12px] cursor-pointer;
-                        .title {
-                            @apply flex items-center justify-between;
-                            label,p {
-                                @apply text-[14px]/[19px] text-[#454545] font-semibold;
-                            }
-                        }
-                        span {
-                            @apply text-[12px]/[18px] text-[#1F211E];
-                        }
+  }
+  &.modal-voucher {
+    @apply !w-[432px];
+    .ant-modal-content {
+      @apply p-0 rounded-[31px];
+      .ant-modal-body {
+        @apply flex flex-col;
+        .content-body {
+          @apply flex flex-col gap-[12px] h-[432px] overflow-y-auto px-[30px];
+          .card {
+            @apply flex items-center gap-[8px] border border-[#BCC7D1] rounded-[8px] py-[12px] px-[16px];
+            .card-img {
+              @apply w-[56px] h-[56px] rounded-[50%];
+              img {
+                @apply w-full h-full;
+              }
+            }
+            .card-body {
+              @apply flex flex-col;
+              label {
+                @apply text-[12px]/[14.52px] font-bold text-black;
+              }
+              p {
+                @apply text-[12px]/[14.52px] text-black font-bold;
+              }
+              span {
+                @apply text-[12px]/[14px] text-black;
+              }
+            }
+          }
+        }
+        .content-footer {
+          @apply rounded-[31px] p-[14px] flex flex-col justify-center items-center;
+          box-shadow: 0px 0px 15px 3px #00000040;
+          button {
+            @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
+            &:disabled {
+              @apply bg-[#D1D1D1];
+            }
+          }
+        }
+      }
+    }
+  }
+  &.modal-pin {
+    @apply !w-[432px];
+    .ant-modal-content {
+      @apply rounded-[31px] p-[30px];
+      .ant-modal-body {
+        @apply flex flex-col gap-[20px];
+        .content-body {
+          @apply flex flex-col gap-[12px];
+          input {
+            @apply h-[40px];
+          }
+        }
+      }
+    }
+  }
+  &.modal-shipment {
+    @apply !w-[402px];
+    .ant-modal-content {
+      @apply p-0 rounded-[15px];
+      .ant-modal-body {
+        @apply flex flex-col;
+        .content-header {
+          @apply flex justify-between items-center p-[18px] border-b border-b-[#BCC7D1];
+          h5 {
+            @apply text-[16px]/[19px] font-bold text-[#1F211E] text-center flex-1;
+          }
+        }
+        .content-body {
+          @apply flex flex-col gap-[12px] px-[24px] py-[17px];
+          .card-notice {
+            @apply py-[4px] px-[12px] rounded-[4px] flex items-center gap-[10px] bg-[#C0F9F5];
+            label {
+              @apply text-[12px]/[18px] text-[#17494E];
+              span {
+                @apply font-bold;
+              }
+            }
+          }
+          .card-shipment {
+            @apply flex flex-col gap-[8px] border border-[#E4EEE6] rounded-[8px] p-[12px] cursor-pointer;
+            .title {
+              @apply flex items-center justify-between;
+              label,
+              p {
+                @apply text-[14px]/[19px] text-[#454545] font-semibold;
+              }
+            }
+            span {
+              @apply text-[12px]/[18px] text-[#1F211E];
+            }
 
-                        &:hover, &.selected {
-                            @apply bg-[#D2F3F5];
-                        }
-                        &.disabled {
-                            @apply bg-gray-200 cursor-not-allowed;
-                            &:hover, &.selected {
-                                @apply bg-none;
-                            }
-                            .title {
-                                label,p {
-                                    @apply text-white;
-                                }
-                            }
-                            span {
-                                @apply text-white;
-                            }
-                        }
-                    }
-                }
-                .content-footer {
-                    @apply px-[24px] py-[12px];
-                    button {
-                        @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
-                        &:disabled {
-                            @apply bg-[#D1D1D1]
-                        }
-                    }
-                }
+            &:hover,
+            &.selected {
+              @apply bg-[#D2F3F5];
             }
-        }
-    }
-    &.modal-playstore {
-        @apply !w-[507px];
-        .ant-modal-content {
-            @apply rounded-[30px];
-        }
-    }
-    &.modal-forgot-password {
-        @apply !w-[507px];
-        .ant-modal-content {
-            @apply rounded-[12px];
-        }
-    }
-    &.modal-detail-transaksi {
-        @apply !w-[507px];
-        .ant-modal-content {
-            @apply rounded-[30px];
-            .ant-modal-body {
-                @apply flex flex-col gap-[20px];
-                h5 {
-                    @apply text-[24px]/[28px] font-bold text-black;
+            &.disabled {
+              @apply bg-gray-200 cursor-not-allowed;
+              &:hover,
+              &.selected {
+                @apply bg-none;
+              }
+              .title {
+                label,
+                p {
+                  @apply text-white;
                 }
-                .header-transaksi {
-                    @apply flex justify-between border-b-4 border-b-[#E1E1E1] pb-[20px];
-                    .left-header {
-                        @apply flex flex-col gap-[4px];
-                        label {
-                            @apply text-[14px]/[17px] font-medium;
-                        }
-                        p {
-                            @apply text-[20px]/[23px] font-bold;
-                        }
-                        span {
-                            @apply text-[15px]/[18px] font-bold;
-                        }
-                    }
-                    .right-header {
-                        @apply flex flex-col gap-[4px];
-                        label {
-                            @apply text-[14px]/[17px] font-medium text-[#5E5E5E];
-                        }
-                        p {
-                            @apply text-[10px]/[14px] font-medium text-[#5E5E5E];
-                        }
-                    }
-                }
-                .info-transaksi {
-                    @apply border-b border-b-[#E1E1E1] pb-[20px];
-                    .card-info {
-                        @apply flex flex-col gap-[12px] bg-[#FAEBD1] rounded-[16px] p-[16px];
-                        box-shadow: 0px 2px 4px 0px #00000040;
-                        label {
-                            @apply text-[14px]/[22px] text-black;
-                        }
-                        .detail-card {
-                            @apply flex justify-between items-center;
-                            p {
-                                @apply text-[24px]/[22px] font-bold;
-                            }
-                            span {
-                                @apply text-[12px]/[22px] font-medium;
-                            }
-                        }
-                    }
-                }
-                .history-transaksi {
-                    @apply flex flex-col gap-[10px];
-                    .header-history {
-                        @apply flex justify-between items-center;
-                        label {
-                            @apply text-[16px] font-bold;
-                        }
-                        a {
-                            @apply text-[12px]/[22px] font-medium text-[#17494E];
-                        }
-                    }
-                    .content-history {
-                        @apply flex flex-col gap-[20px] justify-center items-center;
-                        img {
-                            @apply w-[128px] h-[128px];
-                        }
-                        span {
-                            @apply text-[16px] font-bold text-[#2E2E30];
-                        }
-                    }
-                }
+              }
+              span {
+                @apply text-white;
+              }
             }
+          }
         }
+        .content-footer {
+          @apply px-[24px] py-[12px];
+          button {
+            @apply bg-[#39BFB6] text-white text-[16px]/[19.36px] font-medium w-full h-[51px] rounded-[4px];
+            &:disabled {
+              @apply bg-[#D1D1D1];
+            }
+          }
+        }
+      }
     }
+  }
+  &.modal-playstore {
+    @apply !w-[507px];
+    .ant-modal-content {
+      @apply rounded-[30px];
+    }
+  }
+  &.modal-forgot-password {
+    @apply !w-[507px];
+    .ant-modal-content {
+      @apply rounded-[12px];
+    }
+  }
+  &.modal-detail-transaksi {
+    @apply !w-[507px];
+    .ant-modal-content {
+      @apply rounded-[30px];
+      .ant-modal-body {
+        @apply flex flex-col gap-[20px];
+        h5 {
+          @apply text-[24px]/[28px] font-bold text-black;
+        }
+        .header-transaksi {
+          @apply flex justify-between border-b-4 border-b-[#E1E1E1] pb-[20px];
+          .left-header {
+            @apply flex flex-col gap-[4px];
+            label {
+              @apply text-[14px]/[17px] font-medium;
+            }
+            p {
+              @apply text-[20px]/[23px] font-bold;
+            }
+            span {
+              @apply text-[15px]/[18px] font-bold;
+            }
+          }
+          .right-header {
+            @apply flex flex-col gap-[4px];
+            label {
+              @apply text-[14px]/[17px] font-medium text-[#5E5E5E];
+            }
+            p {
+              @apply text-[10px]/[14px] font-medium text-[#5E5E5E];
+            }
+          }
+        }
+        .info-transaksi {
+          @apply border-b border-b-[#E1E1E1] pb-[20px];
+          .card-info {
+            @apply flex flex-col gap-[12px] bg-[#FAEBD1] rounded-[16px] p-[16px];
+            box-shadow: 0px 2px 4px 0px #00000040;
+            label {
+              @apply text-[14px]/[22px] text-black;
+            }
+            .detail-card {
+              @apply flex justify-between items-center;
+              p {
+                @apply text-[24px]/[22px] font-bold;
+              }
+              span {
+                @apply text-[12px]/[22px] font-medium;
+              }
+            }
+          }
+        }
+        .history-transaksi {
+          @apply flex flex-col gap-[10px];
+          .header-history {
+            @apply flex justify-between items-center;
+            label {
+              @apply text-[16px] font-bold;
+            }
+            a {
+              @apply text-[12px]/[22px] font-medium text-[#17494E];
+            }
+          }
+          .content-history {
+            @apply flex flex-col gap-[20px] justify-center items-center;
+            img {
+              @apply w-[128px] h-[128px];
+            }
+            span {
+              @apply text-[16px] font-bold text-[#2E2E30];
+            }
+          }
+        }
+      }
+    }
+  }
+  &.modal-form {
+    .ant-modal-content {
+      @apply p-0;
+      .ant-modal-header {
+        @apply !border-b-gray-300 p-[20px] mb-0;
+        border-bottom: 1px solid;
+      }
+      .ant-modal-body {
+        @apply flex flex-col;
+        .content-form {
+          @apply flex flex-col gap-[10px]  p-[20px];
+        }
+        .content-footer {
+          @apply flex items-center gap-[10px] border-t border-t-gray-300  p-[20px];
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .ant-modal {
+    &.modal-form {
+      @apply !max-w-full !w-full m-0 p-0;
+      &.map {
+        .ant-modal-content {
+          @apply h-full m-0 top-0 rounded-none;
+          .ant-modal-body {
+            @apply w-full flex  flex-col gap-[8px];
+            .content-form {
+              @apply !flex-col justify-start items-start  h-full;
+              .form-input {
+                @apply w-full  h-full;
+              }
+              .form-map {
+                @apply w-full h-[300px];
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
