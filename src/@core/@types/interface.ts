@@ -61,6 +61,12 @@ export interface IUserProp {
   address_post_code: string;
   create_time: string;
   create_user: string;
+  gold_stock: {
+    weight: number;
+  };
+  wallet: {
+    balance: number;
+  };
 }
 
 export interface IFaq {
