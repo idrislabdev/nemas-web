@@ -75,7 +75,9 @@ const RegisterPageWrapper = () => {
                     )}
                   </div>
                   <div className="form-group relative">
-                    <label>No Handphone</label>
+                    <label>
+                      No Handphone <span className="text-green-500">*</span>
+                    </label>
                     <input
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
@@ -91,12 +93,7 @@ const RegisterPageWrapper = () => {
                   <div className="form-group relative">
                     <label>
                       Email
-                      {required.email && (
-                        <span className="text-red-500 text-xs">
-                          {' '}
-                          {required.email}
-                        </span>
-                      )}
+                      <span className="text-green-500">*</span>
                     </label>
                     <input
                       value={email}
