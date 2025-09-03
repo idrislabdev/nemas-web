@@ -23,7 +23,7 @@ const ResetPasswordToken = () => {
       setAlertDesc('password dan konfirmasi password harus sama');
     } else {
       const passwordRegex =
-        /^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.{8,16})/;
+        /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,16}$/;
       if (!passwordRegex.test(password)) {
         setShowingAlertFailed(true);
         setAlertDesc(
