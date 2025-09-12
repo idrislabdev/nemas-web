@@ -46,7 +46,9 @@ const ProfileAkunContainer = () => {
         <div className="asset-card tabungan">
           <label>Tabungan Emas</label>
           <p>
-            {globals.userProp && globals.userProp.gold_stock.weight
+            {globals.userProp &&
+            globals.userProp.gold_stock &&
+            globals.userProp.gold_stock.weight
               ? globals.userProp.gold_stock.weight.toString().replace('.', ',')
               : ''}{' '}
             Gram
