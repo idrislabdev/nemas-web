@@ -62,12 +62,24 @@ const ResetPinToken = () => {
         <div className="flex flex-col gap-[8px]">
           <div className="flex flex-col">
             <label className="text-sm text-neutral-900">PIN Baru</label>
+            
             <Input
               type={seePin ? 'text' : 'password'}
+              inputMode='numeric'
+              minLength={6}
+              maxLength={6}
               placeholder="Masukkan PIN Baru"
               className="mt-2 p-2 rounded w-full text-black"
               value={pin}
-              onChange={(e) => setPin(e.target.value)}
+              onChange={(e) => {
+              
+                let numberRegex = /^\d+$/;
+                if(numberRegex.test(e.target.value) || e.target.value === '') {
+                  setPin(e.target.value)
+                } else {
+                  alert('Hanya boleh memasukkan angka')
+                }
+              }}
               suffix={
                 <a onClick={() => setSeePin(!seePin)}>
                   <span className="my-icon icon-sm text-neutral-500">
@@ -85,10 +97,21 @@ const ResetPinToken = () => {
             </label>
             <Input
               type={seeConfirmPin ? 'text' : 'password'}
+              pattern="[0-9]*"
+              inputMode='numeric'
+              minLength={6}
+              maxLength={6}
               placeholder="Masukkan Konfirmasi PIN Baru"
               className="mt-2 p-2 rounded w-full text-black"
               value={confirmPin}
-              onChange={(e) => setConfirmPin(e.target.value)}
+              onChange={(e) => {
+                let numberRegex = /^\d+$/;
+                if(numberRegex.test(e.target.value) || e.target.value === '') {
+                  setConfirmPin(e.target.value)
+                } else {
+                  alert('Hanya boleh memasukkan angka')
+                }
+              }}
               suffix={
                 <a onClick={() => setSeeConfirmPin(!seeConfirmPin)}>
                   <span className="my-icon icon-sm text-neutral-500">
