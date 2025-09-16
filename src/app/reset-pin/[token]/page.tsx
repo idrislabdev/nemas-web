@@ -62,22 +62,21 @@ const ResetPinToken = () => {
         <div className="flex flex-col gap-[8px]">
           <div className="flex flex-col">
             <label className="text-sm text-neutral-900">PIN Baru</label>
-            
+
             <Input
               type={seePin ? 'text' : 'password'}
-              inputMode='numeric'
+              inputMode="numeric"
               minLength={6}
               maxLength={6}
               placeholder="Masukkan PIN Baru"
               className="mt-2 p-2 rounded w-full text-black"
               value={pin}
               onChange={(e) => {
-              
-                let numberRegex = /^\d+$/;
-                if(numberRegex.test(e.target.value) || e.target.value === '') {
-                  setPin(e.target.value)
+                const numberRegex = /^\d+$/;
+                if (numberRegex.test(e.target.value) || e.target.value === '') {
+                  setPin(e.target.value);
                 } else {
-                  alert('Hanya boleh memasukkan angka')
+                  alert('Hanya boleh memasukkan angka');
                 }
               }}
               suffix={
@@ -98,18 +97,18 @@ const ResetPinToken = () => {
             <Input
               type={seeConfirmPin ? 'text' : 'password'}
               pattern="[0-9]*"
-              inputMode='numeric'
+              inputMode="numeric"
               minLength={6}
               maxLength={6}
               placeholder="Masukkan Konfirmasi PIN Baru"
               className="mt-2 p-2 rounded w-full text-black"
               value={confirmPin}
               onChange={(e) => {
-                let numberRegex = /^\d+$/;
-                if(numberRegex.test(e.target.value) || e.target.value === '') {
-                  setConfirmPin(e.target.value)
+                const numberRegex = /^\d+$/;
+                if (numberRegex.test(e.target.value) || e.target.value === '') {
+                  setConfirmPin(e.target.value);
                 } else {
-                  alert('Hanya boleh memasukkan angka')
+                  alert('Hanya boleh memasukkan angka');
                 }
               }}
               suffix={
