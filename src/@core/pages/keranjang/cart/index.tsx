@@ -128,7 +128,7 @@ const KeranjangCart = (props: {
                   Pilih metode pengiriman yang ke tempat anda atau ambil pesanan
                   di outlet terdekat
                 </h6>
-                <div
+                {/* <div
                   className={`payment-list ${
                     selectedMethod == 'SAPX' ? 'selected' : ''
                   }`}
@@ -148,7 +148,7 @@ const KeranjangCart = (props: {
                     Pesanan akan dikirimkan melalui kurir dengan aman sampai
                     tujuan
                   </p>
-                </div>
+                </div> */}
                 <div
                   className={`payment-list ${
                     selectedMethod == 'MANDIRI' ? 'selected' : ''
@@ -170,7 +170,7 @@ const KeranjangCart = (props: {
                     anda
                   </p>
                 </div>
-                {/* <div
+                <div
                   className={`payment-list ${
                     selectedMethod == 'PAXEL' ? 'selected' : ''
                   }`}
@@ -190,7 +190,7 @@ const KeranjangCart = (props: {
                     Pesanan akan dikirimkan melalui kurir dengan aman sampai
                     tujuan
                   </p>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
