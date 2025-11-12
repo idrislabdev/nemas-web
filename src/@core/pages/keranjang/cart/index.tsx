@@ -170,7 +170,7 @@ const KeranjangCart = (props: {
                     anda
                   </p>
                 </div>
-                <div
+                {/* <div
                   className={`payment-list ${
                     selectedMethod == 'PAXEL' ? 'selected' : ''
                   }`}
@@ -190,7 +190,7 @@ const KeranjangCart = (props: {
                     Pesanan akan dikirimkan melalui kurir dengan aman sampai
                     tujuan
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
