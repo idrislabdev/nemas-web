@@ -101,7 +101,7 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
     let all: IHistory[] = [];
     const limit = 200;
 
-    const url = `/reports/gold-transactions/?user_id=${userLogin.id}${filterString}`;
+    const url = `/reports/gold-transactions/?export_all=true&user_id=${userLogin.id}${filterString}`;
 
     const first = await axiosInstance.get(url, {
       params: { fetch: limit, offset: 0 },
