@@ -53,7 +53,7 @@ const HomeChartNewSection = (props: { userProps: IUserProp }) => {
         .get(`/reports/gold-transactions/avg?user_id=${userProps.user_id}`)
         .then((response) => {
           const data = response.data;
-          setAvgPercentage(data.avg_pct * 100);
+          setAvgPercentage(data.avg_pct);
         });
     }
   }, []);
@@ -103,7 +103,9 @@ const HomeChartNewSection = (props: { userProps: IUserProp }) => {
             <span>/ 1 gr</span>
           </p>
           {userProps.name && (
-            <span className="badge danger">
+            <span
+              className={`badge ${avgPercentage > 0 ? 'primary' : 'danger'}`}
+            >
               {avgPercentage < 0 && (
                 <span>
                   <ArrowNarrowDownRight />
