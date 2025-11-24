@@ -142,7 +142,7 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
     // =======================
     // MAP DATA
     // =======================
-    const mapped: ExportRow[] =
+    const mapped: ExportRow[] | any =
       rows.length > 0
         ? rows.map((item, index) => ({
             no: index + 1,
@@ -230,7 +230,7 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
     // =======================
     // INSERT ROWS
     // =======================
-    mapped.forEach((item) => {
+    mapped.forEach((item: any) => {
       worksheet.addRow({
         ...item,
         nominal:
