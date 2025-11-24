@@ -276,6 +276,8 @@ export interface IHistory {
   user_to: string;
   transfered_admin_weight: string;
   transfered_weight: string;
+  gold_balance?: number;
+  wallet_balance?: number;
 }
 
 export interface IPanduanLevel2 {

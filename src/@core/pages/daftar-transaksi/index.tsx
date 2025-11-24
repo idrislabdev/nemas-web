@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client';
 
 import { Checkbox, DatePicker, GetProp, Pagination } from 'antd';
@@ -11,8 +13,23 @@ import 'moment/locale/id';
 import { Dayjs } from 'dayjs';
 import { Download01 } from '@untitled-ui/icons-react';
 const { RangePicker } = DatePicker;
-import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 import { formatterNumber, statusTransaksiLang } from '@/@core/utils/general';
+
+type ExportRow = {
+  no: number | string;
+  tipe: string;
+  tanggal: string;
+  ref: string;
+  email: string;
+  nominal: number | string;
+  berat: number | string;
+  penerima: string;
+  pengirim: string;
+  berat_diterima: number | string;
+  gold_balance: number | string;
+  wallet_balance: number | string;
+};
 
 const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
   const { userLogin } = props;
@@ -77,58 +94,213 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
     setIsModalOpen(true);
   };
 
+  // =======================
+  // FETCH ALL DATA
+  // =======================
+  const fetchAllData = async (filterString: string) => {
+    let all: IHistory[] = [];
+    const limit = 200;
+
+    const url = `/reports/gold-transactions/?user_id=${userLogin.id}${filterString}`;
+
+    const first = await axiosInstance.get(url, {
+      params: { fetch: limit, offset: 0 },
+    });
+
+    all = all.concat(first.data.results);
+    const totalCount = first.data.count;
+    const pages = Math.ceil(totalCount / limit);
+
+    for (let i = 1; i < pages; i++) {
+      const resp = await axiosInstance.get(url, {
+        params: { fetch: limit, offset: i * limit },
+      });
+
+      all = all.concat(resp.data.results);
+
+      // sedikit delay agar request tidak diblok API
+      await new Promise((r) => setTimeout(r, 150));
+    }
+
+    return all;
+  };
+
+  // =======================
+  // EXPORT DATA
+  // =======================
   const exportData = async () => {
-    // setIsModalLoading(true)
+    // siapkan filter
     let filterString = '';
     checkeds.forEach((item) => {
-      filterString = filterString + `&transaction_type=${item}`;
+      filterString += `&transaction_type=${item}`;
     });
-    const resp = await axiosInstance.get(
-      `/reports/gold-transactions/?user_id=${userLogin.id}&fetch=500&offset=${params.offset}${filterString}${filterDate}`
-    );
-    const rows = resp.data.results;
-    const dataToExport = rows.map((item: IHistory, index: number) => ({
-      No: index + 1,
-      'Tipe Transaksi': statusTransaksiLang(item.transaction_type),
-      'Tanggal Transaksi': moment(item.transaction_date).format('DD MMMM YYYY'),
-      'No. Referensi': item.ref_number,
-      Email: item.email,
-      'Nominal Transaksi': 'Rp' + formatterNumber(parseInt(item.price)),
-      'Berat Emas': item.weight + ' Gram',
-      Penerima: item.user_to,
-      Pengirim: item.user_from,
-      'Berat Emas (Diterima)': item.transfered_weight,
-    }));
-    const workbook = XLSX.utils.book_new();
-    const worksheet = XLSX.utils?.json_to_sheet(dataToExport);
-    const colA = 5;
-    const colB = 20;
-    const colC = 20;
-    const colD = 20;
-    const colE = 20;
-    const colF = 20;
-    const colG = 20;
-    const colH = 20;
-    const colI = 20;
-    const colJ = 20;
+    filterString += filterDate;
 
-    worksheet['!cols'] = [
-      { wch: colA },
-      { wch: colB },
-      { wch: colC },
-      { wch: colD },
-      { wch: colE },
-      { wch: colF },
-      { wch: colG },
-      { wch: colH },
-      { wch: colI },
-      { wch: colJ },
+    // ambil semua data
+    const rows = await fetchAllData(filterString);
+
+    // =======================
+    // MAP DATA
+    // =======================
+    const mapped: ExportRow[] =
+      rows.length > 0
+        ? rows.map((item, index) => ({
+            no: index + 1,
+            tipe: statusTransaksiLang(item.transaction_type),
+            tanggal: moment(item.transaction_date).format('DD MMMM YYYY'),
+            ref: item.ref_number,
+            email: item.email,
+            nominal: parseInt(item.price),
+            berat: parseFloat(item.weight),
+            penerima: item.user_to,
+            pengirim: item.user_from,
+            berat_diterima: item.transfered_weight
+              ? parseFloat(item.transfered_weight)
+              : 0,
+            gold_balance: item.gold_balance || '',
+            wallet_balance: item.wallet_balance || '',
+          }))
+        : [
+            {
+              no: '',
+              tipe: '',
+              tanggal: '',
+              ref: '',
+              email: '',
+              nominal: '',
+              berat: '',
+              penerima: '',
+              pengirim: '',
+              berat_diterima: '',
+              gold_balance: '',
+              wallet_balance: '',
+            },
+          ];
+
+    // =======================
+    // HITUNG TOTAL
+    // =======================
+    const totalNominal = rows.reduce((a, b) => a + Number(b.price || 0), 0);
+    const totalBerat = rows.reduce((a, b) => a + Number(b.weight || 0), 0);
+    const totalBeratDiterima = rows.reduce(
+      (a, b) => a + Number(b.transfered_weight || 0),
+      0
+    );
+
+    if (rows.length > 0) {
+      mapped.push({
+        no: '',
+        tipe: 'TOTAL',
+        tanggal: '',
+        ref: '',
+        email: '',
+        nominal: totalNominal,
+        berat: totalBerat,
+        penerima: '',
+        pengirim: '',
+        berat_diterima: totalBeratDiterima,
+        gold_balance: '',
+        wallet_balance: '',
+      });
+    }
+
+    // =======================
+    // BUAT FILE EXCEL
+    // =======================
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('History Transaksi');
+
+    worksheet.columns = [
+      { header: 'No', key: 'no', width: 5 },
+      { header: 'Tipe Transaksi', key: 'tipe', width: 20 },
+      { header: 'Tanggal Transaksi', key: 'tanggal', width: 20 },
+      { header: 'No. Referensi', key: 'ref', width: 20 },
+      { header: 'Email', key: 'email', width: 25 },
+      { header: 'Nominal Transaksi', key: 'nominal', width: 20 },
+      { header: 'Berat Emas', key: 'berat', width: 15 },
+      { header: 'Penerima', key: 'penerima', width: 20 },
+      { header: 'Pengirim', key: 'pengirim', width: 20 },
+      { header: 'Berat Emas (Diterima)', key: 'berat_diterima', width: 20 },
+      { header: 'Saldo Emas', key: 'gold_balance', width: 20 },
+      { header: 'Saldo Wallet', key: 'wallet_balance', width: 20 },
     ];
 
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'History Transaksi');
-    // Save the workbook as an Excel file
-    XLSX.writeFile(workbook, `history_transaksi.xlsx`);
-    // setIsModalLoading(false)
+    worksheet.getRow(1).font = { bold: true };
+
+    // =======================
+    // INSERT ROWS
+    // =======================
+    mapped.forEach((item) => {
+      worksheet.addRow({
+        ...item,
+        nominal:
+          item.nominal !== '' && !isNaN(Number(item.nominal))
+            ? `Rp${formatterNumber(Number(item.nominal))}`
+            : '',
+        berat:
+          item.berat !== '' && !isNaN(Number(item.berat))
+            ? `${item.berat} Gram`
+            : '',
+        berat_diterima:
+          item.berat_diterima !== '' && !isNaN(Number(item.berat_diterima))
+            ? `${item.berat_diterima} Gram`
+            : '',
+      });
+    });
+
+    // =======================
+    // BORDER + ALIGNMENT
+    // =======================
+    worksheet.eachRow((row) => {
+      row.eachCell((cell, colNumber) => {
+        cell.border = {
+          top: { style: 'thin' },
+          left: { style: 'thin' },
+          bottom: { style: 'thin' },
+          right: { style: 'thin' },
+        };
+
+        // angka rata kanan
+        if (
+          ['nominal', 'berat', 'berat_diterima'].includes(
+            worksheet.getColumn(colNumber).key!
+          )
+        ) {
+          cell.alignment = { horizontal: 'right' };
+        }
+      });
+    });
+
+    // =======================
+    // TOTAL ROW STYLE
+    // =======================
+    if (rows.length > 0) {
+      const lastRow = worksheet.lastRow!;
+      lastRow.font = { bold: true };
+
+      lastRow.eachCell((cell) => {
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: 'FFF0F0F0' },
+        };
+      });
+    }
+
+    // =======================
+    // GENERATE FILE
+    // =======================
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `history_transaksi_${moment().format(
+      'YYYYMMDD_HHmmss'
+    )}.xlsx`;
+    link.click();
   };
 
   useEffect(() => {
