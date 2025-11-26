@@ -26,24 +26,35 @@ const ProdukPageWrapper = () => {
     brand__icontains: '',
   });
 
+  // 🟡 Tambahan: filter berdasarkan brand dari tombol logo
+  const handleFilterBrand = (brand: string) => {
+    setParams({
+      ...params,
+      offset: 0,
+      limit: 100,
+      brand__icontains: brand,
+    });
+  };
+
   const fetchData = useCallback(async () => {
     const respActive = await axiosInstance.get(`/core/gold/price/active`);
     const active = respActive.data;
+
     const resp = await axiosInstance.get(`/core/gold/list/product-show`, {
       params,
     });
+
     const { results } = resp.data;
 
     results.forEach((item: IGold) => {
       let addOn = 100000;
       if (item.brand == 'Antam') addOn = 125000;
 
-      // item.price = ((Math.ceil(active.gold_price_buy) + addOn) * item.gold_weight)
       item.price =
         (Math.ceil(active.gold_price_buy) + addOn) * item.gold_weight;
     });
+
     setGolds(resp.data.results);
-    // setTotal(resp.data.count)
   }, [params]);
 
   const handleFilter = (value: string) => {
@@ -54,6 +65,7 @@ const ProdukPageWrapper = () => {
       brand__icontains: value,
     });
   };
+
   const successCart = () => {
     messageApi.open({
       type: 'success',
@@ -69,13 +81,17 @@ const ProdukPageWrapper = () => {
         quantity: 1,
         order_type: 'buy',
       };
+
       await axiosInstance.post('/orders/fix/cart/add/', body);
+
       const resp = await axiosInstance.get(
         '/orders/fix/cart/detail/?order_type=buy&offset=0&limit=100'
       );
+
       const { results } = resp.data;
       localStorage.setItem('cart_count', results.length);
       saveGlobals({ ...globals, cartCount: results.length });
+
       successCart();
     } else {
       router.push('/login');
@@ -96,7 +112,8 @@ const ProdukPageWrapper = () => {
       {contextHolder}
       <div className="header-section">
         <h2>Produk Emas Fisik</h2>
-        <div className="filter-area">
+
+        <div className="filter-area flex items-center gap-4">
           <Input
             prefix={
               <span>
@@ -109,8 +126,54 @@ const ProdukPageWrapper = () => {
               1000
             )}
           />
+
+          {/* 🟡 Logo Filter Brand */}
+          <div className="flex items-center gap-2">
+            <button
+              className="w-[60px] h-[60px] rounded-md shadow-md p-1"
+              onClick={() => handleFilterBrand('')}
+            >
+              <Image
+                src={`/images/nemas-logo.jpeg`}
+                className="w-full h-full rounded-md object-contain"
+                alt="nemas-logo"
+                width={0}
+                height={0}
+                sizes="100%"
+              />
+            </button>
+
+            <button
+              className="w-[150px] h-[60px] rounded-md shadow-md p-1"
+              onClick={() => handleFilterBrand('Antam')}
+            >
+              <Image
+                src={`/images/antam-logo.jpeg`}
+                className="w-full h-full rounded-md object-contain"
+                alt="antam-logo"
+                width={0}
+                height={0}
+                sizes="100%"
+              />
+            </button>
+
+            <button
+              className="w-[80px] h-[60px] rounded-md shadow-md p-1"
+              onClick={() => handleFilterBrand('Marva')}
+            >
+              <Image
+                src={`/images/marva-logo.jpeg`}
+                className="w-full h-full rounded-md object-contain"
+                alt="marva-logo"
+                width={0}
+                height={0}
+                sizes="100%"
+              />
+            </button>
+          </div>
         </div>
       </div>
+
       <div className="product-section">
         {golds.map((item, index: number) => (
           <div className="card-wrapper" key={index}>
@@ -128,12 +191,15 @@ const ProdukPageWrapper = () => {
                   sizes="100%"
                 />
               </div>
+
               <div className="description">
                 <div className="label">
                   <label>{item.brand}</label>
                   <span>{parseFloat(item.gold_weight.toString())} Gr</span>
                 </div>
+
                 <p>Rp{formatterNumber(item.gold_price_summary_roundup)}</p>
+
                 <button
                   onClick={() => addToCart(item)}
                   disabled={item.stock < 1}
