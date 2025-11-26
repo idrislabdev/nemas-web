@@ -46,19 +46,6 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
     limit: 5,
     search: '',
   });
-  const options = [
-    { label: 'Produk Emas Fisik', value: 'order_buy' },
-    { label: 'Tarik Emas', value: 'order_redeem' },
-    { label: 'Beli Emas', value: 'gold_buy' },
-    { label: 'Jual', value: 'gold_sell' },
-    { label: 'Transfer Emas', value: 'gold_transfer_send' },
-    { label: 'Terima Emas', value: 'gold_transfer_receive' },
-    { label: 'Tarik Saldo', value: 'disburst' },
-    { label: 'Deposito', value: 'deposito' },
-    { label: 'Gadai', value: 'loan' },
-    { label: 'Bayar Gadai', value: 'loan_pay' },
-    { label: 'Topup', value: 'topup' },
-  ];
 
   const fetchData = useCallback(async () => {
     const resp = await axiosInstance.get(
@@ -121,24 +108,9 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
   // =======================
   const exportData = async () => {
     // siapkan filter
-    let filterString = '';
-
-    const allValues = options.map((o) => o.value);
-    const isAllChecked =
-      checkeds.length === allValues.length &&
-      allValues.every((v) => checkeds.includes(v));
-
-    if (isAllChecked) {
-      filterString = '&export_all=true' + filterDate;
-    } else {
-      checkeds.forEach((item) => {
-        filterString += `&transaction_type=${item}`;
-      });
-      filterString += filterDate;
-    }
 
     // ambil semua data
-    const rows = await fetchAllData(filterString);
+    const rows = await fetchAllData('');
 
     // =======================
     // MAP DATA
