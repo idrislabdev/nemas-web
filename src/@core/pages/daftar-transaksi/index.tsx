@@ -101,7 +101,7 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
     let all: IHistory[] = [];
     const limit = 200;
 
-    const url = `/reports/gold-transactions/?export_all=true&user_id=${userLogin.id}${filterString}`;
+    const url = `/reports/gold-transactions/?user_id=${userLogin.id}${filterString}`;
 
     const first = await axiosInstance.get(url, {
       params: { fetch: limit, offset: 0 },
@@ -131,10 +131,20 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
   const exportData = async () => {
     // siapkan filter
     let filterString = '';
-    checkeds.forEach((item) => {
-      filterString += `&transaction_type=${item}`;
-    });
-    filterString += filterDate;
+
+    const allValues = options.map((o) => o.value);
+    const isAllChecked =
+      checkeds.length === allValues.length &&
+      allValues.every((v) => checkeds.includes(v));
+
+    if (isAllChecked) {
+      filterString = '&export_all=true' + filterDate;
+    } else {
+      checkeds.forEach((item) => {
+        filterString += `&transaction_type=${item}`;
+      });
+      filterString += filterDate;
+    }
 
     // ambil semua data
     const rows = await fetchAllData(filterString);
@@ -180,12 +190,15 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
     // =======================
     // HITUNG TOTAL
     // =======================
-    const totalNominal = rows.reduce((a, b) => a + Number(b.price || 0), 0);
-    const totalBerat = rows.reduce((a, b) => a + Number(b.weight || 0), 0);
-    const totalBeratDiterima = rows.reduce(
-      (a, b) => a + Number(b.transfered_weight || 0),
-      0
-    );
+    const totalNominal = rows
+      .reduce((a, b) => a + Number(b.price || 0), 0)
+      .toFixed(4);
+    const totalBerat = rows
+      .reduce((a, b) => a + Number(b.weight || 0), 0)
+      .toFixed(4);
+    const totalBeratDiterima = rows
+      .reduce((a, b) => a + Number(b.transfered_weight || 0), 0)
+      .toFixed(4);
 
     if (rows.length > 0) {
       mapped.push({
