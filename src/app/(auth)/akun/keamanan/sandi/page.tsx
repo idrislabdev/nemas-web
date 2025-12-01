@@ -54,6 +54,7 @@ const UserKeamananSandiPage = () => {
               value={password}
               placeholder="Masukkan Password"
               onChange={(e) => setPassword(e.target.value)}
+              className="!text-base"
               suffix={
                 <a onClick={() => setShowPassword(!showPassword)}>
                   <span className="my-icon icon-sm text-[#8D989D]">
@@ -73,6 +74,7 @@ const UserKeamananSandiPage = () => {
               value={confirmPassword}
               placeholder="Konfirmasi Password"
               onChange={(e) => setConfirmPassword(e.target.value)}
+              className="!text-base"
               suffix={
                 <a onClick={() => setShowConfirm(!showConfirm)}>
                   <span className="my-icon icon-sm text-[#8D989D]">

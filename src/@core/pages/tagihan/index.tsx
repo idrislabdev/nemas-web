@@ -49,7 +49,7 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
 
   const fetchData = useCallback(async () => {
     const resp = await axiosInstance.get(
-      `/gold-transaction/gold-monthly/?fetch=${params.limit}&offset=${params.offset}${filterDate}`
+      `/gold-transaction/gold-monthly/?limit=${params.limit}&offset=${params.offset}${filterDate}`
     );
     setTotal(resp.data.count);
     setHistories(resp.data.results);
