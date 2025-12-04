@@ -5,52 +5,55 @@
 import { DatePicker, Pagination } from 'antd';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
-import ModalDetailTransaksi from './modal-detail';
 import axiosInstance from '@/@core/utils/axios';
-import { IHistory, IUserLogin } from '@/@core/@types/interface';
+import { IMonthlyCost, IUserLogin } from '@/@core/@types/interface';
 import moment from 'moment';
 import 'moment/locale/id';
 import { Dayjs } from 'dayjs';
 import { Download01 } from '@untitled-ui/icons-react';
 const { RangePicker } = DatePicker;
 import ExcelJS from 'exceljs';
-import { formatterNumber, statusTransaksiLang } from '@/@core/utils/general';
+import { formatterNumber } from '@/@core/utils/general';
+import ModalDetailTagihan from './modal-detail';
 
+// ============================
+// EXPORT ROW BARU
+// ============================
 type ExportRow = {
   no: number | string;
-  tipe: string;
   tanggal: string;
-  ref: string;
-  email: string;
-  nominal: number | string;
-  berat: number | string;
-  penerima: string;
-  pengirim: string;
-  berat_diterima: number | string;
-  gold_balance: number | string;
-  wallet_balance: number | string;
+  order_number: string;
+  monthly_cost: number | string;
+  discount: number | string;
+  total_cost: number | string;
+  gold_weight: number | string;
+  level: number | string;
+  status: string;
 };
 
 const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
   const { userLogin } = props;
   moment.locale('id');
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [filterDate, setFilterDate] = useState('');
-  const [histories, setHistories] = useState<IHistory[]>([] as IHistory[]);
-  const [selected, setSelected] = useState<IHistory>({} as IHistory);
+  const [histories, setHistories] = useState<IMonthlyCost[]>([]);
+  const [selected, setSelected] = useState<IMonthlyCost>({} as IMonthlyCost);
   const [total, setTotal] = useState(0);
+
   const [params, setParams] = useState({
-    format: 'json',
     offset: 0,
     limit: 5,
-    search: '',
   });
 
+  // ===============================
+  // FETCH PAGING DATA
+  // ===============================
   const fetchData = useCallback(async () => {
     const resp = await axiosInstance.get(
       `/gold-transaction/gold-monthly/?limit=${params.limit}&offset=${params.offset}${filterDate}`
     );
+
     setTotal(resp.data.count);
     setHistories(resp.data.results);
   }, [params, filterDate]);
@@ -59,213 +62,144 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
     setParams({ ...params, offset: (val - 1) * params.limit });
   };
 
+  // ===============================
+  // FILTER DATE
+  // ===============================
   const onRangeChange = (
     dates: null | (Dayjs | null)[],
     dateStrings: string[]
   ) => {
-    const tempFilter = `&start_date=${dateStrings[0]}&end_date=${dateStrings[1]}`;
+    if (!dates || !dateStrings[0] || !dateStrings[1]) {
+      setFilterDate('');
+      return;
+    }
+
+    const tempFilter =
+      `&monthly_cost_issue_date__gte=${dateStrings[0]}` +
+      `&monthly_cost_issue_date__lte=${dateStrings[1]}`;
+
     setFilterDate(tempFilter);
   };
 
-  const showDetail = (item: IHistory) => {
+  const showDetail = (item: IMonthlyCost) => {
     setSelected(item);
     setIsModalOpen(true);
   };
 
-  // =======================
-  // FETCH ALL DATA
-  // =======================
+  // ===============================
+  // FETCH ALL FOR EXPORT
+  // ===============================
   const fetchAllData = async (filterString: string) => {
-    let all: IHistory[] = [];
+    let all: IMonthlyCost[] = [];
     const limit = 200;
 
-    const url = `/reports/gold-transactions/?user_id=${userLogin.id}${filterString}`;
+    const url = `/gold-transaction/gold-monthly/?user_id=${userLogin.id}${filterString}`;
 
     const first = await axiosInstance.get(url, {
-      params: { fetch: limit, offset: 0 },
+      params: { limit, offset: 0 },
     });
 
     all = all.concat(first.data.results);
+
     const totalCount = first.data.count;
     const pages = Math.ceil(totalCount / limit);
 
     for (let i = 1; i < pages; i++) {
       const resp = await axiosInstance.get(url, {
-        params: { fetch: limit, offset: i * limit },
+        params: { limit, offset: i * limit },
       });
 
       all = all.concat(resp.data.results);
-
-      // sedikit delay agar request tidak diblok API
       await new Promise((r) => setTimeout(r, 150));
     }
 
     return all;
   };
 
-  // =======================
-  // EXPORT DATA
-  // =======================
+  // ===============================
+  // EXPORT EXCEL
+  // ===============================
   const exportData = async () => {
-    // siapkan filter
+    const rows = await fetchAllData(filterDate);
 
-    // ambil semua data
-    const rows = await fetchAllData('');
-
-    // =======================
-    // MAP DATA
-    // =======================
-    const mapped: ExportRow[] | any =
+    const mapped: ExportRow[] =
       rows.length > 0
         ? rows.map((item, index) => ({
             no: index + 1,
-            tipe: statusTransaksiLang(item.transaction_type),
-            tanggal: moment(item.transaction_date).format('DD MMMM YYYY'),
-            ref: item.ref_number,
-            email: item.email,
-            nominal: parseInt(item.price),
-            berat: parseFloat(item.weight),
-            penerima: item.user_to,
-            pengirim: item.user_from,
-            berat_diterima: item.transfered_weight
-              ? parseFloat(item.transfered_weight)
-              : 0,
-            gold_balance: item.gold_balance || '',
-            wallet_balance: item.wallet_balance || '',
+            tanggal: moment(item.monthly_cost_issue_date).format(
+              'DD MMMM YYYY'
+            ),
+            order_number: item.order_number,
+            monthly_cost: item.monthly_cost,
+            discount: item.discount,
+            total_cost: item.total_cost,
+            gold_weight: item.gold_weight,
+            level: item.level,
+            status: item.is_paid ? 'LUNAS' : 'BELUM BAYAR',
           }))
         : [
             {
               no: '',
-              tipe: '',
               tanggal: '',
-              ref: '',
-              email: '',
-              nominal: '',
-              berat: '',
-              penerima: '',
-              pengirim: '',
-              berat_diterima: '',
-              gold_balance: '',
-              wallet_balance: '',
+              order_number: '',
+              monthly_cost: '',
+              discount: '',
+              total_cost: '',
+              gold_weight: '',
+              level: '',
+              status: '',
             },
           ];
 
-    // =======================
-    // HITUNG TOTAL
-    // =======================
-    const totalNominal = rows
-      .reduce((a, b) => a + Number(b.price || 0), 0)
-      .toFixed(4);
-    const totalBerat = rows
-      .reduce((a, b) => a + Number(b.weight || 0), 0)
-      .toFixed(4);
-    const totalBeratDiterima = rows
-      .reduce((a, b) => a + Number(b.transfered_weight || 0), 0)
-      .toFixed(4);
-
-    if (rows.length > 0) {
-      mapped.push({
-        no: '',
-        tipe: 'TOTAL',
-        tanggal: '',
-        ref: '',
-        email: '',
-        nominal: totalNominal,
-        berat: totalBerat,
-        penerima: '',
-        pengirim: '',
-        berat_diterima: totalBeratDiterima,
-        gold_balance: '',
-        wallet_balance: '',
-      });
-    }
-
-    // =======================
-    // BUAT FILE EXCEL
-    // =======================
+    // CREATE WORKBOOK
     const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet('History Transaksi');
+    const worksheet = workbook.addWorksheet('Daftar Tagihan');
 
     worksheet.columns = [
       { header: 'No', key: 'no', width: 5 },
-      { header: 'Tipe Transaksi', key: 'tipe', width: 20 },
-      { header: 'Tanggal Transaksi', key: 'tanggal', width: 20 },
-      { header: 'No. Referensi', key: 'ref', width: 20 },
-      { header: 'Email', key: 'email', width: 25 },
-      { header: 'Nominal Transaksi', key: 'nominal', width: 20 },
-      { header: 'Berat Emas', key: 'berat', width: 15 },
-      { header: 'Penerima', key: 'penerima', width: 20 },
-      { header: 'Pengirim', key: 'pengirim', width: 20 },
-      { header: 'Berat Emas (Diterima)', key: 'berat_diterima', width: 20 },
-      { header: 'Saldo Emas', key: 'gold_balance', width: 20 },
-      { header: 'Saldo Wallet', key: 'wallet_balance', width: 20 },
+      { header: 'Tanggal Tagihan', key: 'tanggal', width: 20 },
+      { header: 'Order Number', key: 'order_number', width: 20 },
+      { header: 'Biaya Bulanan', key: 'monthly_cost', width: 20 },
+      { header: 'Diskon', key: 'discount', width: 20 },
+      { header: 'Total Tagihan', key: 'total_cost', width: 20 },
+      { header: 'Berat Emas', key: 'gold_weight', width: 15 },
+      { header: 'Level', key: 'level', width: 10 },
+      { header: 'Status Pembayaran', key: 'status', width: 20 },
     ];
 
     worksheet.getRow(1).font = { bold: true };
 
-    // =======================
-    // INSERT ROWS
-    // =======================
-    mapped.forEach((item: any) => {
+    mapped.forEach((item) => {
       worksheet.addRow({
         ...item,
-        nominal:
-          item.nominal !== '' && !isNaN(Number(item.nominal))
-            ? `Rp${formatterNumber(Number(item.nominal))}`
+        monthly_cost:
+          item.monthly_cost !== ''
+            ? `Rp${formatterNumber(Number(item.monthly_cost))}`
             : '',
-        berat:
-          item.berat !== '' && !isNaN(Number(item.berat))
-            ? `${item.berat} Gram`
+        discount:
+          item.discount !== ''
+            ? `Rp${formatterNumber(Number(item.discount))}`
             : '',
-        berat_diterima:
-          item.berat_diterima !== '' && !isNaN(Number(item.berat_diterima))
-            ? `${item.berat_diterima} Gram`
+        total_cost:
+          item.total_cost !== ''
+            ? `Rp${formatterNumber(Number(item.total_cost))}`
             : '',
+        gold_weight: item.gold_weight !== '' ? `${item.gold_weight} Gram` : '',
       });
     });
 
-    // =======================
-    // BORDER + ALIGNMENT
-    // =======================
+    // BORDER
     worksheet.eachRow((row) => {
-      row.eachCell((cell, colNumber) => {
+      row.eachCell((cell) => {
         cell.border = {
           top: { style: 'thin' },
           left: { style: 'thin' },
           bottom: { style: 'thin' },
           right: { style: 'thin' },
         };
-
-        // angka rata kanan
-        if (
-          ['nominal', 'berat', 'berat_diterima'].includes(
-            worksheet.getColumn(colNumber).key!
-          )
-        ) {
-          cell.alignment = { horizontal: 'right' };
-        }
       });
     });
 
-    // =======================
-    // TOTAL ROW STYLE
-    // =======================
-    if (rows.length > 0) {
-      const lastRow = worksheet.lastRow!;
-      lastRow.font = { bold: true };
-
-      lastRow.eachCell((cell) => {
-        cell.fill = {
-          type: 'pattern',
-          pattern: 'solid',
-          fgColor: { argb: 'FFF0F0F0' },
-        };
-      });
-    }
-
-    // =======================
-    // GENERATE FILE
-    // =======================
     const buffer = await workbook.xlsx.writeBuffer();
     const blob = new Blob([buffer], {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -273,9 +207,7 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
 
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `history_transaksi_${moment().format(
-      'YYYYMMDD_HHmmss'
-    )}.xlsx`;
+    link.download = `daftar_tagihan_${moment().format('YYYYMMDD_HHmmss')}.xlsx`;
     link.click();
   };
 
@@ -289,29 +221,27 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
         <div className="header-section">
           <h2>Daftar Tagihan</h2>
         </div>
+
         <div className="main-section">
           <div className="main-container">
             <div className="main-area">
               <div className="input-list">
-                {/* <Input 
-                                    suffix={<span className='text-neutral-400'><SearchSm /></span>} 
-                                    className='input-base'
-                                /> */}
-                {/* <DatePicker  /> */}
                 <RangePicker
                   size={'small'}
                   className="w-[300px] h-[38px]"
                   onChange={onRangeChange}
                 />
+
                 <button
                   className="bg-primary text-white flex items-center justify-center gap-[4px] h-[38px] rounded-[4px] w-[200px] text-base"
-                  onClick={() => exportData()}
+                  onClick={exportData}
                 >
                   <Download01 /> Download Excel
                 </button>
               </div>
+
               <div className="cards-list">
-                {histories.map((item, index: number) => (
+                {histories.map((item, index) => (
                   <div className="card" key={index}>
                     <div className="info-area">
                       <div className="info-img">
@@ -323,24 +253,27 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
                           sizes="100%"
                         />
                       </div>
+
                       <div className="info-detail">
-                        <label>{parseFloat(item.weight)} Gram</label>
-                        <span>
-                          {statusTransaksiLang(item.transaction_type)}
-                        </span>
+                        <label>{item.gold_weight} Gram</label>
+                        <span>Order #{item.order_number}</span>
                       </div>
                     </div>
+
                     <div className="detail-area">
                       <label>
-                        {moment(item.transaction_date).format('DD MMM YYYY')}
+                        {moment(item.monthly_cost_issue_date).format(
+                          'DD MMM YYYY'
+                        )}
                       </label>
                       <a onClick={() => showDetail(item)}>
-                        Lihat Detail Transaksi
+                        Lihat Detail Tagihan
                       </a>
                     </div>
                   </div>
                 ))}
               </div>
+
               <div className="pagination">
                 <Pagination
                   onChange={onChangePage}
@@ -353,7 +286,8 @@ const DaftarTagihanPageWrapper = (props: { userLogin: IUserLogin }) => {
           </div>
         </div>
       </main>
-      <ModalDetailTransaksi
+
+      <ModalDetailTagihan
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         detail={selected}

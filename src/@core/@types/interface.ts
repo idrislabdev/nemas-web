@@ -280,6 +280,18 @@ export interface IHistory {
   wallet_balance?: number;
 }
 
+export interface IMonthlyCost {
+  id: string;
+  monthly_cost: number;
+  order_number: string;
+  gold_weight: number;
+  level: number;
+  discount: number;
+  total_cost: number;
+  is_paid: boolean;
+  monthly_cost_issue_date: string;
+}
+
 export interface IPanduanLevel2 {
   title: string;
   contents?: string[];
