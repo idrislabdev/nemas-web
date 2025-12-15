@@ -281,7 +281,7 @@
             input {
               @apply border border-neutral-200 rounded-[4px] !text-neutral-900 !font-medium text-[14px]/[21px] !px-[20px] !py-[10px] outline-none h-[41px];
               &.base {
-                @apply text-[13px]/[18px] h-[41px];
+                @apply text-[13px]/[18px] h-[41px] w-full;
               }
               &.color-1 {
                 background-color: #fafbfe;
@@ -300,6 +300,9 @@
               }
               &.color-2 {
                 @apply !border-[#fafbfe] bg-[#fafbfe];
+              }
+              &.error {
+                @apply border-red-500;
               }
             }
           }
