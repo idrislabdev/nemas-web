@@ -1,7 +1,7 @@
 'use client';
 import axios from 'axios';
 import { useParams } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Eye, EyeOff } from '@untitled-ui/icons-react';
 import { Input } from 'antd';
 
@@ -16,6 +16,24 @@ const ResetPasswordToken = () => {
   const [alertDesc, setAlertDesc] = useState<string>('');
   const [seePass, setSeePass] = useState<boolean>(false);
   const [seeConfirmPass, setSeeConfirmPass] = useState<boolean>(false);
+
+  // State untuk validasi password
+  const [passwordValidation, setPasswordValidation] = useState({
+    length: false,
+    number: false,
+    uppercase: false,
+    special: false,
+  });
+
+  // Effect untuk mengecek validasi password setiap kali password berubah
+  useEffect(() => {
+    setPasswordValidation({
+      length: password.length >= 8 && password.length <= 16,
+      number: /[0-9]/.test(password),
+      uppercase: /[A-Z]/.test(password),
+      special: /[!@#$%^&*]/.test(password),
+    });
+  }, [password]);
 
   const handleResetPassword = () => {
     if (password !== confirmPassword) {
@@ -96,6 +114,74 @@ const ResetPasswordToken = () => {
                 </a>
               }
             />
+            
+            {/* Indikator Validasi Password */}
+            <div className="mt-3 flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    passwordValidation.length ? 'bg-green-500' : 'bg-gray-300'
+                  }`}
+                ></div>
+                <span
+                  className={`text-xs ${
+                    passwordValidation.length
+                      ? 'text-green-600'
+                      : 'text-gray-500'
+                  }`}
+                >
+                  8-16 Karakter
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    passwordValidation.number ? 'bg-green-500' : 'bg-gray-300'
+                  }`}
+                ></div>
+                <span
+                  className={`text-xs ${
+                    passwordValidation.number
+                      ? 'text-green-600'
+                      : 'text-gray-500'
+                  }`}
+                >
+                  1 Angka (0-9)
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    passwordValidation.uppercase ? 'bg-green-500' : 'bg-gray-300'
+                  }`}
+                ></div>
+                <span
+                  className={`text-xs ${
+                    passwordValidation.uppercase
+                      ? 'text-green-600'
+                      : 'text-gray-500'
+                  }`}
+                >
+                  1 Huruf besar (A-Z)
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    passwordValidation.special ? 'bg-green-500' : 'bg-gray-300'
+                  }`}
+                ></div>
+                <span
+                  className={`text-xs ${
+                    passwordValidation.special
+                      ? 'text-green-600'
+                      : 'text-gray-500'
+                  }`}
+                >
+                  1 Karakter spesial (Contoh: !,@,#,dsb)
+                </span>
+              </div>
+            </div>
           </div>
           <div className="flex flex-col">
             <label className="text-sm text-neutral-900">
@@ -119,12 +205,23 @@ const ResetPasswordToken = () => {
         </div>
         <button
           className={` ${
-            password === '' || confirmPassword === ''
+            password === '' || 
+            confirmPassword === '' || 
+            !passwordValidation.length || 
+            !passwordValidation.number || 
+            !passwordValidation.uppercase || 
+            !passwordValidation.special
               ? 'bg-gray-200'
               : 'bg-primary'
           } text-white p-2 mt-2 rounded`}
           disabled={
-            password === '' || confirmPassword === '' || loading === true
+            password === '' || 
+            confirmPassword === '' || 
+            loading === true ||
+            !passwordValidation.length || 
+            !passwordValidation.number || 
+            !passwordValidation.uppercase || 
+            !passwordValidation.special
           }
           onClick={handleResetPassword}
         >
