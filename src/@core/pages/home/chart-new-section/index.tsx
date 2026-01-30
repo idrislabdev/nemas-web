@@ -78,11 +78,7 @@ const HomeChartNewSection = (props: { userProps: IUserProp }) => {
           <Tooltip
             title={`Fee adalah biaya pada saat menjual aset. Harga jual saat ini dipotong fee Rp${
               dataGold.gold_price_buy
-                ? formatterNumber(
-                    Math.round(
-                      dataGold.gold_price_buy - dataGold.gold_price_buy * 0.025
-                    )
-                  )
+                ? formatterNumber(dataGold.gold_price_buy)
                 : 0
             }`}
           >
