@@ -121,7 +121,7 @@ const LoginArea = (props: {
           <div className={`user-dropdown ${showMenu ? 'show' : ''}`}>
             <ul>
               <li>
-                <Link href={`/akun`}>
+                <Link href={`/akun/pengaturan`}>
                   <UserLoginIcon />
                   Akun Saya
                 </Link>

@@ -129,7 +129,10 @@ const HomeUserProfileSection = (props: { userProps: IUserProp }) => {
               />
               <div className="description">
                 <h5>Saldo Uang</h5>
-                <p>Rp {formatterNumber(globals.userProp.wallet.balance)}</p>
+                <p>
+                  Rp{' '}
+                  {formatterNumber(Math.ceil(globals.userProp.wallet.balance))}
+                </p>
                 <button onClick={() => setIsModalOpen(true)}>
                   Topup Saldo
                 </button>

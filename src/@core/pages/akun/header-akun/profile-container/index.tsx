@@ -56,7 +56,12 @@ const ProfileAkunContainer = () => {
         </div>
         <div className="asset-card saldo">
           <label>Saldo Uang</label>
-          <p>Rp {formatterNumber(parseInt(globals.userProp.wallet_amt))}</p>
+          <p>
+            Rp{' '}
+            {globals.userProp.wallet.balance
+              ? formatterNumber(Math.ceil(globals.userProp.wallet.balance))
+              : ''}
+          </p>
         </div>
       </div>
     </>
