@@ -58,7 +58,7 @@ const ProfileAkunContainer = () => {
           <label>Saldo Uang</label>
           <p>
             Rp{' '}
-            {globals.userProp.wallet.balance
+            {globals.userProp.wallet && globals.userProp.wallet.balance
               ? formatterNumber(Math.ceil(globals.userProp.wallet.balance))
               : ''}
           </p>
