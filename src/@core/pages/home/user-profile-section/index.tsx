@@ -110,7 +110,9 @@ const HomeUserProfileSection = (props: { userProps: IUserProp }) => {
                   {formatterNumber2(
                     (
                       globals.userProp.gold_stock.weight *
-                      (dataGold.gold_price_sell ? dataGold.gold_price_sell : 0)
+                      (dataGold.gold_price_sell
+                        ? Math.ceil(dataGold.gold_price_sell)
+                        : 0)
                     )
                       .toFixed(3)
                       .toString()
