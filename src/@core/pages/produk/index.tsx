@@ -18,6 +18,7 @@ const ProdukPageWrapper = () => {
   const [user, setUser] = useState<IUserLogin>();
   const [messageApi, contextHolder] = message.useMessage();
   const { globals, saveGlobals } = useGlobals();
+  const [filterBrand, setFilterBrand] = useState('');
 
   const [params, setParams] = useState({
     format: 'json',
@@ -28,6 +29,7 @@ const ProdukPageWrapper = () => {
 
   // 🟡 Tambahan: filter berdasarkan brand dari tombol logo
   const handleFilterBrand = (brand: string) => {
+    setFilterBrand(brand);
     setParams({
       ...params,
       offset: 0,
@@ -130,7 +132,7 @@ const ProdukPageWrapper = () => {
           {/* 🟡 Logo Filter Brand */}
           <div className="flex items-center gap-2">
             <button
-              className="w-[60px] h-[60px] rounded-md shadow-md p-1"
+              className={`w-[150px] h-[60px] rounded-md shadow-md p-1 ${filterBrand == '' ? 'border border-neutral-400' : ''}`}
               onClick={() => handleFilterBrand('')}
             >
               <Image
@@ -144,7 +146,7 @@ const ProdukPageWrapper = () => {
             </button>
 
             <button
-              className="w-[150px] h-[60px] rounded-md shadow-md p-1"
+              className={`w-[150px] h-[60px] rounded-md shadow-md p-1 ${filterBrand == 'Antam' ? 'border border-neutral-400' : ''}`}
               onClick={() => handleFilterBrand('Antam')}
             >
               <Image
@@ -158,7 +160,7 @@ const ProdukPageWrapper = () => {
             </button>
 
             <button
-              className="w-[80px] h-[60px] rounded-md shadow-md p-1"
+              className={`w-[150px] h-[60px] rounded-md shadow-md p-1 ${filterBrand == 'Marva' ? 'border border-neutral-400' : ''}`}
               onClick={() => handleFilterBrand('Marva')}
             >
               <Image

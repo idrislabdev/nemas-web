@@ -110,8 +110,10 @@ const ModalAddress = (props: {
     const objAddress: IOpenStreetAddress = data.address;
     const temp: IUserAddress = {
       city: objAddress.city,
-      district: objAddress.city_district,
-      subdistrict: objAddress.village,
+      district: objAddress.city_district
+        ? objAddress.city_district
+        : objAddress.municipality,
+      subdistrict: objAddress.village ? objAddress.village : objAddress.suburb,
       postal_code: objAddress.postcode,
       address: data.display_name ?? '-',
       is_default: true,

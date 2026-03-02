@@ -315,6 +315,8 @@ export interface IOpenStreetAddress {
   neighbourhood: string;
   village: string;
   city_district: string;
+  municipality: string;
+  suburb: string;
   city: string;
   state: string;
   'ISO3166-2-lvl4': string;
@@ -323,6 +325,10 @@ export interface IOpenStreetAddress {
   postcode: string;
   country: string;
   country_code: string;
+  create_user_name?: string;
+  upd_user_name?: string;
+  create_time?: string;
+  upd_time?: string;
 }
 
 export interface IUserAddress {
