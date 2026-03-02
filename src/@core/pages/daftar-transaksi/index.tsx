@@ -14,7 +14,7 @@ import { Dayjs } from 'dayjs';
 import { Download01 } from '@untitled-ui/icons-react';
 const { RangePicker } = DatePicker;
 import ExcelJS from 'exceljs';
-import { formatterNumber, statusTransaksiLang } from '@/@core/utils/general';
+import { formatterNumber, statusTransaksiLangMap } from '@/@core/utils/general';
 
 type ExportRow = {
   no: number | string;
@@ -156,7 +156,7 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
       rows.length > 0
         ? rows.map((item, index) => ({
             no: index + 1,
-            tipe: statusTransaksiLang(item.transaction_type),
+            tipe: statusTransaksiLangMap[item.transaction_type],
             tanggal: moment(item.transaction_date).format('DD MMMM YYYY'),
             ref: item.ref_number,
             email: item.email,
@@ -361,9 +361,15 @@ const DaftarTransaksiPageWrapper = (props: { userLogin: IUserLogin }) => {
                         />
                       </div>
                       <div className="info-detail">
-                        <label>{parseFloat(item.weight)} Gram</label>
+                        {item.weight ? (
+                          <label>{parseFloat(item.weight)} Gram</label>
+                        ) : (
+                          <label>
+                            Rp{formatterNumber(parseInt(item.price))}
+                          </label>
+                        )}
                         <span>
-                          {statusTransaksiLang(item.transaction_type)}
+                          {statusTransaksiLangMap[item.transaction_type]}
                         </span>
                       </div>
                     </div>

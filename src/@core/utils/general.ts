@@ -87,6 +87,20 @@ export const statusTransaksiLang = (val: string) => {
   }
 };
 
+export const statusTransaksiLangMap: Record<string, string> = {
+  order_buy: 'Produk Emas Fisik',
+  order_redeem: 'Tarik Emas',
+  gold_buy: 'Beli Emas',
+  gold_sell: 'Jual',
+  gold_transfer_send: 'Transfer Emas',
+  gold_transfer_receive: 'Terima Emas',
+  disburst: 'Tarik Saldo',
+  topup: 'Topup',
+  loan_pay: 'Bayar Gadai',
+  loan: 'Gadai',
+  deposito: 'Deposito',
+};
+
 export const translateProvince = (stateEn: string) => {
   return provinceMap[stateEn] || stateEn;
 };

@@ -1,32 +1,38 @@
-import { IHistory } from '@/@core/@types/interface'
-import { Modal } from 'antd'
-import moment from 'moment'
-import React, { Dispatch, SetStateAction } from 'react'
+import { IHistory } from '@/@core/@types/interface';
+import { Modal } from 'antd';
+import moment from 'moment';
+import React, { Dispatch, SetStateAction } from 'react';
 import 'moment/locale/id';
-import { formatterNumber, statusTransaksiLang } from '@/@core/utils/general';
-moment.locale('id');    
+import { formatterNumber, statusTransaksiLangMap } from '@/@core/utils/general';
+moment.locale('id');
 
-const ModalDetailTransaksi =(props: {
-        isModalOpen:boolean, 
-        setIsModalOpen:Dispatch<SetStateAction<boolean>>, 
-        detail:IHistory
-    }) => {
-    const { isModalOpen, setIsModalOpen, detail } = props
-    return (
-        <Modal className='modal-detail-transaksi' open={isModalOpen} onCancel={() => setIsModalOpen(false)}  footer={null}>
-            <h5>Detail Transaksi</h5>
-            <div className='header-transaksi'>
-                <div className='left-header'>
-                    <label>{detail.ref_number}</label>
-                    <p>Rp {formatterNumber(parseInt(detail.price))}</p>
-                    <span>{parseFloat(detail.weight)} Gram</span>
-                </div>
-                <div className='right-header'>
-                    <label>{statusTransaksiLang(detail.transaction_type)}</label>
-                    <p>{moment(detail.transaction_date).format("DD MMM YYYY")}</p>
-                </div>
-            </div>
-            {/* <div className='info-transaksi'>
+const ModalDetailTransaksi = (props: {
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  detail: IHistory;
+}) => {
+  const { isModalOpen, setIsModalOpen, detail } = props;
+  return (
+    <Modal
+      className="modal-detail-transaksi"
+      open={isModalOpen}
+      onCancel={() => setIsModalOpen(false)}
+      footer={null}
+    >
+      <h5>Detail Transaksi</h5>
+      <div className="header-transaksi">
+        <div className="left-header">
+          <label>{detail.ref_number}</label>
+          <p>Rp {formatterNumber(parseInt(detail.price))}</p>
+          {detail.weight && <span>{parseFloat(detail.weight)} Gram</span>}
+          {/* {detail.price && <span>{parseFloat(detail.price)} Gram</span>} */}
+        </div>
+        <div className="right-header">
+          <label>{statusTransaksiLangMap[detail.transaction_type]}</label>
+          <p>{moment(detail.transaction_date).format('DD MMM YYYY')}</p>
+        </div>
+      </div>
+      {/* <div className='info-transaksi'>
                <div className='card-info'>
                 <label>Tabungan Emas Saat Ini</label>
                     <div className='detail-card'>
@@ -51,8 +57,8 @@ const ModalDetailTransaksi =(props: {
                     <span>Tidak ada Data</span>
                 </div>
             </div> */}
-        </Modal>
-    )
-    }
+    </Modal>
+  );
+};
 
-export default ModalDetailTransaksi
+export default ModalDetailTransaksi;
