@@ -11,11 +11,7 @@ import React, {
 } from 'react';
 import { MapContainer, Marker, TileLayer, Popup, useMap } from 'react-leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
-import {
-  IOpenStreetAddress,
-  IOrder,
-  IUserAddress,
-} from '@/@core/@types/interface';
+import { IOrder, IUserAddress } from '@/@core/@types/interface';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
