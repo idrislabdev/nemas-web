@@ -18,7 +18,9 @@ const ProfileAkunContainer = () => {
               <User01 />
             </span>
             <h5>{globals.userLogin.name}</h5>
-            <label className="badge-member gold">Novice Saver</label>
+            <label className="badge-member gold">
+              {globals.userProp.level}
+            </label>
           </div>
           <div className="id-info">
             <label>ID Nemas</label>

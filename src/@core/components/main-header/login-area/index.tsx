@@ -109,7 +109,7 @@ const LoginArea = (props: {
           />
           <div className="member-info">
             <p>{userLogin.name}</p>
-            <span>Novice Saver</span>
+            <span>{userProps.level}</span>
           </div>
           <span
             className={`chevron-icon transition-all duration-300 ${

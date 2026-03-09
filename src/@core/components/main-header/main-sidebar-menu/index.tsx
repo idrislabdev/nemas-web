@@ -73,7 +73,7 @@ const MainSidebarMenu = (props: {
               />
               <div className="member-info">
                 <p>{globals.userLogin.name}</p>
-                <span>Novice Saver</span>
+                <span>{globals.userProp.level}</span>
               </div>
             </div>
           )}
