@@ -31,7 +31,7 @@ const ResetPasswordToken = () => {
       length: password.length >= 8 && password.length <= 16,
       number: /[0-9]/.test(password),
       uppercase: /[A-Z]/.test(password),
-      special: /[!@#$%^&*]/.test(password),
+      special: /[!@#$%^&*.]/.test(password),
     });
   }, [password]);
 
@@ -41,7 +41,7 @@ const ResetPasswordToken = () => {
       setAlertDesc('password dan konfirmasi password harus sama');
     } else {
       const passwordRegex =
-        /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,16}$/;
+        /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*.])[A-Za-z0-9!@#$%^&*.]{8,16}$/;
       if (!passwordRegex.test(password)) {
         setShowingAlertFailed(true);
         setAlertDesc(
@@ -178,7 +178,7 @@ const ResetPasswordToken = () => {
                       : 'text-gray-500'
                   }`}
                 >
-                  1 Karakter spesial (Contoh: !,@,#,dsb)
+                  1 Karakter spesial (Contoh: !,@,#,.,dsb)
                 </span>
               </div>
             </div>
