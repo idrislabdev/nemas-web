@@ -51,7 +51,7 @@ const ResetPasswordToken = () => {
         setLoading(true);
         axios
           .post(
-            `https://www.nemas.id/api/users/token/reset-token/${params.token}/`,
+            `https://api-dev.nemas.id/api/users/token/reset-token/${params.token}/`,
             {
               new_data: password,
               new_data_type: 'Password',
@@ -114,7 +114,7 @@ const ResetPasswordToken = () => {
                 </a>
               }
             />
-            
+
             {/* Indikator Validasi Password */}
             <div className="mt-3 flex flex-col gap-2">
               <div className="flex items-center gap-2">
@@ -152,7 +152,9 @@ const ResetPasswordToken = () => {
               <div className="flex items-center gap-2">
                 <div
                   className={`w-2 h-2 rounded-full ${
-                    passwordValidation.uppercase ? 'bg-green-500' : 'bg-gray-300'
+                    passwordValidation.uppercase
+                      ? 'bg-green-500'
+                      : 'bg-gray-300'
                   }`}
                 ></div>
                 <span
@@ -205,22 +207,22 @@ const ResetPasswordToken = () => {
         </div>
         <button
           className={` ${
-            password === '' || 
-            confirmPassword === '' || 
-            !passwordValidation.length || 
-            !passwordValidation.number || 
-            !passwordValidation.uppercase || 
+            password === '' ||
+            confirmPassword === '' ||
+            !passwordValidation.length ||
+            !passwordValidation.number ||
+            !passwordValidation.uppercase ||
             !passwordValidation.special
               ? 'bg-gray-200'
               : 'bg-primary'
           } text-white p-2 mt-2 rounded`}
           disabled={
-            password === '' || 
-            confirmPassword === '' || 
+            password === '' ||
+            confirmPassword === '' ||
             loading === true ||
-            !passwordValidation.length || 
-            !passwordValidation.number || 
-            !passwordValidation.uppercase || 
+            !passwordValidation.length ||
+            !passwordValidation.number ||
+            !passwordValidation.uppercase ||
             !passwordValidation.special
           }
           onClick={handleResetPassword}
