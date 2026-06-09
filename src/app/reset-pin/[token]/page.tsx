@@ -19,7 +19,7 @@ const ResetPinToken = () => {
       setLoading(true);
       axios
         .post(
-          `https://www.nemas.id/api/users/token/reset-token/${params.token}/`,
+          `https://api-dev.nemas.id/api/users/token/reset-token/${params.token}/`,
           {
             new_data: pin,
             new_data_type: 'PIN',
