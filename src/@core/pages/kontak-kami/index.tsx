@@ -1,6 +1,6 @@
 "use client"
 
-import { AtSign, Phone } from '@untitled-ui/icons-react'
+import { AtSign, Phone, Building07, MarkerPin01 } from '@untitled-ui/icons-react'
 import React from 'react'
 import partners from "./partners.json"
 import Image from 'next/image'
@@ -45,8 +45,12 @@ const KontakKamiPageWrapper = () => {
                         <div className='kontak-info'>
                             <h2>Kontak</h2>
                             <div className='kontak-group'>
-                                <a href="https://wa.me/+6281234567890" target='_blank'><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
-                                <a href="mailto:support@nemas.com" target='_blank'><span className='my-icon'><AtSign /></span> <span>support@nemas.com</span></a>
+                                <a href='https://goalrefinery.id' target='_blank'><span><Building07 /></span> <span>PT. Golden Alura Refineri</span></a>
+                                <a href='https://share.google/fvJxppVA7jonaUBq3' target='_blank'><span><MarkerPin01 /></span> <span>Jl. Rungkut Industri IV No.10, Surabaya</span></a>
+                            </div>
+                            <div className='kontak-group'>
+                                <a href="https://wa.me/+628139998911" target='_blank'><span className='my-icon'><Phone /></span> <span>+628139998911</span></a>
+                                <a href="mailto:nemas@goldenrefineri.co.id" target='_blank'><span className='my-icon'><AtSign /></span> <span>nemas@goldenrefineri.co.id</span></a>
                             </div>
                         </div>
                         <div className='our-partners'>

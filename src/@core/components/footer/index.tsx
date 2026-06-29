@@ -1,5 +1,5 @@
 "use client"
-import { AtSign, Phone } from '@untitled-ui/icons-react'
+import { AtSign, Phone, Building07, MarkerPin01 } from '@untitled-ui/icons-react'
 import React, { useCallback, useEffect, useState } from 'react'
 import FooterFaq from './faq'
 import { IFaq } from '@/@core/@types/interface'
@@ -38,8 +38,10 @@ const Footer = () => {
                                 <div className='contact-area'>
                                     <h5>Kontak</h5>
                                     <div className='sub-contact-area'>
-                                        <a href="tel:+6281234567890" target='_blank'><span className='my-icon'><Phone /></span> <span>+6281234567890</span></a>
-                                        <a href="mailto:support@nemas.com" target='_blank'><span className='my-icon'><AtSign /></span> <span>support@nemas.com</span></a>
+                                        <a href='https://goalrefinery.id' target='_blank'><span className='my-icon'><Building07 /></span> <span>PT. Golden Alura Refineri</span></a>
+                                        <a href='https://share.google/fvJxppVA7jonaUBq3' target='_blank'><span className='my-icon'><MarkerPin01 /></span> <span>Jl. Rungkut Industri IV No.10, Kutisari, Kec. Tenggilis Mejoyo, Surabaya, Jawa Timur 60291</span></a>
+                                        <a href="tel:+628139998911" target='_blank'><span className='my-icon'><Phone /></span> <span>+628139998911</span></a>
+                                        <a href="mailto:nemas@goldenrefineri.co.id" target='_blank'><span className='my-icon'><AtSign /></span> <span>nemas@goldenrefineri.co.id</span></a>
                                     </div>
                                 </div>
                             </div>
